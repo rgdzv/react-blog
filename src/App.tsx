@@ -2,12 +2,13 @@ import { FC, Suspense, useContext } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import './styles/index.scss'
 import useTheme from './theme/useTheme'
+import { classNames } from './helpers/classNames/classNames'
 
 const App: FC = () => {
     const { theme, toggleTheme } = useTheme()
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', {hovered: true}, [theme])}>
             <nav>
                 <ul>
                     <li>
