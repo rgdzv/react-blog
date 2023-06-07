@@ -1,11 +1,10 @@
 import { createRoot } from 'react-dom/client'
 import { StrictMode } from 'react'
-import App from './App'
+import App from 'app/App'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { AboutPageLazy } from './pages/AboutPage/AboutPage.lazy'
-import { MainPageLazy } from './pages/MainPage/MainPage.lazy'
-import ThemeProvider from './theme/ThemeProvider'
-
+import { ThemeProvider } from 'app/providers/ThemeProvider'
+import { AboutPage } from 'pages/AboutPage'
+import { MainPage } from 'pages/MainPage'
 
 const router = createBrowserRouter([
     {
@@ -14,11 +13,11 @@ const router = createBrowserRouter([
         children: [
             {
                 path: 'about',
-                element: <AboutPageLazy />,
+                element: <AboutPage/>,
             },
             {
                 path: 'main',
-                element: <MainPageLazy />,
+                element: <MainPage />,
             },
         ],
     },
