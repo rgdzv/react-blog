@@ -29,5 +29,20 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/,
     }
 
-    return [typescriptLoader, cssLoader]
+    const SVGRLoader = {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack']
+    }
+
+    const fileLoader = { 
+        test: /\.(jpg|png|gif|jpeg)$/,
+        exclude: /node_modules/,
+        type: 'asset/resource',
+        generator : {
+            filename : './assets/images/[name][ext][query]'
+        }
+    }
+
+    return [typescriptLoader, SVGRLoader, fileLoader, cssLoader]
 }

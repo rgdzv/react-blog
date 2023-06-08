@@ -11,7 +11,7 @@ interface ThemeContextProps {
 
 const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT
 
-const ThemeProvider: FC<ThemeContextProps> = ({ children }) => {
+export const ThemeProvider: FC<ThemeContextProps> = ({ children }) => {
     const [theme, setTheme] = useState<Theme>(defaultTheme)
 
     const defaultProps = useMemo(() => {
@@ -27,4 +27,4 @@ const ThemeProvider: FC<ThemeContextProps> = ({ children }) => {
         </ThemeContext.Provider>
     )
 }
-export default ThemeProvider
+

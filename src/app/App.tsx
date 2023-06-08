@@ -1,28 +1,23 @@
-import { FC, Suspense } from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { FC } from 'react'
 import './styles/index.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from 'shared/lib'
 import { useTheme } from 'app/providers/ThemeProvider'
+import { AppRouter } from './providers/RouterProvider'
+import { NavBar } from 'widgets/NavBar'
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 
 const App: FC = () => {
-    const { theme, toggleTheme } = useTheme()
+    const { theme } = useTheme()
 
     return (
         <div className={classNames('app', { hovered: true }, [theme])}>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to={`about`}>About</Link>
-                    </li>
-                    <li>
-                        <Link to={`main`}>Main</Link>
-                    </li>
-                </ul>
-            </nav>
-            <button onClick={toggleTheme}>Toggle</button>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Outlet />
-            </Suspense>
+            <header>
+                <NavBar/>
+            </header>
+            <ThemeSwitcher/>
+            <section>
+                <AppRouter/>
+            </section>
         </div>
     )
 }

@@ -1,0 +1,22 @@
+.navBar {
+    width: 100%;
+    //height: var(--navbar-height);
+    background-color: var(--bg-color-inverted);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+
+    .logo {
+        font-size: 30px;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        gap: 20px;
+    }
+
+}
