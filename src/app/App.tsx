@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { AppRouter } from './providers/RouterProvider'
 import { NavBar } from 'widgets/NavBar'
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
+import { SideBar } from 'widgets/SideBar'
 
 const App: FC = () => {
     const { theme } = useTheme()
@@ -14,10 +14,10 @@ const App: FC = () => {
             <header>
                 <NavBar/>
             </header>
-            <ThemeSwitcher/>
-            <section>
+            <div className='content'>
+                <SideBar/>
                 <AppRouter/>
-            </section>
+            </div>
         </div>
     )
 }
