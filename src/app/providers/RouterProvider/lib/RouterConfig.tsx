@@ -1,7 +1,7 @@
-import App from "app/App"
-import { AboutPage } from "pages/AboutPage"
-import { MainPage } from "pages/MainPage"
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import App from 'app/App'
+import { AboutPage } from 'pages/AboutPage'
+import { MainPage } from 'pages/MainPage'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
     {
@@ -9,12 +9,12 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                path: 'about',
-                element: <AboutPage/>,
+                element: <MainPage />,
+                index: true,
             },
             {
-                path: 'main',
-                element: <MainPage />,
+                path: 'about',
+                element: <AboutPage />,
             },
         ],
     },

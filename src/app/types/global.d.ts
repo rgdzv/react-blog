@@ -13,3 +13,4 @@ declare module "*.jpeg"
 declare module "*.jpg"
 declare module "*.gif"
 
+declare const __IS_DEV__: boolean
