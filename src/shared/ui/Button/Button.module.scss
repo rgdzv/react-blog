@@ -1,12 +1,12 @@
 .button {
-    cursor: pointer;
-    color: var(--primart-color)
+    color: var(--primart-color);
+    cursor: pointer
 }
 
 .clear {
-    padding: 0;
     margin: 0;
-    border: none;
+    padding: 0;
     background: none;
+    border: none;
     outline: none;
 }

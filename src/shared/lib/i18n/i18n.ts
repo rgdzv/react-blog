@@ -11,7 +11,6 @@ export const i18nConfig = i18n
         fallbackLng: 'en',
         debug: __IS_DEV__,
         interpolation: {
-            escapeValue: false, 
+            escapeValue: false,
         },
     })
-

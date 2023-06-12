@@ -1,4 +1,4 @@
-import { FC, Suspense } from 'react'
+import { type FC, Suspense } from 'react'
 import './styles/index.scss'
 import { classNames } from 'shared/lib'
 import { useTheme } from 'app/providers/ThemeProvider'
@@ -13,11 +13,11 @@ const App: FC = () => {
         <div className={classNames('app', { hovered: true }, [theme])}>
             <Suspense fallback={<div>Loading...</div>}>
                 <header>
-                    <NavBar/>
+                    <NavBar />
                 </header>
                 <div className='content'>
-                    <SideBar/>
-                    <AppRouter/>
+                    <SideBar />
+                    <AppRouter />
                 </div>
             </Suspense>
         </div>
