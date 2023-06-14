@@ -1,7 +1,7 @@
 import App from 'app/App'
 import { AboutPage } from 'pages/AboutPage'
 import { MainPage } from 'pages/MainPage'
-import { ReactElement } from 'react'
+import { type ReactElement } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -11,14 +11,14 @@ const router = createBrowserRouter([
         children: [
             {
                 element: <MainPage />,
-                index: true,
+                index: true
             },
             {
                 path: 'about',
-                element: <AboutPage />,
-            },
-        ],
-    },
+                element: <AboutPage />
+            }
+        ]
+    }
 ])
 
 export const RouterConfigProvider = (): ReactElement => (

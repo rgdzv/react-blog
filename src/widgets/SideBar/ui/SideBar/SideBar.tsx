@@ -15,12 +15,14 @@ export const SideBar: FC<SideBarPropsInterface> = ({ className }) => {
         setCollapsed((prev) => !prev)
     }
 
+    const classNameChecked = className !== undefined ? className : ''
+
     return (
         <div
             className={classNames(
                 styles.sideBar,
                 { [styles.collapsed]: collapsed },
-                [className]
+                [classNameChecked]
             )}
         >
             <button onClick={handleToggle}>toggle</button>

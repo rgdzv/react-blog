@@ -15,8 +15,10 @@ export const NavBar: FC<NavBarPropsInterface> = ({ className }) => {
     const main = t('Главная', { ns: 'main' })
     const about = t('О сайте', { ns: 'about' })
 
+    const classNameChecked = className !== undefined ? className : ''
+
     return (
-        <nav className={classNames(styles.navBar, {}, [className])}>
+        <nav className={classNames(styles.navBar, {}, [classNameChecked])}>
             <div className={styles.logo}>LOGO</div>
             <ul>
                 <li>

@@ -11,16 +11,24 @@ interface LangSwitcherPropsInterface {
 export const LangSwitcher: FC<LangSwitcherPropsInterface> = ({ className }) => {
     const { t, i18n } = useTranslation()
 
-    const toggleLang = (): void => {
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+    const toggleLang = async (): Promise<void> => {
+        try {
+            await i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(error.message)
+            }
+        }
     }
 
     const language = t('Язык')
 
+    const classNameChecked = className !== undefined ? className : ''
+
     return (
         <Button
             onClick={toggleLang}
-            className={classNames(styles.langSwitcher, {}, [className])}
+            className={classNames(styles.langSwitcher, {}, [classNameChecked])}
             theme={ThemeButton.CLEAR}
         >
             {language}

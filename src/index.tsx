@@ -3,7 +3,8 @@ import { StrictMode } from 'react'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import { RouterConfigProvider } from 'app/providers/RouterProvider'
 
-const root = createRoot(document.getElementById('root'))
+const rootElement = document.getElementById('root')
+const root = createRoot(rootElement as HTMLElement)
 
 root.render(
     <StrictMode>

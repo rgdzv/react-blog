@@ -1,8 +1,9 @@
 .navBar {
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: space-between;
+
+    width: 100%;
     padding: 10px;
 
     // height: var(--navbar-height);
@@ -14,9 +15,10 @@
 
     ul {
         display: flex;
+        gap: 20px;
         align-items: center;
         justify-content: center;
+
         padding: 10px;
-        gap: 20px;
     }
 }

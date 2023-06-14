@@ -18,10 +18,22 @@
     "plugins": ["react"],
     "ignorePatterns": ["node_modules/*", "public/*", ".eslintrc.js"],
     "rules": {
-        "@typescript-eslint/strict-boolean-expressions": "off",
-        "@typescript-eslint/prefer-nullish-coalescing": "off",
-        "@typescript-eslint/consistent-type-imports": "off",
-        "@typescript-eslint/naming-convention": "off",
-        "@typescript-eslint/no-floating-promises": "off",
-    },
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "variable",
+                "format": ["camelCase", "PascalCase", "UPPER_CASE"],
+                "leadingUnderscore": "allowSingleOrDouble",
+                "trailingUnderscore": "allowSingleOrDouble"
+            }
+        ],
+        "@typescript-eslint/no-misused-promises": [
+            "error",
+            {
+                "checksVoidReturn": {
+                    "attributes": false
+                }
+            }
+        ]
+    }
 }
