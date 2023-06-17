@@ -1,0 +1,12 @@
+{
+    "extends": [
+        "stylelint-config-standard-scss",
+        "stylelint-config-clean-order"
+    ],
+    "rules": {
+        "selector-class-pattern": "[a-z]+(?:[A-Z][a-z]+)*",
+        "declaration-property-value-no-unknown": true,
+        "indentation": 4
+    },
+    "ignoreFiles": ["**/node_modules", "**/public"]
+}

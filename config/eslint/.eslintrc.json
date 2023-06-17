@@ -1,5 +1,4 @@
 {
-    "root": true,
     "env": {
         "browser": true,
         "es2021": true
@@ -8,15 +7,15 @@
         "standard-with-typescript",
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
+        "plugin:i18next/recommended",
         "prettier"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": ["./tsconfig.json"]
+        "project": ["tsconfig.json"]
     },
-    "plugins": ["react"],
-    "ignorePatterns": ["node_modules/*", "public/*", ".eslintrc.js"],
+    "plugins": ["react", "i18next"],
     "rules": {
         "@typescript-eslint/naming-convention": [
             "error",

@@ -1,0 +1,37 @@
+{
+    // eslint extension settings for project
+    "eslint.options": {
+        "overrideConfigFile": "config/eslint/.eslintrc.json",
+        "ignorePath": "config/eslint/.eslintignore"
+    },
+
+    // prettier extension settings for project
+    "prettier.requireConfig": true,
+    "prettier.useEditorConfig": false,
+    "prettier.configPath": "config/prettier/.prettierrc.json",
+    "prettier.ignorePath": "config/prettier/.prettierignore",
+
+    // stylelint extension settings for project
+    "stylelint.configFile": "config/stylelint/.stylelintrc.json",
+    "stylelint.validate": ["css", "scss"],
+    "stylelint.snippet": ["css", "scss"],
+    // ignoredPath is not provided yet for VSCode (17.06.2023), so I used ignoredFiles option in config file itself
+    // and --ignore-path flag for CLI
+
+    // disable VSCode validator for css and scss for stylelint usage for them
+    "css.validate": false,
+    "scss.validate": false,
+
+    // fix all problems on save for prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+
+    // fix all problems on save for stylelint and eslint in special order
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": true,
+        "source.fixAll.eslint": true
+    },
+
+    // jest extension settings for project
+    "jest.autoRun": "off"
+}

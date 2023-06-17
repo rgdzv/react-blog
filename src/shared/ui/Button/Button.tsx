@@ -5,7 +5,6 @@ import styles from './Button.module.scss'
 export enum ThemeButton {
     CLEAR = 'clear'
 }
-
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
     className?: string
