@@ -13,7 +13,7 @@
         "prettier:write": "prettier --config config/prettier/.prettierrc.json --ignore-path config/prettier/.prettierignore --write \"**/*.{ts,tsx,json,html}\"",
         "stylelint": "stylelint --config config/stylelint/.stylelintrc.json --ignore-path config/stylelint/.stylelintignore \"**/*.scss\"",
         "stylelint:fix": "stylelint --config config/stylelint/.stylelintrc.json --ignore-path config/stylelint/.stylelintignore --fix \"**/*.scss\"",
-        "jestUnitTest": "jest --config ./config/jest/jest.config.ts"
+        "jestUnitTest": "jest --config config/jest/jest.config.json"
     },
     "author": "rgdzv",
     "license": "ISC",
@@ -37,6 +37,7 @@
         "eslint-plugin-react": "^7.32.2",
         "html-webpack-plugin": "^5.5.1",
         "jest": "^29.5.0",
+        "jest-environment-jsdom": "^29.5.0",
         "mini-css-extract-plugin": "^2.7.6",
         "prettier": "2.8.8",
         "sass": "^1.62.1",
@@ -45,6 +46,7 @@
         "stylelint": "^15.7.0",
         "stylelint-config-clean-order": "^5.0.1",
         "stylelint-config-standard-scss": "^9.0.0",
+        "ts-jest": "^29.1.0",
         "ts-loader": "^9.4.3",
         "ts-node": "^10.9.1",
         "typescript": "^5.1.3",
