@@ -1,5 +1,6 @@
 import App from 'app/App'
 import { AboutPage } from 'pages/AboutPage'
+import { NotFoundPage } from 'pages/NotFoundPage'
 import { MainPage } from 'pages/MainPage'
 import { type ReactElement } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
@@ -8,6 +9,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
+        errorElement: <NotFoundPage/>,
         children: [
             {
                 element: <MainPage />,

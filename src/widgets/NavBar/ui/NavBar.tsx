@@ -15,7 +15,7 @@ export const NavBar: FC<NavBarPropsInterface> = ({ className }) => {
     const main = t('Главная', { ns: 'main' })
     const about = t('О сайте', { ns: 'about' })
 
-    const classNameChecked = className !== undefined ? className : ''
+    const classNameChecked = className ?? ''
 
     return (
         <nav className={classNames(styles.navBar, {}, [classNameChecked])}>

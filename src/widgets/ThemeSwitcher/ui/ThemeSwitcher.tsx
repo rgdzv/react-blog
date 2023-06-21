@@ -16,7 +16,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherPropsInterface> = ({
 
     const icon = theme === Theme.DARK ? <LightIcon /> : <DarkIcon />
 
-    const classNameChecked = className !== undefined ? className : ''
+    const classNameChecked = className ?? ''
 
     return (
         <Button

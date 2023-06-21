@@ -4,9 +4,9 @@
     justify-content: space-between;
 
     width: 100%;
+    height: var(--navbar-height);
     padding: 10px;
 
-    // height: var(--navbar-height);
     background-color: var(--bg-color-inverted);
 
     .logo {

@@ -15,10 +15,11 @@ export const SideBar: FC<SideBarPropsInterface> = ({ className }) => {
         setCollapsed((prev) => !prev)
     }
 
-    const classNameChecked = className !== undefined ? className : ''
+    const classNameChecked = className ?? ''
 
     return (
         <div
+            data-testid="sidebar"
             className={classNames(
                 styles.sideBar,
                 { [styles.collapsed]: collapsed },
