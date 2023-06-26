@@ -1,2 +1,2 @@
 export { AppRouter } from './ui/AppRouter'
-export { RouterConfigProvider } from './lib/RouterConfig'
+export { RouterConfigProvider, router } from './lib/RouterConfig'

@@ -5,7 +5,7 @@ import { MainPage } from 'pages/MainPage'
 import { type ReactElement } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
@@ -24,5 +24,5 @@ const router = createBrowserRouter([
 ])
 
 export const RouterConfigProvider = (): ReactElement => (
-    <RouterProvider router={router} />
+    <RouterProvider router={router}/>
 )

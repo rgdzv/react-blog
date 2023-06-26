@@ -1,5 +1,8 @@
-import { render, screen } from '@testing-library/react'
 import { SideBar } from './SideBar'
+import { render, screen } from '@testing-library/react'
+
+jest.mock("widgets/LangSwitcher")
+jest.mock("widgets/ThemeSwitcher")
 
 describe('SideBar', () => {
     test('render', () => {

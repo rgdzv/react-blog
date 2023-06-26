@@ -23,11 +23,12 @@ export const AppLink: FC<AppLinkPropsInterface> = ({
 }) => {
 
     const classNameChecked = className ?? ''
+    const classNameFinal = classNames(styles.link, {}, [classNameChecked, styles[theme]])
 
     return (
         <Link
             to={to}
-            className={classNames(styles.link, {}, [classNameChecked, styles[theme]])}
+            className={classNameFinal}
             {...otherProps}
         >
             {children}

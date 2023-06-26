@@ -4,31 +4,23 @@ import styles from './Button.module.scss'
 
 export enum ThemeButton {
     USUAL = 'usual',
-    CLEAR = 'clear'
+    LANG = 'lang'
 }
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
-    className?: string
-    theme?: ThemeButton
+    className?: ThemeButton
 }
 
 export const Button: FC<ButtonPropsInterface> = ({
     children,
     className,
-    theme,
     ...otherProps
 }) => {
-    
     const classNameChecked = className ?? ''
+    const classNameFinal = classNames(styles.button, {}, [styles[classNameChecked as ThemeButton.LANG]])
 
     return (
-        <button
-            className={classNames(styles.button, {}, [
-                classNameChecked,
-                styles[theme as ThemeButton]
-            ])}
-            {...otherProps}
-        >
+        <button type='button' className={classNameFinal} {...otherProps}>
             {children}
         </button>
     )

@@ -10,9 +10,10 @@ interface PageLoaderPropsInterface {
 export const PageLoader: FC<PageLoaderPropsInterface> = ({ className }) => {
 
     const classNameChecked = className ?? ''
+    const classNameFinal = classNames(styles.pageLoader, {}, [classNameChecked])
 
     return (
-        <div className={classNames(styles.pageLoader, {}, [classNameChecked])}>
+        <div className={classNameFinal}>
             <Loader/>
         </div>
     )

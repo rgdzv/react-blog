@@ -4,14 +4,10 @@
     justify-content: space-between;
 
     width: 100%;
-    height: var(--navbar-height);
+    // height: var(--navbar-height);
     padding: 10px;
 
-    background-color: var(--bg-color-inverted);
-
-    .logo {
-        font-size: 30px;
-    }
+    background-color: var(--bg-color);
 
     ul {
         display: flex;

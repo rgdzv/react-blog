@@ -13,6 +13,7 @@ const NotFoundPage: FC<NotFoundPagePropsInterface> = ({ className }) => {
     const { t } = useTranslation('error')
 
     const classNameChecked = className ?? ''
+    const classNameFinal = classNames(styles.notFound, {}, [classNameChecked])
 
     const errorType = isRouteErrorResponse(error) ? (
         <i>
@@ -26,14 +27,14 @@ const NotFoundPage: FC<NotFoundPagePropsInterface> = ({ className }) => {
 
     const errorBlock = (
         <>
-            <h1>{t('Упс!')}</h1>
+            <h1>{t('Ой!')}</h1>
             <p>{t('Извините. Произошла непредвиденная ошибка!')}</p>
             <p>{errorType}</p>
         </>
     )
 
     return (
-        <div className={classNames(styles.notFound, {}, [classNameChecked])}>
+        <div className={classNameFinal}>
             {errorBlock}
         </div>
     )

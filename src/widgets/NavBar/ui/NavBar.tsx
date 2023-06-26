@@ -16,10 +16,10 @@ export const NavBar: FC<NavBarPropsInterface> = ({ className }) => {
     const about = t('О сайте', { ns: 'about' })
 
     const classNameChecked = className ?? ''
+    const classNameFinal = classNames(styles.navBar, {}, [classNameChecked])
 
     return (
-        <nav className={classNames(styles.navBar, {}, [classNameChecked])}>
-            <div className={styles.logo}>LOGO</div>
+        <nav className={classNameFinal}>
             <ul>
                 <li>
                     <AppLink theme={AppLinkTheme.SECONDARY} to={'/'}>

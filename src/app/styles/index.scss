@@ -1,13 +1,21 @@
 @import 'reset';
 @import 'variables/global';
+@import 'fonts';
 @import 'themes/dark';
 @import 'themes/light';
 
 .app {
     min-height: 100vh;
+    padding: 0 30px;
+
     font: var(--font-m);
     color: var(--primary-color);
+
     background: var(--bg-color);
+
+    header {
+        height: 50px;
+    }
 }
 
 .content {

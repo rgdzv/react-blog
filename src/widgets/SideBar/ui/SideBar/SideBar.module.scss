@@ -4,9 +4,17 @@
     width: var(--sidebar-width);
     height: calc(100vh - var(--navbar-height));
 
-    background-color: var(--bg-color-inverted);
+    background-color: var(--sidebar-bg-color);
+    border: 1px solid var(--sidebar-bg-color);
+    border-radius: 32px;
 
     transition: width 0.2s linear;
+
+    .toggleArrow {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+    }
 
     .switchers {
         position: absolute;
@@ -18,8 +26,18 @@
 
         width: 100%;
     }
+
 }
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
+
+    .toggleArrow {
+        right: 40%;
+        transform: rotateY(180deg);
+    }
+
+    .switchers {
+        flex-direction: column;
+    }
 }

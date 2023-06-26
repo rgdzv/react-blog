@@ -12,6 +12,7 @@ export const PageError: FC<PageErrorPropsInterface> = ({ className }) => {
     const { t } = useTranslation('error')
 
     const classNameChecked = className ?? ''
+    const classNameFinal = classNames(styles.error, {}, [classNameChecked])
 
     const errorText = t('Извините. Произошла непредвиденная ошибка!')
     const buttonText = t('Обновить страницу')
@@ -21,9 +22,9 @@ export const PageError: FC<PageErrorPropsInterface> = ({ className }) => {
     }
 
     return (
-        <div className={classNames(styles.error, {}, [classNameChecked])}>
+        <div className={classNameFinal}>
             <h1>{errorText}</h1>
-            <Button onClick={reloadPage} theme={ThemeButton.USUAL}>
+            <Button onClick={reloadPage} className={ThemeButton.USUAL}>
                 {buttonText}
             </Button>
         </div>
