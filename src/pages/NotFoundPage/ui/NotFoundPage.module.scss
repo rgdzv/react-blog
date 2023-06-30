@@ -6,9 +6,11 @@
 
     min-height: 100vh;
 
-    font: var(--font-l);
-
     h1 {
         margin-bottom: 20px;
+    }
+
+    p:not(:last-child) {
+        margin-bottom: 10px;
     }
 }

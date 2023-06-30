@@ -1,37 +1,50 @@
 import { type FC } from 'react'
-import { classNames } from 'shared/lib'
 import styles from './NavBar.module.scss'
-import { AppLink, AppLinkTheme } from 'shared/ui'
-
+import { AppLink } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-
+import { classNames, links } from 'shared/lib'
+import { useTheme } from 'app/providers/ThemeProvider'
+import { useLocation, useNavigate } from 'react-router-dom'
 interface NavBarPropsInterface {
-    className?: string
+    collapsed: boolean
 }
 
-export const NavBar: FC<NavBarPropsInterface> = ({ className }) => {
+export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
+    const navigate = useNavigate()
+    const { theme } = useTheme()
+    const { pathname } = useLocation()
     const { t } = useTranslation(['main', 'about'])
 
-    const main = t('Главная', { ns: 'main' })
-    const about = t('О сайте', { ns: 'about' })
+    const handleNavigate = (to: string): void => {
+        navigate(to)
+    }
 
-    const classNameChecked = className ?? ''
-    const classNameFinal = classNames(styles.navBar, {}, [classNameChecked])
+    const linkList = links.map((item) => {
+        const linkName = collapsed ? '' : t(item.name, { ns: item.file })
+        const className = classNames(styles.list, {}, [
+            pathname === item.to ? styles.active : '',
+            collapsed ? styles.collapsed : ''
+        ])
+        const handleClick = (): void => {
+            handleNavigate(item.to)
+        }
+        return (
+            <li
+                key={item.name}
+                className={className}
+                onClick={handleClick}
+            >
+                <>
+                    {theme === 'light' ? item.icon.light : item.icon.dark}
+                    <AppLink to={item.to}>{linkName}</AppLink>
+                </>
+            </li>
+        )
+    })
 
     return (
-        <nav className={classNameFinal}>
-            <ul>
-                <li>
-                    <AppLink theme={AppLinkTheme.SECONDARY} to={'/'}>
-                        {main}
-                    </AppLink>
-                </li>
-                <li>
-                    <AppLink theme={AppLinkTheme.SECONDARY} to={'about'}>
-                        {about}
-                    </AppLink>
-                </li>
-            </ul>
+        <nav className={styles.navBar}>
+            <ul>{linkList}</ul>
         </nav>
     )
 }

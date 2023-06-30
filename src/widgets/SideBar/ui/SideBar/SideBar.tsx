@@ -4,27 +4,24 @@ import styles from './SideBar.module.scss'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { SideBarToggle } from 'widgets/SideBarToggle'
+import { NavBar } from 'widgets/NavBar'
 
-interface SideBarPropsInterface {
-    className?: string
-}
-
-export const SideBar: FC<SideBarPropsInterface> = ({ className }) => {
+export const SideBar: FC = () => {
     const [collapsed, setCollapsed] = useState(false)
 
     const handleToggle = (): void => {
         setCollapsed((prev) => !prev)
     }
 
-    const classNameChecked = className ?? ''
     const classNameFinal = classNames(
         styles.sideBar,
         { [styles.collapsed]: collapsed },
-        [classNameChecked]
+        []
     )
 
     return (
-        <div data-testid='sidebar' className={classNameFinal}>
+        <aside data-testid='sidebar' className={classNameFinal}>
+            <NavBar collapsed={collapsed}/>
             <div className={styles.toggleArrow}>
                 <SideBarToggle onClick={handleToggle}/>
             </div>
@@ -32,6 +29,6 @@ export const SideBar: FC<SideBarPropsInterface> = ({ className }) => {
                 <ThemeSwitcher />
                 <LangSwitcher />
             </div>
-        </div>
+        </aside>
     )
 }

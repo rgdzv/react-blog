@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, ThemeButton } from './Button'
+import { Button } from './Button'
 
 const meta = {
     title: 'shared/Button',
@@ -18,11 +18,5 @@ export const Simple: Story = {
     }
 }
 
-export const Usual: Story = {
-    args: {
-        ...Simple.args,
-        className: ThemeButton.USUAL
-    },
-}
 
 

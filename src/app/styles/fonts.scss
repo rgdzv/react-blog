@@ -7,3 +7,33 @@
         url('../../shared/assets/fonts/NunitoSans/NunitoSans-Bold.woff2') format('woff2'),
         url('../../shared/assets/fonts/NunitoSans/NunitoSans-Bold.woff') format('woff')
 }
+
+@font-face {
+    font-family: 'Nunito Sans';
+    font-weight: 400;
+    font-style: normal;
+    src: 
+        local('Nunito Sans'),
+        url('../../shared/assets/fonts/NunitoSans/NunitoSans-Regular.woff2') format('woff2'),
+        url('../../shared/assets/fonts/NunitoSans/NunitoSans-Regular.woff') format('woff')
+}
+
+@font-face {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: normal;
+    src: 
+        local('Roboto'),
+        url('../../shared/assets/fonts/Roboto/Roboto-Regular.woff2') format('woff2'),
+        url('../../shared/assets/fonts/Roboto/Roboto-Regular.woff') format('woff')
+}
+
+@font-face {
+    font-family: Roboto;
+    font-weight: 900;
+    font-style: normal;
+    src: 
+        local('Roboto'),
+        url('../../shared/assets/fonts/Roboto/Roboto-Black.woff2') format('woff2'),
+        url('../../shared/assets/fonts/Roboto/Roboto-Black.woff') format('woff')
+}

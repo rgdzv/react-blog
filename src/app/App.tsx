@@ -1,23 +1,23 @@
 import { type FC } from 'react'
 import './styles/index.scss'
 import { classNames } from 'shared/lib'
-import { useTheme } from 'app/providers/ThemeProvider'
+import { useTheme } from './providers/ThemeProvider'
 import { AppRouter } from './providers/RouterProvider'
 import { SideBar } from 'widgets/SideBar'
 
 const App: FC = () => {
     const { theme } = useTheme()
     
-    const classNameFinal = classNames('app', { hovered: true }, [theme])
+    const classNameFinal = classNames("app", {}, [theme])
 
     return (
         <div className={classNameFinal}>
             <header>
             </header>
-            <div className='content'>
+            <main className='content'>
                 <SideBar />
                 <AppRouter />
-            </div>
+            </main>
         </div>
     )
 }

@@ -1,18 +1,10 @@
 import { type FC } from 'react'
-import { classNames } from 'shared/lib'
 import styles from './PageErrors.module.scss'
 import { useTranslation } from 'react-i18next'
-import { Button, ThemeButton } from 'shared/ui'
+import { Button } from 'shared/ui'
 
-interface PageErrorPropsInterface {
-    className?: string
-}
-
-export const PageError: FC<PageErrorPropsInterface> = ({ className }) => {
+export const PageError: FC = () => {
     const { t } = useTranslation('error')
-
-    const classNameChecked = className ?? ''
-    const classNameFinal = classNames(styles.error, {}, [classNameChecked])
 
     const errorText = t('Извините. Произошла непредвиденная ошибка!')
     const buttonText = t('Обновить страницу')
@@ -22,9 +14,9 @@ export const PageError: FC<PageErrorPropsInterface> = ({ className }) => {
     }
 
     return (
-        <div className={classNameFinal}>
+        <div className={styles.error}>
             <h1>{errorText}</h1>
-            <Button onClick={reloadPage} className={ThemeButton.USUAL}>
+            <Button onClick={reloadPage}>
                 {buttonText}
             </Button>
         </div>

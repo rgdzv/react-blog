@@ -3,7 +3,6 @@ import { classNames } from 'shared/lib'
 import styles from './Button.module.scss'
 
 export enum ThemeButton {
-    USUAL = 'usual',
     LANG = 'lang'
 }
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -17,7 +16,9 @@ export const Button: FC<ButtonPropsInterface> = ({
     ...otherProps
 }) => {
     const classNameChecked = className ?? ''
-    const classNameFinal = classNames(styles.button, {}, [styles[classNameChecked as ThemeButton.LANG]])
+    const classNameFinal = classNames(styles.button, {}, [
+        styles[classNameChecked as ThemeButton]
+    ])
 
     return (
         <button type='button' className={classNameFinal} {...otherProps}>

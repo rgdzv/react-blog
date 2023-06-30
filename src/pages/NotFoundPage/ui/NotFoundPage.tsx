@@ -4,16 +4,11 @@ import styles from './NotFoundPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
 
-interface NotFoundPagePropsInterface {
-    className?: string
-}
-
-const NotFoundPage: FC<NotFoundPagePropsInterface> = ({ className }) => {
+const NotFoundPage: FC = () => {
     const error = useRouteError()
     const { t } = useTranslation('error')
 
-    const classNameChecked = className ?? ''
-    const classNameFinal = classNames(styles.notFound, {}, [classNameChecked])
+    const classNameFinal = classNames(styles.notFound, {}, [])
 
     const errorType = isRouteErrorResponse(error) ? (
         <i>

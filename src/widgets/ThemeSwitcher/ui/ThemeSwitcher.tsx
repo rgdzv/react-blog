@@ -1,15 +1,12 @@
 import { type FC } from 'react'
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
-import { DarkIcon, LightIcon } from 'shared/assets'
+import { ThemeDark, ThemeLight } from 'shared/assets'
 import { Button } from 'shared/ui'
 
-interface ThemeSwitcherPropsInterface {
-}
-
-export const ThemeSwitcher: FC<ThemeSwitcherPropsInterface> = () => {
+export const ThemeSwitcher: FC = () => {
     const { theme, toggleTheme } = useTheme()
 
-    const icon = theme === Theme.DARK ? <DarkIcon /> : <LightIcon /> 
+    const icon = theme === Theme.DARK ? <ThemeDark /> : <ThemeLight /> 
 
     return (
         <Button

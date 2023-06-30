@@ -1,9 +1,7 @@
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-interface AboutPagePropsInterface {}
-
-const AboutPage: FC<AboutPagePropsInterface> = ({}) => {
+const AboutPage: FC = () => {
     const { t } = useTranslation('about')
 
     const about = t('О сайте')
