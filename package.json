@@ -15,7 +15,8 @@
         "stylelint:fix": "stylelint --config config/stylelint/.stylelintrc.json --ignore-path config/stylelint/.stylelintignore --fix \"**/*.scss\"",
         "jestUnitTest": "jest --config config/jest/jest.config.json",
         "storybook": "storybook dev -p 6006 --config-dir config/storybook/",
-        "build-storybook": "storybook build --config-dir config/storybook/"
+        "build-storybook": "storybook build --config-dir config/storybook/",
+        "test-storybook": "test-storybook --config-dir config/storybook/"
     },
     "author": "rgdzv",
     "license": "ISC",
@@ -27,8 +28,10 @@
         "@storybook/addon-interactions": "^7.0.23",
         "@storybook/addon-links": "^7.0.23",
         "@storybook/blocks": "^7.0.23",
+        "@storybook/jest": "^0.1.0",
         "@storybook/react": "^7.0.23",
         "@storybook/react-webpack5": "^7.0.23",
+        "@storybook/test-runner": "^0.11.0",
         "@storybook/testing-library": "^0.0.14-next.2",
         "@svgr/webpack": "^8.0.1",
         "@testing-library/jest-dom": "^5.16.5",

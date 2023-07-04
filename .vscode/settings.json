@@ -36,5 +36,5 @@
     "jest.autoRun": "off",
     "jest.jestCommandLine": "npx jest --config config/jest/jest.config.json"
     // configPath option is not presented in the extension so you need to use jestCommandLine option to successfully
-    // run tests through Test explorer (or just put your config file in the root of the project)
+    // run tests through Test explorer (or just put your config file in the root of the project and delete jestCommandLine option)
 }

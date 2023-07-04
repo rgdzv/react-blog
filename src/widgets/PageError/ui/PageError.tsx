@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import styles from './PageErrors.module.scss'
 import { useTranslation } from 'react-i18next'
-import { Button } from 'shared/ui'
+import { Button, ButtonTheme } from 'shared/ui'
 
 export const PageError: FC = () => {
     const { t } = useTranslation('error')
@@ -16,7 +16,7 @@ export const PageError: FC = () => {
     return (
         <div className={styles.error}>
             <h1>{errorText}</h1>
-            <Button onClick={reloadPage}>
+            <Button onClick={reloadPage} className={ButtonTheme.RELOAD}>
                 {buttonText}
             </Button>
         </div>

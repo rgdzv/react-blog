@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react'
-import { RouterDecorator, StyleDecorator, ThemeDecorator } from 'shared/lib'
+import { LanguageDecorator, StyleDecorator, ThemeDecorator } from 'shared/lib'
 
 const preview: Preview = {
     parameters: {
@@ -9,21 +9,21 @@ const preview: Preview = {
                 color: /(background|color)$/i,
                 date: /Date$/
             }
-        },
+        }
     },
     globalTypes: {
         theme: {
-            description: 'Global theme for components',
+            description: 'Global theme for app',
             defaultValue: 'light',
             toolbar: {
                 title: 'Theme',
                 icon: 'circlehollow',
                 items: ['light', 'dark'],
-                dynamicTitle: true,
+                dynamicTitle: true
             }
         }
     },
-    decorators: [StyleDecorator, ThemeDecorator, RouterDecorator]
+    decorators: [StyleDecorator, ThemeDecorator, LanguageDecorator]
 }
 
 export default preview
