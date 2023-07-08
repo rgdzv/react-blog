@@ -20,11 +20,8 @@ export const Simple: Story = {
 
         const loader = canvas.getByTestId('loader')
 
-        await step('Expecting loader UI', async () => {
+        await step('Expecting loader appearance with special class', async () => {
             await expect(loader).toBeInTheDocument()
-        })
-
-        await step('Expecting loader to have a special class', async () => {
             await expect(loader).toHaveClass(
                 'src-shared-ui-Loader-Loader-module__loader'
             )

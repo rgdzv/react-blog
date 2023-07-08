@@ -1,17 +1,29 @@
 import 'app/styles/index.scss'
 import { type Decorator } from '@storybook/react'
-import { type Theme } from 'app/providers/ThemeProvider'
-
-const getTheme = (theme: Theme): Theme => {
-    return theme
+import { ThemeProvider, useTheme } from 'app/providers/ThemeProvider'
+import { type FC, type ReactElement, type ReactNode } from 'react'
+interface AppSimulationPropsInterface {
+    children: ReactNode 
 }
 
-export const ThemeDecorator: Decorator = (Story, context) => {
-    const theme = getTheme(context.globals.theme)
-    
+const AppSimulation: FC<AppSimulationPropsInterface> = ({
+    children
+}): ReactElement => {
+    const { theme } = useTheme()
+
     return (
-        <div className={`app ${theme}`}>
-            <Story />
+        <div className={`app ${theme}`} data-testid='app'>
+            {children}
         </div>
+    )
+}
+
+export const ThemeDecorator: Decorator = (Story) => {
+    return (
+        <ThemeProvider>
+            <AppSimulation>
+                <Story />
+            </AppSimulation>
+        </ThemeProvider>
     )
 }

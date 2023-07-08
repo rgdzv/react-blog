@@ -5,7 +5,7 @@ import styles from './PageLoader.module.scss'
 export const PageLoader: FC = () => {
 
     return (
-        <div className={styles.pageLoader}>
+        <div className={styles.pageLoader} data-testid="pageLoader">
             <Loader/>
         </div>
     )

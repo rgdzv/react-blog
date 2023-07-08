@@ -19,22 +19,25 @@ export const Simple: Story = {
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
 
-        const errorName = canvas.getByText('Извините. Произошла непредвиденная ошибка!')
-        const reloadButton = canvas.getByRole('button', { name: /Обновить страницу/i })
-
-        await step('Expecting error UI', async () => {
-            await expect(
-                errorName
-            ).toBeInTheDocument()
-            await expect(
-                reloadButton
-            ).toBeInTheDocument()
+        const errorName = canvas.getByText(
+            'Извините. Произошла непредвиденная ошибка!'
+        )
+        const reloadButton = canvas.getByRole('button', {
+            name: 'Обновить страницу'
         })
 
-        await step('Expecting reloadButton to have a special class', async () => {
-            await expect(
-                reloadButton
-            ).toHaveClass('src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__reload')
+        await step('Expecting error name and button appearance', async () => {
+            await expect(errorName).toBeInTheDocument()
+            await expect(reloadButton).toBeInTheDocument()
         })
+
+        await step(
+            'Expecting reloadButton to have a special class',
+            async () => {
+                await expect(reloadButton).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__reload'
+                )
+            }
+        )
     }
 }

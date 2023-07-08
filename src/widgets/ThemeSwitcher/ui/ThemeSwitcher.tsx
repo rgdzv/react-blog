@@ -6,13 +6,12 @@ import { Button } from 'shared/ui'
 export const ThemeSwitcher: FC = () => {
     const { theme, toggleTheme } = useTheme()
 
-    const icon = theme === Theme.DARK ? <ThemeDark /> : <ThemeLight /> 
+    const icon =
+        theme === Theme.DARK ? (
+            <ThemeDark data-testid='dark-theme' />
+        ) : (
+            <ThemeLight data-testid='light-theme' />
+        )
 
-    return (
-        <Button
-            onClick={toggleTheme}
-        >
-            {icon}
-        </Button>
-    )
+    return <Button onClick={toggleTheme}>{icon}</Button>
 }

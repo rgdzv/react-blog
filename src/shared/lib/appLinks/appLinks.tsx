@@ -1,5 +1,5 @@
 import { type ReactElement } from 'react'
-import { InfoLight, HomeLight, HomeDark, InfoDark } from 'shared/assets'
+import { InfoLight, HomeLight, HomeDark, InfoDark } from '../../assets'
 
 interface Link {
     to: string

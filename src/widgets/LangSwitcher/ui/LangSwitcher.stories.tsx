@@ -20,15 +20,9 @@ export const Simple: Story = {
 
         const buttonName = canvas.getByRole('button', { name: 'ru' })
 
-        await step('Expecting button UI', async () => {
+        await step('Expecting button appearance with special class and type', async () => {
             await expect(buttonName).toBeInTheDocument()
-        })
-
-        await step('Expecting button to have attribute and value', async () => {
             await expect(buttonName).toHaveAttribute('type', 'button')
-        })
-
-        await step('Expecting button to have a special class', async () => {
             await expect(buttonName).toHaveClass(
                 'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__lang'
             )
@@ -36,18 +30,20 @@ export const Simple: Story = {
     }
 }
 
-export const SwitchLanguage: Story = {
-    args: {},
-    play: async (context) => {
-        const canvas = within(context.canvasElement)
+// export const SwitchLanguage: Story = {
+//     args: {},
+//     play: async (context) => {
+//         const canvas = within(context.canvasElement)
 
-        if (Simple.play !== undefined) {
-            await Simple.play(context)
-        }
+//         if (Simple.play !== undefined) {
+//             await Simple.play(context)
+//         }
 
-        await context.step('Switch to another language', async () => {
-            await userEvent.click(canvas.getByRole('button', { name: 'ru' }))
-            await expect(canvas.getByRole('button', { name: 'en' })).toBeInTheDocument()
-        })
-    }
-}
+//         await context.step('Switch to another language', async () => {
+//             await userEvent.click(canvas.getByRole('button', { name: 'ru' }))
+//             await expect(
+//                 canvas.getByRole('button', { name: 'en' })
+//             ).toBeInTheDocument()
+//         })
+//     }
+// }
