@@ -33,6 +33,7 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
                 key={item.name}
                 className={className}
                 onClick={handleClick}
+                data-testid={item.file}
             >
                 <>
                     {theme === 'light' ? item.icon.light : item.icon.dark}
@@ -43,7 +44,7 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
     })
 
     return (
-        <nav className={styles.navBar}>
+        <nav className={styles.navBar} data-testid="navbar">
             <ul>{linkList}</ul>
         </nav>
     )

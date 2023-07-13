@@ -7,7 +7,7 @@ import { SideBar } from 'widgets/SideBar'
 
 const App: FC = () => {
     const { theme } = useTheme()
-    
+
     const classNameFinal = classNames("app", {}, [theme])
 
     return (

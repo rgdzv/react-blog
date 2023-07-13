@@ -13,37 +13,60 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Simple: Story = {
+export const FromRUToEN: Story = {
     args: {},
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
 
         const buttonName = canvas.getByRole('button', { name: 'ru' })
 
-        await step('Expecting button appearance with special class and type', async () => {
-            await expect(buttonName).toBeInTheDocument()
-            await expect(buttonName).toHaveAttribute('type', 'button')
-            await expect(buttonName).toHaveClass(
-                'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__lang'
-            )
+        await step(
+            'Expecting button appearance with special class and type',
+            async () => {
+                await expect(buttonName).toBeInTheDocument()
+                await expect(buttonName).toHaveAttribute('type', 'button')
+                await expect(buttonName).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__lang'
+                )
+            }
+        )
+
+        await step('Switch from russian to english', async () => {
+            await userEvent.click(buttonName)
+            await expect(
+                canvas.getByRole('button', { name: 'en' })
+            ).toBeInTheDocument()
         })
+
+        await userEvent.click(buttonName)
     }
 }
 
-// export const SwitchLanguage: Story = {
-//     args: {},
-//     play: async (context) => {
-//         const canvas = within(context.canvasElement)
+export const FromENToRU: Story = {
+    args: {},
+    play: async ({ canvasElement, step }) => {
+        const canvas = within(canvasElement)
 
-//         if (Simple.play !== undefined) {
-//             await Simple.play(context)
-//         }
+        await userEvent.click(canvas.getByRole('button', { name: 'ru' }))
 
-//         await context.step('Switch to another language', async () => {
-//             await userEvent.click(canvas.getByRole('button', { name: 'ru' }))
-//             await expect(
-//                 canvas.getByRole('button', { name: 'en' })
-//             ).toBeInTheDocument()
-//         })
-//     }
-// }
+        const buttonName = canvas.getByRole('button', { name: 'en' })
+
+        await step(
+            'Expecting button appearance with special class and type',
+            async () => {
+                await expect(buttonName).toBeInTheDocument()
+                await expect(buttonName).toHaveAttribute('type', 'button')
+                await expect(buttonName).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__lang'
+                )
+            }
+        )
+
+        await step('Switch from english to russian', async () => {
+            await userEvent.click(buttonName)
+            await expect(
+                canvas.getByRole('button', { name: 'ru' })
+            ).toBeInTheDocument()
+        })
+    }
+}

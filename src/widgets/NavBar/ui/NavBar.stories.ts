@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { NavBar } from './NavBar'
+import { userEvent, within } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
 
 const meta = {
     title: 'widget/NavBar',
@@ -12,9 +14,116 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Simple: Story = {
+export const Normal: Story = {
+    args: {
+        collapsed: false
+    },
+    play: async ({ canvasElement, step }) => {
+        const canvas = within(canvasElement)
+        const navbar = canvas.getByTestId('navbar')
+        const main = canvas.getByTestId('main')
+        const about = canvas.getByTestId('about')
+        const svgHome = canvas.getByTestId('home-light')
+        const svgInfo = canvas.getByTestId('info-light')
+        const mainLink = canvas.getByRole('link', {name: 'Главная'})
+        const infoLink = canvas.getByRole('link', {name: 'О сайте'})
+
+        await step(
+            'Expecting navbar appearance with special class',
+            async () => {
+                await expect(navbar).toBeInTheDocument()
+                await expect(navbar).toHaveClass(
+                    'src-widgets-NavBar-ui-NavBar-module__navBar'
+                )
+            }
+        )
+
+        await step(
+            'Expecting navbar list appearance with special class',
+            async () => {
+                await expect(main).toBeInTheDocument()
+                await expect(about).toBeInTheDocument()
+                await expect(main).toHaveClass('src-widgets-NavBar-ui-NavBar-module__list')
+                await expect(about).toHaveClass('src-widgets-NavBar-ui-NavBar-module__list')
+
+            }
+        )
+
+        await step(
+            'Expecting navbar list contains special icons and link names',
+            async () => {
+                await expect(main).toContainElement(svgHome)
+                await expect(main).toContainElement(mainLink)
+                await expect(about).toContainElement(svgInfo)
+                await expect(about).toContainElement(infoLink)
+            }
+        )
+    }
+}
+
+export const Collapsed: Story = {
     args: {
         collapsed: true
+    },
+    play: async ({ canvasElement, step }) => {
+        const canvas = within(canvasElement)
+        const navbar = canvas.getByTestId('navbar')
+        const main = canvas.getByTestId('main')
+        const about = canvas.getByTestId('about')
+        const svgHome = canvas.getByTestId('home-light')
+        const svgInfo = canvas.getByTestId('info-light')
+
+        await step(
+            'Expecting navbar appearance with special class',
+            async () => {
+                await expect(navbar).toBeInTheDocument()
+                await expect(navbar).toHaveClass(
+                    'src-widgets-NavBar-ui-NavBar-module__navBar'
+                )
+            }
+        )
+
+        await step(
+            'Expecting navbar list appearance with special class',
+            async () => {
+                await expect(main).toBeInTheDocument()
+                await expect(about).toBeInTheDocument()
+                await expect(main).toHaveClass('src-widgets-NavBar-ui-NavBar-module__list')
+                await expect(about).toHaveClass('src-widgets-NavBar-ui-NavBar-module__list')
+
+            }
+        )
+
+        await step(
+            'Expecting navbar list contains special icons without link names',
+            async () => {
+                await expect(main).toContainElement(svgHome)
+                await expect(main).not.toContainElement(canvas.queryByRole('link', {name: 'Главная'}))
+                await expect(about).toContainElement(svgInfo)
+                await expect(about).not.toContainElement(canvas.queryByRole('link', {name: 'О сайте'}))
+            }
+        )
+    }
+}
+
+export const Active: Story = {
+    args: {
+        collapsed: false
+    },
+    play: async (context) => {
+        const canvas = within(context.canvasElement)
+
+        if (Normal.play !== undefined) {
+            await Normal.play(context)
+        }
+
+        await context.step(
+            'Expecting list has class active when user clicks on link',
+            async () => {
+                await userEvent.click(canvas.getByTestId('main'))
+                await expect(canvas.getByTestId('main')).toHaveClass('src-widgets-NavBar-ui-NavBar-module__list src-widgets-NavBar-ui-NavBar-module__active')
+            }
+        )
     }
 }
 
