@@ -14,11 +14,10 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Simple: Story = {
+export const Normal: Story = {
     args: {},
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
-
         const errorName = canvas.getByText(
             'Извините. Произошла непредвиденная ошибка!'
         )

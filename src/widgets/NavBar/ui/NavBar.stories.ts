@@ -25,8 +25,8 @@ export const Normal: Story = {
         const about = canvas.getByTestId('about')
         const svgHome = canvas.getByTestId('home-light')
         const svgInfo = canvas.getByTestId('info-light')
-        const mainLink = canvas.getByRole('link', {name: 'Главная'})
-        const infoLink = canvas.getByRole('link', {name: 'О сайте'})
+        const mainLink = canvas.getByRole('link', { name: 'Главная' })
+        const infoLink = canvas.getByRole('link', { name: 'О сайте' })
 
         await step(
             'Expecting navbar appearance with special class',
@@ -43,9 +43,12 @@ export const Normal: Story = {
             async () => {
                 await expect(main).toBeInTheDocument()
                 await expect(about).toBeInTheDocument()
-                await expect(main).toHaveClass('src-widgets-NavBar-ui-NavBar-module__list')
-                await expect(about).toHaveClass('src-widgets-NavBar-ui-NavBar-module__list')
-
+                await expect(main).toHaveClass(
+                    'src-widgets-NavBar-ui-NavBar-module__list'
+                )
+                await expect(about).toHaveClass(
+                    'src-widgets-NavBar-ui-NavBar-module__list'
+                )
             }
         )
 
@@ -54,8 +57,10 @@ export const Normal: Story = {
             async () => {
                 await expect(main).toContainElement(svgHome)
                 await expect(main).toContainElement(mainLink)
+                await expect(mainLink).toHaveAttribute('href', '/')
                 await expect(about).toContainElement(svgInfo)
                 await expect(about).toContainElement(infoLink)
+                await expect(infoLink).toHaveAttribute('href', '/about')
             }
         )
     }
@@ -88,9 +93,12 @@ export const Collapsed: Story = {
             async () => {
                 await expect(main).toBeInTheDocument()
                 await expect(about).toBeInTheDocument()
-                await expect(main).toHaveClass('src-widgets-NavBar-ui-NavBar-module__list')
-                await expect(about).toHaveClass('src-widgets-NavBar-ui-NavBar-module__list')
-
+                await expect(main).toHaveClass(
+                    'src-widgets-NavBar-ui-NavBar-module__list'
+                )
+                await expect(about).toHaveClass(
+                    'src-widgets-NavBar-ui-NavBar-module__list'
+                )
             }
         )
 
@@ -98,9 +106,13 @@ export const Collapsed: Story = {
             'Expecting navbar list contains special icons without link names',
             async () => {
                 await expect(main).toContainElement(svgHome)
-                await expect(main).not.toContainElement(canvas.queryByRole('link', {name: 'Главная'}))
+                await expect(main).not.toContainElement(
+                    canvas.queryByRole('link', { name: 'Главная' })
+                )
                 await expect(about).toContainElement(svgInfo)
-                await expect(about).not.toContainElement(canvas.queryByRole('link', {name: 'О сайте'}))
+                await expect(about).not.toContainElement(
+                    canvas.queryByRole('link', { name: 'О сайте' })
+                )
             }
         )
     }
@@ -121,9 +133,10 @@ export const Active: Story = {
             'Expecting list has class active when user clicks on link',
             async () => {
                 await userEvent.click(canvas.getByTestId('main'))
-                await expect(canvas.getByTestId('main')).toHaveClass('src-widgets-NavBar-ui-NavBar-module__list src-widgets-NavBar-ui-NavBar-module__active')
+                await expect(canvas.getByTestId('main')).toHaveClass(
+                    'src-widgets-NavBar-ui-NavBar-module__list src-widgets-NavBar-ui-NavBar-module__active'
+                )
             }
         )
     }
 }
-

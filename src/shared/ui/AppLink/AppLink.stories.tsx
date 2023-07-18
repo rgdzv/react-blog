@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { AppLink } from './AppLink'
+import { within } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
 
 const meta = {
     title: 'shared/AppLink',
     component: AppLink,
     tags: ['autodocs'],
     args: {
-        to: '/'
+        children: 'Text',
     }
 } satisfies Meta<typeof AppLink>
 
@@ -14,8 +16,17 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Simple: Story = {
+export const Normal: Story = {
     args: {
-        children: 'Text'
+        to: '/somewhere'
+    },
+    play: async ({ canvasElement, step }) => {
+        const canvas = within(canvasElement)
+        const link = canvas.getByRole('link', {name: /text/i})
+
+        await step('Expecting link appearance with <href> attribute', async () => {
+            await expect(link).toBeInTheDocument()
+            await expect(link).toHaveAttribute('href', '/somewhere')
+        })
     }
 }
