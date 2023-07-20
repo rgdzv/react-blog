@@ -1,4 +1,4 @@
-name: Linting, Testing, Building
+name: Linting and Testing
 on:
     push:
         branches: [master]
@@ -12,12 +12,13 @@ jobs:
         node-version: [16.x]
     steps:
       - uses: actions/checkout@v3
-      - name: Starting Node.js ${{matrix.node-version}}
+      - name: Set up Node.js ${{matrix.node-version}}
         uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node-version}}
+          cache: npm
       - name: install modules
-        run: npm install
+        run: npm ci
       - name: check eslint rules
         run: npm run eslint
       - name: check stylelint rules
