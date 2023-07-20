@@ -29,7 +29,7 @@ const NotFoundPage: FC = () => {
     )
 
     return (
-        <div className={classNameFinal}>
+        <div className={classNameFinal} data-testid="notfoundpage">
             {errorBlock}
         </div>
     )

@@ -1,10 +1,12 @@
 import { type Decorator } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 export const RouterDecorator: Decorator = (Story) => {
-    return (
-        <BrowserRouter>
-            <Story />
-        </BrowserRouter>
-    )
+    const router = createBrowserRouter([
+        {
+            path: '/*',
+            element: <Story />
+        }
+    ])
+    return <RouterProvider router={router} />
 }

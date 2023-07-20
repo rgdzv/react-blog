@@ -4,17 +4,24 @@ import { Button } from 'shared/ui'
 import { ArrowDark, ArrowLight } from 'shared/assets'
 
 interface SideBarTogglePropsInterface {
-    onClick?: () => void
+    onClick?: () => void;
+    collapsed: boolean
 }
 
-export const SideBarToggle: FC<SideBarTogglePropsInterface> = ({ onClick }) => {
+export const SideBarToggle: FC<SideBarTogglePropsInterface> = ({ onClick, collapsed }) => {
     const { theme } = useTheme()
-    const icon = theme === Theme.DARK ? <ArrowDark /> : <ArrowLight />
+
+    const icon =
+        theme === Theme.DARK ? (
+            <ArrowDark data-testid='arrow-dark' />
+        ) : (
+            <ArrowLight data-testid='arrow-light' />
+        )
+
+    const ariaLabel = collapsed ? 'expand-sidebar' : 'collapse-sidebar'
 
     return (
-        <Button
-            onClick={onClick}
-        >
+        <Button onClick={onClick} aria-label={ariaLabel}>
             {icon}
         </Button>
     )

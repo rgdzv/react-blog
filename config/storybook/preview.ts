@@ -9,9 +9,21 @@ const preview: Preview = {
                 color: /(background|color)$/i,
                 date: /Date$/
             }
+        },
+        a11y: {
+            element: '#storybook-root',
+            config: {
+                rules: [
+                    {
+                        id: 'color-contrast',
+                        enabled: false
+                    },
+                ]
+            },
+            manual: false
         }
     },
-    decorators: [ThemeDecorator, RouterDecorator]
+    decorators: [RouterDecorator, ThemeDecorator]
 }
 
 export default preview

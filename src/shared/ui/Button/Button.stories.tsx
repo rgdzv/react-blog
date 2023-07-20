@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Button, ButtonTheme } from './Button'
 import { within } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
-import { ThemeDark, ThemeLight } from '../../assets'
+import { ArrowDark, ArrowLight, ThemeDark, ThemeLight } from '../../assets'
 
 const meta = {
     title: 'shared/Button',
@@ -24,13 +24,16 @@ export const Normal: Story = {
 
         const buttonName = canvas.getByRole('button', { name: /button/i })
 
-        await step('Expecting button appearance with special class and type', async () => {
-            await expect(buttonName).toBeInTheDocument()
-            await expect(buttonName).toHaveAttribute('type', 'button')
-            await expect(buttonName).toHaveClass(
-                'src-shared-ui-Button-Button-module__button'
-            )
-        })
+        await step(
+            'Expecting button appearance with special class and type',
+            async () => {
+                await expect(buttonName).toBeInTheDocument()
+                await expect(buttonName).toHaveAttribute('type', 'button')
+                await expect(buttonName).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button'
+                )
+            }
+        )
     }
 }
 
@@ -44,16 +47,16 @@ export const LangButtonRU: Story = {
 
         const buttonName = canvas.getByRole('button', { name: 'RU' })
 
-        await context.step('Expecting button appearance with special class and type', async () => {
-            await expect(buttonName).toBeInTheDocument()
-            await expect(buttonName).toHaveAttribute('type', 'button')
-            await expect(buttonName).toHaveClass(
-                'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__lang'
-            )
-        })
-        // if (Simple.play !== undefined) {
-        //     await Simple.play(context)
-        // }
+        await context.step(
+            'Expecting button appearance with special class and type',
+            async () => {
+                await expect(buttonName).toBeInTheDocument()
+                await expect(buttonName).toHaveAttribute('type', 'button')
+                await expect(buttonName).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__lang'
+                )
+            }
+        )
     }
 }
 
@@ -67,13 +70,16 @@ export const LangButtonEN: Story = {
 
         const buttonName = canvas.getByRole('button', { name: 'EN' })
 
-        await step('Expecting button appearance with special class and type', async () => {
-            await expect(buttonName).toBeInTheDocument()
-            await expect(buttonName).toHaveAttribute('type', 'button')
-            await expect(buttonName).toHaveClass(
-                'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__lang'
-            )
-        })
+        await step(
+            'Expecting button appearance with special class and type',
+            async () => {
+                await expect(buttonName).toBeInTheDocument()
+                await expect(buttonName).toHaveAttribute('type', 'button')
+                await expect(buttonName).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__lang'
+                )
+            }
+        )
     }
 }
 
@@ -81,19 +87,35 @@ export const ThemeLightButton: Story = {
     args: {
         children: <ThemeLight data-testid='light-theme' />
     },
+    parameters: {
+        a11y: {
+            element: '#storybook-root',
+            config: {
+                rules: [
+                    {
+                        id: 'button-name',
+                        enabled: false
+                    }
+                ]
+            }
+        }
+    },
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
 
         const buttonName = canvas.getByRole('button')
         const svgIcon = canvas.getByTestId('light-theme')
 
-        await step('Expecting button appearance with special class and type', async () => {
-            await expect(buttonName).toBeInTheDocument()
-            await expect(buttonName).toHaveAttribute('type', 'button')
-            await expect(buttonName).toHaveClass(
-                'src-shared-ui-Button-Button-module__button'
-            )
-        })
+        await step(
+            'Expecting button appearance with special class and type',
+            async () => {
+                await expect(buttonName).toBeInTheDocument()
+                await expect(buttonName).toHaveAttribute('type', 'button')
+                await expect(buttonName).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button'
+                )
+            }
+        )
 
         await step(
             'Expecting button contains svg element with special id',
@@ -108,19 +130,35 @@ export const ThemeDarkButton: Story = {
     args: {
         children: <ThemeDark data-testid='dark-theme' />
     },
+    parameters: {
+        a11y: {
+            element: '#storybook-root',
+            config: {
+                rules: [
+                    {
+                        id: 'button-name',
+                        enabled: false
+                    }
+                ]
+            }
+        }
+    },
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
 
         const buttonName = canvas.getByRole('button')
         const svgIcon = canvas.getByTestId('dark-theme')
 
-        await step('Expecting button appearance with special class and type', async () => {
-            await expect(buttonName).toBeInTheDocument()
-            await expect(buttonName).toHaveAttribute('type', 'button')
-            await expect(buttonName).toHaveClass(
-                'src-shared-ui-Button-Button-module__button'
-            )
-        })
+        await step(
+            'Expecting button appearance with special class and type',
+            async () => {
+                await expect(buttonName).toBeInTheDocument()
+                await expect(buttonName).toHaveAttribute('type', 'button')
+                await expect(buttonName).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button'
+                )
+            }
+        )
 
         await step(
             'Expecting button contains svg element with special id',
@@ -143,12 +181,101 @@ export const ReloadButton: Story = {
             name: 'Обновить страницу'
         })
 
-        await step('Expecting button appearance with special class and type', async () => {
-            await expect(buttonName).toBeInTheDocument()
-            await expect(buttonName).toHaveAttribute('type', 'button')
-            await expect(buttonName).toHaveClass(
-                'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__reload'
-            )
-        })
+        await step(
+            'Expecting button appearance with special class and type',
+            async () => {
+                await expect(buttonName).toBeInTheDocument()
+                await expect(buttonName).toHaveAttribute('type', 'button')
+                await expect(buttonName).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__reload'
+                )
+            }
+        )
+    }
+}
+
+export const SidebarToggleLightButton: Story = {
+    args: {
+        children: <ArrowLight data-testid='arrow-light' />
+    },
+    parameters: {
+        a11y: {
+            element: '#storybook-root',
+            config: {
+                rules: [
+                    {
+                        id: 'button-name',
+                        enabled: false
+                    }
+                ]
+            }
+        }
+    },
+    play: async ({ canvasElement, step }) => {
+        const canvas = within(canvasElement)
+
+        const buttonName = canvas.getByRole('button')
+        const svgIcon = canvas.getByTestId('arrow-light')
+
+        await step(
+            'Expecting button appearance with special class and type',
+            async () => {
+                await expect(buttonName).toBeInTheDocument()
+                await expect(buttonName).toHaveAttribute('type', 'button')
+                await expect(buttonName).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button'
+                )
+            }
+        )
+
+        await step(
+            'Expecting button contains svg element with special id',
+            async () => {
+                await expect(buttonName).toContainElement(svgIcon)
+            }
+        )
+    }
+}
+
+export const SidebarToggleDarkButton: Story = {
+    args: {
+        children: <ArrowDark data-testid='arrow-dark' />
+    },
+    parameters: {
+        a11y: {
+            element: '#storybook-root',
+            config: {
+                rules: [
+                    {
+                        id: 'button-name',
+                        enabled: false
+                    }
+                ]
+            }
+        }
+    },
+    play: async ({ canvasElement, step }) => {
+        const canvas = within(canvasElement)
+
+        const buttonName = canvas.getByRole('button')
+        const svgIcon = canvas.getByTestId('arrow-dark')
+
+        await step(
+            'Expecting button appearance with special class and type',
+            async () => {
+                await expect(buttonName).toBeInTheDocument()
+                await expect(buttonName).toHaveAttribute('type', 'button')
+                await expect(buttonName).toHaveClass(
+                    'src-shared-ui-Button-Button-module__button'
+                )
+            }
+        )
+
+        await step(
+            'Expecting button contains svg element with special id',
+            async () => {
+                await expect(buttonName).toContainElement(svgIcon)
+            }
+        )
     }
 }

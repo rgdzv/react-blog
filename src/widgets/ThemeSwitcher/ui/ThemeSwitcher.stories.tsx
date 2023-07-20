@@ -17,15 +17,15 @@ export const FromLightToDark: Story = {
     args: {},
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
-        const buttonName = canvas.getByRole('button')
+        const buttonLight = canvas.getByRole('button', {name: 'to-dark-theme'})
         const svgIconLight = canvas.getByTestId('light-theme')
 
         await step(
             'Expecting button appearance with special class and type',
             async () => {
-                await expect(buttonName).toBeInTheDocument()
-                await expect(buttonName).toHaveAttribute('type', 'button')
-                await expect(buttonName).toHaveClass(
+                await expect(buttonLight).toBeInTheDocument()
+                await expect(buttonLight).toHaveAttribute('type', 'button')
+                await expect(buttonLight).toHaveClass(
                     'src-shared-ui-Button-Button-module__button'
                 )
             }
@@ -34,17 +34,19 @@ export const FromLightToDark: Story = {
         await step(
             'Expecting button contains svg element with special id',
             async () => {
-                await expect(buttonName).toContainElement(svgIconLight)
+                await expect(buttonLight).toContainElement(svgIconLight)
             }
         )
 
         await step(
             'Expecting dark them button appear and theme change if user clicks on icon',
             async () => {
-                await userEvent.click(buttonName)
-                await expect(canvas.getByTestId('app')).toHaveClass('app dark')
+                await userEvent.click(buttonLight)
+                const buttonDark = canvas.getByRole('button', {name: 'to-light-theme'})
                 const svgIconDark = canvas.getByTestId('dark-theme')
-                await expect(buttonName).toContainElement(svgIconDark)
+                await expect(buttonDark).toBeInTheDocument()
+                await expect(buttonDark).toContainElement(svgIconDark)
+                await expect(canvas.getByTestId('app')).toHaveClass('app dark')
             }
         )
 
@@ -56,20 +58,21 @@ export const FromDarkToLight: Story = {
     args: {},
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
-        const buttonName = canvas.getByRole('button')
+        const buttonLight = canvas.getByRole('button', {name: 'to-dark-theme'})
 
         await step('Changing theme to dark', async () => {
-            await userEvent.click(buttonName)
+            await userEvent.click(buttonLight)
         })
 
-        const svgIcon = canvas.getByTestId('dark-theme')
+        const buttonDark = canvas.getByRole('button', {name: 'to-light-theme'})
+        const svgIconDark = canvas.getByTestId('dark-theme')
 
         await step(
             'Expecting button appearance with special class and type',
             async () => {
-                await expect(buttonName).toBeInTheDocument()
-                await expect(buttonName).toHaveAttribute('type', 'button')
-                await expect(buttonName).toHaveClass(
+                await expect(buttonDark).toBeInTheDocument()
+                await expect(buttonDark).toHaveAttribute('type', 'button')
+                await expect(buttonDark).toHaveClass(
                     'src-shared-ui-Button-Button-module__button'
                 )
             }
@@ -78,18 +81,19 @@ export const FromDarkToLight: Story = {
         await step(
             'Expecting button contains svg element with special id',
             async () => {
-                await expect(buttonName).toContainElement(svgIcon)
+                await expect(buttonDark).toContainElement(svgIconDark)
             }
         )
 
         await step(
             'Expecting dark them button appear and theme change if user clicks on icon',
             async () => {
-                await userEvent.click(buttonName)
+                await userEvent.click(buttonDark)
+                const buttonLight = canvas.getByRole('button', {name: 'to-dark-theme'})
+                const svgIconLight = canvas.getByTestId('light-theme')
+                await expect(buttonLight).toBeInTheDocument()
+                await expect(buttonLight).toContainElement(svgIconLight)
                 await expect(canvas.getByTestId('app')).toHaveClass('app light')
-                await expect(
-                    canvas.getByTestId('light-theme')
-                ).toBeInTheDocument()
             }
         )
 

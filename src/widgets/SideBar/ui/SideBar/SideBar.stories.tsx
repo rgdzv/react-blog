@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { SideBar } from './SideBar'
 import { ThemeDecorator } from 'shared/lib'
-import { within } from '@storybook/testing-library'
+import { userEvent, within } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
 
 const meta = {
@@ -21,10 +21,36 @@ export const Normal: Story = {
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
         const sidebar = canvas.getByTestId('sidebar')
+
+        await step(
+            'Expecting sidebar appearance with special class',
+            async () => {
+                await expect(sidebar).toBeInTheDocument()
+                await expect(sidebar).toHaveClass(
+                    'src-widgets-SideBar-ui-SideBar-SideBar-module__sideBar'
+                )
+            }
+        )
+    }
+}
+
+export const Collapsed: Story = {
+    args: {},
+    play: async (context) => {
+        const canvas = within(context.canvasElement)
+        const sidebar = canvas.getByTestId('sidebar')
+        const toggleButton = canvas.getByRole('button', {name: 'collapse-sidebar'})
+
+        if (Normal.play !== undefined) {
+            await Normal.play(context)
+        }
         
-        await step('Expecting sidebar appearance with special class', async () => {
-            await expect(sidebar).toBeInTheDocument()
-            await expect(sidebar).toHaveClass('src-widgets-SideBar-ui-SideBar-SideBar-module__sideBar')
+        
+        await context.step('Expecting sidebar collapse', async () => {
+            await userEvent.click(toggleButton)
+            await expect(sidebar).toHaveClass(
+                'src-widgets-SideBar-ui-SideBar-SideBar-module__sideBar src-widgets-SideBar-ui-SideBar-SideBar-module__collapsed'
+            )
         })
     }
 }

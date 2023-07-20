@@ -107,11 +107,11 @@ export const Collapsed: Story = {
             async () => {
                 await expect(main).toContainElement(svgHome)
                 await expect(main).not.toContainElement(
-                    canvas.queryByRole('link', { name: 'Главная' })
+                    canvas.queryByText('Главная')
                 )
                 await expect(about).toContainElement(svgInfo)
                 await expect(about).not.toContainElement(
-                    canvas.queryByRole('link', { name: 'О сайте' })
+                    canvas.queryByText('О сайте')
                 )
             }
         )

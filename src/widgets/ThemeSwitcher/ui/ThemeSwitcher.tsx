@@ -13,5 +13,11 @@ export const ThemeSwitcher: FC = () => {
             <ThemeLight data-testid='light-theme' />
         )
 
-    return <Button onClick={toggleTheme}>{icon}</Button>
+    const ariaLabel = theme === Theme.DARK ? 'to-light-theme' : 'to-dark-theme'
+
+    return (
+        <Button onClick={toggleTheme} aria-label={ariaLabel}>
+            {icon}
+        </Button>
+    )
 }

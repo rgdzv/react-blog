@@ -23,7 +23,7 @@ export const SideBar: FC = () => {
         <aside data-testid='sidebar' className={classNameFinal}>
             <NavBar collapsed={collapsed}/>
             <div className={styles.toggleArrow}>
-                <SideBarToggle onClick={handleToggle}/>
+                <SideBarToggle onClick={handleToggle} collapsed={collapsed}/>
             </div>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
