@@ -42,4 +42,4 @@ jobs:
             - name: build project (production)
               run: npm run build:prod 
             - name: test components with storybook
-              run: test-storybook:ci
+              run: npm run test-storybook:ci
