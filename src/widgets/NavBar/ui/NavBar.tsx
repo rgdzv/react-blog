@@ -20,7 +20,6 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
     }
 
     const linkList = links.map((item) => {
-
         const linkName = collapsed ? '' : t(item.name, { ns: item.file })
 
         const className = classNames(styles.list, {}, [
@@ -43,14 +42,16 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
             >
                 <>
                     {theme === 'light' ? item.icon.light : item.icon.dark}
-                    <AppLink to={item.to} aria-label={ariaLabel}>{linkName}</AppLink>
+                    <AppLink to={item.to} aria-label={ariaLabel}>
+                        {linkName}
+                    </AppLink>
                 </>
             </li>
         )
     })
 
     return (
-        <nav className={styles.navBar} data-testid="navbar">
+        <nav className={styles.navBar} data-testid='navbar'>
             <ul>{linkList}</ul>
         </nav>
     )

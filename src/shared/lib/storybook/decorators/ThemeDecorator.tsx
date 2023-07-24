@@ -2,7 +2,7 @@ import { type Decorator } from '@storybook/react'
 import { ThemeProvider, useTheme } from 'app/providers/ThemeProvider'
 import { type FC, type ReactElement, type ReactNode } from 'react'
 interface AppSimulationPropsInterface {
-    children: ReactNode 
+    children: ReactNode
 }
 
 const AppSimulation: FC<AppSimulationPropsInterface> = ({

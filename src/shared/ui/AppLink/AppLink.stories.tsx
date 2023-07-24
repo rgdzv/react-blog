@@ -8,7 +8,7 @@ const meta = {
     component: AppLink,
     tags: ['autodocs'],
     args: {
-        children: 'Text',
+        children: 'Text'
     }
 } satisfies Meta<typeof AppLink>
 
@@ -22,11 +22,14 @@ export const Normal: Story = {
     },
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
-        const link = canvas.getByRole('link', {name: /text/i})
+        const link = canvas.getByRole('link', { name: /text/i })
 
-        await step('Expecting link appearance with <href> attribute', async () => {
-            await expect(link).toBeInTheDocument()
-            await expect(link).toHaveAttribute('href', '/somewhere')
-        })
+        await step(
+            'Expecting link appearance with <href> attribute',
+            async () => {
+                await expect(link).toBeInTheDocument()
+                await expect(link).toHaveAttribute('href', '/somewhere')
+            }
+        )
     }
 }

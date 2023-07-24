@@ -39,13 +39,14 @@ export const Collapsed: Story = {
     play: async (context) => {
         const canvas = within(context.canvasElement)
         const sidebar = canvas.getByTestId('sidebar')
-        const toggleButton = canvas.getByRole('button', {name: 'collapse-sidebar'})
+        const toggleButton = canvas.getByRole('button', {
+            name: 'collapse-sidebar'
+        })
 
         if (Normal.play !== undefined) {
             await Normal.play(context)
         }
-        
-        
+
         await context.step('Expecting sidebar collapse', async () => {
             await userEvent.click(toggleButton)
             await expect(sidebar).toHaveClass(

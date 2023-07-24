@@ -17,7 +17,9 @@ export const FromLightToDark: Story = {
     args: {},
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
-        const buttonLight = canvas.getByRole('button', {name: 'to-dark-theme'})
+        const buttonLight = canvas.getByRole('button', {
+            name: 'to-dark-theme'
+        })
         const svgIconLight = canvas.getByTestId('light-theme')
 
         await step(
@@ -42,7 +44,9 @@ export const FromLightToDark: Story = {
             'Expecting dark them button appear and theme change if user clicks on icon',
             async () => {
                 await userEvent.click(buttonLight)
-                const buttonDark = canvas.getByRole('button', {name: 'to-light-theme'})
+                const buttonDark = canvas.getByRole('button', {
+                    name: 'to-light-theme'
+                })
                 const svgIconDark = canvas.getByTestId('dark-theme')
                 await expect(buttonDark).toBeInTheDocument()
                 await expect(buttonDark).toContainElement(svgIconDark)
@@ -58,13 +62,17 @@ export const FromDarkToLight: Story = {
     args: {},
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
-        const buttonLight = canvas.getByRole('button', {name: 'to-dark-theme'})
+        const buttonLight = canvas.getByRole('button', {
+            name: 'to-dark-theme'
+        })
 
         await step('Changing theme to dark', async () => {
             await userEvent.click(buttonLight)
         })
 
-        const buttonDark = canvas.getByRole('button', {name: 'to-light-theme'})
+        const buttonDark = canvas.getByRole('button', {
+            name: 'to-light-theme'
+        })
         const svgIconDark = canvas.getByTestId('dark-theme')
 
         await step(
@@ -89,7 +97,9 @@ export const FromDarkToLight: Story = {
             'Expecting dark them button appear and theme change if user clicks on icon',
             async () => {
                 await userEvent.click(buttonDark)
-                const buttonLight = canvas.getByRole('button', {name: 'to-dark-theme'})
+                const buttonLight = canvas.getByRole('button', {
+                    name: 'to-dark-theme'
+                })
                 const svgIconLight = canvas.getByTestId('light-theme')
                 await expect(buttonLight).toBeInTheDocument()
                 await expect(buttonLight).toContainElement(svgIconLight)

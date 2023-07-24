@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
-        errorElement: <NotFoundPage/>,
+        errorElement: <NotFoundPage />,
         children: [
             {
                 element: <MainPage />,
@@ -24,5 +24,5 @@ export const router = createBrowserRouter([
 ])
 
 export const RouterConfigProvider = (): ReactElement => (
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
 )

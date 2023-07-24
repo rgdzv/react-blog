@@ -18,10 +18,7 @@ export const LangSwitcher: FC = () => {
     const language = t('ru')
 
     return (
-        <Button
-            onClick={toggleLang}
-            className={ButtonTheme.LANG}
-        >
+        <Button onClick={toggleLang} className={ButtonTheme.LANG}>
             {language}
         </Button>
     )

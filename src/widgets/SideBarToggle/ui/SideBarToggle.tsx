@@ -4,11 +4,14 @@ import { Button } from 'shared/ui'
 import { ArrowDark, ArrowLight } from 'shared/assets'
 
 interface SideBarTogglePropsInterface {
-    onClick?: () => void;
+    onClick?: () => void
     collapsed: boolean
 }
 
-export const SideBarToggle: FC<SideBarTogglePropsInterface> = ({ onClick, collapsed }) => {
+export const SideBarToggle: FC<SideBarTogglePropsInterface> = ({
+    onClick,
+    collapsed
+}) => {
     const { theme } = useTheme()
 
     const icon =

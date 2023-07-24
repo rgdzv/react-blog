@@ -8,12 +8,11 @@ import { SideBar } from 'widgets/SideBar'
 const App: FC = () => {
     const { theme } = useTheme()
 
-    const classNameFinal = classNames("app", {}, [theme])
+    const classNameFinal = classNames('app', {}, [theme])
 
     return (
         <div className={classNameFinal}>
-            <header>
-            </header>
+            <header></header>
             <main className='content'>
                 <SideBar />
                 <AppRouter />

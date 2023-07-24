@@ -7,8 +7,8 @@ export enum ButtonTheme {
     RELOAD = 'reload'
 }
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children: ReactNode;
-    className?: ButtonTheme;
+    children: ReactNode
+    className?: ButtonTheme
 }
 
 export const Button: FC<ButtonPropsInterface> = ({

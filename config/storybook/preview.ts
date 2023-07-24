@@ -17,7 +17,7 @@ const preview: Preview = {
                     {
                         id: 'color-contrast',
                         enabled: false
-                    },
+                    }
                 ]
             },
             manual: false

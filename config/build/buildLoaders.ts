@@ -6,7 +6,6 @@ import { buildTSLoader } from './loaders/buildTSLoader'
 import { buildFileLoader } from './loaders/buildFileLoader'
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-    
     const cssLoader = buildCSSLoader(isDev)
     const typescriptLoader = buildTSLoader()
     const SVGRLoader = buildSVGLoader()

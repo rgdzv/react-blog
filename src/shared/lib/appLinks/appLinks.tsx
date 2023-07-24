@@ -17,8 +17,8 @@ export const links: Link[] = [
         name: 'Главная',
         file: 'main',
         icon: {
-            light: <HomeLight data-testid='home-light'/>,
-            dark: <HomeDark data-testid='home-dark'/>
+            light: <HomeLight data-testid='home-light' />,
+            dark: <HomeDark data-testid='home-dark' />
         }
     },
     {
@@ -26,8 +26,8 @@ export const links: Link[] = [
         name: 'О сайте',
         file: 'about',
         icon: {
-            light: <InfoLight data-testid='info-light'/>,
-            dark: <InfoDark data-testid='info-dark'/>
+            light: <InfoLight data-testid='info-light' />,
+            dark: <InfoDark data-testid='info-dark' />
         }
     }
 ]

@@ -19,9 +19,14 @@ export const Normal: Story = {
         const canvas = within(canvasElement)
         const notFoundPage = canvas.getByTestId('notfoundpage')
 
-        await step('Expecting notfound error block appearance with special class', async () => {
-            await expect(notFoundPage).toBeInTheDocument()
-            await expect(notFoundPage).toHaveClass('src-pages-NotFoundPage-ui-NotFoundPage-module__notFound')
-        })
+        await step(
+            'Expecting notfound error block appearance with special class',
+            async () => {
+                await expect(notFoundPage).toBeInTheDocument()
+                await expect(notFoundPage).toHaveClass(
+                    'src-pages-NotFoundPage-ui-NotFoundPage-module__notFound'
+                )
+            }
+        )
     }
 }
