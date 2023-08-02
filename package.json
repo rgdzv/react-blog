@@ -16,7 +16,7 @@
         "jest-unit": "jest --config config/jest/jest.config.json",
         "storybook": "storybook dev -p 6006 --config-dir config/storybook/",
         "build-storybook": "storybook build --config-dir config/storybook/",
-        "test-storybook": "test-storybook --config-dir config/storybook/"
+        "test-storybook": "test-storybook --config-dir config/storybook/ --verbose"
     },
     "author": "rgdzv",
     "license": "ISC",
