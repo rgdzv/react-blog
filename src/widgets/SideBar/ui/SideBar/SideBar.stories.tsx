@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { SideBar } from './SideBar'
-import { ThemeDecorator } from 'shared/lib'
 import { userEvent, within } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
 
@@ -8,8 +7,7 @@ const meta = {
     title: 'widget/SideBar',
     component: SideBar,
     tags: ['autodocs'],
-    argTypes: {},
-    decorators: [ThemeDecorator]
+    argTypes: {}
 } satisfies Meta<typeof SideBar>
 
 export default meta

@@ -16,8 +16,7 @@
         "jest-unit": "jest --config config/jest/jest.config.json",
         "storybook": "storybook dev -p 6006 --config-dir config/storybook/",
         "build-storybook": "storybook build --config-dir config/storybook/",
-        "test-storybook": "test-storybook --config-dir config/storybook/",
-        "test-storybook:ci": "npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run build-storybook --quiet && npx http-server storybook-static --port 6006 --silent\" \"npx wait-on tcp:127.0.0.1:6006 && npm run test-storybook\""
+        "test-storybook": "test-storybook --config-dir config/storybook/"
     },
     "author": "rgdzv",
     "license": "ISC",
