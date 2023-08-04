@@ -1,6 +1,5 @@
 import type { Preview } from '@storybook/react'
 import {
-    LanguageDecorator,
     RouterDecorator,
     StyleDecorator,
     ThemeDecorator
@@ -58,8 +57,7 @@ const preview: Preview = {
     decorators: [
         RouterDecorator,
         ThemeDecorator,
-        StyleDecorator,
-        LanguageDecorator
+        StyleDecorator
     ]
 }
 
