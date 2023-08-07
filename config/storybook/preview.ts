@@ -2,7 +2,8 @@ import type { Preview } from '@storybook/react'
 import {
     RouterDecorator,
     StyleDecorator,
-    ThemeDecorator
+    ThemeDecorator,
+    LanguageDecorator
 } from 'shared/lib'
 
 const preview: Preview = {
@@ -34,8 +35,8 @@ const preview: Preview = {
             toolbar: {
                 icon: 'globe',
                 items: [
-                    { value: 'en', title: 'English' },
-                    { value: 'ru', title: 'Russian' }
+                    { value: 'ru', title: 'Russian' },
+                    { value: 'en', title: 'English' }
                 ],
                 showName: true
             }
@@ -57,7 +58,8 @@ const preview: Preview = {
     decorators: [
         RouterDecorator,
         ThemeDecorator,
-        StyleDecorator
+        StyleDecorator,
+        LanguageDecorator
     ]
 }
 
