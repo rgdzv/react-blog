@@ -1,9 +1,9 @@
-name: Linting and Testing
+name: linting / testing / building
 on:
     push:
-        branches: [ master ]
+        branches: [master]
     pull_request:
-        branches: [ master ]
+        branches: [master]
 jobs:
     lint:
         runs-on: ubuntu-latest
@@ -18,8 +18,6 @@ jobs:
                   node-version: ${{ matrix.node-version }}
             - name: install dependencies
               run: npm ci
-            - name: build project (production)
-              run: npm run build:prod
             - name: check eslint rules
               run: npm run eslint
             - name: check stylelint rules
@@ -43,6 +41,22 @@ jobs:
               run: npm run build-storybook --quiet
             - name: serve Storybook and run tests
               run: |
-                npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-                  "npx http-server storybook-static --port 6006 --silent" \
-                  "npx wait-on tcp:6006 && npm run test-storybook"
+                  npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+                    "npx http-server storybook-static --port 6006 --silent" \
+                    "npx wait-on tcp:6006 && npm run test-storybook"
+    build:
+        runs-on: ubuntu-latest
+        needs: [lint, test]
+        strategy:
+            matrix:
+                node-version: [16.x]
+        steps:
+            - uses: actions/checkout@v3
+            - name: Starting Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: install dependencies
+              run: npm ci
+            - name: build project (production)
+              run: npm run build:prod
