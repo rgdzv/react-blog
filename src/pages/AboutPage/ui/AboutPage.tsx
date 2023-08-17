@@ -6,7 +6,7 @@ const AboutPage: FC = () => {
 
     const about = t('О сайте')
 
-    return <div>{about}</div>
+    return <div data-testid='about-page'>{about}</div>
 }
 
 export default AboutPage

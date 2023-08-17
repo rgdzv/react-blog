@@ -17,7 +17,7 @@ export const Normal: Story = {
     args: {},
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
-        const notFoundPage = canvas.getByTestId('notfoundpage')
+        const notFoundPage = canvas.getByTestId('not-found-page')
 
         await step(
             'Expecting notfound error block appearance with special class',

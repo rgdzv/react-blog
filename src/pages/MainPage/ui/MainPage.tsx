@@ -6,7 +6,7 @@ const MainPage: FC = () => {
 
     const main = t('Главная')
 
-    return <div>{main}</div>
+    return <div data-testid='main-page'>{main}</div>
 }
 
 export default MainPage

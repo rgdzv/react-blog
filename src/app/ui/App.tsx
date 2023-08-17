@@ -1,8 +1,8 @@
 import { type FC } from 'react'
-import './styles/index.scss'
+import '../styles/index.scss'
 import { classNames } from 'shared/lib'
-import { useTheme } from './providers/ThemeProvider'
-import { AppRouter } from './providers/RouterProvider'
+import { useTheme } from '../providers/ThemeProvider'
+import { AppRouter } from '../providers/RouterProvider'
 import { SideBar } from 'widgets/SideBar'
 
 const App: FC = () => {
