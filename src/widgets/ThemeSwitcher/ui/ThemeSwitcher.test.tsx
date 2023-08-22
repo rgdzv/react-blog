@@ -18,6 +18,7 @@ describe('ThemeSwitcher', () => {
     })
 
     test('switch theme to dark', async () => {
+        const user = userEvent.setup()
         customRender(<ThemeSwitcher />)
         const app = screen.getByTestId('app')
         const buttonLight = screen.getByRole('button', {
@@ -28,7 +29,7 @@ describe('ThemeSwitcher', () => {
         expect(app).toHaveClass('app light')
         expect(buttonLight).toBeInTheDocument()
         expect(buttonLight).toContainElement(svgIconLight)
-        await userEvent.click(buttonLight)
+        await user.click(buttonLight)
         const buttonDark = screen.getByRole('button', {
             name: 'to-light-theme'
         })

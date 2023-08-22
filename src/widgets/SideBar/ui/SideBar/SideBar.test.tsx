@@ -15,6 +15,7 @@ describe('SideBar', () => {
     })
 
     test('collapsed', async () => {
+        const user = userEvent.setup()
         render(<SideBar />, {
             wrapper: MemoryRouter
         })
@@ -25,11 +26,12 @@ describe('SideBar', () => {
         expect(sidebar).toBeInTheDocument()
         expect(toggleArrow).toBeInTheDocument()
         expect(sidebar).not.toHaveClass('collapsed')
-        await userEvent.click(toggleArrow)
+        await user.click(toggleArrow)
         expect(sidebar).toHaveClass('collapsed')
     })
 
     test('about link is active', async () => {
+        const user = userEvent.setup()
         render(<SideBar />, {
             wrapper: MemoryRouter
         })
@@ -38,11 +40,12 @@ describe('SideBar', () => {
         expect(sidebar).toBeInTheDocument()
         expect(aboutList).toBeInTheDocument()
         expect(aboutList).not.toHaveClass('active')
-        await userEvent.click(aboutList)
+        await user.click(aboutList)
         expect(aboutList).toHaveClass('active')
     })
 
     test('change language', async () => {
+        const user = userEvent.setup()
         render(<SideBar />, {
             wrapper: MemoryRouter
         })
@@ -52,7 +55,7 @@ describe('SideBar', () => {
         expect(sidebar).toBeInTheDocument()
         expect(mainLinkRU).toBeInTheDocument()
         expect(buttonLang).toBeInTheDocument()
-        await userEvent.click(buttonLang)
+        await user.click(buttonLang)
         const mainLinkRUAbsense = screen.queryByRole('link', {
             name: 'Главная'
         })
@@ -62,6 +65,7 @@ describe('SideBar', () => {
     })
 
     test('change theme to dark', async () => {
+        const user = userEvent.setup()
         customRender(<SideBar />)
         const app = screen.getByTestId('app')
         const buttonLight = screen.getByRole('button', {
@@ -72,7 +76,7 @@ describe('SideBar', () => {
         expect(app).toHaveClass('app light')
         expect(buttonLight).toBeInTheDocument()
         expect(buttonLight).toContainElement(svgIconLight)
-        await userEvent.click(buttonLight)
+        await user.click(buttonLight)
         const buttonDark = screen.getByRole('button', {
             name: 'to-light-theme'
         })

@@ -37,6 +37,7 @@ describe('NavBar', () => {
     })
 
     test('about link is active', async () => {
+        const user = userEvent.setup()
         render(<NavBar collapsed={true} />, {
             wrapper: MemoryRouter
         })
@@ -44,7 +45,7 @@ describe('NavBar', () => {
         const aboutList = screen.getByTestId('about')
         expect(navbar).toBeInTheDocument()
         expect(aboutList).not.toHaveClass('active')
-        await userEvent.click(aboutList)
+        await user.click(aboutList)
         expect(aboutList).toHaveClass('active')
     })
 })

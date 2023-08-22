@@ -10,19 +10,21 @@ describe('LangSwitcher', () => {
     })
 
     test('switch language to english', async () => {
+        const user = userEvent.setup()
         render(<LangSwitcher />)
         const buttonRU = screen.getByRole('button', { name: 'ru' })
         expect(buttonRU).toBeInTheDocument()
-        await userEvent.click(buttonRU)
+        await user.click(buttonRU)
         const buttonEN = screen.getByRole('button', { name: 'en' })
         expect(buttonEN).toBeInTheDocument()
     })
 
     test('switch language to russian', async () => {
+        const user = userEvent.setup()
         render(<LangSwitcher />)
         const buttonEN = screen.getByRole('button', { name: 'en' })
         expect(buttonEN).toBeInTheDocument()
-        await userEvent.click(buttonEN)
+        await user.click(buttonEN)
         const buttonRU = screen.getByRole('button', { name: 'ru' })
         expect(buttonRU).toBeInTheDocument()
     })
