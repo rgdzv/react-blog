@@ -1,11 +1,15 @@
-import { screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { renderWithRouter } from 'shared/lib'
+import { routes } from '../providers/RouterProvider'
+import { RouterProvider, createMemoryRouter } from 'react-router-dom'
 
 describe('App', () => {
     test('navigating to other routes', async () => {
         const user = userEvent.setup()
-        const { router } = renderWithRouter()
+        const router = createMemoryRouter(routes, {
+            initialEntries: ['/']
+        })
+        render(<RouterProvider router={router} />)
         expect(await screen.findByTestId('main-page')).toBeInTheDocument()
         expect(router.state.location.pathname).toEqual('/')
         const aboutLink = screen.getByTestId('about')
@@ -16,7 +20,10 @@ describe('App', () => {
     })
 
     test('navigating to non existing route', async () => {
-        renderWithRouter('/nonexisting')
+        const router = createMemoryRouter(routes, {
+            initialEntries: ['/nonexist']
+        })
+        render(<RouterProvider router={router} />)
         expect(await screen.findByTestId('not-found-page')).toBeInTheDocument()
     })
 })

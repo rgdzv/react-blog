@@ -2,7 +2,7 @@ import { SideBar } from './SideBar'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
-import { customRender, i18nForTests } from 'shared/lib'
+import { ThemeProviderTest, i18nForTests } from 'shared/lib'
 void i18nForTests()
 
 describe('SideBar', () => {
@@ -66,7 +66,13 @@ describe('SideBar', () => {
 
     test('change theme to dark', async () => {
         const user = userEvent.setup()
-        customRender(<SideBar />)
+        render(
+            <MemoryRouter>
+                <ThemeProviderTest>
+                    <SideBar />
+                </ThemeProviderTest>
+            </MemoryRouter>
+        )
         const app = screen.getByTestId('app')
         const buttonLight = screen.getByRole('button', {
             name: 'to-dark-theme'

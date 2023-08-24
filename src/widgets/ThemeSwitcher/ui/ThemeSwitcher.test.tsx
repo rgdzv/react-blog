@@ -1,11 +1,15 @@
-import { screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { ThemeSwitcher } from './ThemeSwitcher'
-import { customRender } from 'shared/lib'
+import { ThemeProviderTest } from 'shared/lib'
 
 describe('ThemeSwitcher', () => {
     test('render', () => {
-        customRender(<ThemeSwitcher />)
+        render(
+            <ThemeProviderTest>
+                <ThemeSwitcher />
+            </ThemeProviderTest>
+        )
         const app = screen.getByTestId('app')
         const buttonLight = screen.getByRole('button', {
             name: 'to-dark-theme'
@@ -19,7 +23,11 @@ describe('ThemeSwitcher', () => {
 
     test('switch theme to dark', async () => {
         const user = userEvent.setup()
-        customRender(<ThemeSwitcher />)
+        render(
+            <ThemeProviderTest>
+                <ThemeSwitcher />
+            </ThemeProviderTest>
+        )
         const app = screen.getByTestId('app')
         const buttonLight = screen.getByRole('button', {
             name: 'to-dark-theme'
