@@ -23,8 +23,8 @@ export const Normal: Story = {
         const navbar = canvas.getByTestId('navbar')
         const main = canvas.getByTestId('main')
         const about = canvas.getByTestId('about')
-        const svgHome = canvas.getByTestId('home-light')
-        const svgInfo = canvas.getByTestId('info-light')
+        const svgHome = canvas.getByTestId('home-icon')
+        const svgInfo = canvas.getByTestId('info-icon')
         const mainLink = canvas.getByRole('link', { name: 'Главная' })
         const infoLink = canvas.getByRole('link', { name: 'О сайте' })
 
@@ -75,8 +75,8 @@ export const Collapsed: Story = {
         const navbar = canvas.getByTestId('navbar')
         const main = canvas.getByTestId('main')
         const about = canvas.getByTestId('about')
-        const svgHome = canvas.getByTestId('home-light')
-        const svgInfo = canvas.getByTestId('info-light')
+        const svgHome = canvas.getByTestId('home-icon')
+        const svgInfo = canvas.getByTestId('info-icon')
 
         await step(
             'Expecting navbar appearance with special class',

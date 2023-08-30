@@ -22,6 +22,11 @@
 
             padding: 6px 16px;
 
+            .icon {
+                display: flex;
+                fill: var(--icon-color);
+            }
+
             a {
                 color: var(--text-color)
             }

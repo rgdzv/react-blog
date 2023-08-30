@@ -3,7 +3,6 @@ import styles from './NavBar.module.scss'
 import { AppLink } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { classNames, links } from 'shared/lib'
-import { useTheme } from 'app/providers/ThemeProvider'
 import { useLocation, useNavigate } from 'react-router-dom'
 interface NavBarPropsInterface {
     collapsed: boolean
@@ -11,7 +10,6 @@ interface NavBarPropsInterface {
 
 export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
     const navigate = useNavigate()
-    const { theme } = useTheme()
     const { pathname } = useLocation()
     const { t } = useTranslation(['main', 'about'])
 
@@ -41,7 +39,7 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
                 data-testid={item.file}
             >
                 <>
-                    {theme === 'light' ? item.icon.light : item.icon.dark}
+                    <div className={styles.icon}>{item.icon}</div>
                     <AppLink to={item.to} aria-label={ariaLabel}>
                         {linkName}
                     </AppLink>

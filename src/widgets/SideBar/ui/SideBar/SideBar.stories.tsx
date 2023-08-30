@@ -53,3 +53,54 @@ export const Collapsed: Story = {
         })
     }
 }
+
+export const ChangeLanguage: Story = {
+    args: {},
+    play: async (context) => {
+        const canvas = within(context.canvasElement)
+        const langRUButton = canvas.getByRole('button', {
+            name: 'ru'
+        })
+
+        if (Normal.play !== undefined) {
+            await Normal.play(context)
+        }
+
+        await context.step('Expecting language change', async () => {
+            await userEvent.click(langRUButton)
+            const langENButton = canvas.getByRole('button', {
+                name: 'en'
+            })
+            await expect(langENButton).toBeInTheDocument()
+        })
+    }
+}
+
+// export const ChangeTheme: Story = {
+//     args: {},
+//     play: async (context) => {
+//         const canvas = within(context.canvasElement)
+//         const app = canvas.getByTestId('app')
+//         const themeLightButton = canvas.getByRole('button', {
+//             name: 'to-dark-theme'
+//         })
+
+//         await context.step('Expecting app appearance', async () => {
+//             await expect(app).toBeInTheDocument()
+//             await expect(app).toHaveClass('app light')
+//         })
+
+//         if (Normal.play !== undefined) {
+//             await Normal.play(context)
+//         }
+
+//         await context.step('Expecting theme change', async () => {
+//             await userEvent.click(themeLightButton)
+//             const themeDarkButton = canvas.getByRole('button', {
+//                 name: 'to-light-theme'
+//             })
+//             await expect(app).toHaveClass('app dark')
+//             await expect(themeDarkButton).toBeInTheDocument()
+//         })
+//     }
+// }

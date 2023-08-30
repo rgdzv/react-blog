@@ -1,14 +1,11 @@
 import { type ReactElement } from 'react'
-import { InfoLight, HomeLight, HomeDark, InfoDark } from '../../assets'
+import { HomeIcon, InfoIcon } from '../../assets'
 
 interface Link {
     to: string
     name: string
     file: string
-    icon: {
-        light: ReactElement
-        dark: ReactElement
-    }
+    icon: ReactElement
 }
 
 export const links: Link[] = [
@@ -16,18 +13,12 @@ export const links: Link[] = [
         to: '/',
         name: 'Главная',
         file: 'main',
-        icon: {
-            light: <HomeLight data-testid='home-light' />,
-            dark: <HomeDark data-testid='home-dark' />
-        }
+        icon: <HomeIcon data-testid='home-icon'/>
     },
     {
         to: '/about',
         name: 'О сайте',
         file: 'about',
-        icon: {
-            light: <InfoLight data-testid='info-light' />,
-            dark: <InfoDark data-testid='info-dark' />
-        }
+        icon: <InfoIcon data-testid='info-icon' />
     }
 ]

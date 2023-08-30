@@ -1,4 +1,4 @@
-import { ArrowLight, ThemeLight } from 'shared/assets'
+import { ArrowIcon, ThemeIcon } from 'shared/assets'
 import { Button, ButtonTheme } from './Button'
 import { render, screen } from '@testing-library/react'
 
@@ -20,11 +20,11 @@ describe('Button', () => {
     test('theme button', () => {
         render(
             <Button>
-                <ThemeLight data-testid='light-theme' />
+                <ThemeIcon data-testid='theme-icon' />
             </Button>
         )
         const buttonName = screen.getByRole('button')
-        const svgIcon = screen.getByTestId('light-theme')
+        const svgIcon = screen.getByTestId('theme-icon')
         expect(buttonName).toBeInTheDocument()
         expect(buttonName).toHaveClass('button')
         expect(buttonName).toContainElement(svgIcon)
@@ -44,11 +44,11 @@ describe('Button', () => {
     test('sidebar toggle button', () => {
         render(
             <Button>
-                <ArrowLight data-testid='arrow-light' />
+                <ArrowIcon data-testid='arrow-icon' />
             </Button>
         )
         const buttonName = screen.getByRole('button')
-        const svgIcon = screen.getByTestId('arrow-light')
+        const svgIcon = screen.getByTestId('arrow-icon')
         expect(buttonName).toBeInTheDocument()
         expect(buttonName).toHaveClass('button')
         expect(buttonName).toContainElement(svgIcon)

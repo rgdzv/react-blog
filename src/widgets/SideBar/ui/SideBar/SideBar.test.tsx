@@ -2,8 +2,7 @@ import { SideBar } from './SideBar'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
-import { ThemeProviderTest, i18nForTests } from 'shared/lib'
-void i18nForTests()
+import { ThemeProviderTest } from 'shared/lib'
 
 describe('SideBar', () => {
     test('render', () => {
@@ -64,7 +63,7 @@ describe('SideBar', () => {
         expect(mainLinkEN).toBeInTheDocument()
     })
 
-    test('change theme to dark', async () => {
+    test('change theme', async () => {
         const user = userEvent.setup()
         render(
             <MemoryRouter>
@@ -77,18 +76,14 @@ describe('SideBar', () => {
         const buttonLight = screen.getByRole('button', {
             name: 'to-dark-theme'
         })
-        const svgIconLight = screen.getByTestId('light-theme')
         expect(app).toBeInTheDocument()
         expect(app).toHaveClass('app light')
         expect(buttonLight).toBeInTheDocument()
-        expect(buttonLight).toContainElement(svgIconLight)
         await user.click(buttonLight)
         const buttonDark = screen.getByRole('button', {
             name: 'to-light-theme'
         })
-        const svgIconDark = screen.getByTestId('dark-theme')
         expect(app).toHaveClass('app dark')
         expect(buttonDark).toBeInTheDocument()
-        expect(buttonDark).toContainElement(svgIconDark)
     })
 })
