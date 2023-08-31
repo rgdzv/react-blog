@@ -5,11 +5,4 @@ import HomeIcon from './icons/home-icon.svg'
 import InfoIcon from './icons/info-icon.svg'
 import ProfileIcon from './icons/profile-icon.svg'
 
-export {
-    ThemeIcon,
-    ArrowIcon,
-    ArticleIcon,
-    HomeIcon,
-    InfoIcon,
-    ProfileIcon
-}
+export { ThemeIcon, ArrowIcon, ArticleIcon, HomeIcon, InfoIcon, ProfileIcon }

@@ -13,7 +13,7 @@ export const links: Link[] = [
         to: '/',
         name: 'Главная',
         file: 'main',
-        icon: <HomeIcon data-testid='home-icon'/>
+        icon: <HomeIcon data-testid='home-icon' />
     },
     {
         to: '/about',

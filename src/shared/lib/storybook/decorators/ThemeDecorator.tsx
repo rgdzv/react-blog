@@ -7,10 +7,13 @@ export const AppSimulation = ({
 }: {
     children: ReactNode
 }): JSX.Element => {
-
     const { theme } = useTheme()
 
-    return <div className={`app ${theme}`} data-testid='app'>{children}</div>
+    return (
+        <div className={`app ${theme}`} data-testid='app'>
+            {children}
+        </div>
+    )
 }
 
 export const ThemeDecorator: Decorator = (Story) => {
