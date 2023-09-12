@@ -22,6 +22,8 @@
 
             padding: 6px 16px;
 
+            border-left: 2px solid transparent;
+
             .icon {
                 display: flex;
                 fill: var(--icon-color);
@@ -40,7 +42,7 @@
 
             &.active {
                 background: linear-gradient(88deg, rgb(94 211 243 / 30%) 0%, rgb(94 211 243 / 0%) 100%);
-                border-left: 2px solid var(--border-color);
+                border-left-color: var(--border-color);
 
                 a {
                     color: var(--border-color)

@@ -9,7 +9,7 @@ export const LanguageDecorator: Decorator = (Story, context) => {
 
     useEffect(() => {
         void i18n.changeLanguage(locale)
-    }, [locale])
+    }, [locale, i18n])
 
     return (
         <I18nextProvider i18n={i18n}>

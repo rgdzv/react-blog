@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib'
 import { useTheme } from '../providers/ThemeProvider'
 import { AppRouter } from '../providers/RouterProvider'
 import { SideBar } from 'widgets/SideBar'
+import { Header } from 'widgets/Header'
 
 const App: FC = () => {
     const { theme } = useTheme()
@@ -12,7 +13,7 @@ const App: FC = () => {
 
     return (
         <div className={classNameFinal}>
-            <header></header>
+            <Header />
             <main className='content'>
                 <SideBar />
                 <AppRouter />

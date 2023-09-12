@@ -38,12 +38,10 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
                 onClick={handleClick}
                 data-testid={item.file}
             >
-                <>
-                    <div className={styles.icon}>{item.icon}</div>
-                    <AppLink to={item.to} aria-label={ariaLabel}>
-                        {linkName}
-                    </AppLink>
-                </>
+                <div className={styles.icon}>{item.icon}</div>
+                <AppLink to={item.to} aria-label={ariaLabel}>
+                    {linkName}
+                </AppLink>
             </li>
         )
     })

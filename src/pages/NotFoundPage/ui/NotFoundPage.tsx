@@ -1,5 +1,4 @@
 import { type FC } from 'react'
-import { classNames } from 'shared/lib'
 import styles from './NotFoundPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
@@ -7,8 +6,6 @@ import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
 const NotFoundPage: FC = () => {
     const error = useRouteError()
     const { t } = useTranslation('error')
-
-    const classNameFinal = classNames(styles.notFound, {}, [])
 
     const errorType = isRouteErrorResponse(error) ? (
         <i>
@@ -29,7 +26,7 @@ const NotFoundPage: FC = () => {
     )
 
     return (
-        <div className={classNameFinal} data-testid='not-found-page'>
+        <div className={styles.notFound} data-testid='not-found-page'>
             {errorBlock}
         </div>
     )

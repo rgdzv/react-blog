@@ -1,0 +1,47 @@
+.dialog {
+    max-width: 20rem;
+    padding: 30px;
+
+    color: var(--text-color);
+
+    background-color: var(--widget-bg-color);
+    border: 1px solid var(--widget-bg-color);
+    border-radius: 22px;
+
+    &::backdrop {
+        background-color: #00000080;
+        backdrop-filter: blur(1px);
+    }
+
+    &[open] {
+        animation: show 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+        // &.closing {
+        //     animation: hide 150ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        // }
+    }
+}
+
+@keyframes show{
+    from {
+        transform: translateY(min(100px, 5vh));
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes hide{
+    from {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(min(100px, 5vh));
+        opacity: 0;
+    }
+}
