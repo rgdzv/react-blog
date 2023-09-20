@@ -4,6 +4,10 @@
 @import 'themes/dark';
 @import 'themes/light';
 
+html:has(dialog[open]) {
+    overflow: hidden;
+}
+
 .app {
     min-height: 100vh;
     padding: 0 30px;
