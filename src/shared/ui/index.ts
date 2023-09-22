@@ -1,3 +1,4 @@
 export { AppLink } from './AppLink/AppLink'
-export { Button, ButtonTheme } from './Button/Button'
+export { Button } from './Button/Button'
 export { Loader } from './Loader/Loader'
+export { Input } from './Input/Input'

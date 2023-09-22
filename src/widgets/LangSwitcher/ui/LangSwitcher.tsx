@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, ButtonTheme } from 'shared/ui'
+import { Button } from 'shared/ui'
 
 export const LangSwitcher: FC = () => {
     const { t, i18n } = useTranslation()
@@ -11,7 +11,7 @@ export const LangSwitcher: FC = () => {
     }
 
     return (
-        <Button onClick={toggleLang} className={ButtonTheme.LANG}>
+        <Button onClick={toggleLang} className='lang'>
             {language}
         </Button>
     )

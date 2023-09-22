@@ -1,5 +1,5 @@
 import { ArrowIcon, ThemeIcon } from 'shared/assets'
-import { Button, ButtonTheme } from './Button'
+import { Button } from './Button'
 import { render, screen } from '@testing-library/react'
 
 describe('Button', () => {
@@ -11,7 +11,7 @@ describe('Button', () => {
     })
 
     test('language button', () => {
-        render(<Button className={ButtonTheme.LANG}>RU</Button>)
+        render(<Button className='lang'>RU</Button>)
         const buttonName = screen.getByRole('button', { name: 'RU' })
         expect(buttonName).toBeInTheDocument()
         expect(buttonName).toHaveClass('button lang')
@@ -31,9 +31,7 @@ describe('Button', () => {
     })
 
     test('reload button', () => {
-        render(
-            <Button className={ButtonTheme.RELOAD}>Обновить страницу</Button>
-        )
+        render(<Button className='reload'>Обновить страницу</Button>)
         const buttonName = screen.getByRole('button', {
             name: 'Обновить страницу'
         })

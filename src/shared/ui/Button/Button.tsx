@@ -2,10 +2,8 @@ import { type ButtonHTMLAttributes, type FC, type ReactNode } from 'react'
 import { classNames } from 'shared/lib'
 import styles from './Button.module.scss'
 
-export enum ButtonTheme {
-    LANG = 'lang',
-    RELOAD = 'reload'
-}
+export type ButtonTheme = 'lang' | 'reload' | 'bordered'
+
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
     className?: ButtonTheme

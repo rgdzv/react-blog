@@ -70,11 +70,12 @@ export const Modal: FC<ModalPropsInterface> = ({
             className={classNameFinal}
             onClick={onClickOutside}
             onClose={closeModal}
+            data-testid='modal'
         >
             <article className={styles.dialogContent}>
                 <div className={styles.dialogSection}>{children}</div>
-                <footer>
-                    <Button onClick={onClickCloseButton}>
+                <footer className={styles.dialogFooter}>
+                    <Button onClick={onClickCloseButton} className='bordered'>
                         {closeButtonName}
                     </Button>
                 </footer>

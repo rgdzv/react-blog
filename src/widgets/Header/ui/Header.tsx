@@ -2,7 +2,8 @@ import { type FC } from 'react'
 import { Button } from 'shared/ui'
 import styles from './Header.module.scss'
 import { useTranslation } from 'react-i18next'
-import { Modal, useModal } from 'widgets/Modal'
+import { useModal } from 'widgets/Modal'
+import { LoginModal } from 'features/Authorization'
 
 export const Header: FC = () => {
     const { isModalOpen, openModal, closeModal } = useModal()
@@ -12,8 +13,10 @@ export const Header: FC = () => {
 
     return (
         <header className={styles.header}>
-            <Button onClick={openModal}>{signIn}</Button>
-            <Modal open={isModalOpen} closeModal={closeModal}></Modal>
+            <Button onClick={openModal} className='bordered'>
+                {signIn}
+            </Button>
+            <LoginModal open={isModalOpen} closeModal={closeModal} />
         </header>
     )
 }

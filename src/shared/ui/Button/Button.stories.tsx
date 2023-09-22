@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, ButtonTheme } from './Button'
+import { Button } from './Button'
 import { within } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
 import { ArrowIcon, ThemeIcon } from '../../assets'
@@ -40,7 +40,7 @@ export const Normal: Story = {
 export const LangButton: Story = {
     args: {
         children: 'RU',
-        className: ButtonTheme.LANG
+        className: 'lang'
     },
     play: async (context) => {
         const canvas = within(context.canvasElement)
@@ -106,7 +106,7 @@ export const ThemeIconButton: Story = {
 export const ReloadButton: Story = {
     args: {
         children: 'Обновить страницу',
-        className: ButtonTheme.RELOAD
+        className: 'reload'
     },
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)

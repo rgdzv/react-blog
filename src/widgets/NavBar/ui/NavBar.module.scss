@@ -1,8 +1,5 @@
 .navBar {
     padding: 20px 0;
-
-    // height: var(--navbar-height);
-
     background-color: var(--bg-color);
 
     ul {
@@ -30,7 +27,7 @@
             }
 
             a {
-                color: var(--text-color)
+                color: var(--text-color);
             }
 
             &.collapsed {

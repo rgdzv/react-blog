@@ -1,5 +1,5 @@
 .dialog {
-    max-width: 30%;
+    min-width: 15%;
     padding: 0;
 
     color: var(--text-color);
@@ -10,7 +10,7 @@
 
     &::backdrop {
         background-color: #00000080;
-        backdrop-filter: blur(1px);
+        backdrop-filter: blur(2px);
     }
 
     &[open] {
@@ -22,7 +22,24 @@
     }
 
     .dialogContent {
-        padding: 30px;
+        padding: 20px;
+
+        .dialogSection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+
+            button {
+                width: fit-content;
+            }
+        }
+
+        .dialogFooter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 }
 
