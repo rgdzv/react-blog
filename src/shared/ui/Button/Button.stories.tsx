@@ -106,7 +106,7 @@ export const ThemeIconButton: Story = {
 export const ReloadButton: Story = {
     args: {
         children: 'Обновить страницу',
-        className: 'reload'
+        className: 'bordered'
     },
     play: async ({ canvasElement, step }) => {
         const canvas = within(canvasElement)
@@ -121,7 +121,7 @@ export const ReloadButton: Story = {
                 await expect(buttonName).toBeInTheDocument()
                 await expect(buttonName).toHaveAttribute('type', 'button')
                 await expect(buttonName).toHaveClass(
-                    'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__reload'
+                    'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__bordered'
                 )
             }
         )

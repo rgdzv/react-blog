@@ -31,12 +31,12 @@ describe('Button', () => {
     })
 
     test('reload button', () => {
-        render(<Button className='reload'>Обновить страницу</Button>)
+        render(<Button className='bordered'>Обновить страницу</Button>)
         const buttonName = screen.getByRole('button', {
             name: 'Обновить страницу'
         })
         expect(buttonName).toBeInTheDocument()
-        expect(buttonName).toHaveClass('button reload')
+        expect(buttonName).toHaveClass('button bordered')
     })
 
     test('sidebar toggle button', () => {

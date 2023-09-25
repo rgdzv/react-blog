@@ -23,7 +23,7 @@
 
             .icon {
                 display: flex;
-                fill: var(--icon-color);
+                fill: var(--main-color);
             }
 
             a {
@@ -39,10 +39,10 @@
 
             &.active {
                 background: linear-gradient(88deg, rgb(94 211 243 / 30%) 0%, rgb(94 211 243 / 0%) 100%);
-                border-left-color: var(--border-color);
+                border-left-color: var(--main-color);
 
                 a {
-                    color: var(--border-color)
+                    color: var(--main-color)
                 }
             }
         }

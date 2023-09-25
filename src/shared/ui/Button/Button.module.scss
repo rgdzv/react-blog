@@ -18,24 +18,17 @@
 
     font-size: 22px;
     font-weight: 700;
-    color: var(--icon-color);
+    color: var(--main-color);
     text-transform: uppercase;
-}
-
-.reload {
-    padding: 8px 16px;
-    color: var(--error-text-color);
-    border: 1px solid var(--error-border-color);
-    border-radius: 16px;
 }
 
 .bordered {
     padding: 8px 16px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--main-color);
     border-radius: 48px;
     transition: background-color .2s linear;
 
     &:hover {
-        background-color: var(--icon-color)
+        background-color: var(--main-color)
     }
 }

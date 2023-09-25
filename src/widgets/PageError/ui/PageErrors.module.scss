@@ -7,9 +7,10 @@
     width: 100%;
     min-height: 100vh;
 
+    font-family: var(--font-family);
+    color: var(--text-color);
+
     h1 {
         margin-bottom: 20px;
-        font-family: var(--font-family);
-        color: var(--error-text-color);
     }
 }

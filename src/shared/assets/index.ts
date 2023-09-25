@@ -4,5 +4,16 @@ import ArticleIcon from './icons/article-icon.svg'
 import HomeIcon from './icons/home-icon.svg'
 import InfoIcon from './icons/info-icon.svg'
 import ProfileIcon from './icons/profile-icon.svg'
+import EyeIcon from './icons/eye-icon.svg'
+import EyeClosedIcon from './icons/eye-closed-icon.svg'
 
-export { ThemeIcon, ArrowIcon, ArticleIcon, HomeIcon, InfoIcon, ProfileIcon }
+export {
+    ThemeIcon,
+    ArrowIcon,
+    ArticleIcon,
+    HomeIcon,
+    InfoIcon,
+    ProfileIcon,
+    EyeIcon,
+    EyeClosedIcon
+}

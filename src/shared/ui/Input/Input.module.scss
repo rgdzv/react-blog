@@ -1,23 +1,45 @@
-.input {
-    margin-bottom: 20px;
-    padding: 8px 16px;
+.inputWrapper {
+    position: relative;
+    margin-bottom: 10px;
 
-    font-size: 16px;
-
-    background-color: var(--background-color);
-    border: 1px solid var(--border-color);
-    border-radius: 48px;
-
-    &::placeholder {
-        color: var(--hint-color);
+    &:nth-child(2) {
+        margin-bottom: 15px;
     }
 
-    &:first-child {
-        margin-bottom: 10px;
+    .input {
+        padding: 8px 16px;
+    
+        font-size: 16px;
+        color: var(--text-color);
+    
+        background-color: var(--background-color);
+        border: 1px solid var(--main-color);
+        border-radius: 48px;
+        caret-color: var(--main-color);
+
+        &::placeholder {
+            color: var(--hint-color);
+        }
+    
+        &:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
     }
 
-    &:focus {
-        border-color: var(--accent-color);
-        outline: none;
+    .icon-right {
+        cursor: pointer;
+
+        position: absolute;
+        z-index: 2;
+        top: 2px;
+        right: 10px;
+
+        line-height: 0;
+
+        svg {
+            fill: var(--main-color)
+        }
+        
     }
 }

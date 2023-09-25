@@ -16,7 +16,7 @@ export const PageError: FC = () => {
     return (
         <div className={styles.error} data-testid='pageError'>
             <h1>{errorText}</h1>
-            <Button onClick={reloadPage} className='reload'>
+            <Button onClick={reloadPage} className='bordered'>
                 {buttonText}
             </Button>
         </div>

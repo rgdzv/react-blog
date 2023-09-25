@@ -2,11 +2,10 @@ import { type ButtonHTMLAttributes, type FC, type ReactNode } from 'react'
 import { classNames } from 'shared/lib'
 import styles from './Button.module.scss'
 
-export type ButtonTheme = 'lang' | 'reload' | 'bordered'
-
+type ClassNameType = 'lang' | 'bordered'
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
-    className?: ButtonTheme
+    className?: ClassNameType
 }
 
 export const Button: FC<ButtonPropsInterface> = ({
@@ -16,7 +15,7 @@ export const Button: FC<ButtonPropsInterface> = ({
 }) => {
     const classNameChecked = className ?? ''
     const classNameFinal = classNames(styles.button, {}, [
-        styles[classNameChecked as ButtonTheme]
+        styles[classNameChecked as ClassNameType]
     ])
 
     return (
