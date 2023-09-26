@@ -2,8 +2,8 @@ import { type FC } from 'react'
 import { Button } from 'shared/ui'
 import styles from './Header.module.scss'
 import { useTranslation } from 'react-i18next'
-import { useModal } from 'widgets/Modal'
 import { LoginModal } from 'features/Authorization'
+import { useModal } from 'shared/lib'
 
 export const Header: FC = () => {
     const { isModalOpen, openModal, closeModal } = useModal()

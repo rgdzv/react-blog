@@ -1,8 +1,8 @@
-import { useTheme } from 'app/providers/ThemeProvider'
 import { type FC } from 'react'
 import { ThemeIcon } from 'shared/assets'
 import { Button } from 'shared/ui'
 import styles from './ThemeSwitcher.module.scss'
+import { useTheme } from 'shared/lib'
 
 export const ThemeSwitcher: FC = () => {
     const { theme, toggleTheme } = useTheme()

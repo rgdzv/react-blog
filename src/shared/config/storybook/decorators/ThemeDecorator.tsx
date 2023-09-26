@@ -1,6 +1,7 @@
 import { type Decorator } from '@storybook/react'
-import { ThemeProvider, useTheme } from 'app/providers/ThemeProvider'
+import { ThemeProvider } from 'app/providers/ThemeProvider'
 import { type ReactNode } from 'react'
+import { useTheme } from 'shared/lib/hooks/useTheme'
 
 export const AppSimulation = ({
     children

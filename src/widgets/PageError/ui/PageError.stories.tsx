@@ -34,7 +34,7 @@ export const Normal: Story = {
             'Expecting reloadButton to have a special class',
             async () => {
                 await expect(reloadButton).toHaveClass(
-                    'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__outsideTheme'
+                    'src-shared-ui-Button-Button-module__button src-shared-ui-Button-Button-module__bordered'
                 )
             }
         )

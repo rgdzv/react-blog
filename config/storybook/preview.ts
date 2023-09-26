@@ -4,7 +4,7 @@ import {
     StyleDecorator,
     ThemeDecorator,
     LanguageDecorator
-} from 'shared/lib'
+} from 'shared/config'
 
 const preview: Preview = {
     parameters: {

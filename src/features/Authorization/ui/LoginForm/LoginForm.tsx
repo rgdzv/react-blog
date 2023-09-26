@@ -1,12 +1,18 @@
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
+import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLoginUserName'
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
 import { useState, type FC, type ChangeEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { EyeClosedIcon, EyeIcon } from 'shared/assets'
 import { Button, Input } from 'shared/ui'
+import { loginActions } from 'features/Authorization/model/slice/loginSlice'
 
 export const LoginForm: FC = () => {
     const [openEye, setOpenEye] = useState(false)
-    const [nameValue, setNameValue] = useState('')
-    const [passwordValue, setPasswordValue] = useState('')
+    const username = useAppSelector(getLoginUserName)
+    const password = useAppSelector(getLoginPassword)
+    const dispatch = useAppDispatch()
+
     const { t } = useTranslation(['modal'])
     const namePlaceholder = t('Имя пользователя')
     const passwordPlaceholder = t('Пароль')
@@ -17,11 +23,11 @@ export const LoginForm: FC = () => {
     }
 
     const onNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
-        setNameValue(e.target.value)
+        dispatch(loginActions.setUserName(e.target.value))
     }
 
     const onPasswordChange = (e: ChangeEvent<HTMLInputElement>): void => {
-        setPasswordValue(e.target.value)
+        dispatch(loginActions.setPassword(e.target.value))
     }
 
     const passwordInputType = openEye ? 'text' : 'password'
@@ -34,13 +40,13 @@ export const LoginForm: FC = () => {
     return (
         <>
             <Input
-                value={nameValue}
+                value={username}
                 onChange={onNameChange}
                 placeholder={namePlaceholder}
                 type='text'
             />
             <Input
-                value={passwordValue}
+                value={password}
                 onChange={onPasswordChange}
                 placeholder={passwordPlaceholder}
                 type={passwordInputType}
