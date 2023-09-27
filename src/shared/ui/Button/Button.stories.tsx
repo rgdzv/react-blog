@@ -37,6 +37,23 @@ export const Normal: Story = {
     }
 }
 
+export const Disabled: Story = {
+    args: {
+        disabled: true
+    },
+    play: async ({ canvasElement, step }) => {
+        const canvas = within(canvasElement)
+
+        const buttonName = canvas.getByRole('button', { name: /button/i })
+
+        await step('Expecting button to be disabled', async () => {
+            await expect(buttonName).toBeInTheDocument()
+            await expect(buttonName).toHaveAttribute('disabled')
+            await expect(buttonName).toBeDisabled()
+        })
+    }
+}
+
 export const LangButton: Story = {
     args: {
         children: 'RU',

@@ -24,6 +24,6 @@
     "setupFilesAfterEnv": ["<rootDir>config/jest/setupTests.ts"],
     "moduleNameMapper": {
         "\\.(scss)$": "identity-obj-proxy",
-        "\\.svg": "<rootDir>src/shared/lib/jest/__mocks__/svg.tsx"
+        "\\.svg": "<rootDir>src/shared/lib/tests/jest/__mocks__/svg.tsx"
     }
 }

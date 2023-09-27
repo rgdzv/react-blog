@@ -6,11 +6,13 @@ type ClassNameType = 'lang' | 'bordered'
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
     className?: ClassNameType
+    disabled?: boolean
 }
 
 export const Button: FC<ButtonPropsInterface> = ({
     children,
     className,
+    disabled,
     ...otherProps
 }) => {
     const classNameChecked = className ?? ''
@@ -19,7 +21,12 @@ export const Button: FC<ButtonPropsInterface> = ({
     ])
 
     return (
-        <button type='button' className={classNameFinal} {...otherProps}>
+        <button
+            type='button'
+            className={classNameFinal}
+            disabled={disabled}
+            {...otherProps}
+        >
             {children}
         </button>
     )

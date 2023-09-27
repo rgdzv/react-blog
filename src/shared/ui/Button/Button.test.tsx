@@ -10,6 +10,15 @@ describe('Button', () => {
         expect(buttonName).toHaveClass('button')
     })
 
+    test('disabled button', () => {
+        render(<Button disabled={true}>test</Button>)
+        const buttonName = screen.getByRole('button', { name: 'test' })
+        expect(buttonName).toBeInTheDocument()
+        expect(buttonName).toHaveClass('button')
+        expect(buttonName).toHaveAttribute('disabled')
+        expect(buttonName).toBeDisabled()
+    })
+
     test('language button', () => {
         render(<Button className='lang'>RU</Button>)
         const buttonName = screen.getByRole('button', { name: 'RU' })

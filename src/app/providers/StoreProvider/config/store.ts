@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit'
 import { type StateSchema } from '../types/StateSchema'
 import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
-import { loginReducer } from 'features/Authorization/model/slice/loginSlice'
+import { loginReducer } from 'features/Authorization'
 
 export function createReduxStore(
     initialState?: StateSchema
