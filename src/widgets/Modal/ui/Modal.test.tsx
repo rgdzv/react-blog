@@ -20,7 +20,6 @@ describe('Modal', () => {
                 TEST
             </Modal>
         )
-        screen.debug()
         const modal = screen.getByTestId('modal')
         expect(modal).toBeInTheDocument()
         // expect(modal).toHaveAttribute('open')

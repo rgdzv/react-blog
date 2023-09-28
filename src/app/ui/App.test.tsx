@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { routes } from '../providers/RouterProvider'
 import { RouterProvider, createMemoryRouter } from 'react-router-dom'
+import { StoreProvider } from '../providers/StoreProvider'
 
 describe('App', () => {
     test('navigating to other routes', async () => {
@@ -9,7 +10,11 @@ describe('App', () => {
         const router = createMemoryRouter(routes, {
             initialEntries: ['/']
         })
-        render(<RouterProvider router={router} />)
+        render(
+            <StoreProvider>
+                <RouterProvider router={router} />
+            </StoreProvider>
+        )
         expect(await screen.findByTestId('main-page')).toBeInTheDocument()
         expect(router.state.location.pathname).toEqual('/')
         const aboutLink = screen.getByTestId('about')
