@@ -1,0 +1,14 @@
+.dialogContent {
+    padding: 30px;
+
+    .dialogFooter {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .loginError {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+}

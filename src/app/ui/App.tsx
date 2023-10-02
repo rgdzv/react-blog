@@ -10,7 +10,6 @@ const App: FC = () => {
     const { theme } = useTheme()
 
     const classNameFinal = classNames('app', {}, [theme])
-
     return (
         <div className={classNameFinal}>
             <Header />

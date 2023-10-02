@@ -29,7 +29,11 @@ export const loginSlice = createSlice({
         })
         builder.addCase(loginByUserName.rejected, (state, action) => {
             state.isLoading = false
-            state.error = action.payload
+            if (action.payload !== undefined) {
+                state.error = action.payload
+            } else {
+                state.error = action.error.message
+            }
         })
     }
 })

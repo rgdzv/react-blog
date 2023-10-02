@@ -6,7 +6,14 @@ import { LoginModal } from 'features/Authorization'
 import { useModal } from 'shared/lib'
 
 export const Header: FC = () => {
-    const { isModalOpen, openModal, closeModal } = useModal()
+    const {
+        openModal,
+        dialogRef,
+        isClosing,
+        closeModal,
+        onClickOutside,
+        onClickCloseButton
+    } = useModal()
     const { t } = useTranslation()
 
     const signIn = t('Войти')
@@ -16,7 +23,13 @@ export const Header: FC = () => {
             <Button onClick={openModal} className='bordered'>
                 {signIn}
             </Button>
-            <LoginModal open={isModalOpen} closeModal={closeModal} />
+            <LoginModal
+                dialogRef={dialogRef}
+                isClosing={isClosing}
+                closeModal={closeModal}
+                onClickOutside={onClickOutside}
+                onClickCloseButton={onClickCloseButton}
+            />
         </header>
     )
 }

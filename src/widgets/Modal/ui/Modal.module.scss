@@ -20,27 +20,6 @@
     &.closing {
         animation: hide 150ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
-
-    .dialogContent {
-        padding: 20px;
-
-        .dialogSection {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 10px;
-
-            button {
-                width: fit-content;
-            }
-        }
-
-        .dialogFooter {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    }
 }
 
 @keyframes show{

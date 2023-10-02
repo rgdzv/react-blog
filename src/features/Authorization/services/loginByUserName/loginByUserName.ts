@@ -23,7 +23,10 @@ export const loginByUserName = createAsyncThunk<
             )
             return data
         } catch (error) {
-            rejectWithValue('error!')
+            if (error.response === undefined) {
+                throw error
+            }
+            return rejectWithValue(error.response.data.message)
         }
     }
 )
