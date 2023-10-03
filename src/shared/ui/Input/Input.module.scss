@@ -25,6 +25,11 @@
             border-color: var(--accent-color);
             outline: none;
         }
+
+        &.error {
+            border-color: var(--error-color);
+        }
+        
     }
 
     .eye-icon {

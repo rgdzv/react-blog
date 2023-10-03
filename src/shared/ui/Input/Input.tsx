@@ -5,16 +5,18 @@ import {
     type InputHTMLAttributes
 } from 'react'
 import styles from './Input.module.scss'
+import { classNames } from 'shared/lib'
 
-type ClassNameIconType = 'icon-right'
+type ClassNameIconType = 'eye-icon'
 interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     value: string
     onChange: (e: ChangeEvent<HTMLInputElement>) => void
     type: string
     placeholder: string
     children?: ReactNode
-    classNameIcon?: string
+    classNameForIcon?: string
     handleOpenEye?: () => void
+    classNameForError?: string
 }
 
 export const Input: FC<InputPropsInterface> = ({
@@ -23,17 +25,21 @@ export const Input: FC<InputPropsInterface> = ({
     type = 'text',
     placeholder,
     children,
-    classNameIcon,
+    classNameForIcon,
     handleOpenEye,
+    classNameForError,
     ...otherProps
 }) => {
-    const classNameCheked = classNameIcon ?? ''
-    const iconClassName = styles[classNameCheked as ClassNameIconType]
+    const inputClassName = classNames(styles.input, {
+        [styles.error]: classNameForError
+    })
+
+    const iconClassName = styles[classNameForIcon as ClassNameIconType]
 
     return (
         <div className={styles.inputWrapper}>
             <input
-                className={styles.input}
+                className={inputClassName}
                 value={value}
                 onChange={onChange}
                 type={type}

@@ -13,11 +13,9 @@ export const SideBar: FC = () => {
         setCollapsed((prev) => !prev)
     }
 
-    const classNameFinal = classNames(
-        styles.sideBar,
-        { [styles.collapsed]: collapsed },
-        []
-    )
+    const classNameFinal = classNames(styles.sideBar, {
+        [styles.collapsed]: collapsed
+    })
 
     return (
         <aside data-testid='sidebar' className={classNameFinal}>

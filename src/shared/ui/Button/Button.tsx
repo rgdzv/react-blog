@@ -15,9 +15,8 @@ export const Button: FC<ButtonPropsInterface> = ({
     disabled,
     ...otherProps
 }) => {
-    const classNameChecked = className ?? ''
     const classNameFinal = classNames(styles.button, {}, [
-        styles[classNameChecked as ClassNameType]
+        styles[className as ClassNameType]
     ])
 
     return (

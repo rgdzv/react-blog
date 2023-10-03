@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
 import styles from './LoginModal.module.scss'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
+import { loginActions } from '../../model/slice/loginSlice'
 
 interface LoginModalPropsInterface {
     isClosing: boolean
@@ -35,6 +36,11 @@ export const LoginModal: FC<LoginModalPropsInterface> = ({
         void dispatch(loginByUserName())
     }
 
+    const handleCleanAll = (): void => {
+        closeModal()
+        dispatch(loginActions.cleanAll())
+    }
+
     const error =
         loginError !== undefined ? (
             <span className={styles.loginError}>{loginError}</span>
@@ -44,7 +50,7 @@ export const LoginModal: FC<LoginModalPropsInterface> = ({
         <Modal
             dialogRef={dialogRef}
             isClosing={isClosing}
-            closeModal={closeModal}
+            closeModal={handleCleanAll}
             onClickOutside={onClickOutside}
         >
             <article className={styles.dialogContent}>

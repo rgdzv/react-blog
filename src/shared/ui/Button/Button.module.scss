@@ -32,11 +32,7 @@
     border-radius: 48px;
     transition: background-color .2s linear;
 
-    &:hover {
+    &:hover:enabled {
         background-color: var(--main-color)
     }
 }
-
-// .disabled {
-//     opacity: 0.5
-// }

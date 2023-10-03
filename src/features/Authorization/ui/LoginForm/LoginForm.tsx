@@ -5,12 +5,13 @@ import { useState, type FC, type ChangeEvent, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { EyeClosedIcon, EyeIcon } from 'shared/assets'
 import { Input } from 'shared/ui'
-
 import { loginActions } from '../../model/slice/loginSlice'
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 
 export const LoginForm: FC = () => {
     const username = useAppSelector(getLoginUserName)
     const password = useAppSelector(getLoginPassword)
+    const error = useAppSelector(getLoginError)
     const dispatch = useAppDispatch()
     const [openEye, setOpenEye] = useState(false)
 
@@ -24,7 +25,6 @@ export const LoginForm: FC = () => {
 
     const onNameChange = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
-            // useCallBack is needed?
             dispatch(loginActions.setUserName(e.target.value))
         },
         [dispatch]
@@ -51,14 +51,16 @@ export const LoginForm: FC = () => {
                 onChange={onNameChange}
                 placeholder={namePlaceholder}
                 type='text'
+                classNameForError={error}
             />
             <Input
                 value={password}
                 onChange={onPasswordChange}
                 placeholder={passwordPlaceholder}
                 type={passwordInputType}
-                classNameIcon='eye-icon'
+                classNameForIcon='eye-icon'
                 handleOpenEye={handleOpenEye}
+                classNameForError={error}
             >
                 {passwordInputIcon}
             </Input>
