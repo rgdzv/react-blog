@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type StateSchema } from 'app/providers/StoreProvider/types/StateSchema'
 import axios from 'axios'
-import { type User } from 'entities/User'
+import { userActions, type User } from 'entities/User'
 
 export const loginByUserName = createAsyncThunk<
     User,
@@ -9,7 +9,7 @@ export const loginByUserName = createAsyncThunk<
     { rejectValue: string; state: StateSchema }
 >(
     'loginForm/loginByUserName',
-    async (_, { rejectWithValue, getState }): Promise<User | any> => {
+    async (_, { rejectWithValue, getState, dispatch }): Promise<User | any> => {
         try {
             const { loginForm } = getState()
             const username = loginForm?.username
@@ -21,11 +21,15 @@ export const loginByUserName = createAsyncThunk<
                     password
                 }
             )
+
+            dispatch(userActions.setAuthData(data))
+
             return data
         } catch (error) {
             if (error.response === undefined) {
                 throw error
             }
+
             return rejectWithValue(error.response.data.message)
         }
     }

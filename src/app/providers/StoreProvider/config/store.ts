@@ -6,6 +6,7 @@ import {
 import { type StateSchema } from '../types/StateSchema'
 import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 import { loginReducer } from 'features/Authorization'
+import { userReducer } from 'entities/User'
 
 export function createReduxStore(
     initialState?: StateSchema
@@ -16,7 +17,8 @@ export function createReduxStore(
 > {
     const store = configureStore<StateSchema>({
         reducer: {
-            loginForm: loginReducer
+            loginForm: loginReducer,
+            user: userReducer
         },
         devTools: __IS_DEV__,
         preloadedState: initialState

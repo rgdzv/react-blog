@@ -1,5 +1,8 @@
 {
     "ru": "en",
     "Войти": "Sign in",
-    "Закрыть": "Close"
+    "Закрыть": "Close",
+    "User not found": "User not found",
+    "Network Error": "Network Error",
+    "Выйти": "Sign out"
 }

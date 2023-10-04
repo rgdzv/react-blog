@@ -9,7 +9,10 @@
     .loginError {
         display: flex;
         justify-content: center;
+
         margin-top: 15px;
+
         background-color: var(--error-color);
+        border-radius: 48px;
     }
 }

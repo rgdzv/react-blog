@@ -20,3 +20,7 @@ export interface User {
     features?: FeatureFlags
     jsonSettings?: JsonSettings
 }
+
+export interface UserSchema {
+    authData?: User
+}
