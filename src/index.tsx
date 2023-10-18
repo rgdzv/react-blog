@@ -13,12 +13,12 @@ const root = createRoot(rootElement as HTMLElement)
 
 root.render(
     <StrictMode>
-        <StoreProvider>
-            <ErrorBoundary>
+        <ErrorBoundary>
+            <StoreProvider>
                 <ThemeProvider>
                     <RouterConfigProvider />
                 </ThemeProvider>
-            </ErrorBoundary>
-        </StoreProvider>
+            </StoreProvider>
+        </ErrorBoundary>
     </StrictMode>
 )

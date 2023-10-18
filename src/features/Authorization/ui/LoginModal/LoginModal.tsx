@@ -43,7 +43,7 @@ export const LoginModal: FC<LoginModalPropsInterface> = ({
     }
 
     const error =
-        translatedError !== undefined ? (
+        translatedError !== '' ? (
             <span className={styles.loginError}>{translatedError}</span>
         ) : null
 
