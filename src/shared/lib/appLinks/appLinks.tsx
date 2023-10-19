@@ -1,5 +1,5 @@
 import { type ReactElement } from 'react'
-import { HomeIcon, InfoIcon } from '../../assets'
+import { HomeIcon, InfoIcon, ProfileIcon } from '../../assets'
 
 interface Link {
     to: string
@@ -20,5 +20,11 @@ export const links: Link[] = [
         name: 'О сайте',
         file: 'about',
         icon: <InfoIcon data-testid='info-icon' />
+    },
+    {
+        to: '/profile',
+        name: 'Профиль',
+        file: 'profile',
+        icon: <ProfileIcon data-testid='profile-icon' />
     }
 ]

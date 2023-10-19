@@ -12,6 +12,9 @@ const resources = {
         about: {
             'О сайте': 'О сайте'
         },
+        profile: {
+            Профиль: 'Профиль'
+        },
         error: {
             'Страница не найдена!': 'Страница не найдена!',
             'Ой!': 'Ой!',
@@ -30,6 +33,9 @@ const resources = {
         },
         about: {
             'О сайте': 'About'
+        },
+        profile: {
+            Профиль: 'Profile'
         },
         error: {
             'Страница не найдена!': 'Page is not found!',

@@ -4,6 +4,7 @@ import { NotFoundPage } from 'pages/NotFoundPage'
 import { MainPage } from 'pages/MainPage'
 import { type ReactElement } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { ProfilePage } from 'pages/ProfilePage'
 
 export const routes = [
     {
@@ -18,6 +19,10 @@ export const routes = [
             {
                 path: 'about',
                 element: <AboutPage />
+            },
+            {
+                path: 'profile',
+                element: <ProfilePage />
             }
         ]
     }

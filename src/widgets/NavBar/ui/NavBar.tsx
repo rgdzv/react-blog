@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { useMemo, type FC } from 'react'
 import styles from './NavBar.module.scss'
 import { AppLink } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
@@ -11,40 +11,44 @@ interface NavBarPropsInterface {
 export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
-    const { t } = useTranslation(['main', 'about'])
+    const { t } = useTranslation(['main', 'about', 'profile'])
 
-    const handleNavigate = (to: string): void => {
-        navigate(to)
-    }
+    const linkList = useMemo(
+        () =>
+            links.map((item) => {
+                const linkName = collapsed
+                    ? ''
+                    : t(item.name, { ns: item.file })
 
-    const linkList = links.map((item) => {
-        const linkName = collapsed ? '' : t(item.name, { ns: item.file })
+                const className = classNames(styles.list, {}, [
+                    pathname === item.to ? styles.active : '',
+                    collapsed ? styles.collapsed : ''
+                ])
 
-        const className = classNames(styles.list, {}, [
-            pathname === item.to ? styles.active : '',
-            collapsed ? styles.collapsed : ''
-        ])
+                const handleNavigate = (): void => {
+                    navigate(item.to)
+                }
 
-        const handleClick = (): void => {
-            handleNavigate(item.to)
-        }
+                const ariaLabel = collapsed
+                    ? t(item.name, { ns: item.file })
+                    : ''
 
-        const ariaLabel = collapsed ? t(item.name, { ns: item.file }) : ''
-
-        return (
-            <li
-                key={item.name}
-                className={className}
-                onClick={handleClick}
-                data-testid={item.file}
-            >
-                <div className={styles.icon}>{item.icon}</div>
-                <AppLink to={item.to} aria-label={ariaLabel}>
-                    {linkName}
-                </AppLink>
-            </li>
-        )
-    })
+                return (
+                    <li
+                        key={item.name}
+                        className={className}
+                        onClick={handleNavigate}
+                        data-testid={item.file}
+                    >
+                        <div className={styles.icon}>{item.icon}</div>
+                        <AppLink to={item.to} aria-label={ariaLabel}>
+                            {linkName}
+                        </AppLink>
+                    </li>
+                )
+            }),
+        [collapsed, pathname, t, navigate]
+    )
 
     return (
         <nav className={styles.navBar} data-testid='navbar'>
