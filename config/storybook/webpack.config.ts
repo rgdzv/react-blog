@@ -17,13 +17,15 @@ export default ({
     }
 
     const definePlugin = new webpack.DefinePlugin({
-        __IS_DEV__: JSON.stringify(true)
+        __IS_DEV__: JSON.stringify(true),
+        __API__: JSON.stringify('')
     })
 
     config.resolve?.modules?.push(paths.src)
     config.resolve?.extensions?.push('ts', 'tsx')
 
     if (config.module?.rules !== undefined) {
+        // @ts-expect-error RuleSetRule
         config.module.rules = config.module?.rules?.map((rule: RuleSetRule) => {
             if (String(rule.test).includes('svg')) {
                 return { ...rule, exclude: /\.svg$/i }
