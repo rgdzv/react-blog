@@ -1,28 +1,11 @@
-import {
-    type AnyAction,
-    type ThunkMiddleware,
-    configureStore,
-    type ReducersMapObject,
-    type CombinedState,
-    type EmptyObject,
-    type MiddlewareArray
-} from '@reduxjs/toolkit'
+import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type ThunkExtraArg, type StateSchema } from '../types/StateSchema'
-import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
 import { loginReducer } from 'features/Authorization'
 import { axiosAPI } from 'shared/api'
 
-export function createReduxStore(
-    initialState?: StateSchema
-): ToolkitStore<
-    EmptyObject & StateSchema,
-    AnyAction,
-    MiddlewareArray<
-        [ThunkMiddleware<CombinedState<StateSchema>, AnyAction, ThunkExtraArg>]
-    >
-> {
+export function createReduxStore(initialState?: StateSchema) { // eslint-disable-line
     const rootReducers: ReducersMapObject<StateSchema> = {
         user: userReducer,
         loginForm: loginReducer
@@ -46,8 +29,6 @@ export function createReduxStore(
             }),
         enhancers: [reducerManager.enhancer]
     })
-
-    store.reducerManager = reducerManager
 
     return store
 }
