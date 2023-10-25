@@ -5,7 +5,8 @@ import { createReducerManager } from './reducerManager'
 import { loginReducer } from 'features/Authorization'
 import { axiosAPI } from 'shared/api'
 
-export function createReduxStore(initialState?: StateSchema) { // eslint-disable-line
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         user: userReducer,
         loginForm: loginReducer

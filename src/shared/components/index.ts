@@ -1,1 +1,4 @@
-export { DynamicReducerLoader } from './DynamicReducerLoader/DynamicReducerLoader'
+export {
+    DynamicReducerLoader,
+    type ReducersList
+} from './DynamicReducerLoader/DynamicReducerLoader'

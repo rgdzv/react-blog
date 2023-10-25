@@ -21,7 +21,7 @@ export const routes = [
                 element: <AboutPage />
             },
             {
-                path: 'profile',
+                path: 'profile/:id',
                 element: <ProfilePage />
             }
         ]

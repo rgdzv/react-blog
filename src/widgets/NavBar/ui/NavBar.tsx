@@ -2,8 +2,9 @@ import { useMemo, type FC } from 'react'
 import styles from './NavBar.module.scss'
 import { AppLink } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-import { classNames, links } from 'shared/lib'
+import { classNames } from 'shared/lib'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useAppLinks } from '../model/hooks/useAppLinks'
 interface NavBarPropsInterface {
     collapsed: boolean
 }
@@ -12,6 +13,7 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const { t } = useTranslation(['main', 'about', 'profile'])
+    const links = useAppLinks()
 
     const linkList = useMemo(
         () =>
@@ -47,7 +49,7 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
                     </li>
                 )
             }),
-        [collapsed, pathname, t, navigate]
+        [collapsed, pathname, t, navigate, links]
     )
 
     return (
