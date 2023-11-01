@@ -16,16 +16,13 @@ html:has(dialog[open]) {
     color: var(--text-color);
 
     background: var(--background-color);
-
-    header {
-        height: 50px;
-    }
 }
 
 .content {
     display: flex;
 
     &__outlet {
+        display: flex;
         flex-grow: 1;
         padding: 20px;
     }

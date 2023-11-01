@@ -27,10 +27,9 @@ export const DynamicReducerLoader: FC<DynamicReducerLoaderProps> = ({
 
     useEffect(() => {
         const mountedReducers = store.reducerManager.getMountedReducers()
-
         Object.entries(reducers).forEach(([name, reducer]) => {
             const mounted = mountedReducers[name as StateSchemaKey]
-            if (mounted !== undefined) {
+            if (mounted === undefined) {
                 store.reducerManager.add(name as StateSchemaKey, reducer)
                 dispatch({ type: `@INIT ${name} reducer` })
             }
@@ -44,7 +43,7 @@ export const DynamicReducerLoader: FC<DynamicReducerLoaderProps> = ({
                 })
             }
         }
-    }, [dispatch, reducers, removeAfterUnmount, store.reducerManager])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return <>{children}</>
 }

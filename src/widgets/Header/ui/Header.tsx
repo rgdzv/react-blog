@@ -6,6 +6,7 @@ import { LoginModal, loginActions } from 'features/Authorization'
 import { useModal } from 'shared/lib'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getUserAuthData, userActions } from 'entities/User'
+import { useNavigate } from 'react-router-dom'
 
 export const Header: FC = () => {
     const userAuthData = useAppSelector(getUserAuthData)
@@ -19,6 +20,7 @@ export const Header: FC = () => {
         onClickCloseButton
     } = useModal()
     const { t } = useTranslation()
+    const navigate = useNavigate()
     const signIn = t('Войти')
     const signOut = t('Выйти')
 
@@ -26,6 +28,7 @@ export const Header: FC = () => {
         dispatch(userActions.logOutUser())
         closeModal()
         dispatch(loginActions.cleanAll())
+        navigate('/')
     }
 
     if (userAuthData !== undefined) {
