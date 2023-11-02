@@ -5,7 +5,7 @@ import {
     type ReducersMapObject
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
-import { type UserSchema } from 'entities/User'
+import { type UserSchema } from 'entities_/User'
 import { type LoginSchema } from 'features/Authorization'
 import { type ProfileSchema } from 'features/ProfileEditing'
 

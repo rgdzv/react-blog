@@ -3,7 +3,8 @@ import {
     RouterDecorator,
     StyleDecorator,
     ThemeDecorator,
-    LanguageDecorator
+    LanguageDecorator,
+    StoreDecorator
 } from 'shared/config'
 
 const preview: Preview = {
@@ -57,6 +58,7 @@ const preview: Preview = {
     },
     decorators: [
         RouterDecorator,
+        StoreDecorator,
         ThemeDecorator,
         StyleDecorator,
         LanguageDecorator

@@ -22,7 +22,7 @@ export default ({
     })
 
     config.resolve?.modules?.push(paths.src)
-    config.resolve?.extensions?.push('ts', 'tsx')
+    config.resolve?.extensions?.push('.ts', '.tsx')
 
     if (config.module?.rules !== undefined) {
         // @ts-expect-error RuleSetRule

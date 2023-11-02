@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { LoginModal, loginActions } from 'features/Authorization'
 import { useModal } from 'shared/lib'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { getUserAuthData, userActions } from 'entities/User'
+import { getUserAuthData, userActions } from 'entities_/User'
 import { useNavigate } from 'react-router-dom'
 
 export const Header: FC = () => {

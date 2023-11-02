@@ -1,4 +1,4 @@
-import { type Profile } from 'entities/Profile'
+import { type Profile } from 'entities_/Profile'
 
 export interface ProfileSchema {
     data?: Profile
