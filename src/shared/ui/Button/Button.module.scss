@@ -27,9 +27,12 @@
 }
 
 .bordered {
+    height: max-content;
     padding: 8px 16px;
+
     border: 1px solid var(--main-color);
     border-radius: 48px;
+
     transition: background-color .2s linear;
 
     &:hover:enabled {

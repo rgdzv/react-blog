@@ -1,6 +1,10 @@
 import { type FC } from 'react'
 import { Image } from '../Image/Image'
 
-export const Avatar: FC = () => {
-    return <Image />
+interface AvatarPropsInterface {
+    className?: string
+}
+
+export const Avatar: FC<AvatarPropsInterface> = ({ className }) => {
+    return <Image className={className} />
 }

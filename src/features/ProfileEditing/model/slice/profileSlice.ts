@@ -3,6 +3,7 @@ import { type ProfileSchema } from '../types/profileSchema'
 import { getProfileData } from '../services/getProfileData/getProfileData'
 
 const initialState: ProfileSchema = {
+    readOnly: true,
     isLoading: false,
     error: undefined,
     data: undefined
@@ -11,7 +12,14 @@ const initialState: ProfileSchema = {
 export const profileSlice = createSlice({
     name: 'profile',
     initialState,
-    reducers: {},
+    reducers: {
+        startEdit: (state) => {
+            state.readOnly = false
+        },
+        cancelEdit: (state) => {
+            state.readOnly = true
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getProfileData.pending, (state) => {
