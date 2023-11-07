@@ -6,7 +6,13 @@
     "rules": {
         "selector-class-pattern": "[a-z]+(?:[A-Z][a-z]+)*",
         "declaration-property-value-no-unknown": true,
-        "indentation": 4
+        "indentation": 4,
+        "property-no-unknown": [
+            true,
+            {
+                "ignoreProperties": ["composes", "compose-with"]
+            }
+        ]
     },
     "ignoreFiles": ["**/node_modules", "**/public"]
 }

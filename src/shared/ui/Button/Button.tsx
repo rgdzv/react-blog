@@ -2,7 +2,8 @@ import { type ButtonHTMLAttributes, type FC, type ReactNode } from 'react'
 import { classNames } from 'shared/lib'
 import styles from './Button.module.scss'
 
-type ClassNameType = 'lang' | 'bordered'
+type ClassNameType = 'lang' | 'bordered' | 'bordered_green' | 'bordered_red'
+
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
     className?: ClassNameType

@@ -4,20 +4,21 @@ import { Avatar, Button } from 'shared/ui'
 import styles from './ProfileEditHeader.module.scss'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
-import { getUserAuthData } from 'entities_/User'
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
 import { classNames } from 'shared/lib'
 import { profileActions } from '../../model/slice/profileSlice'
 
-export const ProfileEditHeader: FC = () => {
+interface ProfileEditHeaderPropsInterface {
+    canEdit: boolean
+    avatar: string
+}
+
+export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
+    canEdit,
+    avatar
+}) => {
     const readOnly = useAppSelector(getProfileReadOnly)
-    const authData = useAppSelector(getUserAuthData)
-    const profileData = useAppSelector(getProfileData)
     const dispatch = useAppDispatch()
-    const canEdit = profileData?.id === authData?.id
     const { t } = useTranslation(['profile'])
-    const cancel = t('Отменить')
-    const edit = readOnly === false ? t('Сохранить') : t('Редактировать')
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.startEdit())
@@ -29,27 +30,30 @@ export const ProfileEditHeader: FC = () => {
 
     const onSaveEdit = useCallback(() => {}, [])
 
+    const cancel = t('Отменить')
+    const edit = readOnly === false ? t('Сохранить') : t('Редактировать')
     const handleClickEdit = readOnly === false ? onSaveEdit : onEdit
+    const editButtonClassName =
+        readOnly !== false ? 'bordered' : 'bordered_green'
+    const classNameFinal = classNames(styles.profileHeader, {
+        [styles.notEditable]: !canEdit
+    })
 
     const canEditBlock = canEdit ? (
         <>
             {readOnly === false ? (
-                <Button className='bordered' onClick={onCalcelEdit}>
+                <Button className='bordered_red' onClick={onCalcelEdit}>
                     {cancel}
                 </Button>
             ) : null}
-            <Avatar />
-            <Button className='bordered' onClick={handleClickEdit}>
+            <Avatar avatar={avatar} />
+            <Button className={editButtonClassName} onClick={handleClickEdit}>
                 {edit}
             </Button>
         </>
     ) : (
-        <Avatar />
+        <Avatar avatar={avatar} />
     )
-
-    const classNameFinal = classNames(styles.profileHeader, {
-        [styles.notEditable]: !canEdit
-    })
 
     return <header className={classNameFinal}>{canEditBlock}</header>
 }

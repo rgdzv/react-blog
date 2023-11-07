@@ -39,3 +39,21 @@
         background-color: var(--main-color)
     }
 }
+
+.bordered_red {
+    composes: bordered; 
+    border-color: var(--error-color);
+
+    &:hover:enabled {
+        background-color: var(--error-color)
+    }
+}
+
+.bordered_green {
+    composes: bordered; 
+    border-color: var(--green-color);
+
+    &:hover:enabled {
+        background-color: var(--green-color)
+    }
+}

@@ -6,6 +6,7 @@ import InfoIcon from './icons/info-icon.svg'
 import ProfileIcon from './icons/profile-icon.svg'
 import EyeIcon from './icons/eye-icon.svg'
 import EyeClosedIcon from './icons/eye-closed-icon.svg'
+import noavatar from './icons/no-avatar-icon.jpg'
 
 export {
     ThemeIcon,
@@ -15,5 +16,6 @@ export {
     InfoIcon,
     ProfileIcon,
     EyeIcon,
-    EyeClosedIcon
+    EyeClosedIcon,
+    noavatar
 }

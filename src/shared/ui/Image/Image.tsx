@@ -1,17 +1,14 @@
 import { type FC } from 'react'
 import styles from './Image.module.scss'
-import { classNames } from '../../lib/classNames/classNames'
 
 interface ImagePropsInterface {
-    className?: string
+    avatar: string
 }
 
-export const Image: FC<ImagePropsInterface> = ({ className }) => {
-    const classNameFinal = classNames(styles.avatar, {}, [className as string])
-
+export const Image: FC<ImagePropsInterface> = ({ avatar }) => {
     return (
-        <div className={classNameFinal}>
-            <img className={styles.image}></img>
+        <div className={styles.avatar}>
+            <img className={styles.image} src={avatar} />
         </div>
     )
 }

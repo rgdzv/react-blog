@@ -1,31 +1,22 @@
-import { useEffect, type FC } from 'react'
-import { DynamicReducerLoader, type ReducersList } from 'shared/components'
-import { profileReducer } from '../../model/slice/profileSlice'
-import { useAppDispatch } from 'app/providers/StoreProvider'
-import { getProfileData } from '../../model/services/getProfileData/getProfileData'
-import { useParams } from 'react-router-dom'
+import { type FC } from 'react'
 import styles from './ProfileEditWrapper.module.scss'
 import { ProfileEditHeader } from '../ProfileEditHeader/ProfileEditHeader'
-
-const reducers: ReducersList = {
-    profile: profileReducer
-}
+import { useAppSelector } from 'app/providers/StoreProvider'
+import { getUserAuthData } from 'entities_/User'
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
+import { noavatar } from 'shared/assets'
 
 export const ProfileEditWrapper: FC = () => {
-    const dispatch = useAppDispatch()
-    const { id } = useParams()
+    const authData = useAppSelector(getUserAuthData)
+    const profileData = useAppSelector(getProfileData)
 
-    useEffect(() => {
-        if (id !== undefined) {
-            void dispatch(getProfileData(String(id)))
-        }
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    const canEdit = profileData?.id === authData?.id
+
+    const avatar = profileData?.avatar ?? noavatar
 
     return (
-        <DynamicReducerLoader reducers={reducers}>
-            <div className={styles.profileWrapper}>
-                <ProfileEditHeader />
-            </div>
-        </DynamicReducerLoader>
+        <div className={styles.profileWrapper}>
+            <ProfileEditHeader canEdit={canEdit} avatar={avatar} />
+        </div>
     )
 }
