@@ -57,3 +57,8 @@
         background-color: var(--green-color)
     }
 }
+
+.bordered_red_invisible {
+    composes: bordered_red;
+    visibility: hidden;
+}

@@ -1,6 +1,6 @@
 import { useCallback, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Avatar, Button } from 'shared/ui'
+import { Button, Image } from 'shared/ui'
 import styles from './ProfileEditHeader.module.scss'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
@@ -10,11 +10,13 @@ import { profileActions } from '../../model/slice/profileSlice'
 interface ProfileEditHeaderPropsInterface {
     canEdit: boolean
     avatar: string
+    isLoading: boolean
 }
 
 export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
     canEdit,
-    avatar
+    avatar,
+    isLoading
 }) => {
     const readOnly = useAppSelector(getProfileReadOnly)
     const dispatch = useAppDispatch()
@@ -35,24 +37,34 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
     const handleClickEdit = readOnly === false ? onSaveEdit : onEdit
     const editButtonClassName =
         readOnly !== false ? 'bordered' : 'bordered_green'
+    const cancelButtonClassName =
+        readOnly === false ? 'bordered_red' : 'bordered_red_invisible'
     const classNameFinal = classNames(styles.profileHeader, {
         [styles.notEditable]: !canEdit
     })
 
     const canEditBlock = canEdit ? (
         <>
-            {readOnly === false ? (
-                <Button className='bordered_red' onClick={onCalcelEdit}>
-                    {cancel}
-                </Button>
-            ) : null}
-            <Avatar avatar={avatar} />
+            <Button className={cancelButtonClassName} onClick={onCalcelEdit}>
+                {cancel}
+            </Button>
+            <Image
+                avatar={avatar}
+                className='avatar_profile'
+                alt='avatar'
+                isLoading={isLoading}
+            />
             <Button className={editButtonClassName} onClick={handleClickEdit}>
                 {edit}
             </Button>
         </>
     ) : (
-        <Avatar avatar={avatar} />
+        <Image
+            avatar={avatar}
+            className='avatar_profile'
+            alt='avatar'
+            isLoading={isLoading}
+        />
     )
 
     return <header className={classNameFinal}>{canEditBlock}</header>

@@ -1,6 +1,8 @@
 .profileWrapper {
     display: flex;
+    justify-content: center;
 
+    min-width: 780px;
     padding: 20px;
 
     background-color: var(--widget-bg-color-darker);

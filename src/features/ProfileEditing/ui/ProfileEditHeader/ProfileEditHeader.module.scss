@@ -1,11 +1,11 @@
 .profileHeader {
     display: flex;
-    flex-grow: 1;
     align-items: center;
     justify-content: space-between;
 
+    width: 100%;
     margin-bottom: 20px;
-    padding: 0 80px;
+    padding: 0 20px;
 }
 
 .notEditable {
