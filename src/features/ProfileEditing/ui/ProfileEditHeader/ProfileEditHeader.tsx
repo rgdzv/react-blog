@@ -26,39 +26,51 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
         dispatch(profileActions.startEdit())
     }, [dispatch])
 
-    const onCalcelEdit = useCallback(() => {
+    const onCancelEdit = useCallback(() => {
         dispatch(profileActions.cancelEdit())
     }, [dispatch])
 
     const onSaveEdit = useCallback(() => {}, [])
 
     const cancel = t('Отменить')
-    const edit = readOnly === false ? t('Сохранить') : t('Редактировать')
-    const handleClickEdit = readOnly === false ? onSaveEdit : onEdit
-    const editButtonClassName =
-        readOnly !== false ? 'bordered' : 'bordered_green'
-    const cancelButtonClassName =
-        readOnly === false ? 'bordered_red' : 'bordered_red_invisible'
+    const edit = !readOnly ? t('Сохранить') : t('Изменить')
+    const handleClickEdit = !readOnly ? onSaveEdit : onEdit
+    const editButtonClassName = readOnly ? 'bordered' : 'bordered_green'
+    const cancelButtonClassName = !readOnly
+        ? 'bordered_red'
+        : 'bordered_red_invisible'
     const classNameFinal = classNames(styles.profileHeader, {
         [styles.notEditable]: !canEdit
     })
 
-    const canEditBlock = canEdit ? (
+    const canEditBlock = canEdit && (
         <>
-            <Button className={cancelButtonClassName} onClick={onCalcelEdit}>
-                {cancel}
-            </Button>
+            <div className={styles.left}>
+                <Button
+                    className={cancelButtonClassName}
+                    onClick={onCancelEdit}
+                >
+                    {cancel}
+                </Button>
+            </div>
             <Image
                 avatar={avatar}
                 className='avatar_profile'
-                alt='avatar'
+                alt='profile_avatar'
                 isLoading={isLoading}
             />
-            <Button className={editButtonClassName} onClick={handleClickEdit}>
-                {edit}
-            </Button>
+            <div className={styles.right}>
+                <Button
+                    className={editButtonClassName}
+                    onClick={handleClickEdit}
+                >
+                    {edit}
+                </Button>
+            </div>
         </>
-    ) : (
+    )
+
+    const cannotEditBlock = !canEdit && (
         <Image
             avatar={avatar}
             className='avatar_profile'
@@ -67,5 +79,10 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
         />
     )
 
-    return <header className={classNameFinal}>{canEditBlock}</header>
+    return (
+        <header className={classNameFinal}>
+            {canEditBlock}
+            {cannotEditBlock}
+        </header>
+    )
 }

@@ -27,6 +27,7 @@
 }
 
 .bordered {
+    width: max-content;
     height: max-content;
     padding: 8px 16px;
 
@@ -41,7 +42,7 @@
 }
 
 .bordered_red {
-    composes: bordered; 
+    composes: bordered;
     border-color: var(--error-color);
 
     &:hover:enabled {
@@ -50,8 +51,8 @@
 }
 
 .bordered_green {
-    composes: bordered; 
-    border-color: var(--green-color);
+    composes: bordered;
+    border-color: var(--green-color); 
 
     &:hover:enabled {
         background-color: var(--green-color)

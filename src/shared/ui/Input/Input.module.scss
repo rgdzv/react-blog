@@ -1,12 +1,10 @@
 .inputWrapper {
     position: relative;
-    margin-bottom: 10px;
-
-    &:nth-child(2) {
-        margin-bottom: 15px;
-    }
+    display: flex;
+    align-items: center;
 
     .input {
+        width: 100%;
         padding: 8px 16px;
     
         font-size: 16px;
@@ -29,7 +27,10 @@
         &.error {
             border-color: var(--error-color);
         }
-        
+
+        &.profile_input {
+            background-color: transparent;
+        }
     }
 
     .eye-icon {
@@ -46,4 +47,12 @@
             fill: var(--main-color)
         }
     }
+}
+
+.label {
+    cursor: pointer;
+}
+
+.profile_label {
+    margin-right: 5px;
 }

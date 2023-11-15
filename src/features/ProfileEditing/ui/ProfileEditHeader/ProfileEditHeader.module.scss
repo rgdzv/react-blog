@@ -1,13 +1,21 @@
 .profileHeader {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    justify-content: space-between;
 
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 0 20px;
 }
 
 .notEditable {
-    justify-content: center;
+    grid-template-columns: 1fr;
+}
+
+.left {
+    justify-self: start;
+}
+
+.right {
+    justify-self: end;
 }

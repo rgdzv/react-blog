@@ -22,7 +22,7 @@ export const Image: FC<ImagePropsInterface> = ({
         styles[className as ClassNameType]
     ])
     const conditionBlock =
-        isLoading === true ? (
+        isLoading ?? false ? (
             <Skeleton />
         ) : (
             <img className={styles.image} src={avatar} alt={alt} />

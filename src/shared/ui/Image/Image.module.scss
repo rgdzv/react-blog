@@ -1,5 +1,5 @@
 .imageWrapper {
-    border-radius: 50%;
+    justify-self: center;
 }
 
 .image {
@@ -12,4 +12,5 @@
 .avatar_profile {
     width: 128px;
     height: 128px;
+    border-radius: 50%;
 }

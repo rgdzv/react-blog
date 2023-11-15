@@ -6,6 +6,7 @@ import { getUserAuthData } from 'entities_/User'
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
 import { noavatar } from 'shared/assets'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
+import { ProfileEditCard } from '../ProfileEditCard/ProfileEditCard'
 
 export const ProfileEditWrapper: FC = () => {
     const authData = useAppSelector(getUserAuthData)
@@ -22,6 +23,7 @@ export const ProfileEditWrapper: FC = () => {
                 avatar={avatar}
                 isLoading={isLoading}
             />
+            <ProfileEditCard profileData={profileData} />
         </div>
     )
 }

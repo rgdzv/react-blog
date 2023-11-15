@@ -1,6 +1,14 @@
 .dialogContent {
     padding: 30px;
 
+    div {
+        margin-bottom: 10px;
+
+        &:nth-child(2) {
+            margin-bottom: 15px;
+        }
+    }
+
     .dialogFooter {
         display: flex;
         justify-content: space-between;

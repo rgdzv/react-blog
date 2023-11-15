@@ -31,7 +31,6 @@ export const LoginModal: FC<LoginModalPropsInterface> = ({
     const { t } = useTranslation()
     const close = t('Закрыть')
     const signIn = t('Войти')
-    const translatedError = t(loginError)
 
     const onLoginClick = (): void => {
         void dispatch(loginByUserName())
@@ -43,8 +42,8 @@ export const LoginModal: FC<LoginModalPropsInterface> = ({
     }
 
     const error =
-        translatedError !== '' ? (
-            <span className={styles.loginError}>{translatedError}</span>
+        loginError !== '' ? (
+            <span className={styles.loginError}>{loginError}</span>
         ) : null
 
     return (
