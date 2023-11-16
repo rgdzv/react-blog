@@ -23,7 +23,7 @@ export const ProfileEditWrapper: FC = () => {
                 avatar={avatar}
                 isLoading={isLoading}
             />
-            <ProfileEditCard profileData={profileData} />
+            <ProfileEditCard profileData={profileData} isLoading={isLoading} />
         </div>
     )
 }

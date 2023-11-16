@@ -6,20 +6,28 @@ import { type Profile } from '../../model/types/profile'
 
 interface ProfileCardPropsInterface {
     profileData: Profile
+    isLoading: boolean
 }
 
-export const ProfileCard: FC<ProfileCardPropsInterface> = ({ profileData }) => {
+export const ProfileCard: FC<ProfileCardPropsInterface> = ({
+    profileData,
+    isLoading
+}) => {
     const { t } = useTranslation('profile')
 
     const profileName = t('Имя')
     const profileLastName = t('Фамилия')
     const profileAge = t('Возраст')
     const profileCity = t('Город')
+    const profileUserName = t('Имя пользователя')
+    const profileAvatarLink = t('Ссылка на аватар')
 
     const profileNameValue = String(profileData?.first)
     const profileLastNameValue = String(profileData?.lastname)
     const profileAgeValue = String(profileData?.age)
     const profileCityValue = String(profileData?.city)
+    const profileUserNameValue = String(profileData?.username)
+    const profileAvatarLinkValue = String(profileData?.avatar)
 
     return (
         <>
@@ -32,6 +40,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({ profileData }) => {
                     id='profile_card_name'
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
+                    isLoading={isLoading}
                 />
                 <Input
                     value={profileLastNameValue}
@@ -41,6 +50,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({ profileData }) => {
                     id='profile_card_lastName'
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
+                    isLoading={isLoading}
                 />
                 <Input
                     value={profileAgeValue}
@@ -50,6 +60,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({ profileData }) => {
                     id='profile_card_age'
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
+                    isLoading={isLoading}
                 />
                 <Input
                     value={profileCityValue}
@@ -59,9 +70,31 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({ profileData }) => {
                     id='profile_card_city'
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
+                    isLoading={isLoading}
                 />
             </div>
-            {/* <div className={styles.profileCardRight}></div> */}
+            <div className={styles.profileCardRight}>
+                <Input
+                    value={profileUserNameValue}
+                    onChange={() => {}}
+                    placeholder={profileUserName}
+                    label={profileUserName}
+                    id='profile_card_username'
+                    classNameForLabel='profile_label'
+                    classNameForInput='profile_input'
+                    isLoading={isLoading}
+                />
+                <Input
+                    value={profileAvatarLinkValue}
+                    onChange={() => {}}
+                    placeholder={profileAvatarLink}
+                    label={profileAvatarLink}
+                    id='profile_card_avatar'
+                    classNameForLabel='profile_label'
+                    classNameForInput='profile_input'
+                    isLoading={isLoading}
+                />
+            </div>
         </>
     )
 }

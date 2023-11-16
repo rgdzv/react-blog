@@ -4,14 +4,16 @@ import { type Profile, ProfileCard } from 'entities_/Profile'
 
 interface ProfileEditCardPropsInterface {
     profileData: Profile
+    isLoading: boolean
 }
 
 export const ProfileEditCard: FC<ProfileEditCardPropsInterface> = ({
-    profileData
+    profileData,
+    isLoading
 }) => {
     return (
         <div className={styles.profileEditCard}>
-            <ProfileCard profileData={profileData} />
+            <ProfileCard profileData={profileData} isLoading={isLoading} />
         </div>
     )
 }

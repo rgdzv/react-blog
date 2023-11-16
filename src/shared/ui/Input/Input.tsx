@@ -6,10 +6,11 @@ import {
 } from 'react'
 import styles from './Input.module.scss'
 import { classNames } from 'shared/lib'
+import { Skeleton } from '../Skeleton/Skeleton'
 
 type ClassNameIconType = 'eye-icon'
-type classNameForLabel = 'profile_label'
-type classNameForInput = 'profile_input'
+type ClassNameForLabel = 'profile_label'
+type ClassNameForInput = 'profile_input'
 
 interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     label?: string
@@ -24,6 +25,7 @@ interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     classNameForError?: string
     classNameForLabel?: string
     classNameForInput?: string
+    isLoading?: boolean
 }
 
 export const Input: FC<InputPropsInterface> = ({
@@ -39,10 +41,11 @@ export const Input: FC<InputPropsInterface> = ({
     classNameForError,
     classNameForLabel,
     classNameForInput,
+    isLoading,
     ...otherProps
 }) => {
     const labelClassName = classNames(styles.label, {}, [
-        styles[classNameForLabel as classNameForLabel]
+        styles[classNameForLabel as ClassNameForLabel]
     ])
 
     const inputClassName = classNames(
@@ -50,7 +53,7 @@ export const Input: FC<InputPropsInterface> = ({
         {
             [styles.error]: classNameForError
         },
-        [styles[classNameForInput as classNameForInput]]
+        [styles[classNameForInput as ClassNameForInput]]
     )
 
     const iconClassName = styles[classNameForIcon as ClassNameIconType]
@@ -62,21 +65,26 @@ export const Input: FC<InputPropsInterface> = ({
             </label>
         ) : null
 
-    return (
-        <div className={styles.inputWrapper}>
-            {labelCondition}
-            <input
-                id={id}
-                className={inputClassName}
-                value={value}
-                onChange={onChange}
-                type={type}
-                placeholder={placeholder}
-                {...otherProps}
-            />
-            <div className={iconClassName} onClick={handleOpenEye}>
-                {children}
-            </div>
-        </div>
-    )
+    const showContentCondition =
+        isLoading === true ? (
+            <Skeleton />
+        ) : (
+            <>
+                {labelCondition}
+                <input
+                    id={id}
+                    className={inputClassName}
+                    value={value}
+                    onChange={onChange}
+                    type={type}
+                    placeholder={placeholder}
+                    {...otherProps}
+                />
+                <div className={iconClassName} onClick={handleOpenEye}>
+                    {children}
+                </div>
+            </>
+        )
+
+    return <div className={styles.inputWrapper}>{showContentCondition}</div>
 }

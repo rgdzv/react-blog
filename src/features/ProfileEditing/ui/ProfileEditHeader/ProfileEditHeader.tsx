@@ -1,6 +1,6 @@
 import { useCallback, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Image } from 'shared/ui'
+import { Button, Image, Skeleton } from 'shared/ui'
 import styles from './ProfileEditHeader.module.scss'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
@@ -43,7 +43,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
         [styles.notEditable]: !canEdit
     })
 
-    const canEditBlock = canEdit && (
+    const canEditBlock = canEdit ? (
         <>
             <div className={styles.left}>
                 <Button
@@ -68,9 +68,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
                 </Button>
             </div>
         </>
-    )
-
-    const cannotEditBlock = !canEdit && (
+    ) : (
         <Image
             avatar={avatar}
             className='avatar_profile'
@@ -79,10 +77,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
         />
     )
 
-    return (
-        <header className={classNameFinal}>
-            {canEditBlock}
-            {cannotEditBlock}
-        </header>
-    )
+    const showContentCondition = isLoading ? <Skeleton /> : canEditBlock
+
+    return <header className={classNameFinal}>{showContentCondition}</header>
 }

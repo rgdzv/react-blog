@@ -1,4 +1,5 @@
-.profileCardLeft {
+.profileCardLeft,
+.profileCardRight {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -7,3 +8,13 @@
         margin-bottom: 15px;
     }
 }
+
+// .profileCardRight {
+//     display: flex;
+//     flex-direction: column;
+//     width: 50%;
+
+//     div:not(:last-child) {
+//         margin-bottom: 15px;
+//     }
+// }

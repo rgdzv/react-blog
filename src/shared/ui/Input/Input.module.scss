@@ -1,7 +1,12 @@
 .inputWrapper {
     position: relative;
+
     display: flex;
     align-items: center;
+
+    height: 36px;
+
+    border-radius: 32px;
 
     .input {
         width: 100%;
