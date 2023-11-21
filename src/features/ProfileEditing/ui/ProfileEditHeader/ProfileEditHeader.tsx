@@ -34,7 +34,9 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
 
     const cancel = t('Отменить')
     const edit = !readOnly ? t('Сохранить') : t('Изменить')
+
     const handleClickEdit = !readOnly ? onSaveEdit : onEdit
+
     const editButtonClassName = readOnly ? 'bordered' : 'bordered_green'
     const cancelButtonClassName = !readOnly
         ? 'bordered_red'
@@ -56,8 +58,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
             <Image
                 avatar={avatar}
                 className='avatar_profile'
-                alt='profile_avatar'
-                isLoading={isLoading}
+                alt='profile-avatar'
             />
             <div className={styles.right}>
                 <Button
@@ -72,8 +73,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
         <Image
             avatar={avatar}
             className='avatar_profile'
-            alt='avatar'
-            isLoading={isLoading}
+            alt='profile-avatar'
         />
     )
 

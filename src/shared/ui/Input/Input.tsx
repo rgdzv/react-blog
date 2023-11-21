@@ -22,10 +22,11 @@ interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     children?: ReactNode
     classNameForIcon?: string
     handleOpenEye?: () => void
-    classNameForError?: string
+    isError?: string
     classNameForLabel?: string
     classNameForInput?: string
     isLoading?: boolean
+    disabled?: boolean
 }
 
 export const Input: FC<InputPropsInterface> = ({
@@ -38,10 +39,11 @@ export const Input: FC<InputPropsInterface> = ({
     children,
     classNameForIcon,
     handleOpenEye,
-    classNameForError,
+    isError,
     classNameForLabel,
     classNameForInput,
     isLoading,
+    disabled,
     ...otherProps
 }) => {
     const labelClassName = classNames(styles.label, {}, [
@@ -51,7 +53,7 @@ export const Input: FC<InputPropsInterface> = ({
     const inputClassName = classNames(
         styles.input,
         {
-            [styles.error]: classNameForError
+            [styles.error]: isError
         },
         [styles[classNameForInput as ClassNameForInput]]
     )
@@ -78,6 +80,7 @@ export const Input: FC<InputPropsInterface> = ({
                     onChange={onChange}
                     type={type}
                     placeholder={placeholder}
+                    disabled={disabled}
                     {...otherProps}
                 />
                 <div className={iconClassName} onClick={handleOpenEye}>

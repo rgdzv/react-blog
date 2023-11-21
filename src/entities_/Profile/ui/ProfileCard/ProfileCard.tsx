@@ -7,11 +7,13 @@ import { type Profile } from '../../model/types/profile'
 interface ProfileCardPropsInterface {
     profileData: Profile
     isLoading: boolean
+    readOnly: boolean
 }
 
 export const ProfileCard: FC<ProfileCardPropsInterface> = ({
     profileData,
-    isLoading
+    isLoading,
+    readOnly
 }) => {
     const { t } = useTranslation('profile')
 
@@ -41,6 +43,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
                     isLoading={isLoading}
+                    disabled={readOnly}
                 />
                 <Input
                     value={profileLastNameValue}
@@ -51,6 +54,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
                     isLoading={isLoading}
+                    disabled={readOnly}
                 />
                 <Input
                     value={profileAgeValue}
@@ -61,6 +65,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
                     isLoading={isLoading}
+                    disabled={readOnly}
                 />
                 <Input
                     value={profileCityValue}
@@ -71,6 +76,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
                     isLoading={isLoading}
+                    disabled={readOnly}
                 />
             </div>
             <div className={styles.profileCardRight}>
@@ -83,6 +89,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
                     isLoading={isLoading}
+                    disabled={readOnly}
                 />
                 <Input
                     value={profileAvatarLinkValue}
@@ -93,6 +100,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
                     isLoading={isLoading}
+                    disabled={readOnly}
                 />
             </div>
         </>

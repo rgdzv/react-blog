@@ -21,12 +21,12 @@ export const Image: FC<ImagePropsInterface> = ({
     const classNameFinal = classNames(styles.imageWrapper, {}, [
         styles[className as ClassNameType]
     ])
-    const conditionBlock =
-        isLoading ?? false ? (
+    const showContentCondition =
+        isLoading !== undefined ? (
             <Skeleton />
         ) : (
             <img className={styles.image} src={avatar} alt={alt} />
         )
 
-    return <div className={classNameFinal}>{conditionBlock}</div>
+    return <div className={classNameFinal}>{showContentCondition}</div>
 }

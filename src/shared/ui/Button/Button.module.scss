@@ -6,6 +6,7 @@
     padding: 0;
 
     font-family: var(--font-family);
+    font-size: 14px;
     color: var(--text-color);
 
     background: none;
@@ -29,7 +30,7 @@
 .bordered {
     width: max-content;
     height: max-content;
-    padding: 8px 16px;
+    padding: 7px 16px;
 
     border: 1px solid var(--main-color);
     border-radius: 48px;

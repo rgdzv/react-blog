@@ -51,7 +51,7 @@ export const LoginForm: FC = () => {
                 onChange={onNameChange}
                 placeholder={namePlaceholder}
                 type='text'
-                classNameForError={error}
+                isError={error}
             />
             <Input
                 value={password}
@@ -60,7 +60,7 @@ export const LoginForm: FC = () => {
                 type={passwordInputType}
                 classNameForIcon='eye-icon'
                 handleOpenEye={handleOpenEye}
-                classNameForError={error}
+                isError={error}
             >
                 {passwordInputIcon}
             </Input>

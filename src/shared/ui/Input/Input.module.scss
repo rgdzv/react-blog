@@ -4,17 +4,18 @@
     display: flex;
     align-items: center;
 
-    height: 36px;
+    height: 38px;
 
     border-radius: 32px;
 
     .input {
         width: 100%;
-        padding: 8px 16px;
-    
-        font-size: 16px;
+        padding: 7px 16px;
+
+        font:var(--font);
+        line-height: 0;
         color: var(--text-color);
-    
+
         background-color: var(--background-color);
         border: 1px solid var(--main-color);
         border-radius: 48px;
@@ -27,6 +28,10 @@
         &:focus {
             border-color: var(--accent-color);
             outline: none;
+        }
+
+        &:disabled {
+            color: var(--hint-color);
         }
 
         &.error {
@@ -56,6 +61,7 @@
 
 .label {
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .profile_label {
