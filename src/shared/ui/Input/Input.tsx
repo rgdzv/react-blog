@@ -1,22 +1,16 @@
-import {
-    type ReactNode,
-    type FC,
-    type ChangeEvent,
-    type InputHTMLAttributes
-} from 'react'
+import { type ReactNode, type FC, type InputHTMLAttributes } from 'react'
 import styles from './Input.module.scss'
 import { classNames } from 'shared/lib'
 import { Skeleton } from '../Skeleton/Skeleton'
 
 type ClassNameIconType = 'eye-icon'
-type ClassNameForLabel = 'profile_label'
-type ClassNameForInput = 'profile_input'
+type ClassNameLabelType = 'profile_label'
+type ClassNameInputType = 'profile_input'
 
 interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     label?: string
     id?: string
     value: string
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void
     type?: string
     placeholder: string
     children?: ReactNode
@@ -47,7 +41,7 @@ export const Input: FC<InputPropsInterface> = ({
     ...otherProps
 }) => {
     const labelClassName = classNames(styles.label, {}, [
-        styles[classNameForLabel as ClassNameForLabel]
+        styles[classNameForLabel as ClassNameLabelType]
     ])
 
     const inputClassName = classNames(
@@ -55,7 +49,7 @@ export const Input: FC<InputPropsInterface> = ({
         {
             [styles.error]: isError
         },
-        [styles[classNameForInput as ClassNameForInput]]
+        [styles[classNameForInput as ClassNameInputType]]
     )
 
     const iconClassName = styles[classNameForIcon as ClassNameIconType]

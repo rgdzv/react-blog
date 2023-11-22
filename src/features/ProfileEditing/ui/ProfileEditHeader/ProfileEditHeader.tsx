@@ -6,16 +6,17 @@ import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 import { classNames } from 'shared/lib'
 import { profileActions } from '../../model/slice/profileSlice'
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
 
 interface ProfileEditHeaderPropsInterface {
     canEdit: boolean
-    avatar: string
+    profileAvatar: string
     isLoading: boolean
 }
 
 export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
     canEdit,
-    avatar,
+    profileAvatar,
     isLoading
 }) => {
     const readOnly = useAppSelector(getProfileReadOnly)
@@ -30,7 +31,9 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
         dispatch(profileActions.cancelEdit())
     }, [dispatch])
 
-    const onSaveEdit = useCallback(() => {}, [])
+    const onSaveEdit = useCallback(() => {
+        void dispatch(updateProfileData())
+    }, [dispatch])
 
     const cancel = t('Отменить')
     const edit = !readOnly ? t('Сохранить') : t('Изменить')
@@ -42,7 +45,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
         ? 'bordered_red'
         : 'bordered_red_invisible'
     const classNameFinal = classNames(styles.profileHeader, {
-        [styles.notEditable]: !canEdit
+        [styles.notEditable]: !canEdit || isLoading
     })
 
     const canEditBlock = canEdit ? (
@@ -56,7 +59,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
                 </Button>
             </div>
             <Image
-                avatar={avatar}
+                avatar={profileAvatar}
                 className='avatar_profile'
                 alt='profile-avatar'
             />
@@ -71,7 +74,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
         </>
     ) : (
         <Image
-            avatar={avatar}
+            avatar={profileAvatar}
             className='avatar_profile'
             alt='profile-avatar'
         />

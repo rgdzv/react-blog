@@ -1,19 +1,31 @@
-import { type FC } from 'react'
+import { type ChangeEvent, type FC } from 'react'
 import styles from './ProfileCard.module.scss'
 import { Input } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { type Profile } from '../../model/types/profile'
 
 interface ProfileCardPropsInterface {
-    profileData: Profile
+    profileForm: Profile
     isLoading: boolean
     readOnly: boolean
+    onChangeFirstName?: (e: ChangeEvent<HTMLInputElement>) => void
+    onChangeLastName?: (e: ChangeEvent<HTMLInputElement>) => void
+    onChangeAge?: (e: ChangeEvent<HTMLInputElement>) => void
+    onChangeCity?: (e: ChangeEvent<HTMLInputElement>) => void
+    onChangeUserName?: (e: ChangeEvent<HTMLInputElement>) => void
+    onChangeAvatar?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 export const ProfileCard: FC<ProfileCardPropsInterface> = ({
-    profileData,
+    profileForm,
     isLoading,
-    readOnly
+    readOnly,
+    onChangeFirstName,
+    onChangeLastName,
+    onChangeAge,
+    onChangeCity,
+    onChangeUserName,
+    onChangeAvatar
 }) => {
     const { t } = useTranslation('profile')
 
@@ -24,19 +36,19 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
     const profileUserName = t('Имя пользователя')
     const profileAvatarLink = t('Ссылка на аватар')
 
-    const profileNameValue = String(profileData?.first)
-    const profileLastNameValue = String(profileData?.lastname)
-    const profileAgeValue = String(profileData?.age)
-    const profileCityValue = String(profileData?.city)
-    const profileUserNameValue = String(profileData?.username)
-    const profileAvatarLinkValue = String(profileData?.avatar)
+    const profileNameValue = String(profileForm?.first)
+    const profileLastNameValue = String(profileForm?.lastname)
+    const profileAgeValue = String(profileForm?.age)
+    const profileCityValue = String(profileForm?.city)
+    const profileUserNameValue = String(profileForm?.username)
+    const profileAvatarLinkValue = String(profileForm?.avatar)
 
     return (
         <>
             <div className={styles.profileCardLeft}>
                 <Input
                     value={profileNameValue}
-                    onChange={() => {}}
+                    onChange={onChangeFirstName}
                     placeholder={profileName}
                     label={profileName}
                     id='profile_card_name'
@@ -47,7 +59,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                 />
                 <Input
                     value={profileLastNameValue}
-                    onChange={() => {}}
+                    onChange={onChangeLastName}
                     placeholder={profileLastName}
                     label={profileLastName}
                     id='profile_card_lastName'
@@ -58,7 +70,8 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                 />
                 <Input
                     value={profileAgeValue}
-                    onChange={() => {}}
+                    onChange={onChangeAge}
+                    type='number'
                     placeholder={profileAge}
                     label={profileAge}
                     id='profile_card_age'
@@ -69,7 +82,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                 />
                 <Input
                     value={profileCityValue}
-                    onChange={() => {}}
+                    onChange={onChangeCity}
                     placeholder={profileCity}
                     label={profileCity}
                     id='profile_card_city'
@@ -82,7 +95,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
             <div className={styles.profileCardRight}>
                 <Input
                     value={profileUserNameValue}
-                    onChange={() => {}}
+                    onChange={onChangeUserName}
                     placeholder={profileUserName}
                     label={profileUserName}
                     id='profile_card_username'
@@ -93,7 +106,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                 />
                 <Input
                     value={profileAvatarLinkValue}
-                    onChange={() => {}}
+                    onChange={onChangeAvatar}
                     placeholder={profileAvatarLink}
                     label={profileAvatarLink}
                     id='profile_card_avatar'
