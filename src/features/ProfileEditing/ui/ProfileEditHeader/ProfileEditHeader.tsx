@@ -10,18 +10,18 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 
 interface ProfileEditHeaderPropsInterface {
     canEdit: boolean
-    profileAvatar: string
+    avatar: string
     isLoading: boolean
 }
 
 export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
     canEdit,
-    profileAvatar,
+    avatar,
     isLoading
 }) => {
     const readOnly = useAppSelector(getProfileReadOnly)
     const dispatch = useAppDispatch()
-    const { t } = useTranslation(['profile'])
+    const { t } = useTranslation('profile')
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.startEdit())
@@ -59,7 +59,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
                 </Button>
             </div>
             <Image
-                avatar={profileAvatar}
+                avatar={avatar}
                 className='avatar_profile'
                 alt='profile-avatar'
             />
@@ -74,7 +74,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
         </>
     ) : (
         <Image
-            avatar={profileAvatar}
+            avatar={avatar}
             className='avatar_profile'
             alt='profile-avatar'
         />

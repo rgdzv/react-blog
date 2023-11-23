@@ -3,6 +3,7 @@ import styles from './ProfileCard.module.scss'
 import { Input } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { type Profile } from '../../model/types/profile'
+import { Currency, type CurrencyType } from 'entities_/Currency'
 
 interface ProfileCardPropsInterface {
     profileForm: Profile
@@ -14,6 +15,7 @@ interface ProfileCardPropsInterface {
     onChangeCity?: (e: ChangeEvent<HTMLInputElement>) => void
     onChangeUserName?: (e: ChangeEvent<HTMLInputElement>) => void
     onChangeAvatar?: (e: ChangeEvent<HTMLInputElement>) => void
+    onChangeCurrency?: (currency: CurrencyType) => void
 }
 
 export const ProfileCard: FC<ProfileCardPropsInterface> = ({
@@ -25,7 +27,8 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
     onChangeAge,
     onChangeCity,
     onChangeUserName,
-    onChangeAvatar
+    onChangeAvatar,
+    onChangeCurrency
 }) => {
     const { t } = useTranslation('profile')
 
@@ -35,6 +38,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
     const profileCity = t('Город')
     const profileUserName = t('Имя пользователя')
     const profileAvatarLink = t('Ссылка на аватар')
+    const profileCurrency = t('Валюта')
 
     const profileNameValue = String(profileForm?.first)
     const profileLastNameValue = String(profileForm?.lastname)
@@ -42,6 +46,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
     const profileCityValue = String(profileForm?.city)
     const profileUserNameValue = String(profileForm?.username)
     const profileAvatarLinkValue = String(profileForm?.avatar)
+    const profileCurrencyValue = String(profileForm?.currency)
 
     return (
         <>
@@ -112,6 +117,13 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     id='profile_card_avatar'
                     classNameForLabel='profile_label'
                     classNameForInput='profile_input'
+                    isLoading={isLoading}
+                    disabled={readOnly}
+                />
+                <Currency
+                    label={profileCurrency}
+                    value={profileCurrencyValue}
+                    onChange={onChangeCurrency}
                     isLoading={isLoading}
                     disabled={readOnly}
                 />

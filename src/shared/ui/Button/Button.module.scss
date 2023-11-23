@@ -13,7 +13,8 @@
     border: none;
 
     &:disabled {
-        opacity: 0.5
+        cursor: auto;
+        opacity: 0.5;
     }
 }
 
@@ -63,4 +64,19 @@
 .bordered_red_invisible {
     composes: bordered_red;
     visibility: hidden;
+}
+
+.bordered_currency {
+    composes: bordered;
+
+    position: relative;
+
+    font-size: 16px;
+
+    background-color: var(--widget-bg-color);
+    border-color: var(--widget-bg-color);
+
+    // &:hover:enabled {
+    //     background-color: none;
+    // }
 }

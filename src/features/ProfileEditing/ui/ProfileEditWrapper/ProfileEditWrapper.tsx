@@ -7,20 +7,22 @@ import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileF
 import { noavatar } from 'shared/assets'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
 import { ProfileEditCard } from '../ProfileEditCard/ProfileEditCard'
+import { getProfileDataAvatar } from '../../model/selectors/getProfileDataAvatar/getProfileDataAvatar'
 
 export const ProfileEditWrapper: FC = () => {
     const authData = useAppSelector(getUserAuthData)
     const profileForm = useAppSelector(getProfileForm)
     const isLoading = useAppSelector(getProfileIsLoading)
+    const profileDataAvatar = useAppSelector(getProfileDataAvatar)
 
     const canEdit = profileForm?.id === authData?.id
-    const profileAvatar = profileForm?.avatar ?? noavatar
+    const avatar = profileDataAvatar ?? noavatar
 
     return (
         <div className={styles.profileWrapper}>
             <ProfileEditHeader
                 canEdit={canEdit}
-                profileAvatar={profileAvatar}
+                avatar={avatar}
                 isLoading={isLoading}
             />
             <ProfileEditCard profileForm={profileForm} isLoading={isLoading} />

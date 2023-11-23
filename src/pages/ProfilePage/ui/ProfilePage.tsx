@@ -19,7 +19,7 @@ const ProfilePage: FC = () => {
 
     useEffect(() => {
         if (id !== undefined) {
-            void dispatch(getProfileData(String(id)))
+            void dispatch(getProfileData(id))
         }
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 

@@ -8,5 +8,7 @@
     "Возраст": "Age",
     "Город": "City",
     "Имя пользователя": "Username",
-    "Ссылка на аватар": "Avatar link"
+    "Ссылка на аватар": "Avatar link",
+    "Валюта": "Currency",
+    "Укажите валюту": "Choose currency"
 }

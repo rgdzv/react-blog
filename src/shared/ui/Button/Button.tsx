@@ -8,6 +8,7 @@ type ClassNameType =
     | 'bordered_green'
     | 'bordered_red'
     | 'bordered_red_invisible'
+    | 'bordered_currency'
 
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode

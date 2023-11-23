@@ -1,8 +1,4 @@
-export enum Currency {
-    'RUB' = 'RUB',
-    'EUR' = 'EUR',
-    'USD' = 'USD'
-}
+import { type CurrencyType } from '../../../Currency/model/types/currency'
 
 export enum Country {
     Russia = 'Russia',
@@ -17,7 +13,7 @@ export interface Profile {
     first?: string
     lastname?: string
     age?: number
-    currency?: Currency
+    currency?: CurrencyType
     country?: Country
     city?: string
     username?: string

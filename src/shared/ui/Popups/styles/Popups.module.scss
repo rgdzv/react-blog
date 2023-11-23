@@ -1,0 +1,51 @@
+.listBox {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 2.375em;
+
+    border-radius: 32px;
+
+    .content {
+        position: relative;
+
+        .options {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+            width: 100%;
+
+            background-color: var(--widget-bg-color);
+            border-radius: 10px;
+
+            .option {
+                cursor: pointer;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: 100%;
+
+                &:hover {
+                    background-color: var(--main-color)
+                }
+            }
+        }
+    }
+}
+
+.label {
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+.icon {
+    transform: rotate(-90deg);
+    margin-left: 15px;
+    fill: var(--hint-color);
+}
