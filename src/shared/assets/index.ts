@@ -6,6 +6,7 @@ import InfoIcon from './icons/info-icon.svg'
 import ProfileIcon from './icons/profile-icon.svg'
 import EyeIcon from './icons/eye-icon.svg'
 import EyeClosedIcon from './icons/eye-closed-icon.svg'
+import DoneIcon from './icons/done-icon.svg'
 import noavatar from './icons/no-avatar-icon.jpg'
 
 export {
@@ -17,5 +18,6 @@ export {
     ProfileIcon,
     EyeIcon,
     EyeClosedIcon,
+    DoneIcon,
     noavatar
 }

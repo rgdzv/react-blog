@@ -24,15 +24,30 @@
 
             .option {
                 cursor: pointer;
-
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
-                width: 100%;
+                &.active {
+                    background-color: var(--main-color);
+                }
 
-                &:hover {
-                    background-color: var(--main-color)
+                &.selected {
+                    display: grid;
+                    grid-template-columns: 0.9fr 2fr;
+                    font-weight: 700;
+                }
+
+                &[data-headlessui-state='disabled'] {
+                    cursor: auto;
+                    user-select: none;
+                    opacity: 0.3;
+                }
+
+                .doneIcon {
+                    width: 20px;
+                    height: 100%;
+                    fill: var(--text-color);
                 }
             }
         }
@@ -40,6 +55,7 @@
 }
 
 .label {
+    cursor: pointer;
     margin-right: 5px;
     white-space: nowrap;
 }

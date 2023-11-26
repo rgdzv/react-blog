@@ -121,9 +121,10 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     disabled={readOnly}
                 />
                 <Currency
-                    label={profileCurrency}
                     value={profileCurrencyValue}
                     onChange={onChangeCurrency}
+                    label={profileCurrency}
+                    id='profile_card_currency'
                     isLoading={isLoading}
                     disabled={readOnly}
                 />

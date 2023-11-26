@@ -76,7 +76,7 @@
     background-color: var(--widget-bg-color);
     border-color: var(--widget-bg-color);
 
-    // &:hover:enabled {
-    //     background-color: none;
-    // }
+    &:hover:enabled {
+        background: var(--widget-bg-color);
+    }
 }

@@ -3,22 +3,23 @@ import { useTranslation } from 'react-i18next'
 import { ListBoxElement } from 'shared/ui'
 import { CurrencyType } from '../model/types/currency'
 
+const options = [
+    { value: CurrencyType.RUB, content: CurrencyType.RUB, disabled: true },
+    { value: CurrencyType.EUR, content: CurrencyType.EUR },
+    { value: CurrencyType.USD, content: CurrencyType.USD }
+]
 interface CurrencyPropsInterface {
     label?: string
+    id?: string
     value?: string
     onChange?: (currency: CurrencyType) => void
     isLoading?: boolean
     disabled?: boolean
 }
 
-const options = [
-    { value: CurrencyType.RUB, content: CurrencyType.RUB },
-    { value: CurrencyType.EUR, content: CurrencyType.EUR },
-    { value: CurrencyType.USD, content: CurrencyType.USD }
-]
-
 export const Currency: FC<CurrencyPropsInterface> = ({
     label,
+    id,
     value,
     onChange,
     isLoading,
@@ -30,6 +31,7 @@ export const Currency: FC<CurrencyPropsInterface> = ({
         <ListBoxElement
             options={options}
             label={label}
+            id={id}
             defaultValue={defaultValue}
             value={value}
             onChange={onChange}
