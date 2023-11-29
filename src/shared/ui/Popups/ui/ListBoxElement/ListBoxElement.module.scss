@@ -13,14 +13,17 @@
 
         .options {
             position: absolute;
+            z-index: 2;
             top: 40px;
-            left: 50%;
-            transform: translate(-50%, 0);
 
             width: 100%;
 
             background-color: var(--widget-bg-color);
             border-radius: 10px;
+
+            &[data-headlessui-state='open'] {
+                animation: show 100ms linear forwards;
+            }
 
             .option {
                 cursor: pointer;
@@ -34,7 +37,8 @@
 
                 &.selected {
                     display: grid;
-                    grid-template-columns: 0.9fr 2fr;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    justify-items: center;
                     font-weight: 700;
                 }
 
@@ -64,4 +68,16 @@
     transform: rotate(-90deg);
     margin-left: 15px;
     fill: var(--hint-color);
+}
+
+@keyframes show{
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
 }

@@ -1,3 +1,4 @@
+import { type CountryType } from '../../../Country/model/types/country'
 import { type CurrencyType } from '../../../Currency/model/types/currency'
 
 export enum Country {
@@ -14,7 +15,7 @@ export interface Profile {
     lastname?: string
     age?: number
     currency?: CurrencyType
-    country?: Country
+    country?: CountryType
     city?: string
     username?: string
     avatar?: string

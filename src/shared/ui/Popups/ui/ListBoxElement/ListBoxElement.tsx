@@ -1,11 +1,12 @@
 import { type ReactNode, type FC, Fragment } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
-import { Button } from 'shared/ui/Button/Button'
-import styles from '../../styles/Popups.module.scss'
+import { Listbox } from '@headlessui/react'
+import { Button } from '../../../Button/Button'
+import styles from './ListBoxElement.module.scss'
 import { ArrowIcon, DoneIcon } from '../../../../assets'
-import { type CurrencyType } from 'entities_/Currency'
 import { Skeleton } from '../../../Skeleton/Skeleton'
 import { classNames } from '../../../../lib/classNames/classNames'
+import { type CurrencyType } from 'entities_/Currency'
+import { type CountryType } from 'entities_/Country'
 
 interface ListBoxItem {
     value: string
@@ -19,7 +20,7 @@ interface ListBoxPropsInterface {
     id?: string
     defaultValue?: string
     value?: string
-    onChange?: (currency: CurrencyType) => void
+    onChange?: ((value: CurrencyType) => void) | ((value: CountryType) => void)
     isLoading?: boolean
     disabled?: boolean
 }
@@ -57,40 +58,33 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = ({
                         className={styles.icon}
                     />
                 </Listbox.Button>
-                <Transition
-                    as={Fragment}
-                    leave='ease-out'
-                    leaveFrom='opacity-100'
-                    leaveTo='opacity-0'
-                >
-                    <Listbox.Options className={styles.options}>
-                        {options.map((option) => (
-                            <Listbox.Option
-                                as={Fragment}
-                                key={option.value}
-                                value={option.value}
-                                disabled={option.disabled}
-                            >
-                                {({ active, selected }) => (
-                                    <li
-                                        className={classNames(styles.option, {
-                                            [styles.active]: active,
-                                            [styles.selected]: selected
-                                        })}
-                                    >
-                                        {selected && (
-                                            <DoneIcon
-                                                data-testid='done-icon'
-                                                className={styles.doneIcon}
-                                            />
-                                        )}
-                                        <span>{option.content}</span>
-                                    </li>
-                                )}
-                            </Listbox.Option>
-                        ))}
-                    </Listbox.Options>
-                </Transition>
+                <Listbox.Options className={styles.options}>
+                    {options.map((option: ListBoxItem) => (
+                        <Listbox.Option
+                            as={Fragment}
+                            key={option.value}
+                            value={option.value}
+                            disabled={option.disabled}
+                        >
+                            {({ active, selected }) => (
+                                <li
+                                    className={classNames(styles.option, {
+                                        [styles.active]: active,
+                                        [styles.selected]: selected
+                                    })}
+                                >
+                                    {selected && (
+                                        <DoneIcon
+                                            data-testid='done-icon'
+                                            className={styles.doneIcon}
+                                        />
+                                    )}
+                                    <span>{option.content}</span>
+                                </li>
+                            )}
+                        </Listbox.Option>
+                    ))}
+                </Listbox.Options>
             </div>
         </>
     )

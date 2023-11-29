@@ -4,6 +4,7 @@ import { Input } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { type Profile } from '../../model/types/profile'
 import { Currency, type CurrencyType } from 'entities_/Currency'
+import { Country, type CountryType } from 'entities_/Country'
 
 interface ProfileCardPropsInterface {
     profileForm: Profile
@@ -16,6 +17,7 @@ interface ProfileCardPropsInterface {
     onChangeUserName?: (e: ChangeEvent<HTMLInputElement>) => void
     onChangeAvatar?: (e: ChangeEvent<HTMLInputElement>) => void
     onChangeCurrency?: (currency: CurrencyType) => void
+    onChangeCountry?: (country: CountryType) => void
 }
 
 export const ProfileCard: FC<ProfileCardPropsInterface> = ({
@@ -28,7 +30,8 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
     onChangeCity,
     onChangeUserName,
     onChangeAvatar,
-    onChangeCurrency
+    onChangeCurrency,
+    onChangeCountry
 }) => {
     const { t } = useTranslation('profile')
 
@@ -39,6 +42,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
     const profileUserName = t('Имя пользователя')
     const profileAvatarLink = t('Ссылка на аватар')
     const profileCurrency = t('Валюта')
+    const profileCountry = t('Страна')
 
     const profileNameValue = String(profileForm?.first)
     const profileLastNameValue = String(profileForm?.lastname)
@@ -47,6 +51,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
     const profileUserNameValue = String(profileForm?.username)
     const profileAvatarLinkValue = String(profileForm?.avatar)
     const profileCurrencyValue = String(profileForm?.currency)
+    const profileCountryValue = String(profileForm?.country)
 
     return (
         <>
@@ -125,6 +130,14 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     onChange={onChangeCurrency}
                     label={profileCurrency}
                     id='profile_card_currency'
+                    isLoading={isLoading}
+                    disabled={readOnly}
+                />
+                <Country
+                    value={profileCountryValue}
+                    onChange={onChangeCountry}
+                    label={profileCountry}
+                    id='profile_card_country'
                     isLoading={isLoading}
                     disabled={readOnly}
                 />

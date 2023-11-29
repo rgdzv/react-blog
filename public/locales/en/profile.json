@@ -10,5 +10,7 @@
     "Имя пользователя": "Username",
     "Ссылка на аватар": "Avatar link",
     "Валюта": "Currency",
-    "Укажите валюту": "Choose currency"
+    "Укажите валюту": "Choose currency",
+    "Страна": "Country",
+    "Укажите страну": "Choose country"
 }

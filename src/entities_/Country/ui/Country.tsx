@@ -1,19 +1,19 @@
 import { type FC } from 'react'
-import { useTranslation } from 'react-i18next'
+import { type CountryType } from '../model/types/country'
 import { ListBoxElement } from 'shared/ui'
-import { type CurrencyType } from '../model/types/currency'
-import { currencies } from '../model/utils/currencies'
+import { useTranslation } from 'react-i18next'
+import { countries } from '../model/utils/countries'
 
-interface CurrencyPropsInterface {
+interface CountryPropsInterface {
     label?: string
     id?: string
     value?: string
-    onChange?: (currency: CurrencyType) => void
+    onChange?: (country: CountryType) => void
     isLoading?: boolean
     disabled?: boolean
 }
 
-export const Currency: FC<CurrencyPropsInterface> = ({
+export const Country: FC<CountryPropsInterface> = ({
     label,
     id,
     value,
@@ -22,10 +22,11 @@ export const Currency: FC<CurrencyPropsInterface> = ({
     disabled
 }) => {
     const { t } = useTranslation(['profile'])
-    const defaultValue = t('Укажите валюту')
+    const defaultValue = t('Укажите страну')
+
     return (
         <ListBoxElement
-            options={currencies}
+            options={countries}
             label={label}
             id={id}
             defaultValue={defaultValue}

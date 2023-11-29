@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 import { profileActions } from '../../model/slice/profileSlice'
 import { type CurrencyType } from 'entities_/Currency'
+import { type CountryType } from 'entities_/Country'
 
 interface ProfileEditCardPropsInterface {
     profileForm: Profile
@@ -69,6 +70,13 @@ export const ProfileEditCard: FC<ProfileEditCardPropsInterface> = ({
         [dispatch]
     )
 
+    const onChangeCountry = useCallback(
+        (country: CountryType) => {
+            dispatch(profileActions.updateProfile({ country }))
+        },
+        [dispatch]
+    )
+
     return (
         <div className={styles.profileEditCard}>
             <ProfileCard
@@ -82,6 +90,7 @@ export const ProfileEditCard: FC<ProfileEditCardPropsInterface> = ({
                 onChangeUserName={onChangeUserName}
                 onChangeAvatar={onChangeAvatar}
                 onChangeCurrency={onChangeCurrency}
+                onChangeCountry={onChangeCountry}
             />
         </div>
     )
