@@ -5,8 +5,6 @@ import { type CurrencyType } from '../model/types/currency'
 import { currencies } from '../model/utils/currencies'
 
 interface CurrencyPropsInterface {
-    label?: string
-    id?: string
     value?: string
     onChange?: (currency: CurrencyType) => void
     isLoading?: boolean
@@ -14,8 +12,6 @@ interface CurrencyPropsInterface {
 }
 
 export const Currency: FC<CurrencyPropsInterface> = ({
-    label,
-    id,
     value,
     onChange,
     isLoading,
@@ -23,11 +19,13 @@ export const Currency: FC<CurrencyPropsInterface> = ({
 }) => {
     const { t } = useTranslation(['profile'])
     const defaultValue = t('Укажите валюту')
+    const profileCurrency = t('Валюта')
+
     return (
         <ListBoxElement
             options={currencies}
-            label={label}
-            id={id}
+            label={profileCurrency}
+            id='currency'
             defaultValue={defaultValue}
             value={value}
             onChange={onChange}

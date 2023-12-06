@@ -12,5 +12,6 @@
     "Валюта": "Currency",
     "Укажите валюту": "Choose currency",
     "Страна": "Country",
-    "Укажите страну": "Choose country"
+    "Укажите страну": "Choose country",
+    "Поле обязательно для заполнения!": "Required field!"
 }

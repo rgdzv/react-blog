@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { countries } from '../model/utils/countries'
 
 interface CountryPropsInterface {
-    label?: string
-    id?: string
     value?: string
     onChange?: (country: CountryType) => void
     isLoading?: boolean
@@ -14,21 +12,20 @@ interface CountryPropsInterface {
 }
 
 export const Country: FC<CountryPropsInterface> = ({
-    label,
-    id,
     value,
     onChange,
     isLoading,
     disabled
 }) => {
-    const { t } = useTranslation(['profile'])
+    const { t } = useTranslation('profile')
     const defaultValue = t('Укажите страну')
+    const profileCountry = t('Страна')
 
     return (
         <ListBoxElement
             options={countries}
-            label={label}
-            id={id}
+            label={profileCountry}
+            id='country'
             defaultValue={defaultValue}
             value={value}
             onChange={onChange}

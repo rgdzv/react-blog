@@ -1,21 +1,17 @@
 import { type ChangeEvent, type FC } from 'react'
-import styles from './ProfileCard.module.scss'
 import { Input } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-import { type Profile } from '../../model/types/profile'
+import { type ProfileID, type Profile } from '../../model/types/profile'
 import { Currency, type CurrencyType } from 'entities_/Currency'
 import { Country, type CountryType } from 'entities_/Country'
+import { inputsArray } from '../../model/utils/inputsArray'
+// import { listboxArray } from '../../model/utils/listboxArray'
 
 interface ProfileCardPropsInterface {
     profileForm: Profile
     isLoading: boolean
     readOnly: boolean
-    onChangeFirstName?: (e: ChangeEvent<HTMLInputElement>) => void
-    onChangeLastName?: (e: ChangeEvent<HTMLInputElement>) => void
-    onChangeAge?: (e: ChangeEvent<HTMLInputElement>) => void
-    onChangeCity?: (e: ChangeEvent<HTMLInputElement>) => void
-    onChangeUserName?: (e: ChangeEvent<HTMLInputElement>) => void
-    onChangeAvatar?: (e: ChangeEvent<HTMLInputElement>) => void
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void
     onChangeCurrency?: (currency: CurrencyType) => void
     onChangeCountry?: (country: CountryType) => void
 }
@@ -24,124 +20,60 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
     profileForm,
     isLoading,
     readOnly,
-    onChangeFirstName,
-    onChangeLastName,
-    onChangeAge,
-    onChangeCity,
-    onChangeUserName,
-    onChangeAvatar,
+    onChange,
     onChangeCurrency,
     onChangeCountry
 }) => {
     const { t } = useTranslation('profile')
 
-    const profileName = t('Имя')
-    const profileLastName = t('Фамилия')
-    const profileAge = t('Возраст')
-    const profileCity = t('Город')
-    const profileUserName = t('Имя пользователя')
-    const profileAvatarLink = t('Ссылка на аватар')
-    const profileCurrency = t('Валюта')
-    const profileCountry = t('Страна')
-
-    const profileNameValue = String(profileForm?.first)
-    const profileLastNameValue = String(profileForm?.lastname)
-    const profileAgeValue = String(profileForm?.age)
-    const profileCityValue = String(profileForm?.city)
-    const profileUserNameValue = String(profileForm?.username)
-    const profileAvatarLinkValue = String(profileForm?.avatar)
     const profileCurrencyValue = String(profileForm?.currency)
     const profileCountryValue = String(profileForm?.country)
 
+    const inputs = inputsArray.map((item) => {
+        const label = t(item.label)
+        const value = profileForm?.[item.id as ProfileID]
+        const type = item.id === 'age' ? 'number' : 'text'
+        const min = item.id === 'age' ? '0' : ''
+        const max = item.id === 'age' ? '100' : ''
+
+        return (
+            <Input
+                key={item.id}
+                type={type}
+                value={value}
+                onChange={onChange}
+                id={item.id}
+                label={label}
+                classNameForInputWrapper={item.id}
+                classNameForLabel='profile_label'
+                classNameForInput='profile_input'
+                isLoading={isLoading}
+                disabled={readOnly}
+                min={min}
+                max={max}
+            />
+        )
+    })
+
+    // const listBoxes = listboxArray.map((item) => {
+    //     return <ListBoxElement key={item.id} />
+    // })
+
     return (
         <>
-            <div className={styles.profileCardLeft}>
-                <Input
-                    value={profileNameValue}
-                    onChange={onChangeFirstName}
-                    placeholder={profileName}
-                    label={profileName}
-                    id='profile_card_name'
-                    classNameForLabel='profile_label'
-                    classNameForInput='profile_input'
-                    isLoading={isLoading}
-                    disabled={readOnly}
-                />
-                <Input
-                    value={profileLastNameValue}
-                    onChange={onChangeLastName}
-                    placeholder={profileLastName}
-                    label={profileLastName}
-                    id='profile_card_lastName'
-                    classNameForLabel='profile_label'
-                    classNameForInput='profile_input'
-                    isLoading={isLoading}
-                    disabled={readOnly}
-                />
-                <Input
-                    value={profileAgeValue}
-                    onChange={onChangeAge}
-                    type='number'
-                    placeholder={profileAge}
-                    label={profileAge}
-                    id='profile_card_age'
-                    classNameForLabel='profile_label'
-                    classNameForInput='profile_input'
-                    isLoading={isLoading}
-                    disabled={readOnly}
-                />
-                <Input
-                    value={profileCityValue}
-                    onChange={onChangeCity}
-                    placeholder={profileCity}
-                    label={profileCity}
-                    id='profile_card_city'
-                    classNameForLabel='profile_label'
-                    classNameForInput='profile_input'
-                    isLoading={isLoading}
-                    disabled={readOnly}
-                />
-            </div>
-            <div className={styles.profileCardRight}>
-                <Input
-                    value={profileUserNameValue}
-                    onChange={onChangeUserName}
-                    placeholder={profileUserName}
-                    label={profileUserName}
-                    id='profile_card_username'
-                    classNameForLabel='profile_label'
-                    classNameForInput='profile_input'
-                    isLoading={isLoading}
-                    disabled={readOnly}
-                />
-                <Input
-                    value={profileAvatarLinkValue}
-                    onChange={onChangeAvatar}
-                    placeholder={profileAvatarLink}
-                    label={profileAvatarLink}
-                    id='profile_card_avatar'
-                    classNameForLabel='profile_label'
-                    classNameForInput='profile_input'
-                    isLoading={isLoading}
-                    disabled={readOnly}
-                />
-                <Currency
-                    value={profileCurrencyValue}
-                    onChange={onChangeCurrency}
-                    label={profileCurrency}
-                    id='profile_card_currency'
-                    isLoading={isLoading}
-                    disabled={readOnly}
-                />
-                <Country
-                    value={profileCountryValue}
-                    onChange={onChangeCountry}
-                    label={profileCountry}
-                    id='profile_card_country'
-                    isLoading={isLoading}
-                    disabled={readOnly}
-                />
-            </div>
+            {inputs}
+            <Currency
+                value={profileCurrencyValue}
+                onChange={onChangeCurrency}
+                isLoading={isLoading}
+                disabled={readOnly}
+            />
+            <Country
+                value={profileCountryValue}
+                onChange={onChangeCountry}
+                isLoading={isLoading}
+                disabled={readOnly}
+            />
         </>
     )
 }

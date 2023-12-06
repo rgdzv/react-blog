@@ -1,4 +1,10 @@
 .profileEditCard {
-    display: flex;
+    display: grid;
+    grid-template-areas:
+        "firstname username"
+        "lastname avatar"
+        "age currency"
+        "city country";
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 20px;
 }

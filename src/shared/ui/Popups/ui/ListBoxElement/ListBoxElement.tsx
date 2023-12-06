@@ -51,6 +51,7 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = ({
                     as={Button}
                     className='bordered_currency'
                     id={id}
+                    name={id}
                 >
                     {valueCondition}
                     <ArrowIcon

@@ -6,4 +6,5 @@ export interface ProfileSchema {
     form?: Profile
     isLoading: boolean
     error?: string
+    validationErrors?: string[]
 }

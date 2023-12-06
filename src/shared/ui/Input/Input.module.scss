@@ -67,3 +67,42 @@
 .profile_label {
     margin-right: 5px;
 }
+
+
+.firstname {
+    grid-area: firstname;
+    margin-bottom: 15px;
+}
+
+.lastname {
+    grid-area: lastname;
+    margin-bottom: 15px;
+}
+
+.age {
+    grid-area: age;
+    margin-bottom: 15px;
+}
+
+.city {
+    grid-area: city;
+}
+
+.username {
+    grid-area: username;
+    margin-bottom: 15px;
+}
+
+.avatar {
+    grid-area: avatar;
+    margin-bottom: 15px;
+}
+
+.currency {
+    grid-area: currency;
+    margin-bottom: 15px;
+}
+
+.country {
+    grid-area: country
+}

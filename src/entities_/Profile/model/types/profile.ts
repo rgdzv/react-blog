@@ -1,17 +1,17 @@
 import { type CountryType } from '../../../Country/model/types/country'
 import { type CurrencyType } from '../../../Currency/model/types/currency'
 
-export enum Country {
-    Russia = 'Russia',
-    Belarus = 'Belarus',
-    Ukraine = 'Ukraine',
-    Kazakhstan = 'Kazahstan',
-    Armenia = 'Armenia'
-}
+export type ProfileID =
+    | 'firstname'
+    | 'lastname'
+    | 'age'
+    | 'city'
+    | 'username'
+    | 'avatar'
 
 export interface Profile {
-    id?: string
-    first?: string
+    id?: ProfileID
+    firstname?: string
     lastname?: string
     age?: number
     currency?: CurrencyType
