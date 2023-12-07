@@ -13,12 +13,11 @@ type ClassNameInputWrapperType =
     | 'city'
     | 'username'
     | 'avatar'
-    | 'currency'
 
 interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     label?: string
     id?: string
-    value: string | number | undefined
+    value: string
     type?: string
     children?: ReactNode
     classNameForIcon?: string

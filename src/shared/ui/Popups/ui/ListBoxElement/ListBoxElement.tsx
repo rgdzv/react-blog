@@ -5,8 +5,7 @@ import styles from './ListBoxElement.module.scss'
 import { ArrowIcon, DoneIcon } from '../../../../assets'
 import { Skeleton } from '../../../Skeleton/Skeleton'
 import { classNames } from '../../../../lib/classNames/classNames'
-import { type CurrencyType } from 'entities_/Currency'
-import { type CountryType } from 'entities_/Country'
+import { type CountryType, type CurrencyType } from 'entities_/Profile'
 
 interface ListBoxItem {
     value: string
@@ -21,6 +20,7 @@ interface ListBoxPropsInterface {
     defaultValue?: string
     value?: string
     onChange?: ((value: CurrencyType) => void) | ((value: CountryType) => void)
+    classNameForListBox?: string
     isLoading?: boolean
     disabled?: boolean
 }
@@ -32,9 +32,14 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = ({
     defaultValue,
     value,
     onChange,
+    classNameForListBox,
     isLoading,
     disabled
 }) => {
+    const listBoxClassName = classNames(styles.listBox, {}, [
+        styles[classNameForListBox as 'currency' | 'country']
+    ])
+
     const labelCondition =
         label !== undefined ? (
             <Listbox.Label className={styles.label} htmlFor={id}>
@@ -96,7 +101,7 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = ({
     return (
         <Listbox
             as='div'
-            className={styles.listBox}
+            className={listBoxClassName}
             value={value}
             onChange={onChange}
             disabled={disabled}

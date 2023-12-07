@@ -1,7 +1,7 @@
-import { type CountryType } from '../../../Country/model/types/country'
-import { type CurrencyType } from '../../../Currency/model/types/currency'
+import { type CountryType } from './country'
+import { type CurrencyType } from './currency'
 
-export type ProfileID =
+export type ProfileInputs =
     | 'firstname'
     | 'lastname'
     | 'age'
@@ -9,8 +9,10 @@ export type ProfileID =
     | 'username'
     | 'avatar'
 
+export type ProfileListboxes = 'currency' | 'country'
+
 export interface Profile {
-    id?: ProfileID
+    id?: string
     firstname?: string
     lastname?: string
     age?: number

@@ -787,7 +787,7 @@
             "id": "1",
             "firstname": "равшан",
             "lastname": "имамов",
-            "age": "30",
+            "age": 22,
             "currency": "USD",
             "country": "Belarus",
             "city": "Москва",

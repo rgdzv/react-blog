@@ -1,11 +1,14 @@
 import { useCallback, type FC, type ChangeEvent } from 'react'
 import styles from './ProfileEditCard.module.scss'
-import { type Profile, ProfileCard } from 'entities_/Profile'
+import {
+    type Profile,
+    ProfileCard,
+    type CurrencyType,
+    type CountryType
+} from 'entities_/Profile'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 import { profileActions } from '../../model/slice/profileSlice'
-import { type CurrencyType } from 'entities_/Currency'
-import { type CountryType } from 'entities_/Country'
 
 interface ProfileEditCardPropsInterface {
     profileForm: Profile
@@ -19,7 +22,7 @@ export const ProfileEditCard: FC<ProfileEditCardPropsInterface> = ({
     const dispatch = useAppDispatch()
     const readOnly = useAppSelector(getProfileReadOnly)
 
-    const onChange = useCallback(
+    const onChangeInputs = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
             dispatch(
                 profileActions.updateProfile({
@@ -50,7 +53,7 @@ export const ProfileEditCard: FC<ProfileEditCardPropsInterface> = ({
                 profileForm={profileForm}
                 isLoading={isLoading}
                 readOnly={readOnly}
-                onChange={onChange}
+                onChangeInputs={onChangeInputs}
                 onChangeCurrency={onChangeCurrency}
                 onChangeCountry={onChangeCountry}
             />
