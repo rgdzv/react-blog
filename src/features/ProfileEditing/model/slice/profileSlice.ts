@@ -3,6 +3,7 @@ import { type ProfileSchema } from '../types/profileSchema'
 import { getProfileData } from '../services/getProfileData/getProfileData'
 import { type Profile } from 'entities_/Profile'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
+import { validationSchema } from '../services/validation/validation'
 
 const initialState: ProfileSchema = {
     readOnly: true,
@@ -21,12 +22,17 @@ export const profileSlice = createSlice({
         cancelEdit: (state) => {
             state.readOnly = true
             state.form = state.data
+            state.validationErrors = undefined
         },
         updateProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
                 ...state.form,
                 ...action.payload
             }
+            const errors = validationSchema({
+                ...state.form
+            })
+            state.validationErrors = errors
         }
     },
     extraReducers: (builder) => {

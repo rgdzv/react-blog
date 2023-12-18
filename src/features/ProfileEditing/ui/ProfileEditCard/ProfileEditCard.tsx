@@ -8,6 +8,7 @@ import {
 } from 'entities_/Profile'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
+import { getProfileValidErrors } from '../../model/selectors/gerProfileValidErrors/getProfileValidErrors'
 import { profileActions } from '../../model/slice/profileSlice'
 
 interface ProfileEditCardPropsInterface {
@@ -21,6 +22,7 @@ export const ProfileEditCard: FC<ProfileEditCardPropsInterface> = ({
 }) => {
     const dispatch = useAppDispatch()
     const readOnly = useAppSelector(getProfileReadOnly)
+    const validationErrors = useAppSelector(getProfileValidErrors)
 
     const onChangeInputs = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
@@ -56,6 +58,7 @@ export const ProfileEditCard: FC<ProfileEditCardPropsInterface> = ({
                 onChangeInputs={onChangeInputs}
                 onChangeCurrency={onChangeCurrency}
                 onChangeCountry={onChangeCountry}
+                validationErrors={validationErrors}
             />
         </div>
     )

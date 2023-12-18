@@ -7,4 +7,8 @@
         "city country";
     grid-template-columns: repeat(2, 1fr);
     column-gap: 20px;
+
+    & > div:not(:nth-child(4n)) {
+        margin-bottom: 15px;
+    }
 }

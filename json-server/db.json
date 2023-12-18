@@ -785,11 +785,11 @@
     "profile": [
         {
             "id": "1",
-            "firstname": "равшан",
+            "firstname": "gf",
             "lastname": "имамов",
-            "age": 22,
+            "age": "20",
             "currency": "USD",
-            "country": "Belarus",
+            "country": "Armenia",
             "city": "Москва",
             "username": "ravshan",
             "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg"

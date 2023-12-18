@@ -12,6 +12,7 @@ import { type CurrencyType } from '../../model/types/currency'
 import { type CountryType } from '../../model/types/country'
 import { currencies } from '../../model/utils/currencies'
 import { countries } from '../../model/utils/countries'
+import { type ValidationResult } from 'features/ProfileEditing'
 
 interface ProfileCardPropsInterface {
     profileForm: Profile
@@ -20,6 +21,7 @@ interface ProfileCardPropsInterface {
     onChangeInputs?: (e: ChangeEvent<HTMLInputElement>) => void
     onChangeCurrency?: (currency: CurrencyType) => void
     onChangeCountry?: (country: CountryType) => void
+    validationErrors?: ValidationResult
 }
 
 export const ProfileCard: FC<ProfileCardPropsInterface> = ({
@@ -28,7 +30,8 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
     readOnly,
     onChangeInputs,
     onChangeCurrency,
-    onChangeCountry
+    onChangeCountry,
+    validationErrors
 }) => {
     const { t } = useTranslation('profile')
 
@@ -36,8 +39,9 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
         const label = t(item.label)
         const value = String(profileForm?.[item.id as ProfileInputs])
         const type = item.id === 'age' ? 'number' : 'text'
-        const min = item.id === 'age' ? '0' : ''
-        const max = item.id === 'age' ? '100' : ''
+        const validError = validationErrors?.[
+            item.id as ProfileInputs
+        ] as string
 
         return (
             <Input
@@ -52,8 +56,7 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                 classNameForInput='profile_input'
                 isLoading={isLoading}
                 disabled={readOnly}
-                min={min}
-                max={max}
+                validError={validError}
             />
         )
     })

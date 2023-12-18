@@ -71,17 +71,14 @@
 
 .firstname {
     grid-area: firstname;
-    margin-bottom: 15px;
 }
 
 .lastname {
     grid-area: lastname;
-    margin-bottom: 15px;
 }
 
 .age {
     grid-area: age;
-    margin-bottom: 15px;
 }
 
 .city {
@@ -90,10 +87,12 @@
 
 .username {
     grid-area: username;
-    margin-bottom: 15px;
 }
 
 .avatar {
     grid-area: avatar;
-    margin-bottom: 15px;
+}
+
+.withError {
+    margin-bottom: 0;
 }

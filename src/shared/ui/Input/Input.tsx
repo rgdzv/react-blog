@@ -30,6 +30,7 @@ interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     disabled?: boolean
     min?: string
     max?: string
+    validError?: string
 }
 
 export const Input: FC<InputPropsInterface> = ({
@@ -47,13 +48,16 @@ export const Input: FC<InputPropsInterface> = ({
     classNameForInput,
     isLoading,
     disabled,
-    min,
-    max,
+    validError,
     ...otherProps
 }) => {
-    const inputWrapperClassName = classNames(styles.inputWrapper, {}, [
-        styles[classNameForInputWrapper as ClassNameInputWrapperType]
-    ])
+    const inputWrapperClassName = classNames(
+        styles.inputWrapper,
+        {
+            [styles.withError]: validError
+        },
+        [styles[classNameForInputWrapper as ClassNameInputWrapperType]]
+    )
 
     const labelClassName = classNames(styles.label, {}, [
         styles[classNameForLabel as ClassNameLabelType]
@@ -62,7 +66,7 @@ export const Input: FC<InputPropsInterface> = ({
     const inputClassName = classNames(
         styles.input,
         {
-            [styles.error]: isError
+            [styles.error]: isError ?? validError
         },
         [styles[classNameForInput as ClassNameInputType]]
     )
@@ -91,8 +95,6 @@ export const Input: FC<InputPropsInterface> = ({
                     type={type}
                     placeholder={label}
                     disabled={disabled}
-                    min={min}
-                    max={max}
                     {...otherProps}
                 />
                 <div className={iconClassName} onClick={handleOpenEye}>

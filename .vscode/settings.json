@@ -28,8 +28,8 @@
 
     // fix all problems on save for stylelint and eslint in special order
     "editor.codeActionsOnSave": {
-        "source.fixAll.stylelint": true,
-        "source.fixAll.eslint": true
+        "source.fixAll.stylelint": "explicit",
+        "source.fixAll.eslint": "explicit"
     },
 
     // jest extension settings for project
