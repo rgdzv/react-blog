@@ -8,12 +8,14 @@ import { noavatar } from 'shared/assets'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
 import { ProfileEditCard } from '../ProfileEditCard/ProfileEditCard'
 import { getProfileDataAvatar } from '../../model/selectors/getProfileDataAvatar/getProfileDataAvatar'
+import { getProfileValidErrors } from '../../model/selectors/gerProfileValidErrors/getProfileValidErrors'
 
 export const ProfileEditWrapper: FC = () => {
     const authData = useAppSelector(getUserAuthData)
     const profileForm = useAppSelector(getProfileForm)
     const isLoading = useAppSelector(getProfileIsLoading)
     const profileDataAvatar = useAppSelector(getProfileDataAvatar)
+    const validationErrors = useAppSelector(getProfileValidErrors)
 
     const canEdit = profileForm?.id === authData?.id
     const avatar = profileDataAvatar ?? noavatar
@@ -24,8 +26,13 @@ export const ProfileEditWrapper: FC = () => {
                 canEdit={canEdit}
                 avatar={avatar}
                 isLoading={isLoading}
+                validationErrors={validationErrors}
             />
-            <ProfileEditCard profileForm={profileForm} isLoading={isLoading} />
+            <ProfileEditCard
+                profileForm={profileForm}
+                isLoading={isLoading}
+                validationErrors={validationErrors}
+            />
         </div>
     )
 }

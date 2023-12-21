@@ -13,5 +13,7 @@
     "Укажите валюту": "Choose currency",
     "Страна": "Country",
     "Укажите страну": "Choose country",
-    "Поле обязательно для заполнения!": "Required field!"
+    "Поле обязательно для заполнения!": "Required field!",
+    "Минимум 2 символа!": "Minimum 2 symbols!",
+    "Вам должно быть больше 18 лет!": "You need to be 18 to sign up!"
 }

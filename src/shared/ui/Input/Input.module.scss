@@ -11,48 +11,48 @@
     .input {
         width: 100%;
         padding: 7px 16px;
-
+    
         font:var(--font);
         line-height: 0;
         color: var(--text-color);
-
+    
         background-color: var(--background-color);
         border: 1px solid var(--main-color);
         border-radius: 48px;
         caret-color: var(--main-color);
-
+    
         &::placeholder {
             color: var(--hint-color);
         }
-    
+        
         &:focus {
             border-color: var(--accent-color);
             outline: none;
         }
-
+    
         &:disabled {
             color: var(--hint-color);
         }
-
+    
         &.error {
             border-color: var(--error-color);
         }
-
+    
         &.profile_input {
             background-color: transparent;
         }
     }
-
+    
     .eye-icon {
         cursor: pointer;
-
+    
         position: absolute;
         z-index: 2;
         top: 2px;
         right: 10px;
-
+    
         line-height: 0;
-
+    
         svg {
             fill: var(--main-color)
         }
@@ -68,31 +68,26 @@
     margin-right: 5px;
 }
 
-
-.firstname {
-    grid-area: firstname;
-}
-
-.lastname {
-    grid-area: lastname;
-}
-
-.age {
-    grid-area: age;
-}
-
-.city {
-    grid-area: city;
-}
-
-.username {
-    grid-area: username;
-}
-
+.firstname,
+.lastname,
+.age,
+.city,
+.username,
 .avatar {
-    grid-area: avatar;
+    margin-bottom: 15px;
 }
 
 .withError {
     margin-bottom: 0;
 }
+
+.validErrorBlock {
+    display: block;
+
+    font-size: 15px;
+    line-height: 1;
+    color: var(--error-color);
+    text-align: center;
+}
+
+

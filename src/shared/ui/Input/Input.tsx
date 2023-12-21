@@ -29,7 +29,6 @@ interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     isLoading?: boolean
     disabled?: boolean
     min?: string
-    max?: string
     validError?: string
 }
 
@@ -49,6 +48,7 @@ export const Input: FC<InputPropsInterface> = ({
     isLoading,
     disabled,
     validError,
+    min,
     ...otherProps
 }) => {
     const inputWrapperClassName = classNames(
@@ -95,6 +95,7 @@ export const Input: FC<InputPropsInterface> = ({
                     type={type}
                     placeholder={label}
                     disabled={disabled}
+                    min={min}
                     {...otherProps}
                 />
                 <div className={iconClassName} onClick={handleOpenEye}>
@@ -103,5 +104,14 @@ export const Input: FC<InputPropsInterface> = ({
             </>
         )
 
-    return <div className={inputWrapperClassName}>{showContentCondition}</div>
+    const errorCondition = validError !== '' && (
+        <span className={styles.validErrorBlock}>{validError}</span>
+    )
+
+    return (
+        <>
+            <div className={inputWrapperClassName}>{showContentCondition}</div>
+            {errorCondition}
+        </>
+    )
 }

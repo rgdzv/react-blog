@@ -785,13 +785,13 @@
     "profile": [
         {
             "id": "1",
-            "firstname": "gf",
-            "lastname": "имамов",
+            "firstname": "Roman",
+            "lastname": "Romanov",
             "age": "20",
-            "currency": "USD",
-            "country": "Armenia",
-            "city": "Москва",
-            "username": "ravshan",
+            "currency": "EUR",
+            "country": "Belarus",
+            "city": "Moscow",
+            "username": "roman",
             "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg"
         },
         {

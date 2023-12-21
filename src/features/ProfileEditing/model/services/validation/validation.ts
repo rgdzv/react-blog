@@ -1,11 +1,13 @@
 import { type Profile } from 'entities_/Profile'
-import { type ValidationResult } from '../../types/profileSchema'
 
 const requiredField = 'Поле обязательно для заполнения!'
 const minLength = 'Минимум 2 символа!'
+const ageCondition = 'Вам должно быть больше 18 лет!'
 
-export const validationSchema = (data: Profile): ValidationResult => {
-    const result: ValidationResult = {}
+export const validationSchema = (
+    data: Profile
+): Record<string, string> | undefined => {
+    const result: Record<string, string> = {}
 
     if (data.firstname === '') {
         result.firstname = requiredField
@@ -19,5 +21,23 @@ export const validationSchema = (data: Profile): ValidationResult => {
         result.lastname = minLength
     }
 
-    return result
+    if ((data.age as number) <= 17 && (data.age as number) >= 0) {
+        result.age = ageCondition
+    }
+
+    if (data.city === '') {
+        result.city = requiredField
+    }
+
+    if (data.username === '') {
+        result.username = requiredField
+    } else if (String(data.username).length < 2) {
+        result.username = minLength
+    }
+
+    if (data.avatar === '') {
+        result.avatar = requiredField
+    }
+
+    return Object.keys(result).length === 0 ? undefined : result
 }

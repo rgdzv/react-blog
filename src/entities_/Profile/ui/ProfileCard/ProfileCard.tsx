@@ -1,18 +1,12 @@
 import { type ChangeEvent, type FC } from 'react'
 import { Input, ListBoxElement } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-import {
-    type ProfileInputs,
-    type Profile,
-    type ProfileListboxes
-} from '../../model/types/profile'
-import { inputsArray } from '../../model/utils/inputsArray'
-import { listboxArray } from '../../model/utils/listboxArray'
+import { type Profile } from '../../model/types/profile'
 import { type CurrencyType } from '../../model/types/currency'
 import { type CountryType } from '../../model/types/country'
 import { currencies } from '../../model/utils/currencies'
 import { countries } from '../../model/utils/countries'
-import { type ValidationResult } from 'features/ProfileEditing'
+import styles from './ProfileCard.module.scss'
 
 interface ProfileCardPropsInterface {
     profileForm: Profile
@@ -21,7 +15,7 @@ interface ProfileCardPropsInterface {
     onChangeInputs?: (e: ChangeEvent<HTMLInputElement>) => void
     onChangeCurrency?: (currency: CurrencyType) => void
     onChangeCountry?: (country: CountryType) => void
-    validationErrors?: ValidationResult
+    validationErrors?: Record<string, string>
 }
 
 export const ProfileCard: FC<ProfileCardPropsInterface> = ({
@@ -35,61 +29,113 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
 }) => {
     const { t } = useTranslation('profile')
 
-    const inputs = inputsArray.map((item) => {
-        const label = t(item.label)
-        const value = String(profileForm?.[item.id as ProfileInputs])
-        const type = item.id === 'age' ? 'number' : 'text'
-        const validError = validationErrors?.[
-            item.id as ProfileInputs
-        ] as string
-
-        return (
-            <Input
-                key={item.id}
-                type={type}
-                value={value}
-                onChange={onChangeInputs}
-                id={item.id}
-                label={label}
-                classNameForInputWrapper={item.id}
-                classNameForLabel='profile_label'
-                classNameForInput='profile_input'
-                isLoading={isLoading}
-                disabled={readOnly}
-                validError={validError}
-            />
-        )
-    })
-
-    const listBoxes = listboxArray.map((item) => {
-        const label = t(item.label)
-        const optionsCondition = item.id === 'currency' ? currencies : countries
-        const value = String(profileForm?.[item.id as ProfileListboxes])
-        const defaultValue =
-            item.id === 'currency' ? t('Укажите валюту') : t('Укажите страну')
-        const onChangeCondition =
-            item.id === 'currency' ? onChangeCurrency : onChangeCountry
-
-        return (
-            <ListBoxElement
-                key={item.id}
-                options={optionsCondition}
-                value={value}
-                onChange={onChangeCondition}
-                id={item.id}
-                label={label}
-                defaultValue={defaultValue}
-                classNameForListBox={item.id}
-                isLoading={isLoading}
-                disabled={readOnly}
-            />
-        )
-    })
-
     return (
         <>
-            {inputs}
-            {listBoxes}
+            <div className={styles.leftBlock}>
+                <Input
+                    type='text'
+                    value={String(profileForm?.firstname)}
+                    onChange={onChangeInputs}
+                    id='firstname'
+                    label={t('Имя')}
+                    classNameForInputWrapper='firstname'
+                    classNameForLabel='profile_label'
+                    classNameForInput='profile_input'
+                    isLoading={isLoading}
+                    disabled={readOnly}
+                    validError={t(validationErrors?.firstname as string)}
+                />
+                <Input
+                    type='text'
+                    value={String(profileForm?.lastname)}
+                    onChange={onChangeInputs}
+                    id='lastname'
+                    label={t('Фамилия')}
+                    classNameForInputWrapper='lastname'
+                    classNameForLabel='profile_label'
+                    classNameForInput='profile_input'
+                    isLoading={isLoading}
+                    disabled={readOnly}
+                    validError={t(validationErrors?.lastname as string)}
+                />
+                <Input
+                    type='number'
+                    min='0'
+                    value={String(profileForm?.age)}
+                    onChange={onChangeInputs}
+                    id='age'
+                    label={t('Возраст')}
+                    classNameForInputWrapper='age'
+                    classNameForLabel='profile_label'
+                    classNameForInput='profile_input'
+                    isLoading={isLoading}
+                    disabled={readOnly}
+                    validError={t(validationErrors?.age as string)}
+                />
+                <Input
+                    type='text'
+                    value={String(profileForm?.city)}
+                    onChange={onChangeInputs}
+                    id='city'
+                    label={t('Город')}
+                    classNameForInputWrapper='city'
+                    classNameForLabel='profile_label'
+                    classNameForInput='profile_input'
+                    isLoading={isLoading}
+                    disabled={readOnly}
+                    validError={t(validationErrors?.city as string)}
+                />
+            </div>
+            <div className={styles.rightBlock}>
+                <Input
+                    type='text'
+                    value={String(profileForm?.username)}
+                    onChange={onChangeInputs}
+                    id='username'
+                    label={t('Имя пользователя')}
+                    classNameForInputWrapper='username'
+                    classNameForLabel='profile_label'
+                    classNameForInput='profile_input'
+                    isLoading={isLoading}
+                    disabled={readOnly}
+                    validError={t(validationErrors?.username as string)}
+                />
+                <Input
+                    type='text'
+                    value={String(profileForm?.avatar)}
+                    onChange={onChangeInputs}
+                    id='avatar'
+                    label={t('Ссылка на аватар')}
+                    classNameForInputWrapper='avatar'
+                    classNameForLabel='profile_label'
+                    classNameForInput='profile_input'
+                    isLoading={isLoading}
+                    disabled={readOnly}
+                    validError={t(validationErrors?.avatar as string)}
+                />
+                <ListBoxElement
+                    options={currencies}
+                    value={String(profileForm?.currency)}
+                    onChange={onChangeCurrency}
+                    id='currency'
+                    label={t('Валюта')}
+                    defaultValue={t('Укажите валюту')}
+                    classNameForListBox='currency'
+                    isLoading={isLoading}
+                    disabled={readOnly}
+                />
+                <ListBoxElement
+                    options={countries}
+                    value={String(profileForm?.country)}
+                    onChange={onChangeCountry}
+                    id='country'
+                    label={t('Страна')}
+                    defaultValue={t('Укажите страну')}
+                    classNameForListBox='country'
+                    isLoading={isLoading}
+                    disabled={readOnly}
+                />
+            </div>
         </>
     )
 }

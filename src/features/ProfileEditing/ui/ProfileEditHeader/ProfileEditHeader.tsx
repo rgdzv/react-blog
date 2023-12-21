@@ -12,12 +12,14 @@ interface ProfileEditHeaderPropsInterface {
     canEdit: boolean
     avatar: string
     isLoading: boolean
+    validationErrors: Record<string, string>
 }
 
 export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
     canEdit,
     avatar,
-    isLoading
+    isLoading,
+    validationErrors
 }) => {
     const readOnly = useAppSelector(getProfileReadOnly)
     const dispatch = useAppDispatch()
@@ -48,6 +50,8 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
         [styles.notEditable]: !canEdit || isLoading
     })
 
+    const editDisabled = validationErrors !== undefined
+
     const canEditBlock = canEdit ? (
         <>
             <div className={styles.left}>
@@ -67,6 +71,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = ({
                 <Button
                     className={editButtonClassName}
                     onClick={handleClickEdit}
+                    disabled={editDisabled}
                 >
                     {edit}
                 </Button>

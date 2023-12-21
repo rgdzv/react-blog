@@ -8,21 +8,21 @@ import {
 } from 'entities_/Profile'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
-import { getProfileValidErrors } from '../../model/selectors/gerProfileValidErrors/getProfileValidErrors'
 import { profileActions } from '../../model/slice/profileSlice'
 
 interface ProfileEditCardPropsInterface {
     profileForm: Profile
     isLoading: boolean
+    validationErrors: Record<string, string>
 }
 
 export const ProfileEditCard: FC<ProfileEditCardPropsInterface> = ({
     profileForm,
-    isLoading
+    isLoading,
+    validationErrors
 }) => {
     const dispatch = useAppDispatch()
     const readOnly = useAppSelector(getProfileReadOnly)
-    const validationErrors = useAppSelector(getProfileValidErrors)
 
     const onChangeInputs = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
