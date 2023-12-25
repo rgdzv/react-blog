@@ -15,7 +15,7 @@ export interface Profile {
     id?: string
     firstname?: string
     lastname?: string
-    age?: number
+    age?: string
     currency?: CurrencyType
     country?: CountryType
     city?: string

@@ -3,6 +3,7 @@ import { type Profile } from 'entities_/Profile'
 const requiredField = 'Поле обязательно для заполнения!'
 const minLength = 'Минимум 2 символа!'
 const ageCondition = 'Вам должно быть больше 18 лет!'
+const correctNumber = 'Введите корректное число!'
 
 export const validationSchema = (
     data: Profile
@@ -21,7 +22,11 @@ export const validationSchema = (
         result.lastname = minLength
     }
 
-    if ((data.age as number) <= 17 && (data.age as number) >= 0) {
+    if (data.age === '') {
+        result.age = requiredField
+    } else if (/\D/.test(String(data.age))) {
+        result.age = correctNumber
+    } else if (Number(data.age) <= 17 && Number(data.age) >= 0) {
         result.age = ageCondition
     }
 

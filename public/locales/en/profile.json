@@ -15,5 +15,6 @@
     "Укажите страну": "Choose country",
     "Поле обязательно для заполнения!": "Required field!",
     "Минимум 2 символа!": "Minimum 2 symbols!",
-    "Вам должно быть больше 18 лет!": "You need to be 18 to sign up!"
+    "Вам должно быть больше 18 лет!": "You need to be 18 at least!",
+    "Введите корректное число!": "Enter correct number!"
 }

@@ -33,7 +33,6 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
         <>
             <div className={styles.leftBlock}>
                 <Input
-                    type='text'
                     value={String(profileForm?.firstname)}
                     onChange={onChangeInputs}
                     id='firstname'
@@ -46,7 +45,6 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     validError={t(validationErrors?.firstname as string)}
                 />
                 <Input
-                    type='text'
                     value={String(profileForm?.lastname)}
                     onChange={onChangeInputs}
                     id='lastname'
@@ -59,8 +57,6 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     validError={t(validationErrors?.lastname as string)}
                 />
                 <Input
-                    type='number'
-                    min='0'
                     value={String(profileForm?.age)}
                     onChange={onChangeInputs}
                     id='age'
@@ -73,7 +69,6 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     validError={t(validationErrors?.age as string)}
                 />
                 <Input
-                    type='text'
                     value={String(profileForm?.city)}
                     onChange={onChangeInputs}
                     id='city'
@@ -88,7 +83,6 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
             </div>
             <div className={styles.rightBlock}>
                 <Input
-                    type='text'
                     value={String(profileForm?.username)}
                     onChange={onChangeInputs}
                     id='username'
@@ -101,7 +95,6 @@ export const ProfileCard: FC<ProfileCardPropsInterface> = ({
                     validError={t(validationErrors?.username as string)}
                 />
                 <Input
-                    type='text'
                     value={String(profileForm?.avatar)}
                     onChange={onChangeInputs}
                     id='avatar'
