@@ -29,7 +29,7 @@ export const useAppLinks = (): Link[] => {
 
     if (userData !== undefined) {
         links.push({
-            to: `/profile/${userData.id}`,
+            to: `/profile/${userData?.id}`,
             name: 'Профиль',
             file: 'profile',
             icon: <ProfileIcon data-testid='profile-icon' />

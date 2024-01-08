@@ -62,6 +62,8 @@
                     "attributes": false
                 }
             }
-        ]
+        ],
+        "react/prop-types": "off",
+        "react/display-name": "off"
     }
 }

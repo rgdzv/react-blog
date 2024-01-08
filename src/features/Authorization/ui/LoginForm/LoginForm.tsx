@@ -61,9 +61,8 @@ export const LoginForm: FC = () => {
                 classNameForIcon='eye-icon'
                 handleOpenEye={handleOpenEye}
                 isError={error}
-            >
-                {passwordInputIcon}
-            </Input>
+                passwordInputIcon={passwordInputIcon}
+            />
         </>
     )
 }
