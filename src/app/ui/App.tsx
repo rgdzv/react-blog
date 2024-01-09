@@ -5,17 +5,20 @@ import { AppRouter } from '../providers/RouterProvider'
 import { SideBar } from 'widgets/SideBar'
 import { Header } from 'widgets/Header'
 import { useTheme } from 'app/providers/ThemeProvider'
-import { useAppDispatch } from '../providers/StoreProvider'
-import { userActions } from 'entities_/User'
+import { useAppDispatch, useAppSelector } from '../providers/StoreProvider'
+import { getUserInitiated, userActions } from 'entities_/User'
 
 const App: FC = () => {
     const { theme } = useTheme()
     const dispatch = useAppDispatch()
     const classNameFinal = classNames('app', {}, [theme])
+    const init = useAppSelector(getUserInitiated)
 
     useEffect(() => {
-        dispatch(userActions.initAuthData())
-    }, [dispatch])
+        if (!init) {
+            dispatch(userActions.initAuthData())
+        }
+    }, [dispatch, init])
 
     return (
         <div className={classNameFinal}>
