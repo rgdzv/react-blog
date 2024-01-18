@@ -86,7 +86,7 @@
         "whatwg-fetch": "^3.6.17"
     },
     "dependencies": {
-        "@headlessui/react": "^0.0.0-insiders.24486b3",
+        "@headlessui/react": "^1.7.18",
         "@reduxjs/toolkit": "^1.9.6",
         "axios": "^1.5.1",
         "i18next": "^23.6.0",

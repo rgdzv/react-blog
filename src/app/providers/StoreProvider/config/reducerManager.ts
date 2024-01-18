@@ -6,7 +6,6 @@ import {
     type CombinedState
 } from '@reduxjs/toolkit'
 import {
-    type MountedReducers,
     type ReducerManager,
     type StateSchema,
     type StateSchemaKey
@@ -20,11 +19,9 @@ export function createReducerManager(
     let combinedReducer = combineReducers(reducers)
 
     let keysToRemove: StateSchemaKey[] = []
-    const mountedReducers: MountedReducers = {}
 
     const reducerManager = {
         getReducerMap: () => reducers,
-        getMountedReducers: () => mountedReducers,
         reduce: (
             state: CombinedState<StateSchema> | undefined,
             action: AnyAction

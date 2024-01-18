@@ -15,16 +15,10 @@ export interface StateSchema {
     profile?: ProfileSchema
 }
 
-type OptionalRecord<K extends keyof any, T> = {
-    [P in K]?: T
-}
-
 export type StateSchemaKey = keyof StateSchema
-export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>
-    getMountedReducers: () => MountedReducers
     reduce: Reducer<CombinedState<StateSchema>>
     add: (key: StateSchemaKey, reducer: Reducer) => void
     remove: (key: StateSchemaKey) => void

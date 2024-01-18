@@ -20,7 +20,6 @@ export const userSlice = createSlice({
         logOutUser: (state) => {
             state.authData = undefined
             localStorage.removeItem(USER_LOCALSTORAGE_KEY)
-            state.initiated = false
         },
         initAuthData: (state) => {
             const user = localStorage.getItem(USER_LOCALSTORAGE_KEY)

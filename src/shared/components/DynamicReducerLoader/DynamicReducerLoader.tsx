@@ -26,7 +26,7 @@ export const DynamicReducerLoader: FC<DynamicReducerLoaderProps> = ({
     const dispatch = useDispatch()
 
     useEffect(() => {
-        const mountedReducers = store.reducerManager.getMountedReducers()
+        const mountedReducers = store.reducerManager.getReducerMap()
         Object.entries(reducers).forEach(([name, reducer]) => {
             const mounted = mountedReducers[name as StateSchemaKey]
             if (mounted === undefined) {

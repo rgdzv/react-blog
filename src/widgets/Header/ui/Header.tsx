@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { memo, type FC } from 'react'
 import { Button } from 'shared/ui'
 import styles from './Header.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -6,9 +6,8 @@ import { LoginModal, loginActions } from 'features/Authorization'
 import { useModal } from 'shared/lib'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getUserAuthData, userActions } from 'entities_/User'
-import { useNavigate } from 'react-router-dom'
 
-export const Header: FC = () => {
+export const Header: FC = memo(() => {
     const userAuthData = useAppSelector(getUserAuthData)
     const dispatch = useAppDispatch()
     const {
@@ -20,7 +19,6 @@ export const Header: FC = () => {
         onClickCloseButton
     } = useModal()
     const { t } = useTranslation()
-    const navigate = useNavigate()
     const signIn = t('Войти')
     const signOut = t('Выйти')
 
@@ -28,7 +26,6 @@ export const Header: FC = () => {
         dispatch(userActions.logOutUser())
         closeModal()
         dispatch(loginActions.cleanAll())
-        navigate('/')
     }
 
     if (userAuthData !== undefined) {
@@ -57,4 +54,4 @@ export const Header: FC = () => {
             />
         </header>
     )
-}
+})
