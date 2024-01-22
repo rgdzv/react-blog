@@ -6,6 +6,7 @@ import { type ReactElement } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { ProfilePage } from 'pages/ProfilePage'
 import { RequiredAuth } from '../ui/RequiredAuth'
+import { ArticlesPage } from 'pages/ArticlesPage'
 
 export const routes = [
     {
@@ -26,6 +27,14 @@ export const routes = [
                 element: (
                     <RequiredAuth>
                         <ProfilePage />
+                    </RequiredAuth>
+                )
+            },
+            {
+                path: 'articles',
+                element: (
+                    <RequiredAuth>
+                        <ArticlesPage />
                     </RequiredAuth>
                 )
             }

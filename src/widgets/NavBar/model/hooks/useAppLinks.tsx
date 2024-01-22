@@ -1,7 +1,7 @@
 import { useAppSelector } from 'app/providers/StoreProvider'
 import { getUserAuthData } from 'entities_/User'
 import { type ReactElement } from 'react'
-import { HomeIcon, InfoIcon, ProfileIcon } from 'shared/assets'
+import { ArticleIcon, HomeIcon, InfoIcon, ProfileIcon } from 'shared/assets'
 
 interface Link {
     to: string
@@ -28,12 +28,20 @@ export const useAppLinks = (): Link[] => {
     ]
 
     if (userData !== undefined) {
-        links.push({
-            to: `/profile/${userData?.id}`,
-            name: 'Профиль',
-            file: 'profile',
-            icon: <ProfileIcon data-testid='profile-icon' />
-        })
+        links.push(
+            {
+                to: `/profile/${userData?.id}`,
+                name: 'Профиль',
+                file: 'profile',
+                icon: <ProfileIcon data-testid='profile-icon' />
+            },
+            {
+                to: `/articles`,
+                name: 'Статьи',
+                file: 'article',
+                icon: <ArticleIcon data-testid='article-icon' />
+            }
+        )
     }
 
     return links

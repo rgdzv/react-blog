@@ -12,7 +12,7 @@ interface NavBarPropsInterface {
 export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
-    const { t } = useTranslation(['main', 'about', 'profile'])
+    const { t } = useTranslation(['main', 'about', 'profile', 'article'])
     const links = useAppLinks()
 
     const linkList = useMemo(
