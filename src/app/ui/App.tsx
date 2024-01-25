@@ -7,6 +7,7 @@ import { Header } from 'widgets/Header'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { useAppDispatch, useAppSelector } from '../providers/StoreProvider'
 import { getUserInitiated, userActions } from 'entities_/User'
+import { PageLoader } from 'widgets/PageLoader'
 
 const App: FC = () => {
     const { theme } = useTheme()
@@ -20,12 +21,14 @@ const App: FC = () => {
         }
     }, [dispatch, init])
 
+    const showAppRouterCondition = init ? <AppRouter /> : <PageLoader />
+
     return (
         <div className={classNameFinal}>
             <Header />
             <main className='content'>
                 <SideBar />
-                <AppRouter />
+                {showAppRouterCondition}
             </main>
         </div>
     )

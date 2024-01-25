@@ -8,11 +8,13 @@ import { type AxiosInstance } from 'axios'
 import { type UserSchema } from 'entities_/User'
 import { type LoginSchema } from 'features/Authorization'
 import { type ProfileSchema } from 'features/ProfileEditing'
+import { type ArticlesPageSchema } from 'pages/ArticlesPage'
 
 export interface StateSchema {
     loginForm: LoginSchema
     user: UserSchema
     profile?: ProfileSchema
+    articles?: ArticlesPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
