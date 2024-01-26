@@ -8,6 +8,7 @@ import EyeIcon from './icons/eye-icon.svg'
 import EyeClosedIcon from './icons/eye-closed-icon.svg'
 import DoneIcon from './icons/done-icon.svg'
 import noavatar from './icons/no-avatar-icon.jpg'
+import noimage from './icons/no-image-icon.jpg'
 
 export {
     ThemeIcon,
@@ -19,5 +20,6 @@ export {
     EyeIcon,
     EyeClosedIcon,
     DoneIcon,
-    noavatar
+    noavatar,
+    noimage
 }

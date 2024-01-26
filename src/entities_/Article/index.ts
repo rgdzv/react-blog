@@ -1,1 +1,1 @@
-export { type Article } from './ui/model/types/article'
+export { type Article } from './model/types/article'

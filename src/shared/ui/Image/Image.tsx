@@ -3,17 +3,17 @@ import styles from './Image.module.scss'
 import { classNames } from 'shared/lib'
 import { Skeleton } from '../Skeleton/Skeleton'
 
-type ClassNameType = 'avatar_profile'
+type ClassNameType = 'avatar_profile' | 'article_list_img' | 'article_avatar'
 
 interface ImagePropsInterface {
-    avatar?: string
+    src?: string
     className?: ClassNameType
     alt?: string
     isLoading?: boolean
 }
 
 export const Image: FC<ImagePropsInterface> = ({
-    avatar,
+    src,
     className,
     alt,
     isLoading
@@ -25,7 +25,7 @@ export const Image: FC<ImagePropsInterface> = ({
         isLoading !== undefined ? (
             <Skeleton />
         ) : (
-            <img className={styles.image} src={avatar} alt={alt} />
+            <img className={styles.image} src={src} alt={alt} />
         )
 
     return <div className={classNameFinal}>{showContentCondition}</div>

@@ -10,13 +10,13 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 
 interface ProfileEditHeaderPropsInterface {
     canEdit: boolean
-    avatar: string
+    src: string
     isLoading: boolean
     validationErrors: Record<string, string>
 }
 
 export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = memo(
-    ({ canEdit, avatar, isLoading, validationErrors }) => {
+    ({ canEdit, src, isLoading, validationErrors }) => {
         const readOnly = useAppSelector(getProfileReadOnly)
         const dispatch = useAppDispatch()
         const { t } = useTranslation('profile')
@@ -59,9 +59,9 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = memo(
                     </Button>
                 </div>
                 <Image
-                    avatar={avatar}
+                    src={src}
                     className='avatar_profile'
-                    alt='profile-avatar'
+                    alt='profile avatar'
                 />
                 <div className={styles.right}>
                     <Button
@@ -74,11 +74,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = memo(
                 </div>
             </>
         ) : (
-            <Image
-                avatar={avatar}
-                className='avatar_profile'
-                alt='profile-avatar'
-            />
+            <Image src={src} className='avatar_profile' alt='profile-avatar' />
         )
 
         const showContentCondition = isLoading ? <Skeleton /> : canEditBlock

@@ -24,7 +24,7 @@ export const ProfileEditWrapper: FC = () => {
         <div className={styles.profileWrapper}>
             <ProfileEditHeader
                 canEdit={canEdit}
-                avatar={avatar}
+                src={avatar}
                 isLoading={isLoading}
                 validationErrors={validationErrors}
             />
