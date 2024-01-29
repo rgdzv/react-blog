@@ -17,11 +17,13 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
     return (
         <div className={styles.listItem}>
             <div className={styles.userInfo}>
-                <Image
-                    className='article_avatar'
-                    alt='article avatar'
-                    src={avatar}
-                />
+                <AppLink to='/'>
+                    <Image
+                        className='article_avatar'
+                        alt='article avatar'
+                        src={avatar}
+                    />
+                </AppLink>
                 <span className={styles.userName}>Ulbi TV</span>
                 <span className={styles.creationDate}> 21.02.2023</span>
             </div>
@@ -44,11 +46,9 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
                 </p>
             </div>
             <div className={styles.listItemFooter}>
-                <div className={styles.link}>
-                    <AppLink to='/'>
-                        <Button className='bordered'>Читать далее...</Button>
-                    </AppLink>
-                </div>
+                <AppLink to='/'>
+                    <Button className='bordered'>Читать далее...</Button>
+                </AppLink>
                 <div className={styles.views}>
                     <EyeIcon data-testid='eye-open-icon' />
                     <span>12303</span>

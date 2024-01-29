@@ -24,6 +24,7 @@ html:has(dialog[open]) {
     &__outlet {
         display: flex;
         flex-grow: 1;
+        height: calc(100vh - var(--header-height));
         padding: 0 20px 20px;
     }
 }

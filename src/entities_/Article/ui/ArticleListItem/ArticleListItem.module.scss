@@ -1,8 +1,6 @@
 .listItem {
     max-width: 780px;
-    max-height: 750px;
     padding: 24px;
-
     background-color: var(--widget-bg-color-secondary);
     border-radius: 32px;
 
@@ -10,10 +8,7 @@
         display: flex;
         gap: 10px;
         align-items: center;
-
-        margin-bottom: 10px;
-
-        font-size: 16px;
+        margin-bottom: 15px;
 
         .userName {
             font-weight: 700;
@@ -25,9 +20,8 @@
     }
 
     .articleTitles {
-        margin-bottom: 15px;
-        /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-        font-family: Roboto;
+        margin-bottom: 25px;
+        font-family: Roboto, sans-serif;
 
         .title {
             margin-bottom: 10px;
@@ -42,7 +36,7 @@
     }
 
     .articleContent {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
 
         p {
             font-weight: 400;
@@ -53,17 +47,13 @@
         display: flex;
         justify-content: space-between;
 
-        .link {
-            display: block; // delete this
-        }
-
         .views {
             display: flex;
+            gap: 10px;
             align-items: center;
             justify-content: center;
 
             svg {
-                margin-right: 10px;
                 fill: var(--main-color);
             }
 
