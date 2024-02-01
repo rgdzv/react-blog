@@ -18,13 +18,14 @@ const ArticlesPage: FC = () => {
     }, [dispatch])
 
     return (
-        <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <div className={styles.articlesPage} data-testid='articles-page'>
-                <div></div>
+        <div className={styles.articlesPage} data-testid='articles-page'>
+            <DynamicReducerLoader
+                reducers={reducers}
+                removeAfterUnmount={false}
+            >
                 <ArticleList />
-                <div></div>
-            </div>
-        </DynamicReducerLoader>
+            </DynamicReducerLoader>
+        </div>
     )
 }
 

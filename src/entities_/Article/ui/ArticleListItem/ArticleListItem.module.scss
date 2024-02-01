@@ -4,6 +4,10 @@
     background-color: var(--widget-bg-color-secondary);
     border-radius: 32px;
 
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
     .userInfo {
         display: flex;
         gap: 10px;
