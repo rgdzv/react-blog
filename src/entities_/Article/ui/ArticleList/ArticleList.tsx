@@ -4,36 +4,32 @@ import { noavatar, noimage } from 'shared/assets'
 import { useSelector } from 'react-redux'
 import {
     getArticlesPageData,
-    getArticlesPageError
-    // getArticlesPageIsLoading
+    getArticlesPageError,
+    getArticlesPageIsLoading
 } from 'pages/ArticlesPage'
 import { useTranslation } from 'react-i18next'
 import styles from './ArticleList.module.scss'
 import { type ArticleTextBlock } from '../../model/types/article'
+import { ArticleBlockType } from '../../model/const/articleConst'
 
-/* eslint-disable @typescript-eslint/no-empty-interface */
-
-interface ArticleListPropsInterface {}
-
-export const ArticleList: FC<ArticleListPropsInterface> = () => {
+export const ArticleList: FC = () => {
     const articles = useSelector(getArticlesPageData)
-    // const isLoading = useSelector(getArticlesPageIsLoading)
+    const isLoading = useSelector(getArticlesPageIsLoading)
     const error = useSelector(getArticlesPageError)
     const { t } = useTranslation('article')
     const errorName = t('Ошибка при загрузке статей!')
     const buttonName = t('Читать')
 
-    const avatar = noavatar
-
     const articleList = articles?.map((item) => {
+        const avatar = item.user.avatar ?? noavatar
         const articleImage = item.img ?? noimage
 
         const block = item.blocks?.find(
-            (block) => block.type === 'TEXT'
+            (block) => block.type === ArticleBlockType.TEXT
         ) as ArticleTextBlock
 
         const textBlock =
-            block !== undefined ? `${block?.paragraphs[0]}...` : '...'
+            block !== undefined ? `${block?.paragraphs[0]}...` : 'No text...'
 
         return (
             <ArticleListItem
@@ -46,6 +42,8 @@ export const ArticleList: FC<ArticleListPropsInterface> = () => {
                 views={item.views}
                 textBlock={textBlock}
                 buttonName={buttonName}
+                userName={item.user.username}
+                isLoading={isLoading}
             />
         )
     })

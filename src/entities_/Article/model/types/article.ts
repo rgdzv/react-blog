@@ -1,3 +1,4 @@
+import { type User } from 'entities_/User'
 import { type ArticleBlockType, type ArticleType } from '../const/articleConst'
 
 export interface ArticleBlockBase {
@@ -37,4 +38,5 @@ export interface Article {
     userId: string
     type: ArticleType[]
     blocks: ArticleBlock[]
+    user: User
 }

@@ -12,7 +12,11 @@
         display: flex;
         gap: 10px;
         align-items: center;
+
+        height: 2em;
         margin-bottom: 15px;
+
+        border-radius: inherit;
 
         .userName {
             font-weight: 700;
@@ -24,8 +28,10 @@
     }
 
     .articleTitles {
+        height: 4.125em;
         margin-bottom: 25px;
         font-family: Roboto, sans-serif;
+        border-radius: inherit;
 
         .title {
             margin-bottom: 10px;
@@ -40,9 +46,11 @@
     }
 
     .articleContent {
+        height: 2em;
         margin-bottom: 20px;
+        border-radius: inherit;
 
-        p {
+        .text {
             font-weight: 400;
         }
     }
@@ -50,6 +58,8 @@
     .listItemFooter {
         display: flex;
         justify-content: space-between;
+        height: 2.187em;
+        border-radius: inherit;
 
         .views {
             display: flex;

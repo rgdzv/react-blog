@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 import styles from './ArticleListItem.module.scss'
-import { AppLink, Button, Image } from 'shared/ui'
+import { AppLink, Button, Image, Skeleton } from 'shared/ui'
 import { EyeIcon } from 'shared/assets'
 
 interface ArticleListItemPropsInterface {
@@ -12,9 +12,9 @@ interface ArticleListItemPropsInterface {
     views: number
     buttonName: string
     textBlock: string
+    userName: string
+    isLoading: boolean
 }
-
-/* eslint-disable i18next/no-literal-string */
 
 export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
     avatar,
@@ -24,41 +24,66 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
     date,
     views,
     buttonName,
-    textBlock
+    textBlock,
+    userName,
+    isLoading
 }) => {
     return (
         <div className={styles.listItem}>
             <div className={styles.userInfo}>
-                <AppLink to='/'>
-                    <Image
-                        className='article_avatar'
-                        alt='article avatar'
-                        src={avatar}
-                    />
-                </AppLink>
-                <span className={styles.userName}>Ulbi TV</span>
-                <span className={styles.creationDate}>{date}</span>
+                {isLoading ? (
+                    <Skeleton />
+                ) : (
+                    <>
+                        <AppLink to='/'>
+                            <Image
+                                className='article_avatar'
+                                alt='article avatar'
+                                src={avatar}
+                            />
+                        </AppLink>
+                        <span className={styles.userName}>{userName}</span>
+                        <span className={styles.creationDate}>{date}</span>
+                    </>
+                )}
             </div>
             <div className={styles.articleTitles}>
-                <p className={styles.title}>{title}</p>
-                <p className={styles.subtitle}>{subtitle}</p>
+                {isLoading ? (
+                    <Skeleton />
+                ) : (
+                    <>
+                        <p className={styles.title}>{title}</p>
+                        <p className={styles.subtitle}>{subtitle}</p>
+                    </>
+                )}
             </div>
             <Image
                 className='article_list_img'
                 alt='article image'
                 src={articleImage}
+                isLoading={isLoading}
             />
             <div className={styles.articleContent}>
-                <p>{textBlock}</p>
+                {isLoading ? (
+                    <Skeleton />
+                ) : (
+                    <p className={styles.text}>{textBlock}</p>
+                )}
             </div>
             <div className={styles.listItemFooter}>
-                <AppLink to='/'>
-                    <Button className='bordered'>{buttonName}</Button>
-                </AppLink>
-                <div className={styles.views}>
-                    <EyeIcon data-testid='eye-open-icon' />
-                    <span>{views}</span>
-                </div>
+                {isLoading ? (
+                    <Skeleton />
+                ) : (
+                    <>
+                        <AppLink to='/'>
+                            <Button className='bordered'>{buttonName}</Button>
+                        </AppLink>
+                        <div className={styles.views}>
+                            <EyeIcon data-testid='eye-open-icon' />
+                            <span>{views}</span>
+                        </div>
+                    </>
+                )}
             </div>
         </div>
     )

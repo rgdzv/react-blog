@@ -8,7 +8,11 @@ export const getArticlesList = createAsyncThunk<
     ThunkConfig<string>
 >('articles/getArticlesList', async (_, { rejectWithValue, extra }) => {
     try {
-        const { data } = await extra.axiosAPI.get<Article[]>(`/articles`)
+        const { data } = await extra.axiosAPI.get<Article[]>(`/articles`, {
+            params: {
+                _expand: 'user'
+            }
+        })
         return data
     } catch (error) {
         if (error.response === undefined) {
