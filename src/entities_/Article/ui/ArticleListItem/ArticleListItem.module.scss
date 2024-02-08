@@ -1,6 +1,11 @@
 .listItem {
-    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 780px;
     padding: 24px;
+
     background-color: var(--widget-bg-color-secondary);
     border-radius: 32px;
 

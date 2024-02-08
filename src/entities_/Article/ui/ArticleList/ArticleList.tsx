@@ -54,9 +54,9 @@ export const ArticleList: FC = () => {
 
     return (
         <>
-            <div></div>
+            {/* <div></div> */}
             <div className={styles.articleList}>{articleList}</div>
-            <div></div>
+            {/* <div></div> */}
         </>
     )
 }
