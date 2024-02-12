@@ -35,14 +35,14 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
                     <Skeleton />
                 ) : (
                     <>
-                        <AppLink to='/'>
+                        <AppLink to='/' className={styles.userInfoLink}>
                             <Image
                                 className='article_avatar'
                                 alt='article avatar'
                                 src={avatar}
                             />
+                            <span className={styles.userName}>{userName}</span>
                         </AppLink>
-                        <span className={styles.userName}>{userName}</span>
                         <span className={styles.creationDate}>{date}</span>
                     </>
                 )}

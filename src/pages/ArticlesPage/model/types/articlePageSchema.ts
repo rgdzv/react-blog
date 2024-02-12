@@ -4,4 +4,7 @@ export interface ArticlesPageSchema {
     data?: Article[]
     isLoading: boolean
     error?: string
+    page: number
+    hasMore: boolean
+    limit: number
 }

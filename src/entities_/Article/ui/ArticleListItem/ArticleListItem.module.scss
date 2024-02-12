@@ -23,8 +23,15 @@
 
         border-radius: inherit;
 
-        .userName {
-            font-weight: 700;
+        .userInfoLink {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            color: var(--text-color);
+
+            .userName {
+                font-weight: 700;
+            }
         }
 
         .creationDate {

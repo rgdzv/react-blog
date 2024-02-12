@@ -6,18 +6,27 @@ export const getArticlesList = createAsyncThunk<
     Article[],
     void, // eslint-disable-line @typescript-eslint/no-invalid-void-type
     ThunkConfig<string>
->('articles/getArticlesList', async (_, { rejectWithValue, extra }) => {
-    try {
-        const { data } = await extra.axiosAPI.get<Article[]>(`/articles`, {
-            params: {
-                _expand: 'user'
+>(
+    'articles/getArticlesList',
+    async (_, { rejectWithValue, extra, getState }) => {
+        try {
+            const currentState = getState()
+            const limit = currentState.articles?.limit
+            const page = currentState.articles?.page
+
+            const { data } = await extra.axiosAPI.get<Article[]>(`/articles`, {
+                params: {
+                    _expand: 'user',
+                    _limit: limit,
+                    _page: page
+                }
+            })
+            return data
+        } catch (error) {
+            if (error.response === undefined) {
+                throw error
             }
-        })
-        return data
-    } catch (error) {
-        if (error.response === undefined) {
-            throw error
+            return rejectWithValue(error.response.data.message)
         }
-        return rejectWithValue(error.response.data.message)
     }
-})
+)

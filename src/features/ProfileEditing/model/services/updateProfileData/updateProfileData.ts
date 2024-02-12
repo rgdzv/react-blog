@@ -10,10 +10,11 @@ export const updateProfileData = createAsyncThunk<
     'profile/updateProfileData',
     async (_, { rejectWithValue, extra, getState }) => {
         const { profile } = getState()
+        const profileID = String(profile?.form?.id)
 
         try {
             const response = await extra.axiosAPI.put<Profile>(
-                `/profile/${String(profile?.form?.id)}`,
+                `/profile/${profileID}`,
                 profile?.form
             )
 
