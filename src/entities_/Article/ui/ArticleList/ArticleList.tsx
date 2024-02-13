@@ -3,7 +3,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { noavatar, noimage } from 'shared/assets'
 import { useSelector } from 'react-redux'
 import {
-    getArticlesPageData,
+    getArticles,
     getArticlesPageError,
     getArticlesPageIsLoading
 } from 'pages/ArticlesPage'
@@ -13,7 +13,7 @@ import { type ArticleTextBlock } from '../../model/types/article'
 import { ArticleBlockType } from '../../model/const/articleConst'
 
 export const ArticleList: FC = () => {
-    const articles = useSelector(getArticlesPageData)
+    const articles = useSelector(getArticles.selectAll)
     const isLoading = useSelector(getArticlesPageIsLoading)
     const error = useSelector(getArticlesPageError)
     const { t } = useTranslation('article')

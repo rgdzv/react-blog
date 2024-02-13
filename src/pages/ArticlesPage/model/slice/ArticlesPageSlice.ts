@@ -1,15 +1,30 @@
-import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
+import {
+    type PayloadAction,
+    createSlice,
+    createEntityAdapter
+} from '@reduxjs/toolkit'
 import { type ArticlesPageSchema } from '../types/articlePageSchema'
 import { getArticlesList } from '../services/getArticlesList/getArticlesList'
+import { type Article } from 'entities_/Article'
+import { type StateSchema } from 'app/providers/StoreProvider'
 
-const initialState: ArticlesPageSchema = {
-    data: undefined,
+const articlesAdapter = createEntityAdapter<Article>({
+    selectId: (article) => article.id
+})
+
+export const getArticles = articlesAdapter.getSelectors<StateSchema>(
+    (state) => state.articles ?? articlesAdapter.getInitialState()
+)
+
+const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
+    ids: [],
+    entities: {},
     isLoading: false,
     error: undefined,
     page: 1,
     hasMore: true,
     limit: 4
-}
+})
 
 const articlesPageSlice = createSlice({
     name: 'articlesPageSlice',
@@ -26,12 +41,7 @@ const articlesPageSlice = createSlice({
             })
             .addCase(getArticlesList.fulfilled, (state, action) => {
                 state.hasMore = action.payload.length >= state.limit
-                if (state.page === 1) {
-                    state.data = action.payload
-                } else {
-                    state.data = state.data?.concat(action.payload)
-                }
-
+                articlesAdapter.addMany(state, action.payload)
                 state.isLoading = false
             })
             .addCase(getArticlesList.rejected, (state, action) => {

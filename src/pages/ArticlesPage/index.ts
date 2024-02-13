@@ -1,5 +1,5 @@
 export { ArticlesPageLazy as ArticlesPage } from './ui/ArticlesPage/ArticlesPage.lazy'
 export { type ArticlesPageSchema } from './model/types/articlePageSchema'
-export { getArticlesPageData } from './model/selectors/getArticlesPageData/getArticlesPageData'
 export { getArticlesPageError } from './model/selectors/getArticlesPageError/getArticlesPageError'
 export { getArticlesPageIsLoading } from './model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading'
+export { getArticles } from './model/slice/articlesPageSlice'
