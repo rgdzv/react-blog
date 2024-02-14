@@ -1,7 +1,7 @@
 import { type FC } from 'react'
-import styles from './NotFoundPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
+import { Page } from 'widgets/Page'
 
 const NotFoundPage: FC = () => {
     const error = useRouteError()
@@ -26,9 +26,9 @@ const NotFoundPage: FC = () => {
     )
 
     return (
-        <div className={styles.notFound} data-testid='not-found-page'>
+        <Page className='notFound' dataTestId='not-found-page'>
             {errorBlock}
-        </div>
+        </Page>
     )
 }
 

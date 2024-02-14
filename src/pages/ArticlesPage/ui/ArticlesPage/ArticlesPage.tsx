@@ -4,7 +4,7 @@ import { articlesPageReducer } from '../../model/slice/articlesPageSlice'
 import { useAppDispatch } from 'app/providers/StoreProvider'
 import { getArticlesList } from '../../model/services/getArticlesList/getArticlesList'
 import { ArticleList } from '../../../../entities_/Article/ui/ArticleList/ArticleList'
-import styles from './ArticlesPage.module.scss'
+import { Page } from 'widgets/Page'
 
 const reducers: ReducersList = {
     articles: articlesPageReducer
@@ -18,14 +18,11 @@ const ArticlesPage: FC = () => {
     }, [dispatch])
 
     return (
-        <div className={styles.articlesPage} data-testid='articles-page'>
-            <DynamicReducerLoader
-                reducers={reducers}
-                removeAfterUnmount={false}
-            >
+        <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
+            <Page dataTestId='articles-page'>
                 <ArticleList />
-            </DynamicReducerLoader>
-        </div>
+            </Page>
+        </DynamicReducerLoader>
     )
 }
 

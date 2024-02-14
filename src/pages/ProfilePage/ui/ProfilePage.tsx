@@ -4,10 +4,10 @@ import {
     profileReducer
 } from 'features/ProfileEditing'
 import { useEffect, type FC } from 'react'
-import styles from './ProfilePage.module.scss'
 import { useAppDispatch } from 'app/providers/StoreProvider'
 import { useParams } from 'react-router-dom'
 import { DynamicReducerLoader, type ReducersList } from 'shared/components'
+import { Page } from 'widgets/Page'
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -24,11 +24,11 @@ const ProfilePage: FC = () => {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div className={styles.profilePage} data-testid='profile-page'>
-            <DynamicReducerLoader reducers={reducers}>
+        <DynamicReducerLoader reducers={reducers}>
+            <Page dataTestId='profile-page'>
                 <ProfileEditWrapper />
-            </DynamicReducerLoader>
-        </div>
+            </Page>
+        </DynamicReducerLoader>
     )
 }
 

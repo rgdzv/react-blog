@@ -10,20 +10,7 @@ html:has(dialog[open]) {
 
 .app {
     min-height: 100vh;
-    padding: 0 30px;
-
     font: var(--font);
     color: var(--text-color);
-
     background: var(--background-color);
-}
-
-.content {
-    display: flex;
-
-    &__outlet {
-        display: flex;
-        flex-grow: 1;
-        padding: 0 20px 20px;
-    }
 }

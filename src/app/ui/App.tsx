@@ -8,6 +8,7 @@ import { useTheme } from 'app/providers/ThemeProvider'
 import { useAppDispatch, useAppSelector } from '../providers/StoreProvider'
 import { getUserInitiated, userActions } from 'entities_/User'
 import { PageLoader } from 'widgets/PageLoader'
+import { MainLayout } from 'shared/layouts'
 
 const App: FC = () => {
     const { theme } = useTheme()
@@ -25,11 +26,11 @@ const App: FC = () => {
 
     return (
         <div className={classNameFinal}>
-            <Header />
-            <main className='content'>
-                <SideBar />
-                {showAppRouterCondition}
-            </main>
+            <MainLayout
+                header={<Header />}
+                content={showAppRouterCondition}
+                sidebar={<SideBar />}
+            />
         </div>
     )
 }
