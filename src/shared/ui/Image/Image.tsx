@@ -2,7 +2,11 @@ import { type FC } from 'react'
 import styles from './Image.module.scss'
 import { Skeleton } from '../Skeleton/Skeleton'
 
-type ClassNameType = 'avatar_profile' | 'article_list_img' | 'article_avatar'
+type ClassNameType =
+    | 'profile_avatar'
+    | 'article_list_img'
+    | 'article_avatar'
+    | 'login_dropdown_avatar'
 
 interface ImagePropsInterface {
     src?: string

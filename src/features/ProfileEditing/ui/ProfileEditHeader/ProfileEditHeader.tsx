@@ -60,7 +60,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = memo(
                 </div>
                 <Image
                     src={src}
-                    className='avatar_profile'
+                    className='profile_avatar'
                     alt='profile avatar'
                 />
                 <div className={styles.right}>
@@ -74,7 +74,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = memo(
                 </div>
             </>
         ) : (
-            <Image src={src} className='avatar_profile' alt='profile-avatar' />
+            <Image src={src} className='profile_avatar' alt='profile avatar' />
         )
 
         const showContentCondition = isLoading ? <Skeleton /> : canEditBlock

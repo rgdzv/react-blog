@@ -1,0 +1,56 @@
+.dropDown {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    z-index: 3;
+
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    background: var(--widget-bg-color);
+    border: 1px solid var(--main-color);
+    border-radius: 18px;
+
+    &[data-headlessui-state='open'] {
+        animation: show 100ms linear forwards;
+    }
+}
+
+.item {
+    cursor: pointer;
+
+    width: 100%;
+    padding: 10px 25px;
+
+    color: var(--text-color);
+    white-space: nowrap;
+
+    background: none;
+    border: none;
+    outline: none;
+
+    &.active {
+        background-color: var(--main-color);
+    }
+
+    &[data-headlessui-state='disabled'] {
+        cursor: auto;
+        user-select: none;
+        opacity: 0.3;
+    }
+}
+
+@keyframes show{
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}

@@ -5,7 +5,7 @@
     border-radius: inherit;
 }
 
-.avatar_profile {
+.profile_avatar {
     justify-self: center;
     width: 128px;
     height: 128px;
@@ -23,4 +23,10 @@
     height: 420px;
     margin-bottom: 15px;
     border-radius: 10px;
+}
+
+.login_dropdown_avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
 }

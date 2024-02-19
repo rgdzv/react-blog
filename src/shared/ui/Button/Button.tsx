@@ -2,7 +2,8 @@ import {
     type ForwardedRef,
     type ButtonHTMLAttributes,
     type ReactNode,
-    forwardRef
+    forwardRef,
+    memo
 } from 'react'
 import { classNames } from 'shared/lib'
 import styles from './Button.module.scss'
@@ -22,24 +23,26 @@ interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 // eslint-disable-next-line react/display-name
-export const Button = forwardRef(
-    (props: ButtonPropsInterface, ref: ForwardedRef<HTMLButtonElement>) => {
-        const { children, className, disabled, ...otherProps } = props
+export const Button = memo(
+    forwardRef(
+        (props: ButtonPropsInterface, ref: ForwardedRef<HTMLButtonElement>) => {
+            const { children, className, disabled, ...otherProps } = props
 
-        const classNameFinal = classNames(styles.button, {}, [
-            styles[className as ClassNameType]
-        ])
+            const classNameFinal = classNames(styles.button, {}, [
+                styles[className as ClassNameType]
+            ])
 
-        return (
-            <button
-                type='button'
-                className={classNameFinal}
-                disabled={disabled}
-                ref={ref}
-                {...otherProps}
-            >
-                {children}
-            </button>
-        )
-    }
+            return (
+                <button
+                    type='button'
+                    className={classNameFinal}
+                    disabled={disabled}
+                    ref={ref}
+                    {...otherProps}
+                >
+                    {children}
+                </button>
+            )
+        }
+    )
 )
