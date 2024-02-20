@@ -7,6 +7,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { ProfilePage } from 'pages/ProfilePage'
 import { RequiredAuth } from '../ui/RequiredAuth'
 import { ArticlesPage } from 'pages/ArticlesPage'
+import { AdminPage } from 'pages/AdminPage'
+import { SettingsPage } from 'pages/SettingsPage'
 
 export const routes = [
     {
@@ -35,6 +37,22 @@ export const routes = [
                 element: (
                     <RequiredAuth>
                         <ArticlesPage />
+                    </RequiredAuth>
+                )
+            },
+            {
+                path: 'admin',
+                element: (
+                    <RequiredAuth>
+                        <AdminPage />
+                    </RequiredAuth>
+                )
+            },
+            {
+                path: 'settings',
+                element: (
+                    <RequiredAuth>
+                        <SettingsPage />
                     </RequiredAuth>
                 )
             }

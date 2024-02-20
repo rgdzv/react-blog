@@ -20,7 +20,6 @@ export const Header: FC = memo(() => {
     } = useModal()
     const { t } = useTranslation()
     const signIn = t('Войти')
-    const signOut = t('Выйти')
 
     const handleLogOut = (): void => {
         dispatch(userActions.logOutUser())
@@ -33,11 +32,11 @@ export const Header: FC = memo(() => {
 
         return (
             <header className={styles.header}>
-                <Button onClick={handleLogOut} className='bordered'>
-                    {signOut}
-                </Button>
                 <Suspense>
-                    <LoginDropDown />
+                    <LoginDropDown
+                        handleLogOut={handleLogOut}
+                        id={userAuthData.id}
+                    />
                 </Suspense>
             </header>
         )

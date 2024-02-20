@@ -6,7 +6,7 @@ export interface FeatureFlags {
     isAppRedesigned?: boolean
 }
 
-enum UserRole {
+export enum UserRole {
     ADMIN = 'ADMIN',
     USER = 'USER',
     MANAGER = 'MANAGER'

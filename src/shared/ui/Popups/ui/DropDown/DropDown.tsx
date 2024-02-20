@@ -34,7 +34,7 @@ export const DropDown: FC<DropDownPropsInterface> = ({
         <Menu as='div' className={styles.dropDown}>
             <Menu.Button as={Button}>{trigger}</Menu.Button>
             <Menu.Items className={menuItemsClassName}>
-                {items.map((item) => {
+                {items?.map((item) => {
                     if (item.href === undefined) {
                         return (
                             <Menu.Item
@@ -47,6 +47,7 @@ export const DropDown: FC<DropDownPropsInterface> = ({
                                         className={classNames(styles.item, {
                                             [styles.active]: active
                                         })}
+                                        onClick={item.onClick}
                                     >
                                         {item.content}
                                     </span>

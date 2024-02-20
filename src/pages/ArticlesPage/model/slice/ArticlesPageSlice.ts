@@ -26,7 +26,7 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
     limit: 4
 })
 
-const articlesPageSlice = createSlice({
+export const articlesPageSlice = createSlice({
     name: 'articlesPageSlice',
     initialState,
     reducers: {
