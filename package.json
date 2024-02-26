@@ -16,6 +16,7 @@
         "stylelint": "stylelint --config config/stylelint/.stylelintrc.json --ignore-path config/stylelint/.stylelintignore \"**/*.scss\"",
         "stylelint:fix": "stylelint --config config/stylelint/.stylelintrc.json --ignore-path config/stylelint/.stylelintignore --fix \"**/*.scss\"",
         "jest-unit": "jest --config config/jest/jest.config.json",
+        "jest-clear": "jest --clearCache",
         "storybook": "storybook dev -p 6006 --config-dir config/storybook/",
         "build-storybook": "storybook build --config-dir config/storybook/",
         "test-storybook": "test-storybook --config-dir config/storybook/ --verbose"
