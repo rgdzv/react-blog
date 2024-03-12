@@ -34,6 +34,7 @@ export const ArticleList: FC = () => {
         return (
             <ArticleListItem
                 key={item.id}
+                id={item.userId}
                 avatar={avatar}
                 articleImage={articleImage}
                 title={item.title}
@@ -55,6 +56,7 @@ export const ArticleList: FC = () => {
     return (
         <>
             {/* <div></div> */}
+            <></>
             <div className={styles.articleList}>{articleList}</div>
             {/* <div></div> */}
         </>

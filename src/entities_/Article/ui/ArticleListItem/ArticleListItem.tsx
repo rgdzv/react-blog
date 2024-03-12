@@ -14,6 +14,7 @@ interface ArticleListItemPropsInterface {
     textBlock: string
     userName: string
     isLoading: boolean
+    id: string
 }
 
 export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
@@ -26,7 +27,8 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
     buttonName,
     textBlock,
     userName,
-    isLoading
+    isLoading,
+    id
 }) => {
     return (
         <div className={styles.listItem}>
@@ -35,7 +37,10 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
                     <Skeleton />
                 ) : (
                     <>
-                        <AppLink to='/' className={styles.userInfoLink}>
+                        <AppLink
+                            to={`/profile/${id}`}
+                            className={styles.userInfoLink}
+                        >
                             <Image
                                 className='article_avatar'
                                 alt='article avatar'

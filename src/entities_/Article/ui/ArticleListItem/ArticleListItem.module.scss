@@ -21,7 +21,7 @@
         height: 2em;
         margin-bottom: 15px;
 
-        border-radius: inherit;
+        border-radius: 10px;
 
         .userInfoLink {
             display: flex;
@@ -43,7 +43,7 @@
         height: 4.125em;
         margin-bottom: 25px;
         font-family: Roboto, sans-serif;
-        border-radius: inherit;
+        border-radius: 10px;
 
         .title {
             margin-bottom: 10px;
@@ -60,7 +60,7 @@
     .articleContent {
         height: 2em;
         margin-bottom: 20px;
-        border-radius: inherit;
+        border-radius: 10px;
 
         .text {
             font-weight: 400;
@@ -71,7 +71,7 @@
         display: flex;
         justify-content: space-between;
         height: 2.187em;
-        border-radius: inherit;
+        border-radius: 10px;
 
         .views {
             display: flex;

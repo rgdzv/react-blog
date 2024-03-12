@@ -2,7 +2,7 @@ import { type ReactElement, type FC } from 'react'
 import { classNames } from 'shared/lib'
 import styles from './Page.module.scss'
 
-type ClassNameType = 'notFound'
+type ClassNameType = 'notFound' | 'articles'
 
 interface PagePropsInterface {
     children: ReactElement | string
