@@ -4,7 +4,7 @@ import { getArticlesPageNumber } from '../../selectors/getArticlesPageNumber/get
 import { getArticlesPageIsLoading } from '../../selectors/getArticlesPageIsLoading/getArticlesPageIsLoading'
 import { getArticlesPageHasMore } from '../../selectors/getArticlesPageHasMore/getArticlesPageHasMore'
 import { getArticlesList } from '../getArticlesList/getArticlesList'
-import { articlesPageActions } from '../../slice/articlesPageSlice'
+import { articlesPageActions } from '../../slice/ArticlesPageSlice'
 
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
 
