@@ -24,7 +24,7 @@ export const Normal: Story = {
             async () => {
                 await expect(notFoundPage).toBeInTheDocument()
                 await expect(notFoundPage).toHaveClass(
-                    'src-pages-NotFoundPage-ui-NotFoundPage-module__notFound'
+                    'src-widgets-Page-ui-Page-module__page src-widgets-Page-ui-Page-module__notFound'
                 )
             }
         )
