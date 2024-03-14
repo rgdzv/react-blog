@@ -26,7 +26,7 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
     limit: 4
 })
 
-export const articlesPageSlice = createSlice({
+export const ArticlesPageSlice = createSlice({
     name: 'articlesPageSlice',
     initialState,
     reducers: {
@@ -56,4 +56,4 @@ export const articlesPageSlice = createSlice({
 })
 
 export const { reducer: articlesPageReducer, actions: articlesPageActions } =
-    articlesPageSlice
+    ArticlesPageSlice

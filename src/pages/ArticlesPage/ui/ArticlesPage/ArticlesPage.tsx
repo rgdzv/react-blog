@@ -1,6 +1,6 @@
 import { useEffect, type FC } from 'react'
 import { DynamicReducerLoader, type ReducersList } from 'shared/components'
-import { articlesPageReducer } from '../../model/slice/articlesPageSlice'
+import { articlesPageReducer } from '../../model/slice/ArticlesPageSlice'
 import { useAppDispatch } from 'app/providers/StoreProvider'
 import { getArticlesList } from '../../model/services/getArticlesList/getArticlesList'
 import { ArticleList } from '../../../../entities_/Article/ui/ArticleList/ArticleList'
