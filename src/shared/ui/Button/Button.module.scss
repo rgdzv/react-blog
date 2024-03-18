@@ -98,14 +98,6 @@
     svg {
         fill: var(--widget-bg-color)
     }
-
-    &:focus {
-        background-color: var(--widget-bg-color);
-
-        svg {
-            fill: var(--main-color)
-        }
-    }
 }
 
 .right_bordered {
@@ -115,4 +107,12 @@
     border-top-right-radius: inherit;
     border-bottom-right-radius: inherit;
     border-bottom-left-radius: 0;
+}
+
+.selected {
+    background-color: var(--widget-bg-color);
+
+    svg {
+        fill: var(--main-color)
+    }
 }

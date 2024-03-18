@@ -22,17 +22,23 @@ interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
     className?: ClassNameType
     disabled?: boolean
+    selected?: boolean
 }
 
 // eslint-disable-next-line react/display-name
 export const Button = memo(
     forwardRef(
         (props: ButtonPropsInterface, ref: ForwardedRef<HTMLButtonElement>) => {
-            const { children, className, disabled, ...otherProps } = props
+            const { children, className, disabled, selected, ...otherProps } =
+                props
 
-            const classNameFinal = classNames(styles.button, {}, [
-                styles[className as ClassNameType]
-            ])
+            const classNameFinal = classNames(
+                styles.button,
+                {
+                    [styles.selected]: selected
+                },
+                [styles[className as ClassNameType]]
+            )
 
             return (
                 <button
