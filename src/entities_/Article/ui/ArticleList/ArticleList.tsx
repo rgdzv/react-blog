@@ -1,21 +1,23 @@
 import { type FC } from 'react'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { noavatar, noimage } from 'shared/assets'
-import { useSelector } from 'react-redux'
 import {
     getArticles,
     getArticlesPageError,
-    getArticlesPageIsLoading
+    getArticlesPageIsLoading,
+    getArticlesPageView
 } from 'pages/ArticlesPage'
 import { useTranslation } from 'react-i18next'
 import styles from './ArticleList.module.scss'
 import { type ArticleTextBlock } from '../../model/types/article'
-import { ArticleBlockType } from '../../model/const/articleConst'
+import { ArticleBlockType, ArticleView } from '../../model/const/articleConst'
+import { useAppSelector } from 'app/providers/StoreProvider'
 
 export const ArticleList: FC = () => {
-    const articles = useSelector(getArticles.selectAll)
-    const isLoading = useSelector(getArticlesPageIsLoading)
-    const error = useSelector(getArticlesPageError)
+    const articles = useAppSelector(getArticles.selectAll)
+    const isLoading = useAppSelector(getArticlesPageIsLoading)
+    const error = useAppSelector(getArticlesPageError)
+    const view = useAppSelector(getArticlesPageView)
     const { t } = useTranslation('article')
     const errorName = t('Ошибка при загрузке статей!')
     const buttonName = t('Читать')
@@ -45,20 +47,19 @@ export const ArticleList: FC = () => {
                 buttonName={buttonName}
                 userName={item.user.username}
                 isLoading={isLoading}
+                view={view}
             />
         )
     })
+
+    const atricleListClassName =
+        view === ArticleView.BIG
+            ? styles.articleListBig
+            : styles.articleListSmall
 
     if (error !== '') {
         return <div className={styles.articlesLoadError}>{errorName}</div>
     }
 
-    return (
-        <>
-            {/* <div></div> */}
-            <></>
-            <div className={styles.articleList}>{articleList}</div>
-            {/* <div></div> */}
-        </>
-    )
+    return <div className={atricleListClassName}>{articleList}</div>
 }

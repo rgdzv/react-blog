@@ -2,4 +2,6 @@ export { ArticlesPageLazy as ArticlesPage } from './ui/ArticlesPage/ArticlesPage
 export { type ArticlesPageSchema } from './model/types/articlePageSchema'
 export { getArticlesPageError } from './model/selectors/getArticlesPageError/getArticlesPageError'
 export { getArticlesPageIsLoading } from './model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading'
+export { getArticlesPageView } from './model/selectors/getArticlesPageView/getArticlesPageView'
 export { getArticles } from './model/slice/ArticlesPageSlice'
+export { useArticleFilters } from './lib/hooks/useArticleFilters'

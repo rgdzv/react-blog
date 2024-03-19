@@ -3,6 +3,7 @@ import styles from './ArticlesViewChanger.module.scss'
 import { Button } from 'shared/ui'
 import { ListIcon, TileIcon } from 'shared/assets'
 import { ArticleView } from 'entities_/Article'
+import { useArticleFilters } from 'pages/ArticlesPage'
 
 const viewTypes = [
     {
@@ -17,19 +18,22 @@ const viewTypes = [
     }
 ]
 
-// interface ArticlesViewChangerPropsInterface {}
-
 export const ArticlesViewChanger: FC = () => {
-    const view = 'SMALL'
+    const { view, onChangeView } = useArticleFilters()
 
     const viewIcons = viewTypes.map((item) => {
         const selected = view === item.view
+
+        const onClick = (): void => {
+            onChangeView(item.view)
+        }
 
         return (
             <Button
                 key={item.view}
                 className={item.className as 'left_bordered' | 'right_bordered'}
                 selected={selected}
+                onClick={onClick}
             >
                 {item.icon}
             </Button>

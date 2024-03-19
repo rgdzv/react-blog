@@ -5,6 +5,7 @@ import { Skeleton } from '../Skeleton/Skeleton'
 type ClassNameType =
     | 'profile_avatar'
     | 'article_list_img'
+    | 'article_list_small_img'
     | 'article_avatar'
     | 'login_dropdown_avatar'
 
