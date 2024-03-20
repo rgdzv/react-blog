@@ -1,0 +1,70 @@
+.listItemSmall {
+    width: 250px;
+    background-color: var(--widget-bg-color-secondary);
+    border-radius: 32px;
+
+    .articleImageSmall {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .textBlockSmall {
+        height: 3em;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        border-radius: 10px;
+
+        .textSmall {
+            font-weight: 400;
+        }
+    }
+
+    .footerSmall {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        height: 2em;
+        margin-bottom: 10px;
+        padding: 0 10px;
+
+        border-radius: 10px;
+
+        .creationDateSmall {
+            font-weight: 400;
+        }
+
+        .viewsSmall {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                fill: var(--main-color);
+            }
+    
+            span {
+                font-weight: 400;
+            }
+        }
+    }
+
+    .userInfoSmall {
+        align-items: center;
+        height: 2.625em;
+        padding: 0 10px 10px;
+        border-radius: 10px;
+
+        .userInfoLinkSmall {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            color: var(--text-color);
+
+            .userNameSmall {
+                font-weight: 700;
+            }
+        }
+    }
+}

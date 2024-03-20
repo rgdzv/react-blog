@@ -1,8 +1,8 @@
 import { type FC } from 'react'
 import styles from './ArticleListItem.module.scss'
-import { AppLink, Button, Image, Skeleton } from 'shared/ui'
+import { AppLink, Button, Image } from 'shared/ui'
 import { EyeIcon } from 'shared/assets'
-import { ArticleView } from '../../model/const/articleConst'
+import { skeletonHelper } from '../../lib/skeletonHelper'
 
 interface ArticleListItemPropsInterface {
     avatar: string
@@ -16,7 +16,6 @@ interface ArticleListItemPropsInterface {
     userName: string
     isLoading: boolean
     id: string
-    view: ArticleView
 }
 
 export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
@@ -30,72 +29,13 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
     textBlock,
     userName,
     isLoading,
-    id,
-    view
+    id
 }) => {
-    if (view === ArticleView.SMALL) {
-        return (
-            <div className={styles.listItemSmall}>
-                {isLoading ? (
-                    <Skeleton />
-                ) : (
-                    <Image
-                        className='article_list_small_img'
-                        alt='article avatar'
-                        src={articleImage}
-                    />
-                )}
-                <div className={styles.articleTextBlockSmall}>
-                    {isLoading ? (
-                        <Skeleton />
-                    ) : (
-                        <p className={styles.text}>{textBlock}</p>
-                    )}
-                </div>
-                <div className={styles.footerSmall}>
-                    {isLoading ? (
-                        <Skeleton />
-                    ) : (
-                        <>
-                            <span className={styles.creationDateSmall}>
-                                {date}
-                            </span>
-                            <div className={styles.viewsSmall}>
-                                <EyeIcon data-testid='eye-open-icon' />
-                                <span>{views}</span>
-                            </div>
-                        </>
-                    )}
-                </div>
-                <div className={styles.userInfoSmall}>
-                    {isLoading ? (
-                        <Skeleton />
-                    ) : (
-                        <AppLink
-                            to={`/profile/${id}`}
-                            className={styles.userInfoLinkSmall}
-                        >
-                            <Image
-                                className='article_avatar'
-                                alt='article avatar'
-                                src={avatar}
-                            />
-                            <span className={styles.userNameSmall}>
-                                {userName}
-                            </span>
-                        </AppLink>
-                    )}
-                </div>
-            </div>
-        )
-    }
-
     return (
         <div className={styles.listItem}>
             <div className={styles.userInfo}>
-                {isLoading ? (
-                    <Skeleton />
-                ) : (
+                {skeletonHelper(
+                    isLoading,
                     <>
                         <AppLink
                             to={`/profile/${id}`}
@@ -113,9 +53,8 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
                 )}
             </div>
             <div className={styles.articleTitles}>
-                {isLoading ? (
-                    <Skeleton />
-                ) : (
+                {skeletonHelper(
+                    isLoading,
                     <>
                         <p className={styles.title}>{title}</p>
                         <p className={styles.subtitle}>{subtitle}</p>
@@ -129,16 +68,14 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
                 isLoading={isLoading}
             />
             <div className={styles.articleContent}>
-                {isLoading ? (
-                    <Skeleton />
-                ) : (
+                {skeletonHelper(
+                    isLoading,
                     <p className={styles.text}>{textBlock}</p>
                 )}
             </div>
             <div className={styles.listItemFooter}>
-                {isLoading ? (
-                    <Skeleton />
-                ) : (
+                {skeletonHelper(
+                    isLoading,
                     <>
                         <AppLink to='/'>
                             <Button className='bordered'>{buttonName}</Button>

@@ -12,6 +12,7 @@ import styles from './ArticleList.module.scss'
 import { type ArticleTextBlock } from '../../model/types/article'
 import { ArticleBlockType, ArticleView } from '../../model/const/articleConst'
 import { useAppSelector } from 'app/providers/StoreProvider'
+import { ArticleListItemSmall } from '../ArticleListItemSmall/ArticleListItemSmall'
 
 export const ArticleList: FC = () => {
     const articles = useAppSelector(getArticles.selectAll)
@@ -30,8 +31,33 @@ export const ArticleList: FC = () => {
             (block) => block.type === ArticleBlockType.TEXT
         ) as ArticleTextBlock
 
+        const longTextBlock = `${block?.paragraphs[0]}...`
+        const shortTextBlock =
+            block.paragraphs[0].slice(0, block?.paragraphs[0].indexOf('.')) +
+            '...'
+
         const textBlock =
-            block !== undefined ? `${block?.paragraphs[0]}...` : 'No text...'
+            block !== undefined
+                ? view === ArticleView.BIG
+                    ? longTextBlock
+                    : shortTextBlock
+                : 'No text...'
+
+        if (view === ArticleView.SMALL) {
+            return (
+                <ArticleListItemSmall
+                    key={item.id}
+                    id={item.userId}
+                    avatar={avatar}
+                    articleImage={articleImage}
+                    date={item.createdAt}
+                    views={item.views}
+                    textBlock={textBlock}
+                    userName={item.user.username}
+                    isLoading={isLoading}
+                />
+            )
+        }
 
         return (
             <ArticleListItem
@@ -47,7 +73,6 @@ export const ArticleList: FC = () => {
                 buttonName={buttonName}
                 userName={item.user.username}
                 isLoading={isLoading}
-                view={view}
             />
         )
     })
