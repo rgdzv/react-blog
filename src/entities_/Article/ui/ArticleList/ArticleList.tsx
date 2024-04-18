@@ -21,6 +21,7 @@ export const ArticleList: FC = () => {
     const view = useAppSelector(getArticlesPageView)
     const { t } = useTranslation('article')
     const errorName = t('Ошибка при загрузке статей!')
+    const noArticles = t('Статьи не найдены!')
     const buttonName = t('Читать')
 
     const articleList = articles?.map((item) => {
@@ -84,6 +85,10 @@ export const ArticleList: FC = () => {
 
     if (error !== '') {
         return <div className={styles.articlesLoadError}>{errorName}</div>
+    }
+
+    if (!isLoading && articleList.length === 0) {
+        return <div className={styles.articlesEmpty}>{noArticles}</div>
     }
 
     return <div className={atricleListClassName}>{articleList}</div>

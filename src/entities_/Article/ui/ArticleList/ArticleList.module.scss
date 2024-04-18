@@ -13,7 +13,8 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
-.articlesLoadError {
+.articlesLoadError,
+.articlesEmpty {
     display: flex;
     flex-grow: 1;
     align-items: center;

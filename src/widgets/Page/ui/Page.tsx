@@ -20,8 +20,8 @@ export const Page: FC<PagePropsInterface> = ({
     ])
 
     return (
-        <div className={classNameFinal} data-testid={dataTestId}>
+        <section className={classNameFinal} data-testid={dataTestId}>
             {children}
-        </div>
+        </section>
     )
 }
