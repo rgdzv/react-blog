@@ -4,7 +4,6 @@
     overflow: hidden;
 
     width: 100%;
-    height: 100%;
 
     background: var(--background-color);
     border-radius: inherit;
@@ -36,4 +35,96 @@
     to {
         left: 100%;
     }
+}
+
+.articleUserInfo,
+.articleTitles,
+.articleImage,
+.articleText,
+.articleFooter,
+.articleImageSmall,
+.textBlockSmall,
+.footerSmall,
+.userInfoSmall
+{
+    composes: skeleton;
+}
+
+.articleBig {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    padding: 24px;
+
+    background-color: var(--widget-bg-color-secondary);
+    border-radius: 32px;
+
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    .articleUserInfo {
+        height: 2em;
+        margin-bottom: 15px;
+        border-radius: 10px
+    }
+    
+    .articleTitles {
+        height: 4.125em;
+        margin-bottom: 25px;
+        border-radius: 10px
+    }
+    
+    .articleImage {
+        height: 26.25em;
+        margin-bottom: 15px;
+        border-radius: 10px
+    }
+    
+    .articleText {
+        height: 2em;
+        margin-bottom: 20px;
+        border-radius: 10px
+    }
+    
+    .articleFooter {
+        height: 2.187em;
+        border-radius: 10px
+    }
+}
+
+.articleSmall {
+    width: 250px;
+    background-color: var(--widget-bg-color-secondary);
+    border-radius: 32px;
+
+    .articleImageSmall {
+        height: 8.75em;
+        margin-bottom: 10px;
+        border-radius: 10px
+    }
+
+    .articleContentSmall {
+        padding: 0 10px 10px;
+
+        .textBlockSmall {
+            height: 3em;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        
+        .footerSmall {
+            height: 2em;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        
+        .userInfoSmall {
+            height: 2.625em;
+            border-radius: 10px;
+        }
+    }
+
 }

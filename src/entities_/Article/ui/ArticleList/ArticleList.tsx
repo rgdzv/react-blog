@@ -13,6 +13,7 @@ import { type ArticleTextBlock } from '../../model/types/article'
 import { ArticleBlockType, ArticleView } from '../../model/const/articleConst'
 import { useAppSelector } from 'app/providers/StoreProvider'
 import { ArticleListItemSmall } from '../ArticleListItemSmall/ArticleListItemSmall'
+import { Skeleton } from 'shared/ui'
 
 export const ArticleList: FC = () => {
     const articles = useAppSelector(getArticles.selectAll)
@@ -55,7 +56,6 @@ export const ArticleList: FC = () => {
                     views={item.views}
                     textBlock={textBlock}
                     userName={item.user.username}
-                    isLoading={isLoading}
                 />
             )
         }
@@ -73,10 +73,20 @@ export const ArticleList: FC = () => {
                 textBlock={textBlock}
                 buttonName={buttonName}
                 userName={item.user.username}
-                isLoading={isLoading}
             />
         )
     })
+
+    const skeletons = new Array(view === ArticleView.BIG ? 4 : 9)
+        .fill(0)
+        .map((_, index) => (
+            <Skeleton
+                key={index}
+                type={view === ArticleView.BIG ? 'articleBig' : 'articleSmall'}
+            />
+        ))
+
+    const articleListCondition = isLoading ? skeletons : articleList
 
     const atricleListClassName =
         view === ArticleView.BIG
@@ -91,5 +101,5 @@ export const ArticleList: FC = () => {
         return <div className={styles.articlesEmpty}>{noArticles}</div>
     }
 
-    return <div className={atricleListClassName}>{articleList}</div>
+    return <div className={atricleListClassName}>{articleListCondition}</div>
 }
