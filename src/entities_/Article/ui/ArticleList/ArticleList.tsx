@@ -97,7 +97,11 @@ export const ArticleList: FC = () => {
         return <div className={styles.articlesLoadError}>{errorName}</div>
     }
 
-    if (!isLoading && articleList.length === 0) {
+    if (!isLoading && articleList === undefined) {
+        return <div className={styles.articlesEmpty}>{noArticles}</div>
+    }
+
+    if (!isLoading && Array.isArray(articleList) && articleList.length === 0) {
         return <div className={styles.articlesEmpty}>{noArticles}</div>
     }
 

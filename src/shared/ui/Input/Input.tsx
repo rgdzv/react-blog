@@ -81,7 +81,7 @@ export const Input: FC<InputPropsInterface> = memo(
 
         const showContentCondition =
             isLoading === true ? (
-                <Skeleton />
+                <Skeleton type='profileInput' />
             ) : (
                 <>
                     {labelCondition}

@@ -2,18 +2,18 @@ import { type FC } from 'react'
 import styles from './Skeleton.module.scss'
 
 interface SkeletonPropsInterface {
-    type?: 'articleBig' | 'articleSmall'
+    type?: string
 }
 
 export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
     if (type === 'articleBig') {
         return (
             <div className={styles.articleBig}>
-                <div className={styles.articleUserInfo}></div>
-                <div className={styles.articleTitles}></div>
-                <div className={styles.articleImage}></div>
-                <div className={styles.articleText}></div>
-                <div className={styles.articleFooter}></div>
+                <div className={styles.articleUserInfoBig}></div>
+                <div className={styles.articleTitlesBig}></div>
+                <div className={styles.articleImageBig}></div>
+                <div className={styles.articleTextBig}></div>
+                <div className={styles.articleFooterBig}></div>
             </div>
         )
     }
@@ -29,6 +29,14 @@ export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
                 </div>
             </div>
         )
+    }
+
+    if (type === 'profileHeader') {
+        return <div className={styles.profileHeader}></div>
+    }
+
+    if (type === 'profileInput') {
+        return <div className={styles.profileInput}></div>
     }
 
     return <div className={styles.skeleton}></div>

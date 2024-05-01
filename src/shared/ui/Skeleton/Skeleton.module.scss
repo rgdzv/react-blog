@@ -37,15 +37,17 @@
     }
 }
 
-.articleUserInfo,
-.articleTitles,
-.articleImage,
-.articleText,
-.articleFooter,
+.articleUserInfoBig,
+.articleTitlesBig,
+.articleImageBig,
+.articleTextBig,
+.articleFooterBig,
 .articleImageSmall,
 .textBlockSmall,
 .footerSmall,
-.userInfoSmall
+.userInfoSmall,
+.profileHeader,
+.profileInput
 {
     composes: skeleton;
 }
@@ -65,31 +67,31 @@
         margin-bottom: 10px;
     }
 
-    .articleUserInfo {
+    .articleUserInfoBig {
         height: 2em;
         margin-bottom: 15px;
         border-radius: 10px
     }
     
-    .articleTitles {
+    .articleTitlesBig {
         height: 4.125em;
         margin-bottom: 25px;
         border-radius: 10px
     }
     
-    .articleImage {
+    .articleImageBig {
         height: 26.25em;
         margin-bottom: 15px;
         border-radius: 10px
     }
     
-    .articleText {
+    .articleTextBig {
         height: 2em;
         margin-bottom: 20px;
         border-radius: 10px
     }
     
-    .articleFooter {
+    .articleFooterBig {
         height: 2.187em;
         border-radius: 10px
     }
@@ -127,4 +129,14 @@
         }
     }
 
+}
+
+.profileHeader {
+    height: 8em;
+    border-radius: 10px;
+}
+
+.profileInput {
+    height: 2.5em;
+    border-radius: 32px;
 }

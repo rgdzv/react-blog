@@ -97,7 +97,7 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = memo(
         )
 
         const showContentCondition =
-            isLoading === true ? <Skeleton /> : optionsBlock
+            isLoading === true ? <Skeleton type='profileInput' /> : optionsBlock
 
         return (
             <Listbox

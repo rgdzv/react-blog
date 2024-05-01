@@ -77,7 +77,11 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = memo(
             <Image src={src} className='profile_avatar' alt='profile avatar' />
         )
 
-        const showContentCondition = isLoading ? <Skeleton /> : canEditBlock
+        const showContentCondition = isLoading ? (
+            <Skeleton type='profileHeader' />
+        ) : (
+            canEditBlock
+        )
 
         return (
             <header className={classNameFinal}>{showContentCondition}</header>
