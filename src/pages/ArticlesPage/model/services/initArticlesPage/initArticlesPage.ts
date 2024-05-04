@@ -4,8 +4,9 @@ import { articlesPageActions } from '../../slice/ArticlesPageSlice'
 import { getArticlesList } from '../getArticlesList/getArticlesList'
 
 export const initArticlesPage = createAsyncThunk<
-    void, // eslint-disable-line @typescript-eslint/no-invalid-void-type
-    void, // eslint-disable-line @typescript-eslint/no-invalid-void-type,
+    /* eslint-disable @typescript-eslint/no-invalid-void-type */
+    void,
+    void,
     ThunkConfig<string>
 >('articles/initArticlesPage', async (_, { getState, dispatch }) => {
     const currentState = getState()
