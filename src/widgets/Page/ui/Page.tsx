@@ -24,7 +24,12 @@ export const Page: FC<PagePropsInterface> = ({
 }) => {
     const wrapper = useRef() as MutableRefObject<HTMLDivElement>
     const trigger = useRef() as MutableRefObject<HTMLDivElement>
-    const wrapperCondition = className === 'articles' ? wrapper : null
+
+    const wrapperCondition =
+        className === 'articles' || className === 'about' ? wrapper : null
+    const triggerCondition = onScrollEnd !== undefined && (
+        <div ref={trigger} className={styles.trigger} />
+    )
 
     const classNameFinal = classNames(styles.page, {}, [
         styles[className as ClassNameType]
@@ -43,9 +48,7 @@ export const Page: FC<PagePropsInterface> = ({
             data-testid={dataTestId}
         >
             {children}
-            {onScrollEnd !== undefined && (
-                <div ref={trigger} style={{ height: '20px' }} />
-            )}
+            {triggerCondition}
         </section>
     )
 }
