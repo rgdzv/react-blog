@@ -12,14 +12,14 @@ export const useInfiniteScroll = ({
     trigger
 }: UseInfiniteScrollProps): void => {
     useEffect(() => {
-        // const wrapperElement = wrapperCondition?.current
+        const wrapperElement = wrapperCondition?.current
         const triggerElement = trigger?.current
 
         let observer: IntersectionObserver | null = null
 
         if (callback !== undefined) {
             const options = {
-                root: null,
+                root: wrapperElement,
                 rootMargin: '0px',
                 threshold: 1.0
             }
@@ -30,7 +30,9 @@ export const useInfiniteScroll = ({
                 }
             }, options)
 
-            observer.observe(triggerElement)
+            if (wrapperElement !== null) {
+                observer.observe(triggerElement)
+            }
         }
 
         return () => {

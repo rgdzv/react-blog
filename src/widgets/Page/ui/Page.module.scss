@@ -28,17 +28,12 @@
 }
 
 .articles {
-    position: relative;
     column-gap: 20px;
 }
 
 .trigger {
-    position: absolute;
-    bottom: 0;
-
     width: 100%;
     height: 10px;
-
     background: red;
 }
 

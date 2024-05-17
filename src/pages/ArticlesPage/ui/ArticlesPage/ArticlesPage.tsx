@@ -6,6 +6,7 @@ import { ArticleList } from '../../../../entities_/Article/ui/ArticleList/Articl
 import { Page } from 'widgets/Page'
 import { ArticlesViewChanger } from 'features/ArticlesInteraction/ArticlesViewChanger'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
+import { ArticleFilters } from 'widgets/ArticleFilters'
 
 const reducers: ReducersList = {
     articles: articlesPageReducer
@@ -32,6 +33,7 @@ const ArticlesPage: FC = () => {
                 <>
                     <ArticlesViewChanger />
                     <ArticleList />
+                    <ArticleFilters />
                 </>
             </Page>
         </DynamicReducerLoader>

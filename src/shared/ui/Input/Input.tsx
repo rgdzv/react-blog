@@ -3,7 +3,7 @@ import styles from './Input.module.scss'
 import { classNames } from 'shared/lib'
 import { Skeleton } from '../Skeleton/Skeleton'
 
-type ClassNameIconType = 'eye-icon'
+type ClassNameIconType = 'eye'
 type ClassNameLabelType = 'profile_label'
 type ClassNameInputType = 'profile_input'
 type ClassNameInputWrapperType =
@@ -16,12 +16,13 @@ type ClassNameInputWrapperType =
 
 interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     label?: string
+    placeholder?: string
     id?: string
     value: string
     type?: string
-    passwordInputIcon?: ReactNode
+    icon?: ReactNode
     classNameForIcon?: string
-    handleOpenEye?: () => void
+    onClick?: () => void
     isError?: string
     classNameForInputWrapper?: string
     classNameForLabel?: string
@@ -34,13 +35,14 @@ interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
 export const Input: FC<InputPropsInterface> = memo(
     ({
         label,
+        placeholder,
         id,
         value,
         onChange,
         type = 'text',
-        passwordInputIcon,
+        icon,
         classNameForIcon,
-        handleOpenEye,
+        onClick,
         isError,
         classNameForInputWrapper,
         classNameForLabel,
@@ -70,14 +72,21 @@ export const Input: FC<InputPropsInterface> = memo(
             [styles[classNameForInput as ClassNameInputType]]
         )
 
-        const iconClassName = styles[classNameForIcon as ClassNameIconType]
+        const iconClassName = classNames(styles.icon, {}, [
+            styles[classNameForIcon as ClassNameIconType]
+        ])
 
-        const labelCondition =
-            label !== undefined ? (
-                <label className={labelClassName} htmlFor={id}>
-                    {label}:
-                </label>
-            ) : null
+        const labelCondition = label !== undefined && (
+            <label className={labelClassName} htmlFor={id}>
+                {label}:
+            </label>
+        )
+
+        const iconCondition = icon !== undefined && (
+            <div className={iconClassName} onClick={onClick}>
+                {icon}
+            </div>
+        )
 
         const showContentCondition =
             isLoading === true ? (
@@ -92,19 +101,18 @@ export const Input: FC<InputPropsInterface> = memo(
                         value={value}
                         onChange={onChange}
                         type={type}
-                        placeholder={label}
+                        placeholder={placeholder}
                         disabled={disabled}
                         {...otherProps}
                     />
-                    <div className={iconClassName} onClick={handleOpenEye}>
-                        {passwordInputIcon}
-                    </div>
+                    {iconCondition}
                 </>
             )
 
-        const errorCondition = validError !== '' && (
-            <span className={styles.validErrorBlock}>{validError}</span>
-        )
+        const errorCondition = validError !== '' &&
+            validError !== undefined && (
+                <span className={styles.validErrorBlock}>{validError}</span>
+            )
 
         return (
             <>

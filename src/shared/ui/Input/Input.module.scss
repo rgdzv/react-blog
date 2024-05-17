@@ -34,18 +34,23 @@
             border-color: var(--error-color);
         }
     
-        &.profile_input {
+        &.profile_input,
+        &.search_input {
             background-color: transparent;
+        }
+
+        &.search_input {
+            height: 32px;
+            padding-left: 30px;
         }
     }
     
-    .eye-icon {
+    .icon {
         cursor: pointer;
     
         position: absolute;
         z-index: 2;
         top: 50%;
-        right: 10px;
         transform: translate(0, -50%);
     
         line-height: 0;
@@ -53,6 +58,10 @@
         svg {
             fill: var(--main-color)
         }
+    }
+
+    .eye {
+        right: 10px;
     }
 }
 
@@ -70,8 +79,13 @@
 .age,
 .city,
 .username,
-.avatar {
+.avatar,
+.login_password {
     margin-bottom: 15px;
+}
+
+.login_username {
+    margin-bottom: 10px;
 }
 
 .withError {

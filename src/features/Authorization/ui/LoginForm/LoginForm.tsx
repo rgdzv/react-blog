@@ -52,16 +52,18 @@ export const LoginForm: FC = () => {
                 placeholder={namePlaceholder}
                 type='text'
                 isError={error}
+                classNameForInputWrapper='login_username'
             />
             <Input
                 value={password}
                 onChange={onPasswordChange}
                 placeholder={passwordPlaceholder}
                 type={passwordInputType}
-                classNameForIcon='eye-icon'
-                handleOpenEye={handleOpenEye}
+                classNameForIcon='eye'
+                onClick={handleOpenEye}
                 isError={error}
-                passwordInputIcon={passwordInputIcon}
+                icon={passwordInputIcon}
+                classNameForInputWrapper='login_password'
             />
         </>
     )

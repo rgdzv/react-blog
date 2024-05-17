@@ -9,6 +9,7 @@ import EyeClosedIcon from './icons/eye-closed-icon.svg'
 import DoneIcon from './icons/done-icon.svg'
 import TileIcon from './icons/tile-icon.svg'
 import ListIcon from './icons/list-icon.svg'
+import SearchIcon from './icons/search-icon.svg'
 import noavatar from './icons/no-avatar-icon.jpg'
 import noimage from './icons/no-image-icon.jpg'
 
@@ -25,5 +26,6 @@ export {
     noavatar,
     noimage,
     TileIcon,
-    ListIcon
+    ListIcon,
+    SearchIcon
 }
