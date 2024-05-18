@@ -9,4 +9,5 @@ export interface ArticlesPageSchema extends EntityState<Article> {
     limit: number
     view: string
     inited: boolean
+    search: string
 }

@@ -17,6 +17,7 @@ type ClassNameType =
     | 'bordered_currency'
     | 'left_bordered'
     | 'right_bordered'
+    | 'articleTab'
 
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode

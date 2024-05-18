@@ -109,6 +109,24 @@
     border-bottom-left-radius: 0;
 }
 
+.articleTab {
+    composes: bordered;
+    font-size: 16px;
+    border: none;
+
+    &:not(:last-child) {
+        margin-bottom: 3px;
+    }
+
+    &:active:enabled {
+        box-shadow: none;
+    }
+
+    &:hover:enabled {
+        background-color: var(--widget-bg-color);
+    }
+}
+
 .selected {
     background-color: var(--widget-bg-color);
 

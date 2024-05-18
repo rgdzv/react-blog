@@ -26,7 +26,8 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
     hasMore: true,
     limit: 9,
     view: ArticleView.BIG,
-    inited: false
+    inited: false,
+    search: ''
 })
 
 export const ArticlesPageSlice = createSlice({
@@ -39,6 +40,9 @@ export const ArticlesPageSlice = createSlice({
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload
             localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload)
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload
         },
         initState: (state) => {
             const view = localStorage.getItem(

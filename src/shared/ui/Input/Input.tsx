@@ -5,7 +5,7 @@ import { Skeleton } from '../Skeleton/Skeleton'
 
 type ClassNameIconType = 'eye'
 type ClassNameLabelType = 'profile_label'
-type ClassNameInputType = 'profile_input'
+type ClassNameInputType = 'profile_input' | 'search_input'
 type ClassNameInputWrapperType =
     | 'firstname'
     | 'lastname'
@@ -13,6 +13,7 @@ type ClassNameInputWrapperType =
     | 'city'
     | 'username'
     | 'avatar'
+    | 'search'
 
 interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     label?: string

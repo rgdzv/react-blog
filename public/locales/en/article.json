@@ -2,5 +2,10 @@
     "Статьи": "Articles",
     "Ошибка при загрузке статей!": "Error loading articles!",
     "Читать": "Read",
-    "Статьи не найдены!": "No articles found!"
+    "Статьи не найдены!": "No articles found!",
+    "Найти": "Search",
+    "Все статьи": "All",
+    "Айти": "IT",
+    "Экономика": "Economics",
+    "Наука": "Science"
 }

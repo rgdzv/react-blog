@@ -1,2 +1,2 @@
 export { type Article } from './model/types/article'
-export { ArticleView } from './model/const/articleConst'
+export { ArticleView, ArticleType } from './model/const/articleConst'
