@@ -14,7 +14,7 @@ type ClassNameType =
     | 'bordered_green'
     | 'bordered_red'
     | 'bordered_red_invisible'
-    | 'bordered_currency'
+    | 'bordered_listbox'
     | 'left_bordered'
     | 'right_bordered'
     | 'articleTab'

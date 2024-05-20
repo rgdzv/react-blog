@@ -5,9 +5,11 @@ import { SearchIcon } from 'shared/assets'
 import { useArticleFilters } from 'pages/ArticlesPage'
 import { useTranslation } from 'react-i18next'
 import { ArticlesTypeTabs } from 'features/ArticlesInteraction/ArticlesTypeTabs'
+import { ArticlesSortSelector } from 'features/ArticlesInteraction/ArticleSortSelector'
 
 export const ArticleFilters: FC = () => {
-    const { search, onChangeSearch } = useArticleFilters()
+    const { search, onChangeSearch, type, onChangeType, sort, onChangeSort } =
+        useArticleFilters()
     const { t } = useTranslation('article')
 
     return (
@@ -20,7 +22,8 @@ export const ArticleFilters: FC = () => {
                 icon={<SearchIcon data-testid='search-icon' />}
                 onChange={onChangeSearch}
             />
-            <ArticlesTypeTabs />
+            <ArticlesTypeTabs type={type} onChangeType={onChangeType} />
+            <ArticlesSortSelector sort={sort} onChangeSort={onChangeSort} />
         </div>
     )
 }

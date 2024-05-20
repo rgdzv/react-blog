@@ -1,7 +1,12 @@
+export enum ArticleSortOrder {
+    ASC = 'возрастанию',
+    DESC = 'убыванию'
+}
+
 export enum ArticleSortField {
-    VIEWS = 'views',
-    TITLE = 'title',
-    CREATED = 'createdAt'
+    VIEWS = 'просмотрам',
+    TITLE = 'названию',
+    CREATED = 'дате'
 }
 
 export enum ArticleBlockType {

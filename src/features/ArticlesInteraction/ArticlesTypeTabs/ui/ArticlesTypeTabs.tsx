@@ -1,49 +1,37 @@
-import { type ReactNode, type FC, useMemo } from 'react'
+import { type FC } from 'react'
 import styles from './ArticlesTypeTabs.module.scss'
 import { useTranslation } from 'react-i18next'
-import { ArticleType } from 'entities_/Article'
 import { Button } from 'shared/ui'
-
-interface TabItem {
-    value: string
-    content: ReactNode
+import { type ArticleType } from 'entities_/Article'
+import { typeTabs } from '../model/utils/tabs'
+interface ArticlesTypeTabsPropsInterface {
+    type: ArticleType
+    onChangeType: (type: ArticleType) => void
 }
 
-// interface ArticlesTypeTabsPropsInterface {}
-
-export const ArticlesTypeTabs: FC = () => {
+export const ArticlesTypeTabs: FC<ArticlesTypeTabsPropsInterface> = ({
+    type,
+    onChangeType
+}) => {
     const { t } = useTranslation('article')
 
-    const typeTabs = useMemo<TabItem[]>(
-        () => [
-            {
-                value: ArticleType.ALL,
-                content: t('Все статьи')
-            },
-            {
-                value: ArticleType.IT,
-                content: t('Айти')
-            },
-            {
-                value: ArticleType.ECONOMICS,
-                content: t('Экономика')
-            },
-            {
-                value: ArticleType.SCIENCE,
-                content: t('Наука')
-            }
-        ],
-        [t]
-    )
-
     const tabs = typeTabs.map((tab) => {
+        const selected = tab.value === type
+
+        const onClick = (): void => {
+            onChangeType(tab.value)
+        }
+
+        const content = t(tab.content)
+
         return (
             <Button
                 key={tab.value}
                 className='articleTab'
-                selected={tab.value === ArticleType.ALL}
+                selected={selected}
+                onClick={onClick}
             >
-                {tab.content}
+                {content}
             </Button>
         )
     })

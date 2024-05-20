@@ -1,15 +1,12 @@
 .listBox {
     position: relative;
-
     display: flex;
     align-items: center;
-
-    height: 2.5em;
-
     border-radius: 32px;
 
     .content {
         position: relative;
+        width: 100%;
 
         .options {
             position: absolute;
@@ -27,9 +24,12 @@
 
             .option {
                 cursor: pointer;
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                padding: 5px 0;
 
                 &.active {
                     background-color: var(--main-color);
@@ -52,6 +52,10 @@
                     width: 20px;
                     height: 100%;
                     fill: var(--text-color);
+                }
+
+                span {
+                    white-space: nowrap;
                 }
             }
         }
@@ -82,10 +86,15 @@
     }
 }
 
-.currency {
-    margin-bottom: 15px;
-}
-
+.currency,
 .country {
     margin-bottom: 15px;
+
+    .content {
+        width: 50%;
+    }
+}
+
+.articleSort {
+    margin-bottom: 5px;
 }

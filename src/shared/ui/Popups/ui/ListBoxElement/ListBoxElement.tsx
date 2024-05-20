@@ -6,6 +6,7 @@ import { ArrowIcon, DoneIcon } from '../../../../assets'
 import { Skeleton } from '../../../Skeleton/Skeleton'
 import { classNames } from '../../../../lib/classNames/classNames'
 import { type CountryType, type CurrencyType } from 'entities_/Profile'
+import { type ArticleSortField } from 'entities_/Article'
 
 interface ListBoxItem {
     value: string
@@ -13,14 +14,19 @@ interface ListBoxItem {
     disabled?: boolean
 }
 
+type classNameForListBoxType = 'currency' | 'country' | 'articleSort'
+
 interface ListBoxPropsInterface {
     options: ListBoxItem[]
     label?: string
     id?: string
     defaultValue?: string
     value?: string
-    onChange?: ((value: CurrencyType) => void) | ((value: CountryType) => void)
-    classNameForListBox?: string
+    onChange?:
+        | ((value: CurrencyType) => void)
+        | ((value: CountryType) => void)
+        | ((newSort: ArticleSortField) => void)
+    classNameForListBox?: classNameForListBoxType
     isLoading?: boolean
     disabled?: boolean
 }
@@ -38,7 +44,7 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = memo(
         disabled
     }) => {
         const listBoxClassName = classNames(styles.listBox, {}, [
-            styles[classNameForListBox as 'currency' | 'country']
+            styles[classNameForListBox as classNameForListBoxType]
         ])
 
         const labelCondition =
@@ -55,7 +61,7 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = memo(
                 <div className={styles.content}>
                     <Listbox.Button
                         as={Button}
-                        className='bordered_currency'
+                        className='bordered_listbox'
                         id={id}
                         name={id}
                     >
