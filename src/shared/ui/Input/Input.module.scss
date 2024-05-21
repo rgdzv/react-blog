@@ -4,6 +4,11 @@
     align-items: center;
     border-radius: 32px;
 
+    .label {
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
     .input {
         width: 100%;
         padding: 7px 16px;
@@ -32,16 +37,6 @@
         &.error {
             border-color: var(--error-color);
         }
-    
-        &.profile_input,
-        &.search_input {
-            background-color: transparent;
-        }
-
-        &.search_input {
-            padding: 4px 16px 4px 30px;
-            line-height: 1;
-        }
     }
     
     .icon {
@@ -59,41 +54,49 @@
         }
     }
 
-    .eye {
-        right: 10px;
+    &.firstname,
+    &.lastname,
+    &.age,
+    &.city,
+    &.username,
+    &.avatar
+    {
+        margin-bottom: 15px;
+
+        .label {
+            margin-right: 5px;
+        }
+
+        .input {
+            background-color: transparent;
+        }
     }
-}
 
-.label {
-    cursor: pointer;
-    white-space: nowrap;
-}
+    &.login_username {
+        margin-bottom: 10px;
+    }
 
-.profile_label {
-    margin-right: 5px;
-}
+    &.login_password {
+        margin-bottom: 15px;
 
-.firstname,
-.lastname,
-.age,
-.city,
-.username,
-.avatar,
-.login_password
-{
-    margin-bottom: 15px;
-}
+        .icon {
+            right: 10px;
+        }
+    }
 
-.search {
-    margin-bottom: 20px;
-}
+    &.withError {
+        margin-bottom: 0;
+    }
 
-.login_username {
-    margin-bottom: 10px;
-}
-
-.withError {
-    margin-bottom: 0;
+    &.search {
+        margin-bottom: 20px;
+    
+        .input {
+            padding: 4px 16px 4px 30px;
+            line-height: 1;
+            background-color: transparent;
+        }
+    }
 }
 
 .validErrorBlock {

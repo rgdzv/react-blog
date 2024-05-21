@@ -11,14 +11,14 @@ export const ArticleFilters: FC = () => {
     const { search, onChangeSearch, type, onChangeType, sort, onChangeSort } =
         useArticleFilters()
     const { t } = useTranslation('article')
+    const inputPlaceholderName = t('Найти')
 
     return (
         <div className={styles.articleFilters}>
             <Input
                 value={search}
-                classNameForInput='search_input'
                 classNameForInputWrapper='search'
-                placeholder={t('Найти')}
+                placeholder={inputPlaceholderName}
                 icon={<SearchIcon data-testid='search-icon' />}
                 onChange={onChangeSearch}
             />

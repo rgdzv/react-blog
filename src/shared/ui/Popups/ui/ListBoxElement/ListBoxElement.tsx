@@ -5,8 +5,6 @@ import styles from './ListBoxElement.module.scss'
 import { ArrowIcon, DoneIcon } from '../../../../assets'
 import { Skeleton } from '../../../Skeleton/Skeleton'
 import { classNames } from '../../../../lib/classNames/classNames'
-import { type CountryType, type CurrencyType } from 'entities_/Profile'
-import { type ArticleSortField } from 'entities_/Article'
 
 interface ListBoxItem {
     value: string
@@ -22,10 +20,7 @@ interface ListBoxPropsInterface {
     id?: string
     defaultValue?: string
     value?: string
-    onChange?:
-        | ((value: CurrencyType) => void)
-        | ((value: CountryType) => void)
-        | ((newSort: ArticleSortField) => void)
+    onChange?: (value: any) => void
     classNameForListBox?: classNameForListBoxType
     isLoading?: boolean
     disabled?: boolean

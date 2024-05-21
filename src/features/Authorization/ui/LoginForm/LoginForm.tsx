@@ -59,7 +59,6 @@ export const LoginForm: FC = () => {
                 onChange={onPasswordChange}
                 placeholder={passwordPlaceholder}
                 type={passwordInputType}
-                classNameForIcon='eye'
                 onClick={handleOpenEye}
                 isError={error}
                 icon={passwordInputIcon}

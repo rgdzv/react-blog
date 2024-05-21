@@ -3,10 +3,9 @@ import styles from './Input.module.scss'
 import { classNames } from 'shared/lib'
 import { Skeleton } from '../Skeleton/Skeleton'
 
-type ClassNameIconType = 'eye'
-type ClassNameLabelType = 'profile_label'
-type ClassNameInputType = 'profile_input' | 'search_input'
 type ClassNameInputWrapperType =
+    | 'login_username'
+    | 'login_password'
     | 'firstname'
     | 'lastname'
     | 'age'
@@ -22,12 +21,9 @@ interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     value: string
     type?: string
     icon?: ReactNode
-    classNameForIcon?: string
     onClick?: () => void
     isError?: string
-    classNameForInputWrapper?: string
-    classNameForLabel?: string
-    classNameForInput?: string
+    classNameForInputWrapper?: ClassNameInputWrapperType
     isLoading?: boolean
     disabled?: boolean
     validError?: string
@@ -42,12 +38,9 @@ export const Input: FC<InputPropsInterface> = memo(
         onChange,
         type = 'text',
         icon,
-        classNameForIcon,
         onClick,
         isError,
         classNameForInputWrapper,
-        classNameForLabel,
-        classNameForInput,
         isLoading,
         disabled,
         validError,
@@ -61,30 +54,18 @@ export const Input: FC<InputPropsInterface> = memo(
             [styles[classNameForInputWrapper as ClassNameInputWrapperType]]
         )
 
-        const labelClassName = classNames(styles.label, {}, [
-            styles[classNameForLabel as ClassNameLabelType]
-        ])
-
-        const inputClassName = classNames(
-            styles.input,
-            {
-                [styles.error]: isError ?? validError
-            },
-            [styles[classNameForInput as ClassNameInputType]]
-        )
-
-        const iconClassName = classNames(styles.icon, {}, [
-            styles[classNameForIcon as ClassNameIconType]
-        ])
+        const inputClassName = classNames(styles.input, {
+            [styles.error]: isError ?? validError
+        })
 
         const labelCondition = label !== undefined && (
-            <label className={labelClassName} htmlFor={id}>
+            <label className={styles.label} htmlFor={id}>
                 {label}:
             </label>
         )
 
         const iconCondition = icon !== undefined && (
-            <div className={iconClassName} onClick={onClick}>
+            <div className={styles.icon} onClick={onClick}>
                 {icon}
             </div>
         )
