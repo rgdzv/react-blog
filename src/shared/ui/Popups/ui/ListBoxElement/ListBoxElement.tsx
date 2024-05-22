@@ -61,10 +61,7 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = memo(
                         name={id}
                     >
                         {valueCondition}
-                        <ArrowIcon
-                            data-testid='arrow-icon'
-                            className={styles.icon}
-                        />
+                        <ArrowIcon data-testid='arrow-icon' />
                     </Listbox.Button>
                     <Listbox.Options className={styles.options}>
                         {options.map((option: ListBoxItem) => (

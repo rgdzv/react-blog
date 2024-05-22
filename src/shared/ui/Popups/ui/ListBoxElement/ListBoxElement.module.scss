@@ -4,6 +4,12 @@
     align-items: center;
     border-radius: 32px;
 
+    .label {
+        cursor: pointer;
+        margin-right: 5px;
+        white-space: nowrap;
+    }
+
     .content {
         position: relative;
         width: 100%;
@@ -60,18 +66,19 @@
             }
         }
     }
-}
 
-.label {
-    cursor: pointer;
-    margin-right: 5px;
-    white-space: nowrap;
-}
+    &.currency,
+    &.country {
+        margin-bottom: 15px;
 
-.icon {
-    transform: rotate(-90deg);
-    margin-left: 15px;
-    fill: var(--hint-color);
+        .content {
+            width: 50%;
+        }
+    }
+
+    &.articleSort {
+        margin-bottom: 5px;
+    }
 }
 
 @keyframes show{
@@ -86,15 +93,3 @@
     }
 }
 
-.currency,
-.country {
-    margin-bottom: 15px;
-
-    .content {
-        width: 50%;
-    }
-}
-
-.articleSort {
-    margin-bottom: 5px;
-}

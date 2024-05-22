@@ -3,16 +3,21 @@ import styles from './ArticlesSortSelector.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ListBoxElement } from 'shared/ui'
 import { sortOptions } from '../model/utils/sortOptions'
-import { type ArticleSortField } from 'entities_/Article'
+import { type ArticleSortOrder, type ArticleSortField } from 'entities_/Article'
+import { orderOptions } from '../model/utils/orderOptions'
 
 interface ArticlesSortSelectorPropsInterface {
     sort: ArticleSortField
     onChangeSort: (newSort: ArticleSortField) => void
+    order: ArticleSortOrder
+    onChangeOrder: (newOrder: ArticleSortOrder) => void
 }
 
 export const ArticlesSortSelector: FC<ArticlesSortSelectorPropsInterface> = ({
     sort,
-    onChangeSort
+    onChangeSort,
+    order,
+    onChangeOrder
 }) => {
     const { t } = useTranslation('article')
     const sortSign = t('Сортировать по:')
@@ -25,6 +30,11 @@ export const ArticlesSortSelector: FC<ArticlesSortSelectorPropsInterface> = ({
                 onChange={onChangeSort}
                 value={sort}
                 classNameForListBox='articleSort'
+            />
+            <ListBoxElement
+                options={orderOptions}
+                onChange={onChangeOrder}
+                value={order}
             />
         </div>
     )

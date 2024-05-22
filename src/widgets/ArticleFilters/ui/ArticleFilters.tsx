@@ -8,8 +8,16 @@ import { ArticlesTypeTabs } from 'features/ArticlesInteraction/ArticlesTypeTabs'
 import { ArticlesSortSelector } from 'features/ArticlesInteraction/ArticleSortSelector'
 
 export const ArticleFilters: FC = () => {
-    const { search, onChangeSearch, type, onChangeType, sort, onChangeSort } =
-        useArticleFilters()
+    const {
+        search,
+        onChangeSearch,
+        type,
+        onChangeType,
+        sort,
+        onChangeSort,
+        order,
+        onChangeOrder
+    } = useArticleFilters()
     const { t } = useTranslation('article')
     const inputPlaceholderName = t('Найти')
 
@@ -23,7 +31,12 @@ export const ArticleFilters: FC = () => {
                 onChange={onChangeSearch}
             />
             <ArticlesTypeTabs type={type} onChangeType={onChangeType} />
-            <ArticlesSortSelector sort={sort} onChangeSort={onChangeSort} />
+            <ArticlesSortSelector
+                sort={sort}
+                onChangeSort={onChangeSort}
+                order={order}
+                onChangeOrder={onChangeOrder}
+            />
         </div>
     )
 }

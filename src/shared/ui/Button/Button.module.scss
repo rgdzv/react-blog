@@ -87,6 +87,12 @@
     &:hover:enabled {
         background-color: var(--widget-bg-color);
     }
+
+    svg {
+        transform: rotate(-90deg);
+        margin-left: 15px;
+        fill: var(--hint-color);
+    }
 }
 
 .left_bordered {
