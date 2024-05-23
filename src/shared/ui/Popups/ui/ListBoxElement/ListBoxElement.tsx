@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { type ReactNode, type FC, Fragment, memo } from 'react'
 import { Listbox } from '@headlessui/react'
 import { Button } from '../../../Button/Button'
@@ -5,6 +6,7 @@ import styles from './ListBoxElement.module.scss'
 import { ArrowIcon, DoneIcon } from '../../../../assets'
 import { Skeleton } from '../../../Skeleton/Skeleton'
 import { classNames } from '../../../../lib/classNames/classNames'
+import { useTranslation } from 'react-i18next'
 
 interface ListBoxItem {
     value: string
@@ -38,6 +40,8 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = memo(
         isLoading,
         disabled
     }) => {
+        const { t } = useTranslation(['profile', 'article'])
+
         const listBoxClassName = classNames(styles.listBox, {}, [
             styles[classNameForListBox as classNameForListBoxType]
         ])
@@ -45,11 +49,11 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = memo(
         const labelCondition =
             label !== undefined ? (
                 <Listbox.Label className={styles.label} htmlFor={id}>
-                    {label}:
+                    {t(label)}:
                 </Listbox.Label>
             ) : null
 
-        const valueCondition = value ?? defaultValue
+        const valueCondition = t(value as string) || t(defaultValue as string)
         const optionsBlock = (
             <>
                 {labelCondition}
@@ -84,7 +88,9 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = memo(
                                                 className={styles.doneIcon}
                                             />
                                         )}
-                                        <span>{option.content}</span>
+                                        <span>
+                                            {t(option.content as string)}
+                                        </span>
                                     </li>
                                 )}
                             </Listbox.Option>

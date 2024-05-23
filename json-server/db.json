@@ -788,8 +788,8 @@
             "firstname": "Sergey",
             "lastname": "Romano",
             "age": "19",
-            "currency": "EUR",
-            "country": "Kazakhstan",
+            "currency": "Евро",
+            "country": "Казахстан",
             "city": "Moscow",
             "username": "roman",
             "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
@@ -799,8 +799,8 @@
             "firstname": "ulbi tv",
             "lastname": "asf",
             "age": "465",
-            "currency": "USD",
-            "country": "Belarus",
+            "currency": "Доллар",
+            "country": "Беларусь",
             "city": "Moscow",
             "username": "ulbi tv",
             "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg"
@@ -810,8 +810,8 @@
             "firstname": "test",
             "lastname": "user",
             "age": "465",
-            "currency": "EUR",
-            "country": "Ukraine",
+            "currency": "Евро",
+            "country": "Украина",
             "city": "Moscow",
             "username": "testuser",
             "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
