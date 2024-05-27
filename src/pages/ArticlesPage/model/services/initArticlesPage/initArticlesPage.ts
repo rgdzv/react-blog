@@ -32,6 +32,6 @@ export const initArticlesPage = createAsyncThunk<
         // }
 
         dispatch(articlesPageActions.initState())
-        void dispatch(getArticlesList())
+        void dispatch(getArticlesList({}))
     }
 })

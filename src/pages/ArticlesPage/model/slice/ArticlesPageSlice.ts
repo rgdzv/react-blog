@@ -34,7 +34,7 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
     view: ArticleView.BIG,
     inited: false,
     search: '',
-    type: ArticleType.SCIENCE,
+    type: ArticleType.ALL,
     sort: ArticleSortField.CREATED,
     order: ArticleSortOrder.ASC
 })
@@ -73,12 +73,23 @@ export const ArticlesPageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getArticlesList.pending, (state) => {
+            .addCase(getArticlesList.pending, (state, action) => {
                 state.isLoading = true
+                state.error = undefined
+
+                if (action.meta.arg.replace === true) {
+                    articlesAdapter.removeAll(state)
+                }
             })
             .addCase(getArticlesList.fulfilled, (state, action) => {
                 state.hasMore = action.payload.length >= state.limit
-                articlesAdapter.addMany(state, action.payload)
+
+                if (action.meta.arg.replace === true) {
+                    articlesAdapter.setAll(state, action.payload)
+                } else {
+                    articlesAdapter.addMany(state, action.payload)
+                }
+
                 state.isLoading = false
             })
             .addCase(getArticlesList.rejected, (state, action) => {

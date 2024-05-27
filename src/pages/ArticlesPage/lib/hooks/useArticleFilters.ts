@@ -12,6 +12,8 @@ import { getArticlesPageSearch } from '../../model/selectors/getArticlePageSearc
 import { getArticlesPageType } from '../../model/selectors/getArticlePageType/getArticlesPageType'
 import { getArticlesPageOrder } from '../../model/selectors/getArticlesPageOrder/getArticlesPageOrder'
 import { getArticlesPageSort } from '../../model/selectors/getArticlesPageSort/getArticlesPageSort'
+import { getArticlesList } from '../../model/services/getArticlesList/getArticlesList'
+import { useDebounce } from 'shared/lib'
 
 interface UseFiltersInterface {
     view: ArticleView
@@ -34,6 +36,12 @@ export const useArticleFilters = (): UseFiltersInterface => {
     const sort = useAppSelector(getArticlesPageSort)
     const dispatch = useAppDispatch()
 
+    const fetchData = useCallback(() => {
+        void dispatch(getArticlesList({ replace: true }))
+    }, [dispatch])
+
+    const debouncedFetchData = useDebounce(fetchData, 500)
+
     const onChangeView = useCallback(
         (view: ArticleView) => {
             dispatch(articlesPageActions.setView(view))
@@ -44,37 +52,37 @@ export const useArticleFilters = (): UseFiltersInterface => {
     const onChangeSearch = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
             dispatch(articlesPageActions.setSearch(e.target.value))
-            // dispatch(articlesPageActions.setPage(1));
-            // debouncedFetchData();
+            dispatch(articlesPageActions.setPage(1))
+            debouncedFetchData()
         },
-        [dispatch]
+        [dispatch, debouncedFetchData]
     )
 
     const onChangeType = useCallback(
         (type: ArticleType) => {
             dispatch(articlesPageActions.setType(type))
-            // dispatch(articlesPageActions.setPage(1))
-            // fetchData();
+            dispatch(articlesPageActions.setPage(1))
+            fetchData()
         },
-        [dispatch]
+        [dispatch, fetchData]
     )
 
     const onChangeSort = useCallback(
         (newSort: ArticleSortField) => {
             dispatch(articlesPageActions.setSort(newSort))
-            // dispatch(articlesPageActions.setPage(1))
-            // fetchData();
+            dispatch(articlesPageActions.setPage(1))
+            fetchData()
         },
-        [dispatch]
+        [dispatch, fetchData]
     )
 
     const onChangeOrder = useCallback(
         (newOrder: ArticleSortOrder) => {
             dispatch(articlesPageActions.setOrder(newOrder))
-            // dispatch(articlesPageActions.setPage(1))
-            // fetchData();
+            dispatch(articlesPageActions.setPage(1))
+            fetchData()
         },
-        [dispatch]
+        [dispatch, fetchData]
     )
 
     return {

@@ -5,10 +5,12 @@ const minLength = 'Минимум 2 символа!'
 const ageCondition = 'Вам должно быть больше 18 лет!'
 const correctNumber = 'Введите корректное число!'
 
+type validationSchemaResultType = Omit<Profile, 'currency' | 'country' | 'id'>
+
 export const validationSchema = (
     data: Profile
-): Record<string, string> | undefined => {
-    const result: Record<string, string> = {}
+): validationSchemaResultType | undefined => {
+    const result: validationSchemaResultType = {}
 
     if (data.firstname === '') {
         result.firstname = requiredField
