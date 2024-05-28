@@ -9,9 +9,9 @@
     "Экономика": "Economics",
     "Наука": "Science",
     "Сортировать по:": "Sort by:",
-    "возрастанию": "asc",
-    "убыванию": "desc",
-    "просмотрам": "views",
-    "названию": "name",
-    "дате": "date"
+    "asc": "asc",
+    "desc": "desc",
+    "views": "views",
+    "title": "title",
+    "created": "created"
 }

@@ -35,7 +35,7 @@ export const ArticleList: FC = () => {
 
         const longTextBlock = `${block?.paragraphs[0]}...`
         const shortTextBlock =
-            block.paragraphs[0].slice(0, block?.paragraphs[0].indexOf('.')) +
+            block?.paragraphs[0].slice(0, block?.paragraphs[0].indexOf('.')) +
             '...'
 
         const textBlock =
@@ -45,6 +45,8 @@ export const ArticleList: FC = () => {
                     : shortTextBlock
                 : 'No text...'
 
+        const transformedDate = new Date(item.created).toLocaleDateString()
+
         if (view === ArticleView.SMALL) {
             return (
                 <ArticleListItemSmall
@@ -52,7 +54,7 @@ export const ArticleList: FC = () => {
                     id={item.userId}
                     avatar={avatar}
                     articleImage={articleImage}
-                    date={item.createdAt}
+                    date={transformedDate}
                     views={item.views}
                     textBlock={textBlock}
                     userName={item.user.username}
@@ -68,7 +70,7 @@ export const ArticleList: FC = () => {
                 articleImage={articleImage}
                 title={item.title}
                 subtitle={item.subtitle}
-                date={item.createdAt}
+                date={transformedDate}
                 views={item.views}
                 textBlock={textBlock}
                 buttonName={buttonName}

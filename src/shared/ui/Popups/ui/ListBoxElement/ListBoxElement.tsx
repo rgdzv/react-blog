@@ -91,10 +91,9 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = memo(
                                             />
                                         )}
                                         <span>
-                                            {/* {t(option.content as string, {
+                                            {t(option.content as string, {
                                                 ns: ['profile', 'article']
-                                            })} */}
-                                            {option.content}
+                                            })}
                                         </span>
                                     </li>
                                 )}
