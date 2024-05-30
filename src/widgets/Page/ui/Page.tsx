@@ -1,10 +1,10 @@
 import {
     type ReactElement,
-    type FC
-    // useRef,
-    // type MutableRefObject
+    type FC,
+    useRef,
+    type MutableRefObject
 } from 'react'
-import { classNames } from 'shared/lib'
+import { classNames, useInfiniteScroll } from 'shared/lib'
 import styles from './Page.module.scss'
 
 type ClassNameType = 'notFound' | 'articles'
@@ -21,32 +21,32 @@ export const Page: FC<PagePropsInterface> = ({
     dataTestId,
     onScrollEnd
 }) => {
-    // const wrapper = useRef() as MutableRefObject<HTMLDivElement>
-    // const trigger = useRef() as MutableRefObject<HTMLDivElement>
+    const wrapper = useRef() as MutableRefObject<HTMLDivElement>
+    const trigger = useRef() as MutableRefObject<HTMLDivElement>
 
-    // const wrapperCondition = className === 'articles' ? wrapper : null
-    // const triggerCondition = onScrollEnd !== undefined && (
-    //     <div ref={trigger} className={styles.trigger} />
-    // )
+    const wrapperCondition = className === 'articles' ? wrapper : null
+    const triggerCondition = onScrollEnd !== undefined && (
+        <div ref={trigger} className={styles.trigger} />
+    )
 
     const classNameFinal = classNames(styles.page, {}, [
         styles[className as ClassNameType]
     ])
 
-    // useInfiniteScroll({
-    //     trigger,
-    //     wrapperCondition,
-    //     callback: onScrollEnd
-    // })
+    useInfiniteScroll({
+        trigger,
+        wrapperCondition,
+        callback: onScrollEnd
+    })
 
     return (
         <section
-            // ref={wrapperCondition}
+            ref={wrapperCondition}
             className={classNameFinal}
             data-testid={dataTestId}
         >
             {children}
-            {/* {triggerCondition} */}
+            {triggerCondition}
         </section>
     )
 }

@@ -1,21 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/providers/StoreProvider'
-import { type Article } from 'entities_/Article'
-
-// export function getQueryParams(params: Record<string, string>): string {
-//     const searchParams = new URLSearchParams(window.location.search)
-//     Object.entries(params).forEach(([name, value]) => {
-//         if (value !== undefined) {
-//             searchParams.set(name, value)
-//         }
-//     })
-//     return `?${searchParams.toString()}`
-// }
-
-// export function addQueryParams(params: Record<string, string>): void {
-//     window.history.pushState(null, '', getQueryParams(params))
-// }
-
+import { ArticleType, type Article } from 'entities_/Article'
+import { articlesPageActions } from '../../slice/ArticlesPageSlice'
 interface getArticleListProps {
     replace?: boolean
 }
@@ -26,7 +12,7 @@ export const getArticlesList = createAsyncThunk<
     ThunkConfig<string>
 >(
     'articles/getArticlesList',
-    async (_, { rejectWithValue, extra, getState }) => {
+    async (_, { rejectWithValue, extra, getState, dispatch }) => {
         try {
             const currentState = getState()
             const limit = currentState.articles?.limit
@@ -35,25 +21,29 @@ export const getArticlesList = createAsyncThunk<
             const type = currentState.articles?.type
             const order = currentState.articles?.order
             const sort = currentState.articles?.sort
+            const totalCount = currentState.articles?.totalCount
 
-            // addQueryParams({
-            //     // sort,
-            //     // order,
-            //     search,
-            //     type
-            // })
-
-            const { data } = await extra.axiosAPI.get<Article[]>(`/articles`, {
-                params: {
-                    _expand: 'user',
-                    _limit: limit,
-                    _page: page,
-                    _type: type,
-                    _sort: sort,
-                    _order: order,
-                    q: search
+            const { data, headers } = await extra.axiosAPI.get<Article[]>(
+                `/articles`,
+                {
+                    params: {
+                        _expand: 'user',
+                        _limit: limit,
+                        _page: page,
+                        type: type === ArticleType.ALL ? undefined : type,
+                        _sort: sort,
+                        _order: order,
+                        q: search
+                    }
                 }
-            })
+            )
+
+            const total = headers['x-total-count']
+
+            if (Number(total) !== totalCount) {
+                dispatch(articlesPageActions.setTotalCount(Number(total)))
+            }
+
             return data
         } catch (error) {
             if (error.response === undefined) {

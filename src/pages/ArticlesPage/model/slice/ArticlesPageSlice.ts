@@ -30,13 +30,14 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
     error: undefined,
     page: 1,
     hasMore: true,
-    limit: 9,
+    limit: 4,
     view: ArticleView.BIG,
     inited: false,
     search: '',
     type: ArticleType.ALL,
     sort: ArticleSortField.CREATED,
-    order: ArticleSortOrder.ASC
+    order: ArticleSortOrder.ASC,
+    totalCount: 0
 })
 
 export const ArticlesPageSlice = createSlice({
@@ -62,13 +63,16 @@ export const ArticlesPageSlice = createSlice({
         setSort: (state, action: PayloadAction<ArticleSortField>) => {
             state.sort = action.payload
         },
+        setTotalCount: (state, action: PayloadAction<number>) => {
+            state.totalCount = action.payload
+        },
         initState: (state) => {
             const view = localStorage.getItem(
                 ARTICLES_VIEW_LOCALSTORAGE_KEY
             ) as ArticleView
             state.view = view
             state.limit = view === ArticleView.BIG ? 4 : 9
-            // state.inited = true
+            state.inited = true
         }
     },
     extraReducers: (builder) => {
@@ -82,14 +86,13 @@ export const ArticlesPageSlice = createSlice({
                 }
             })
             .addCase(getArticlesList.fulfilled, (state, action) => {
-                state.hasMore = action.payload.length >= state.limit
-
                 if (action.meta.arg.replace === true) {
                     articlesAdapter.setAll(state, action.payload)
                 } else {
                     articlesAdapter.addMany(state, action.payload)
                 }
-
+                state.hasMore =
+                    Object.keys(state.entities).length < state.totalCount
                 state.isLoading = false
             })
             .addCase(getArticlesList.rejected, (state, action) => {

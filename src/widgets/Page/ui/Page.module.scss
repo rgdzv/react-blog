@@ -28,6 +28,8 @@
 }
 
 .articles {
+    display: grid;
+    grid-template-columns: 100px 1fr 265px;
     column-gap: 20px;
 }
 

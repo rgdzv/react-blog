@@ -1,25 +1,24 @@
-.articleListBig {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.articleListBig,
+.articleListSmall,
+.articlesLoadError,
+.articlesEmpty{
+    display: grid;
+    grid-gap: 15px;
+}
 
-    width: 100%;
-    max-width: 780px;
+.articleListBig,
+.articlesLoadError,
+.articlesEmpty {
+    grid-template-columns: 780px;
 }
 
 .articleListSmall {
-    display: grid;
-    grid-gap: 15px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 250px);
 }
 
 .articlesLoadError,
 .articlesEmpty {
-    display: flex;
     align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    max-width: 780px;
+    justify-items: center;
     height: 100%;
 }

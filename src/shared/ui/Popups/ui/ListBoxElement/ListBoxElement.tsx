@@ -56,6 +56,7 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = memo(
         const valueCondition =
             t(value as string, { ns: ['profile', 'article'] }) ||
             t(defaultValue as string, { ns: ['profile', 'article'] })
+
         const optionsBlock = (
             <>
                 {labelCondition}

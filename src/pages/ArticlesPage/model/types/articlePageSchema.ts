@@ -18,4 +18,5 @@ export interface ArticlesPageSchema extends EntityState<Article> {
     type: ArticleType
     sort: ArticleSortField
     order: ArticleSortOrder
+    totalCount: number
 }

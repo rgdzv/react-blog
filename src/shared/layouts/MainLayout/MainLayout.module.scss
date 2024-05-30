@@ -2,7 +2,7 @@
     display: grid;
     grid-template-areas:
     'sidebar content rightbar';
-    grid-template-columns: min-content 1fr 200px;
+    grid-template-columns: min-content 1fr min-content;
 }
 
 .sidebar {
