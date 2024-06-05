@@ -19,13 +19,13 @@ export const useInfiniteScroll = ({
 
         if (callback !== undefined) {
             const options = {
-                root: null,
+                root: wrapperElement,
                 rootMargin: '0px',
                 threshold: 1.0
             }
 
             observer = new IntersectionObserver(([entry]) => {
-                // console.log(entry.isIntersecting)
+                console.log(entry.isIntersecting)
                 if (entry.isIntersecting) {
                     callback()
                 }

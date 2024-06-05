@@ -1,4 +1,4 @@
-import { useEffect, type FC } from 'react'
+import { useEffect, type FC, useCallback } from 'react'
 import { DynamicReducerLoader, type ReducersList } from 'shared/components'
 import { articlesPageReducer } from '../../model/slice/ArticlesPageSlice'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
@@ -20,11 +20,11 @@ const ArticlesPage: FC = () => {
     const hasMore = useAppSelector(getArticlesPageHasMore)
     const inited = useAppSelector(getArticlesPageInited)
 
-    const loadNext = (): void => {
+    const loadNext = useCallback(() => {
         if (hasMore) {
             void dispatch(getArticlesNextPage())
         }
-    }
+    }, [dispatch, hasMore])
 
     useEffect(() => {
         if (!inited) {
@@ -41,7 +41,7 @@ const ArticlesPage: FC = () => {
             >
                 <>
                     <ArticlesViewChanger />
-                    <ArticleList />
+                    <ArticleList loadNext={loadNext} hasMore={hasMore} />
                     <ArticleFilters />
                 </>
             </Page>

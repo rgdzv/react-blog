@@ -13,9 +13,16 @@ import { type ArticleTextBlock } from '../../model/types/article'
 import { ArticleBlockType, ArticleView } from '../../model/const/articleConst'
 import { useAppSelector } from 'app/providers/StoreProvider'
 import { ArticleListItemSmall } from '../ArticleListItemSmall/ArticleListItemSmall'
-import { Skeleton } from 'shared/ui'
+import { Button, Skeleton } from 'shared/ui'
+interface ArticleListPropsInterface {
+    loadNext: () => void
+    hasMore: boolean
+}
 
-export const ArticleList: FC = () => {
+export const ArticleList: FC<ArticleListPropsInterface> = ({
+    loadNext,
+    hasMore
+}) => {
     const articles = useAppSelector(getArticles.selectAll)
     const isLoading = useAppSelector(getArticlesPageIsLoading)
     const error = useAppSelector(getArticlesPageError)
@@ -24,6 +31,7 @@ export const ArticleList: FC = () => {
     const errorName = t('Ошибка при загрузке статей!')
     const noArticles = t('Статьи не найдены!')
     const buttonName = t('Читать')
+    const loadMoreButtonName = t('Показать еще')
 
     const articleList = articles?.map((item) => {
         const avatar = item.user.avatar ?? noavatar
@@ -95,6 +103,12 @@ export const ArticleList: FC = () => {
             ? styles.articleListBig
             : styles.articleListSmall
 
+    const loadMoreButtonCondition = hasMore && (
+        <Button onClick={loadNext} className='bordered'>
+            {loadMoreButtonName}
+        </Button>
+    )
+
     if (error !== '') {
         return <div className={styles.articlesLoadError}>{errorName}</div>
     }
@@ -107,5 +121,10 @@ export const ArticleList: FC = () => {
         return <div className={styles.articlesEmpty}>{noArticles}</div>
     }
 
-    return <div className={atricleListClassName}>{articleListCondition}</div>
+    return (
+        <div className={atricleListClassName}>
+            {articleListCondition}
+            {loadMoreButtonCondition}
+        </div>
+    )
 }

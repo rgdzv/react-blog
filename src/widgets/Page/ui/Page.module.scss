@@ -5,37 +5,36 @@
 
     width: 100%;
     height: 100%;
-}
 
-.notFound {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    &.articles {
+        display: grid;
+        grid-template-columns: 100px 1fr 265px;
+        column-gap: 20px;
+    }
 
-    min-height: 100vh;
-
-    font-family: var(--font-family);
-    color: var(--text-color);
+    &.notFound {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     
-    h1 {
-        margin-bottom: 20px;
+        min-height: 100vh;
+    
+        font-family: var(--font-family);
+        color: var(--text-color);
+        
+        h1 {
+            margin-bottom: 20px;
+        }
+    
+        p:not(:last-child) {
+            margin-bottom: 10px;
+        }
     }
 
-    p:not(:last-child) {
-        margin-bottom: 10px;
+    .trigger {
+        width: 100%;
+        height: 10px;
+        background: red;
     }
 }
-
-.articles {
-    display: grid;
-    grid-template-columns: 100px 1fr 265px;
-    column-gap: 20px;
-}
-
-.trigger {
-    width: 100%;
-    height: 10px;
-    background: red;
-}
-

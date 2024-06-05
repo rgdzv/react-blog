@@ -10,10 +10,12 @@
 .articlesLoadError,
 .articlesEmpty {
     grid-template-columns: 780px;
+    justify-items: center;
 }
 
 .articleListSmall {
     grid-template-columns: repeat(3, 250px);
+    justify-items: center;
 }
 
 .articlesLoadError,
