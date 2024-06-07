@@ -1,4 +1,4 @@
-import { useEffect, type FC, useCallback } from 'react'
+import { useEffect, type FC } from 'react'
 import { DynamicReducerLoader, type ReducersList } from 'shared/components'
 import { articlesPageReducer } from '../../model/slice/ArticlesPageSlice'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
@@ -7,8 +7,6 @@ import { Page } from 'widgets/Page'
 import { ArticlesViewChanger } from 'features/ArticlesInteraction/ArticlesViewChanger'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { ArticleFilters } from 'widgets/ArticleFilters'
-import { getArticlesNextPage } from '../../model/services/getArticleNextPage/getArticleNextPage'
-import { getArticlesPageHasMore } from '../../model/selectors/getArticlesPageHasMore/getArticlesPageHasMore'
 import { getArticlesPageInited } from '../../model/selectors/getArticlesPageInited/getArticlesPageInited'
 
 const reducers: ReducersList = {
@@ -17,14 +15,7 @@ const reducers: ReducersList = {
 
 const ArticlesPage: FC = () => {
     const dispatch = useAppDispatch()
-    const hasMore = useAppSelector(getArticlesPageHasMore)
     const inited = useAppSelector(getArticlesPageInited)
-
-    const loadNext = useCallback(() => {
-        if (hasMore) {
-            void dispatch(getArticlesNextPage())
-        }
-    }, [dispatch, hasMore])
 
     useEffect(() => {
         if (!inited) {
@@ -34,14 +25,10 @@ const ArticlesPage: FC = () => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page
-                dataTestId='articles-page'
-                className='articles'
-                onScrollEnd={loadNext}
-            >
+            <Page dataTestId='articles-page' className='articles'>
                 <>
                     <ArticlesViewChanger />
-                    <ArticleList loadNext={loadNext} hasMore={hasMore} />
+                    <ArticleList />
                     <ArticleFilters />
                 </>
             </Page>

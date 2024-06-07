@@ -1,37 +1,34 @@
-import { type FC } from 'react'
+import { useCallback, type FC } from 'react'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { noavatar, noimage } from 'shared/assets'
 import {
     getArticles,
     getArticlesPageError,
     getArticlesPageIsLoading,
-    getArticlesPageView
+    getArticlesPageView,
+    getArticlesPageHasMore,
+    getArticlesNextPage
 } from 'pages/ArticlesPage'
 import { useTranslation } from 'react-i18next'
 import styles from './ArticleList.module.scss'
 import { type ArticleTextBlock } from '../../model/types/article'
 import { ArticleBlockType, ArticleView } from '../../model/const/articleConst'
-import { useAppSelector } from 'app/providers/StoreProvider'
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ArticleListItemSmall } from '../ArticleListItemSmall/ArticleListItemSmall'
 import { Button, Skeleton } from 'shared/ui'
-interface ArticleListPropsInterface {
-    loadNext: () => void
-    hasMore: boolean
-}
 
-export const ArticleList: FC<ArticleListPropsInterface> = ({
-    loadNext,
-    hasMore
-}) => {
+export const ArticleList: FC = () => {
     const articles = useAppSelector(getArticles.selectAll)
     const isLoading = useAppSelector(getArticlesPageIsLoading)
     const error = useAppSelector(getArticlesPageError)
     const view = useAppSelector(getArticlesPageView)
+    const hasMore = useAppSelector(getArticlesPageHasMore)
+    const dispatch = useAppDispatch()
     const { t } = useTranslation('article')
     const errorName = t('Ошибка при загрузке статей!')
     const noArticles = t('Статьи не найдены!')
     const buttonName = t('Читать')
-    const loadMoreButtonName = t('Показать еще')
+    const loadMoreButtonName = isLoading ? t('Загрузка...') : t('Показать еще')
 
     const articleList = articles?.map((item) => {
         const avatar = item.user.avatar ?? noavatar
@@ -96,12 +93,19 @@ export const ArticleList: FC<ArticleListPropsInterface> = ({
             />
         ))
 
-    const articleListCondition = isLoading ? skeletons : articleList
+    const articleListCondition =
+        articleList.length > 0 ? articleList : skeletons
 
     const atricleListClassName =
         view === ArticleView.BIG
             ? styles.articleListBig
             : styles.articleListSmall
+
+    const loadNext = useCallback(() => {
+        if (hasMore) {
+            void dispatch(getArticlesNextPage())
+        }
+    }, [dispatch, hasMore])
 
     const loadMoreButtonCondition = hasMore && (
         <Button onClick={loadNext} className='bordered'>
@@ -122,9 +126,11 @@ export const ArticleList: FC<ArticleListPropsInterface> = ({
     }
 
     return (
-        <div className={atricleListClassName}>
-            {articleListCondition}
-            {loadMoreButtonCondition}
+        <div className={styles.articleContent}>
+            <div className={atricleListClassName}>{articleListCondition}</div>
+            <div className={styles.articleButton}>
+                {loadMoreButtonCondition}
+            </div>
         </div>
     )
 }
