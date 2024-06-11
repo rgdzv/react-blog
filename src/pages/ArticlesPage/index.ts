@@ -7,3 +7,5 @@ export { getArticlesPageHasMore } from './model/selectors/getArticlesPageHasMore
 export { getArticles } from './model/slice/ArticlesPageSlice'
 export { getArticlesNextPage } from './model/services/getArticleNextPage/getArticleNextPage'
 export { useArticleFilters } from './lib/hooks/useArticleFilters'
+export { getArticlesList } from './model/services/getArticlesList/getArticlesList'
+export { getArticlesPageLimit } from './model/selectors/getArticlesPageLimit/getArticlesPageLimit'

@@ -30,7 +30,7 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
     error: undefined,
     page: 1,
     hasMore: true,
-    limit: 4,
+    limit: 9,
     view: ArticleView.BIG,
     inited: false,
     search: '',
@@ -71,7 +71,7 @@ export const ArticlesPageSlice = createSlice({
                 ARTICLES_VIEW_LOCALSTORAGE_KEY
             ) as ArticleView
             state.view = view
-            state.limit = view === ArticleView.BIG ? 4 : 9
+            state.limit = 9
             state.inited = true
         }
     },

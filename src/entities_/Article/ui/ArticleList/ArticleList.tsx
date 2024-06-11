@@ -7,7 +7,8 @@ import {
     getArticlesPageIsLoading,
     getArticlesPageView,
     getArticlesPageHasMore,
-    getArticlesNextPage
+    getArticlesNextPage,
+    getArticlesPageLimit
 } from 'pages/ArticlesPage'
 import { useTranslation } from 'react-i18next'
 import styles from './ArticleList.module.scss'
@@ -23,6 +24,7 @@ export const ArticleList: FC = () => {
     const error = useAppSelector(getArticlesPageError)
     const view = useAppSelector(getArticlesPageView)
     const hasMore = useAppSelector(getArticlesPageHasMore)
+    const limit = useAppSelector(getArticlesPageLimit)
     const dispatch = useAppDispatch()
     const { t } = useTranslation('article')
     const errorName = t('Ошибка при загрузке статей!')
@@ -84,7 +86,7 @@ export const ArticleList: FC = () => {
         )
     })
 
-    const skeletons = new Array(view === ArticleView.BIG ? 4 : 9)
+    const skeletons = new Array(limit)
         .fill(0)
         .map((_, index) => (
             <Skeleton
