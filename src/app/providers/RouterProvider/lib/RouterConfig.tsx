@@ -9,6 +9,7 @@ import { RequiredAuth } from '../ui/RequiredAuth'
 import { ArticlesPage } from 'pages/ArticlesPage'
 import { AdminPage } from 'pages/AdminPage'
 import { SettingsPage } from 'pages/SettingsPage'
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
 
 export const routes = [
     {
@@ -37,6 +38,14 @@ export const routes = [
                 element: (
                     <RequiredAuth>
                         <ArticlesPage />
+                    </RequiredAuth>
+                )
+            },
+            {
+                path: 'articles/:id',
+                element: (
+                    <RequiredAuth>
+                        <ArticleDetailsPage />
                     </RequiredAuth>
                 )
             },

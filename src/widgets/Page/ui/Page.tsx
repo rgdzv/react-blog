@@ -11,7 +11,7 @@ import { useAppDispatch } from 'app/providers/StoreProvider'
 import { uiActions } from 'features/UI'
 import { useLocation } from 'react-router-dom'
 
-type ClassNameType = 'notFound' | 'articles'
+type ClassNameType = 'notFound' | 'articles' | 'articleDetails'
 
 interface PagePropsInterface {
     children: ReactElement | string
@@ -39,7 +39,6 @@ export const Page: FC<PagePropsInterface> = ({
                 path: pathname
             })
         )
-        // console.log('scroll')
     }, 500)
 
     return (

@@ -65,6 +65,7 @@ export const ArticleList: FC = () => {
                     views={item.views}
                     textBlock={textBlock}
                     userName={item.user.username}
+                    articleId={item.id}
                 />
             )
         }
@@ -82,6 +83,7 @@ export const ArticleList: FC = () => {
                 textBlock={textBlock}
                 buttonName={buttonName}
                 userName={item.user.username}
+                articleId={item.id}
             />
         )
     })

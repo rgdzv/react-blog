@@ -11,6 +11,7 @@ interface ArticleListItemSmallPropsInterface {
     textBlock: string
     userName: string
     id: string
+    articleId: string
 }
 
 export const ArticleListItemSmall: FC<ArticleListItemSmallPropsInterface> = ({
@@ -20,11 +21,15 @@ export const ArticleListItemSmall: FC<ArticleListItemSmallPropsInterface> = ({
     views,
     textBlock,
     userName,
-    id
+    id,
+    articleId
 }) => {
     return (
         <div className={styles.listItemSmall}>
-            <AppLink to='/' className={styles.articleImageSmall}>
+            <AppLink
+                to={`/articles/${articleId}`}
+                className={styles.articleImageSmall}
+            >
                 <Image
                     className='article_list_small_img'
                     alt='article image'

@@ -14,6 +14,7 @@ interface ArticleListItemPropsInterface {
     textBlock: string
     userName: string
     id: string
+    articleId: string
 }
 
 export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
@@ -26,7 +27,8 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
     buttonName,
     textBlock,
     userName,
-    id
+    id,
+    articleId
 }) => {
     return (
         <div className={styles.listItem}>
@@ -54,7 +56,7 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
                 <p className={styles.text}>{textBlock}</p>
             </div>
             <div className={styles.listItemFooter}>
-                <AppLink to='/'>
+                <AppLink to={`/articles/${articleId}`}>
                     <Button className='bordered'>{buttonName}</Button>
                 </AppLink>
                 <div className={styles.views}>

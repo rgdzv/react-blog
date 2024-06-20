@@ -32,9 +32,9 @@
         }
     }
 
-    .trigger {
-        width: 100%;
-        height: 10px;
-        background: red;
+    &.articleDetails {
+        display: grid;
+        grid-template-columns: 1fr 265px;
+        column-gap: 20px;
     }
 }
