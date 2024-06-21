@@ -40,10 +40,10 @@ export const ArticleList: FC = () => {
             (block) => block.type === ArticleBlockType.TEXT
         ) as ArticleTextBlock
 
-        const longTextBlock = `${block?.paragraphs[0]}...`
+        const longTextBlock =
+            block?.paragraph.split('.').slice(0, 3).join('.') + '...'
         const shortTextBlock =
-            block?.paragraphs[0].slice(0, block?.paragraphs[0].indexOf('.')) +
-            '...'
+            block?.paragraph.substring(0, block?.paragraph.indexOf('.')) + '...'
 
         const textBlock =
             block !== undefined
