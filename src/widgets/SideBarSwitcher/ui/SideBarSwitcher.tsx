@@ -1,7 +1,6 @@
 import { type FC } from 'react'
 import { ArrowIcon } from 'shared/assets'
 import { Button } from 'shared/ui'
-import styles from './SideBarSwitcher.module.scss'
 
 interface SideBarSwitcherPropsInterface {
     collapsed: boolean
@@ -14,8 +13,12 @@ export const SideBarSwitcher: FC<SideBarSwitcherPropsInterface> = ({
 }) => {
     const toggleAriaLabel = collapsed ? 'expand-sidebar' : 'collapse-sidebar'
     return (
-        <Button onClick={handleToggle} aria-label={toggleAriaLabel}>
-            <ArrowIcon data-testid='arrow-icon' className={styles.icon} />
+        <Button
+            className='toggleArrow'
+            onClick={handleToggle}
+            aria-label={toggleAriaLabel}
+        >
+            <ArrowIcon data-testid='arrow-icon' />
         </Button>
     )
 }

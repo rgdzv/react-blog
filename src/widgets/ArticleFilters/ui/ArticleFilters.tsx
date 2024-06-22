@@ -29,6 +29,7 @@ export const ArticleFilters: FC = () => {
                 placeholder={inputPlaceholderName}
                 icon={<SearchIcon data-testid='search-icon' />}
                 onChange={onChangeSearch}
+                classNameForIcon='search'
             />
             <ArticlesTypeTabs type={type} onChangeType={onChangeType} />
             <ArticlesSortSelector

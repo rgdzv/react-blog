@@ -39,21 +39,6 @@
         }
     }
     
-    .icon {
-        cursor: pointer;
-    
-        position: absolute;
-        z-index: 2;
-        top: 50%;
-        transform: translate(0, -50%);
-    
-        line-height: 0;
-    
-        svg {
-            fill: var(--main-color)
-        }
-    }
-
     &.firstname,
     &.lastname,
     &.age,
@@ -78,10 +63,6 @@
 
     &.login_password {
         margin-bottom: 15px;
-
-        .icon {
-            right: 10px;
-        }
     }
 
     &.withError {

@@ -1,6 +1,6 @@
 import { useMemo, type FC } from 'react'
 import styles from './NavBar.module.scss'
-import { AppLink } from 'shared/ui'
+import { AppLink, Button } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -42,7 +42,7 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
                         onClick={handleNavigate}
                         data-testid={item.file}
                     >
-                        <div className={styles.icon}>{item.icon}</div>
+                        <Button className='navbar_icon'>{item.icon}</Button>
                         <AppLink to={item.to} aria-label={ariaLabel}>
                             {linkName}
                         </AppLink>

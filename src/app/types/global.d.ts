@@ -2,10 +2,11 @@ declare module '*.scss' {
     const content: any
     export default content
 }
+
 declare module '*.svg' {
-    import { type ReactElement, type SVGProps } from 'react'
-    const content: (props: SVGProps<SVGElement>) => ReactElement
-    export default content
+    import { type SVGProps, type FC } from 'react'
+    const SVG: FC<SVGProps<SVGElement>>
+    export default SVG
 }
 
 declare module '*.png'

@@ -63,6 +63,7 @@ export const LoginForm: FC = () => {
                 isError={error}
                 icon={passwordInputIcon}
                 classNameForInputWrapper='login_password'
+                classNameForIcon='password_eye'
             />
         </>
     )

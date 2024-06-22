@@ -9,7 +9,11 @@ import { classNames } from 'shared/lib'
 import styles from './Button.module.scss'
 
 type ClassNameType =
+    | 'password_eye'
+    | 'navbar_icon'
+    | 'theme'
     | 'lang'
+    | 'toggleArrow'
     | 'bordered'
     | 'bordered_green'
     | 'bordered_red'
@@ -18,6 +22,8 @@ type ClassNameType =
     | 'left_bordered'
     | 'right_bordered'
     | 'articleTab'
+    | 'copy'
+    | 'search'
 
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode

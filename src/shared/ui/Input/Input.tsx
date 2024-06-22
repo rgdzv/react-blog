@@ -2,6 +2,7 @@ import { type ReactNode, type FC, type InputHTMLAttributes, memo } from 'react'
 import styles from './Input.module.scss'
 import { classNames } from 'shared/lib'
 import { Skeleton } from '../Skeleton/Skeleton'
+import { Button } from '../Button/Button'
 
 type ClassNameInputWrapperType =
     | 'login_username'
@@ -14,6 +15,8 @@ type ClassNameInputWrapperType =
     | 'avatar'
     | 'search'
 
+type ClassNameIconType = 'password_eye' | 'search'
+
 interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     label?: string
     placeholder?: string
@@ -24,6 +27,7 @@ interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     onClick?: () => void
     isError?: string
     classNameForInputWrapper?: ClassNameInputWrapperType
+    classNameForIcon?: ClassNameIconType
     isLoading?: boolean
     disabled?: boolean
     validError?: string
@@ -41,6 +45,7 @@ export const Input: FC<InputPropsInterface> = memo(
         onClick,
         isError,
         classNameForInputWrapper,
+        classNameForIcon,
         isLoading,
         disabled,
         validError,
@@ -65,9 +70,9 @@ export const Input: FC<InputPropsInterface> = memo(
         )
 
         const iconCondition = icon !== undefined && (
-            <div className={styles.icon} onClick={onClick}>
+            <Button className={classNameForIcon} onClick={onClick}>
                 {icon}
-            </div>
+            </Button>
         )
 
         const showContentCondition =

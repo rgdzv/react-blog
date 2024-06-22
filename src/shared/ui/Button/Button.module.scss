@@ -18,6 +18,26 @@
     }
 }
 
+.password_eye {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+
+    svg {
+        fill: var(--main-color)
+    }
+}
+
+.navbar_icon,
+.theme,
+.toggleArrow {
+    svg {
+        fill: var(--main-color)
+    }
+}
+
 .lang {
     width: 32px;
     height: 32px;
@@ -135,6 +155,25 @@
 
 .selected {
     background-color: var(--widget-bg-color);
+
+    svg {
+        fill: var(--main-color)
+    }
+}
+
+.copy {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+
+    svg {
+        fill: var(--main-color)
+    }
+}
+
+.search {
+    position: absolute;
 
     svg {
         fill: var(--main-color)

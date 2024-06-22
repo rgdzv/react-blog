@@ -3,18 +3,4 @@
     margin: 0 0 10px;
     background-color: var(--widget-bg-color);
     border: 1px solid var(--widget-bg-color);
-
-    .icon {
-        cursor: pointer;
-    
-        position: absolute;
-        z-index: 2;
-        top: 0;
-        right: 0;
-    
-        line-height: 0;
-
-        fill: var(--main-color)
-
-    }
 }
