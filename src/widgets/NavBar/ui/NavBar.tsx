@@ -31,9 +31,7 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
                     navigate(item.to)
                 }
 
-                const ariaLabel = collapsed
-                    ? t(item.name, { ns: item.file })
-                    : ''
+                const ariaLabel = t(item.name, { ns: item.file })
 
                 return (
                     <li
@@ -42,7 +40,9 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
                         onClick={handleNavigate}
                         data-testid={item.file}
                     >
-                        <Button className='navbar_icon'>{item.icon}</Button>
+                        <Button className='navbar_icon' aria-label={ariaLabel}>
+                            {item.icon}
+                        </Button>
                         <AppLink to={item.to} aria-label={ariaLabel}>
                             {linkName}
                         </AppLink>

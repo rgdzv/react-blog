@@ -1,6 +1,21 @@
 .articleBlockCode {
     position: relative;
+
     margin: 0 0 10px;
+    padding: 20px;
+
     background-color: var(--widget-bg-color);
-    border: 1px solid var(--widget-bg-color);
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+
+    .copySign {
+        position: absolute;
+        top: 30px;
+        right:5px;
+
+        font-family: var(--font-family);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text-color);
+    }
 }

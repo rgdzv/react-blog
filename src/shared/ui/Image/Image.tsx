@@ -8,6 +8,7 @@ type ClassNameType =
     | 'article_list_small_img'
     | 'article_avatar'
     | 'login_dropdown_avatar'
+    | 'article_details_img'
 
 interface ImagePropsInterface {
     src?: string
