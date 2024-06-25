@@ -4,13 +4,15 @@ import {
     articleDetailsReducer,
     getArticleById
 } from 'entities_/Article'
+import { articleRatingReducer } from 'features/ArticlesInteraction/ArticleRating'
 import { useEffect, type FC } from 'react'
 import { useParams } from 'react-router-dom'
 import { DynamicReducerLoader, type ReducersList } from 'shared/components'
 import { Page } from 'widgets/Page'
 
 const reducers: ReducersList = {
-    articleDetails: articleDetailsReducer
+    articleDetails: articleDetailsReducer,
+    articleRating: articleRatingReducer
 }
 
 const ArticleDetailsPage: FC = () => {

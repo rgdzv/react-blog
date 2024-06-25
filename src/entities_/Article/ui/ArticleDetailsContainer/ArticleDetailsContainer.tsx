@@ -6,6 +6,8 @@ import { useAppSelector } from 'app/providers/StoreProvider'
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData'
 import { noavatar, noimage } from 'shared/assets'
 import { ArticleDetailsContentBlock } from '../ArticleDetailsContentBlock/ArticleDetailsContentBlock'
+import styles from './ArticleDetailsContainer.module.scss'
+import { ArticleRating } from 'features/ArticlesInteraction/ArticleRating'
 
 export const ArticleDetailsContainer: FC = () => {
     // const isLoading = useAppSelector(getArticleDetailsIsLoading)
@@ -18,16 +20,22 @@ export const ArticleDetailsContainer: FC = () => {
 
     const contentBlock = article?.blocks.map(ArticleDetailsContentBlock)
 
+    const articleId = article?.id
+    const userId = article?.userId
+
     return (
-        <ArticleDetails
-            profileId={article?.userId}
-            avatar={avatar}
-            articleImage={articleImage}
-            userName={article?.user.username}
-            date={transformedDate}
-            title={article?.title}
-            subtitle={article?.subtitle}
-            contentBlock={contentBlock}
-        />
+        <div className={styles.articleDetailsContainer}>
+            <ArticleDetails
+                profileId={article?.userId}
+                avatar={avatar}
+                articleImage={articleImage}
+                userName={article?.user.username}
+                date={transformedDate}
+                title={article?.title}
+                subtitle={article?.subtitle}
+                contentBlock={contentBlock}
+            />
+            <ArticleRating userId={userId} articleId={articleId} />
+        </div>
     )
 }

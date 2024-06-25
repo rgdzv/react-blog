@@ -1,0 +1,9 @@
+.articleDetailsContainer {
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px;
+
+    background-color: var(--widget-bg-color-secondary);
+    border-radius: 32px;
+}
