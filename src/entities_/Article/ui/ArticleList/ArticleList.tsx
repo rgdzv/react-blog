@@ -12,11 +12,14 @@ import {
 } from 'pages/ArticlesPage'
 import { useTranslation } from 'react-i18next'
 import styles from './ArticleList.module.scss'
-import { type ArticleTextBlock } from '../../model/types/article'
-import { ArticleBlockType, ArticleView } from '../../model/const/articleConst'
+import { ArticleView } from '../../model/const/articleConst'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ArticleListItemSmall } from '../ArticleListItemSmall/ArticleListItemSmall'
 import { Button, Skeleton } from 'shared/ui'
+import {
+    ArticleBlockType,
+    type ArticleTextBlock
+} from 'entities_/ArticleDetails'
 
 export const ArticleList: FC = () => {
     const articles = useAppSelector(getArticles.selectAll)

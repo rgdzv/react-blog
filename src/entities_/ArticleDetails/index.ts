@@ -1,0 +1,8 @@
+export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails'
+export { articleDetailsReducer } from './model/slice/articleDetailsSlice'
+export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
+export { getArticleById } from './model/services/getArticleById/getArticleById'
+export { ArticleDetailsContainer } from './ui/ArticleDetailsContainer/ArticleDetailsContainer'
+export type { ArticleBlock } from './model/types/articleDetails'
+export type { ArticleTextBlock } from './model/types/articleDetails'
+export { ArticleBlockType } from './model/const/articleDetailsConst'

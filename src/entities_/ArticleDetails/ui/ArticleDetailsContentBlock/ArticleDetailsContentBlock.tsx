@@ -1,5 +1,5 @@
-import { ArticleBlockType } from '../../model/const/articleConst'
-import { type ArticleBlock } from '../../model/types/article'
+import { ArticleBlockType } from '../../model/const/articleDetailsConst'
+import { type ArticleBlock } from '../../model/types/articleDetails'
 import { ArticleDetailsBlockCode } from '../ArticleDetailsBlockCode/ArticleDetailsBlockCode'
 import { ArticleDetailsBlockImage } from '../ArticleDetailsBlockImage/ArticleDetailsBlockImage'
 import { ArticleDetailsBlockText } from '../ArticleDetailsBlockText/ArticleDetailsBlockText'

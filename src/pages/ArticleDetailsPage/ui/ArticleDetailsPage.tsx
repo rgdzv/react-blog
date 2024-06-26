@@ -3,7 +3,7 @@ import {
     ArticleDetailsContainer,
     articleDetailsReducer,
     getArticleById
-} from 'entities_/Article'
+} from 'entities_/ArticleDetails'
 import { articleRatingReducer } from 'features/ArticlesInteraction/ArticleRating'
 import { useEffect, type FC } from 'react'
 import { useParams } from 'react-router-dom'

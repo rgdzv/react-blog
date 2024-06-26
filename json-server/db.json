@@ -639,7 +639,7 @@
             "password": "123",
             "roles": ["USER"],
             "features": {
-                "isArticleRatingEnabled": false,
+                "isArticleRatingEnabled": true,
                 "isCounterEnabled": false,
                 "isAppRedesigned": false
             },

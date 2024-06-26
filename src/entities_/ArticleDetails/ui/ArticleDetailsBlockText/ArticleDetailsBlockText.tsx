@@ -1,4 +1,4 @@
-import { type ArticleTextBlock } from '../../model/types/article'
+import { type ArticleTextBlock } from '../../model/types/articleDetails'
 import { type FC } from 'react'
 import styles from './ArticleDetailsBlockText.module.scss'
 

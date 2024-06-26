@@ -15,6 +15,7 @@
         "prettier:write": "prettier --config config/prettier/.prettierrc.json --ignore-path config/prettier/.prettierignore --write \"**/*.{ts,tsx,json}\"",
         "stylelint": "stylelint --config config/stylelint/.stylelintrc.json --ignore-path config/stylelint/.stylelintignore \"**/*.scss\"",
         "stylelint:fix": "stylelint --config config/stylelint/.stylelintrc.json --ignore-path config/stylelint/.stylelintignore --fix \"**/*.scss\"",
+        "start:all:linters": "npm run eslint:fix && npm run stylelint:fix && npm run prettier:write",
         "jest-unit": "jest --config config/jest/jest.config.json",
         "jest-clear": "jest --clearCache",
         "storybook": "storybook dev -p 6006 --config-dir config/storybook/",

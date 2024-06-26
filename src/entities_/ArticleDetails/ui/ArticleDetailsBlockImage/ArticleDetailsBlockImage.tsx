@@ -1,5 +1,5 @@
 import { Image } from 'shared/ui'
-import { type ArticleImageBlock } from '../../model/types/article'
+import { type ArticleImageBlock } from '../../model/types/articleDetails'
 import { type FC } from 'react'
 import { noimage } from 'shared/assets'
 

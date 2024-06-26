@@ -1,4 +1,4 @@
-import { type ArticleCodeBlock } from '../../model/types/article'
+import { type ArticleCodeBlock } from '../../model/types/articleDetails'
 import { useCallback, type FC, useState } from 'react'
 import styles from './ArticleDetailsBlockCode.module.scss'
 import { CopyIcon } from 'shared/assets'

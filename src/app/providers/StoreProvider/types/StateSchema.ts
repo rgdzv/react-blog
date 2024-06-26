@@ -5,7 +5,7 @@ import {
     type ReducersMapObject
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
-import { type ArticleDetailsSchema } from 'entities_/Article'
+import { type ArticleDetailsSchema } from 'entities_/ArticleDetails'
 import { type UserSchema } from 'entities_/User'
 import { type ArticleRatingSchema } from 'features/ArticlesInteraction/ArticleRating'
 import { type LoginSchema } from 'features/Authorization'
