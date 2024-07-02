@@ -712,50 +712,122 @@
     ],
     "article-ratings": [
         {
-            "id": "1",
-            "rate": 4,
             "userId": "1",
-            "articleId": "1"
+            "articleId": "1",
+            "rate": 3,
+            "id": "daER52h"
         },
         {
-            "userId": "1",
-            "articleId": "3",
-            "rate": 3,
+            "userId": "2",
+            "articleId": "2",
+            "rate": 4,
             "id": "I7ofk1u"
         },
         {
             "userId": "1",
-            "articleId": "9",
+            "articleId": "3",
             "rate": 5,
             "id": "Y7MhPzo"
         },
         {
             "userId": "1",
-            "articleId": "10",
-            "rate": 1,
+            "articleId": "4",
+            "rate": 5,
             "id": "II0a75O"
         },
         {
             "userId": "1",
-            "articleId": "7",
+            "articleId": "5",
             "rate": 3,
             "id": "bcPnbbZ"
         },
         {
-            "userId": "2",
-            "articleId": "1",
+            "userId": "1",
+            "articleId": "6",
             "rate": 4,
             "id": "1I3E5gT"
         },
         {
             "userId": "1",
-            "articleId": "2",
+            "articleId": "7",
             "rate": 2,
             "id": "xbwnNBF"
         },
         {
             "userId": "1",
+            "articleId": "8",
+            "rate": 3,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "9",
+            "rate": 1,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "10",
+            "rate": 1,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "11",
+            "rate": 5,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
             "articleId": "12",
+            "rate": 3,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "13",
+            "rate": 2,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "14",
+            "rate": 4,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "15",
+            "rate": 1,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "16",
+            "rate": 1,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "17",
+            "rate": 2,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "18",
+            "rate": 3,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "19",
+            "rate": 4,
+            "id": "ftXTMSh"
+        },
+        {
+            "userId": "1",
+            "articleId": "20",
             "rate": 5,
             "id": "ftXTMSh"
         }

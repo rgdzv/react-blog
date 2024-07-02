@@ -24,6 +24,7 @@ type ClassNameType =
     | 'articleTab'
     | 'copy'
     | 'search'
+    | 'star'
 
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode

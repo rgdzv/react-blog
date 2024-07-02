@@ -31,6 +31,20 @@ export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
         )
     }
 
+    if (type === 'articleDetails') {
+        return (
+            <div className={styles.articleBig} style={{ padding: '0' }}>
+                <div className={styles.articleUserInfoBig}></div>
+                <div className={styles.articleTitlesBig}></div>
+                <div className={styles.articleImageBig}></div>
+                <div className={styles.articleTextBig}></div>
+                <div className={styles.articleTextBig}></div>
+                <div className={styles.articleTextBig}></div>
+                <div className={styles.articleTextBig}></div>
+            </div>
+        )
+    }
+
     if (type === 'profileHeader') {
         return <div className={styles.profileHeader}></div>
     }

@@ -13,6 +13,7 @@ import SearchIcon from './icons/search-icon.svg'
 import noavatar from './icons/no-avatar-icon.jpg'
 import noimage from './icons/no-image-icon.jpg'
 import CopyIcon from './icons/copy-icon.svg'
+import StarIcon from './icons/star-icon.svg'
 
 export {
     ThemeIcon,
@@ -29,5 +30,6 @@ export {
     TileIcon,
     ListIcon,
     SearchIcon,
-    CopyIcon
+    CopyIcon,
+    StarIcon
 }
