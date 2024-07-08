@@ -1,12 +1,10 @@
-import { useAppDispatch } from 'app/providers/StoreProvider'
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { useEffect, type FC } from 'react'
 import { getArticleRating } from '../model/services/getArticleRating'
 import { useTranslation } from 'react-i18next'
 import styles from './ArticleRating.module.scss'
-import { Button } from 'shared/ui'
-import { StarIcon } from 'shared/assets'
-
-const starsNumber = [1, 2, 3, 4, 5]
+import { Stars } from 'shared/ui'
+import { getArticleRate } from '../model/selectors/getArticleRate/getArticleRate'
 
 interface ArticleRatingPropsInterface {
     userId: string
@@ -17,24 +15,20 @@ const ArticleRating: FC<ArticleRatingPropsInterface> = ({
     userId,
     articleId
 }) => {
+    const rate = useAppSelector(getArticleRate)
+    // const [starsCount, setStarsCount] = useState(rate)
     const dispatch = useAppDispatch()
     const { t } = useTranslation('article')
     const ratingSign = t('Оцените статью')
 
-    const stars = starsNumber.map((star) => (
-        <Button key={star} className='star'>
-            <StarIcon />
-        </Button>
-    ))
-
     useEffect(() => {
         void dispatch(getArticleRating({ userId, articleId }))
-    }, [userId, articleId, dispatch])
+    }, [userId, articleId, dispatch, rate])
 
     return (
         <div className={styles.articleRating}>
             <p className={styles.ratingOffer}>{ratingSign}</p>
-            <div className={styles.ratingStars}>{stars}</div>
+            <Stars />
         </div>
     )
 }

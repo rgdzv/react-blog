@@ -4,7 +4,7 @@ import { type ArticleRating } from '../types/articleRating'
 import { getArticleRating } from '../services/getArticleRating'
 
 const initialState: ArticleRatingSchema = {
-    rating: undefined,
+    data: undefined,
     isLoading: false,
     error: undefined
 }
@@ -21,7 +21,7 @@ export const articleRatingSlice = createSlice({
         builder.addCase(
             getArticleRating.fulfilled,
             (state, action: PayloadAction<ArticleRating>) => {
-                state.rating = action.payload
+                state.data = action.payload
                 state.isLoading = false
             }
         )

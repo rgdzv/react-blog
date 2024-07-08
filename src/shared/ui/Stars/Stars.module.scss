@@ -1,0 +1,16 @@
+.ratingStars {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.normal {
+    fill: none;
+    stroke: var(--main-color);
+}
+
+.hovered {
+    fill: var(--main-color);
+    stroke: var(--main-color);
+}

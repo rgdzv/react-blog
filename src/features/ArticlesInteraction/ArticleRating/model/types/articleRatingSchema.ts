@@ -1,7 +1,7 @@
 import { type ArticleRating } from './articleRating'
 
 export interface ArticleRatingSchema {
-    rating: ArticleRating | undefined
+    data?: ArticleRating
     isLoading: boolean
     error: string | undefined
 }
