@@ -9,9 +9,11 @@ import { ArticleDetailsContentBlock } from '../ArticleDetailsContentBlock/Articl
 import styles from './ArticleDetailsContainer.module.scss'
 import { ArticleRating } from 'features/ArticlesInteraction/ArticleRating'
 import { Skeleton } from 'shared/ui'
+import { getArticleRatingIsLoading } from 'features/ArticlesInteraction/ArticleRating/model/selectors/getArticleRatingIsLoading/getArticleRatingIsLoading'
 
 export const ArticleDetailsContainer: FC = () => {
-    const detailsIsLoading = useAppSelector(getArticleDetailsIsLoading)
+    const isLoadingDetails = useAppSelector(getArticleDetailsIsLoading)
+    const isLoadingRating = useAppSelector(getArticleRatingIsLoading)
     // const detailsError = useAppSelector(getArticleDetailsError)
     const article = useAppSelector(getArticleDetailsData)
 
@@ -21,28 +23,34 @@ export const ArticleDetailsContainer: FC = () => {
 
     const contentBlock = article?.blocks.map(ArticleDetailsContentBlock)
 
-    const articleId = article?.id
-    const userId = article?.userId
-
-    const articleDetailsCondition = detailsIsLoading ? (
-        <Skeleton type='articleDetails' />
+    const articleRatingCondition = isLoadingRating ? (
+        <Skeleton type='articleRating' />
     ) : (
-        <ArticleDetails
-            profileId={article?.userId}
-            avatar={avatar}
-            articleImage={articleImage}
-            userName={article?.user.username}
-            date={transformedDate}
-            title={article?.title}
-            subtitle={article?.subtitle}
-            contentBlock={contentBlock}
-        />
+        <ArticleRating />
     )
+
+    if (isLoadingDetails) {
+        return (
+            <div className={styles.articleDetailsContainer}>
+                <Skeleton type='articleDetails' />
+                <Skeleton type='articleRating' />
+            </div>
+        )
+    }
 
     return (
         <div className={styles.articleDetailsContainer}>
-            {articleDetailsCondition}
-            <ArticleRating userId={userId} articleId={articleId} />
+            <ArticleDetails
+                profileId={article?.userId}
+                avatar={avatar}
+                articleImage={articleImage}
+                userName={article?.user.username}
+                date={transformedDate}
+                title={article?.title}
+                subtitle={article?.subtitle}
+                contentBlock={contentBlock}
+            />
+            {articleRatingCondition}
         </div>
     )
 }

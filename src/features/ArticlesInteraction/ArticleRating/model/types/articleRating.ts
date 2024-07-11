@@ -1,8 +1,8 @@
 export interface ArticleRating {
-    id: string
     userId: string
     articleId: string
     rate: number
+    id: string
 }
 
-export type ArticleRatingParams = Omit<ArticleRating, 'id' | 'rate'>
+export type ArticleRatingGetParams = Omit<ArticleRating, 'id' | 'rate'>

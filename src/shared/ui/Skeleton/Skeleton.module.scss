@@ -46,6 +46,7 @@
 .textBlockSmall,
 .footerSmall,
 .userInfoSmall,
+.articleRating,
 .profileHeader,
 .profileInput
 {
@@ -129,6 +130,11 @@
         }
     }
 
+}
+
+.articleRating {
+    height: 4.125em;
+    border-radius: 10px;
 }
 
 .profileHeader {

@@ -45,6 +45,10 @@ export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
         )
     }
 
+    if (type === 'articleRating') {
+        return <div className={styles.articleRating}></div>
+    }
+
     if (type === 'profileHeader') {
         return <div className={styles.profileHeader}></div>
     }
