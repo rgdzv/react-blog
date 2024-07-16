@@ -26,7 +26,6 @@ export const getArticleById = createAsyncThunk<
                     articleId: data.id
                 })
             )
-
             return data
         } catch (error) {
             if (error.response === undefined) {

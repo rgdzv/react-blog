@@ -21,7 +21,7 @@ export const articleRatingSlice = createSlice({
         })
         builder.addCase(
             getArticleRating.fulfilled,
-            (state, action: PayloadAction<ArticleRating[]>) => {
+            (state, action: PayloadAction<ArticleRating>) => {
                 state.data = action.payload
                 state.isLoading = false
             }
@@ -40,7 +40,7 @@ export const articleRatingSlice = createSlice({
         })
         builder.addCase(
             updateArticleRating.fulfilled,
-            (state, action: PayloadAction<ArticleRating[]>) => {
+            (state, action: PayloadAction<ArticleRating>) => {
                 state.data = action.payload
                 state.isLoading = false
             }

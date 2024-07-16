@@ -11,7 +11,7 @@ const ArticleRating: FC = () => {
     const dispatch = useAppDispatch()
     const { t } = useTranslation('article')
     const ratingSign = t('Оцените статью')
-    const rate = rating?.[0]?.rate
+    const rate = rating?.rate
 
     const handleRatingUpdate = (rateNumber: number): void => {
         void dispatch(updateArticleRating(rateNumber))

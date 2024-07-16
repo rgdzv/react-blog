@@ -7,3 +7,19 @@
     background-color: var(--widget-bg-color-secondary);
     border-radius: 32px;
 }
+
+.articleDetailsContainerError {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.articleRatingContainerError {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

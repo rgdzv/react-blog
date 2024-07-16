@@ -414,9 +414,6 @@
             "userId": "1",
             "type": ["SCIENCE"],
             "blocks": []
-        },
-        {
-            "id": "OLa-Dpm"
         }
     ],
     "comments": [
@@ -682,7 +679,7 @@
         {
             "id": "1",
             "firstname": "Sergey",
-            "lastname": "Romano",
+            "lastname": "Romanov",
             "age": "19",
             "currency": "Доллар",
             "country": "Украина",
@@ -717,19 +714,19 @@
         {
             "userId": "1",
             "articleId": "1",
-            "rate": 3,
+            "rate": 4,
             "id": "daER52h"
         },
         {
             "userId": "2",
             "articleId": "2",
-            "rate": 4,
+            "rate": 1,
             "id": "I7ofk1u"
         },
         {
             "userId": "1",
             "articleId": "3",
-            "rate": 5,
+            "rate": 1,
             "id": "Y7MhPzo"
         },
         {
@@ -766,73 +763,73 @@
             "userId": "1",
             "articleId": "9",
             "rate": 1,
-            "id": "ftXTMSh"
+            "id": "aer34fV"
         },
         {
             "userId": "1",
             "articleId": "10",
             "rate": 1,
-            "id": "ftXTMSh"
+            "id": "NBfw1qQ"
         },
         {
             "userId": "1",
             "articleId": "11",
             "rate": 5,
-            "id": "ftXTMSh"
+            "id": "gf345sd"
         },
         {
             "userId": "1",
             "articleId": "12",
             "rate": 3,
-            "id": "ftXTMSh"
+            "id": "TGBfde2"
         },
         {
             "userId": "1",
             "articleId": "13",
             "rate": 2,
-            "id": "ftXTMSh"
+            "id": "BGR32as"
         },
         {
             "userId": "1",
             "articleId": "14",
             "rate": 4,
-            "id": "ftXTMSh"
+            "id": "F2fg1da"
         },
         {
             "userId": "1",
             "articleId": "15",
             "rate": 1,
-            "id": "ftXTMSh"
+            "id": "B3rtghf"
         },
         {
             "userId": "1",
             "articleId": "16",
             "rate": 1,
-            "id": "ftXTMSh"
+            "id": "DeAr002"
         },
         {
             "userId": "1",
             "articleId": "17",
             "rate": 2,
-            "id": "ftXTMSh"
+            "id": "4321GHJ"
         },
         {
             "userId": "1",
             "articleId": "18",
             "rate": 3,
-            "id": "ftXTMSh"
+            "id": "YyTrEd4"
         },
         {
             "userId": "1",
             "articleId": "19",
             "rate": 4,
-            "id": "ftXTMSh"
+            "id": "654RTYr"
         },
         {
             "userId": "1",
             "articleId": "20",
             "rate": 5,
-            "id": "ftXTMSh"
+            "id": "POufg45"
         }
     ],
     "profile-ratings": [

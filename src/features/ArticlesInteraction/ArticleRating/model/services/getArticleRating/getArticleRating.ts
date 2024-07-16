@@ -6,23 +6,28 @@ import {
 } from '../../types/articleRating'
 
 export const getArticleRating = createAsyncThunk<
-    ArticleRating[],
+    ArticleRating,
     ArticleRatingGetParams,
     ThunkConfig<string>
 >(
     'articleRating/getArticleRating',
     async ({ articleId, userId }, { rejectWithValue, extra }) => {
         try {
-            const { data } = await extra.axiosAPI.get<ArticleRating[]>(
+            const { data } = await extra.axiosAPI.get<ArticleRating>(
                 '/article-ratings',
                 {
                     params: {
                         userId,
                         articleId
-                    }
+                    },
+                    transformResponse: [
+                        (data) => {
+                            const parsed = JSON.parse(data)
+                            return parsed[0]
+                        }
+                    ]
                 }
             )
-
             return data
         } catch (error) {
             if (error.response === undefined) {

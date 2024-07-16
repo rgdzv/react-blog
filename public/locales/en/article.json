@@ -17,5 +17,7 @@
     "title": "title",
     "created": "created",
     "Copied": "Copied",
-    "Оцените статью": "Rate the article"
+    "Оцените статью": "Rate the article",
+    "Ошибка при загрузке статьи!": "Error loading article!",
+    "Ошибка при загрузке рейтинга!": "Error loading rating!"
 }
