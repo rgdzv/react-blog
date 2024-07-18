@@ -5,6 +5,7 @@
     "Показать еще": "Show more",
     "Загрузка...": "Loading...",
     "Статьи не найдены!": "No articles found!",
+    "Статья не найдена!": "No article found!",
     "Найти": "Search",
     "Все статьи": "All",
     "Айти": "IT",
@@ -19,5 +20,6 @@
     "Copied": "Copied",
     "Оцените статью": "Rate the article",
     "Ошибка при загрузке статьи!": "Error loading article!",
-    "Ошибка при загрузке рейтинга!": "Error loading rating!"
+    "Ошибка при загрузке рейтинга!": "Error loading rating!",
+    "Редактировать": "Edit"
 }

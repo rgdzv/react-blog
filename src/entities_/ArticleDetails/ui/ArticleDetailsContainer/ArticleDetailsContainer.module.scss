@@ -8,7 +8,8 @@
     border-radius: 32px;
 }
 
-.articleDetailsContainerError {
+.articleDetailsContainerError,
+.articleDetailsContainerEmpty {
     display: flex;
     align-items: center;
     justify-content: center;

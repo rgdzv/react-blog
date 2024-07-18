@@ -31,6 +31,7 @@ export const ArticleDetailsContainer: FC = () => {
 
     const detailsErrorName = t('Ошибка при загрузке статьи!')
     const ratingErrorName = t('Ошибка при загрузке рейтинга!')
+    const detailsEmptyName = t('Статья не найдена!')
 
     const articleRatingCondition = isLoadingRating ? (
         <Skeleton type='articleRating' />
@@ -42,25 +43,13 @@ export const ArticleDetailsContainer: FC = () => {
         <ArticleRating />
     )
 
-    if (isLoadingDetails) {
-        return (
-            <div className={styles.articleDetailsContainer}>
-                <Skeleton type='articleDetails' />
-                <Skeleton type='articleRating' />
-            </div>
-        )
-    }
-
-    if (detailsError !== '') {
-        return (
-            <div className={styles.articleDetailsContainerError}>
-                {detailsErrorName}
-            </div>
-        )
-    }
-
-    return (
-        <div className={styles.articleDetailsContainer}>
+    const articleDetailsCondition = isLoadingDetails ? (
+        <>
+            <Skeleton type='articleDetails' />
+            <Skeleton type='articleRating' />
+        </>
+    ) : (
+        <>
             <ArticleDetails
                 profileId={article?.userId}
                 avatar={avatar}
@@ -72,6 +61,28 @@ export const ArticleDetailsContainer: FC = () => {
                 contentBlock={contentBlock}
             />
             {articleRatingCondition}
+        </>
+    )
+
+    if (detailsError !== '') {
+        return (
+            <div className={styles.articleDetailsContainerError}>
+                {detailsErrorName}
+            </div>
+        )
+    }
+
+    if (!isLoadingDetails && article === undefined) {
+        return (
+            <div className={styles.articleDetailsContainerEmpty}>
+                {detailsEmptyName}
+            </div>
+        )
+    }
+
+    return (
+        <div className={styles.articleDetailsContainer}>
+            {articleDetailsCondition}
         </div>
     )
 }

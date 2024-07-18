@@ -4,6 +4,7 @@ import {
     articleDetailsReducer,
     getArticleById
 } from 'entities_/ArticleDetails'
+import { ArticleDetailsEdit } from 'features/ArticlesInteraction/ArticleDetailsEdit'
 import { articleRatingReducer } from 'features/ArticlesInteraction/ArticleRating'
 import { useEffect, type FC } from 'react'
 import { useParams } from 'react-router-dom'
@@ -32,7 +33,7 @@ const ArticleDetailsPage: FC = () => {
             <Page dataTestId='articles-page-details' className='articleDetails'>
                 <>
                     <ArticleDetailsContainer />
-                    {/* <div>Редактировать</div> */}
+                    <ArticleDetailsEdit />
                 </>
             </Page>
         </DynamicReducerLoader>
