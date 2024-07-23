@@ -78,6 +78,14 @@
             background-color: transparent;
         }
     }
+
+    &.addComment {
+        width: 100%;
+
+        .input {
+            background-color: transparent;
+        }
+    }
 }
 
 .validErrorBlock {

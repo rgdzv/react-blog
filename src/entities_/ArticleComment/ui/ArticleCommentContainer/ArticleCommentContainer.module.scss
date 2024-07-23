@@ -1,0 +1,11 @@
+.articleCommentContainer {
+    display: flex;
+    flex-direction: column;
+
+    .articleCommentSection {
+        margin-bottom: 20px;
+        font-family: Roboto, sans-serif;
+        font-size: 32px;
+        font-weight: 900;
+    }
+}

@@ -14,6 +14,7 @@ import {
 import { Skeleton } from 'shared/ui'
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError'
 import { useTranslation } from 'react-i18next'
+import { ArticleCommentContainer } from 'entities_/ArticleComment'
 
 export const ArticleDetailsContainer: FC = () => {
     const isLoadingDetails = useAppSelector(getArticleDetailsIsLoading)
@@ -61,6 +62,7 @@ export const ArticleDetailsContainer: FC = () => {
                 contentBlock={contentBlock}
             />
             {articleRatingCondition}
+            <ArticleCommentContainer />
         </>
     )
 

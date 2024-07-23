@@ -14,6 +14,7 @@ type ClassNameInputWrapperType =
     | 'username'
     | 'avatar'
     | 'search'
+    | 'addComment'
 
 type ClassNameIconType = 'password_eye' | 'search'
 
