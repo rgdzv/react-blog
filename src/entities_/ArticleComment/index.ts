@@ -1,1 +1,1 @@
-export { ArticleCommentContainer } from './ui/ArticleCommentContainer/ArticleCommentContainer'
+export type { ArticleComment } from './model/types/articleComment'

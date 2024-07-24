@@ -5,7 +5,7 @@ import { useState, type FC, type ChangeEvent, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { EyeClosedIcon, EyeIcon } from 'shared/assets'
 import { Input } from 'shared/ui'
-import { loginActions } from '../../model/slice/loginSlice'
+import { loginActions } from '../../model/slice/loginSlice/loginSlice'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 
 export const LoginForm: FC = () => {

@@ -1,5 +1,5 @@
 import { useAppSelector } from 'app/providers/StoreProvider'
-import { getUserAuthData } from 'entities_/User'
+import { getUserAuthData } from 'features/Authorization'
 import { type ReactElement } from 'react'
 import { ArticleIcon, HomeIcon, InfoIcon, ProfileIcon } from 'shared/assets'
 

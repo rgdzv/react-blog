@@ -1,15 +1,10 @@
+import { type UserRole } from '../const/userConst'
 import { type JsonSettings } from './jsonSettings'
 
 export interface FeatureFlags {
     isArticleRatingEnabled?: boolean
     isCounterEnabled?: boolean
     isAppRedesigned?: boolean
-}
-
-export enum UserRole {
-    ADMIN = 'ADMIN',
-    USER = 'USER',
-    MANAGER = 'MANAGER'
 }
 
 export interface User {
@@ -19,9 +14,4 @@ export interface User {
     roles?: UserRole[]
     features?: FeatureFlags
     jsonSettings?: JsonSettings
-}
-
-export interface UserSchema {
-    authData?: User
-    initiated: boolean
 }

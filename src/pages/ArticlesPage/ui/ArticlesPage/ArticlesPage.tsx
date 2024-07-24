@@ -1,21 +1,21 @@
 import { useEffect, type FC } from 'react'
 import { DynamicReducerLoader, type ReducersList } from 'shared/components'
-import { articlesPageReducer } from '../../model/slice/ArticlesPageSlice'
+import { articlesReducer } from '../../model/slice/ArticlesSlice'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { ArticleList } from '../../../../entities_/Article/ui/ArticleList/ArticleList'
+import { ArticleList } from '../ArticleList/ArticleList'
 import { Page } from 'widgets/Page'
 import { ArticlesViewChanger } from 'features/ArticlesInteraction/ArticlesViewChanger'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { ArticleFilters } from 'widgets/ArticleFilters'
-import { getArticlesPageInited } from '../../model/selectors/getArticlesPageInited/getArticlesPageInited'
+import { getArticlesInited } from '../../model/selectors/getArticlesInited/getArticlesInited'
 
 const reducers: ReducersList = {
-    articles: articlesPageReducer
+    articles: articlesReducer
 }
 
 const ArticlesPage: FC = () => {
     const dispatch = useAppDispatch()
-    const inited = useAppSelector(getArticlesPageInited)
+    const inited = useAppSelector(getArticlesInited)
 
     useEffect(() => {
         if (!inited) {

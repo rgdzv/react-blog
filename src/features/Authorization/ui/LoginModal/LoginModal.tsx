@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
 import styles from './LoginModal.module.scss'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
-import { loginActions } from '../../model/slice/loginSlice'
+import { loginActions } from '../../model/slice/loginSlice/loginSlice'
 
 interface LoginModalPropsInterface {
     isClosing: boolean

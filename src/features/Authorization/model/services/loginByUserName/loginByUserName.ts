@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/providers/StoreProvider'
-import { userActions, type User } from 'entities_/User'
+import { userActions } from '../../slice/userSlice/userSlice'
+import { type User } from 'entities_/User'
 
 export const loginByUserName = createAsyncThunk<
     User,

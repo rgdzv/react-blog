@@ -1,17 +1,17 @@
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { articlesPageActions } from '../../model/slice/ArticlesPageSlice'
+import { articlesActions } from '../../model/slice/ArticlesSlice'
 import {
     type ArticleSortOrder,
     type ArticleSortField,
     type ArticleType,
     type ArticleView
 } from 'entities_/Article'
-import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView'
+import { getArticlesView } from '../../model/selectors/getArticlesView/getArticlesView'
 import { type ChangeEvent, useCallback } from 'react'
-import { getArticlesPageSearch } from '../../model/selectors/getArticlePageSearch/getArticlePageSearch'
-import { getArticlesPageType } from '../../model/selectors/getArticlePageType/getArticlesPageType'
-import { getArticlesPageOrder } from '../../model/selectors/getArticlesPageOrder/getArticlesPageOrder'
-import { getArticlesPageSort } from '../../model/selectors/getArticlesPageSort/getArticlesPageSort'
+import { getArticlesSearch } from '../../model/selectors/getArticlesSearch/getArticlesSearch'
+import { getArticlesType } from '../../model/selectors/getArticleType/getArticlesType'
+import { getArticlesOrder } from '../../model/selectors/getArticlesOrder/getArticlesOrder'
+import { getArticlesSort } from '../../model/selectors/getArticlesSort/getArticlesSort'
 import { getArticlesList } from '../../model/services/getArticlesList/getArticlesList'
 import { useDebounce } from 'shared/lib'
 
@@ -29,11 +29,11 @@ interface UseFiltersInterface {
 }
 
 export const useArticleFilters = (): UseFiltersInterface => {
-    const view = useAppSelector(getArticlesPageView)
-    const search = useAppSelector(getArticlesPageSearch)
-    const type = useAppSelector(getArticlesPageType)
-    const order = useAppSelector(getArticlesPageOrder)
-    const sort = useAppSelector(getArticlesPageSort)
+    const view = useAppSelector(getArticlesView)
+    const search = useAppSelector(getArticlesSearch)
+    const type = useAppSelector(getArticlesType)
+    const order = useAppSelector(getArticlesOrder)
+    const sort = useAppSelector(getArticlesSort)
     const dispatch = useAppDispatch()
 
     const fetchData = useCallback(() => {
@@ -44,15 +44,15 @@ export const useArticleFilters = (): UseFiltersInterface => {
 
     const onChangeView = useCallback(
         (view: ArticleView) => {
-            dispatch(articlesPageActions.setView(view))
+            dispatch(articlesActions.setView(view))
         },
         [dispatch]
     )
 
     const onChangeSearch = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
-            dispatch(articlesPageActions.setSearch(e.target.value))
-            dispatch(articlesPageActions.setPage(1))
+            dispatch(articlesActions.setSearch(e.target.value))
+            dispatch(articlesActions.setPage(1))
             debouncedFetchData()
         },
         [dispatch, debouncedFetchData]
@@ -60,8 +60,8 @@ export const useArticleFilters = (): UseFiltersInterface => {
 
     const onChangeType = useCallback(
         (type: ArticleType) => {
-            dispatch(articlesPageActions.setType(type))
-            dispatch(articlesPageActions.setPage(1))
+            dispatch(articlesActions.setType(type))
+            dispatch(articlesActions.setPage(1))
             fetchData()
         },
         [dispatch, fetchData]
@@ -69,8 +69,8 @@ export const useArticleFilters = (): UseFiltersInterface => {
 
     const onChangeSort = useCallback(
         (newSort: ArticleSortField) => {
-            dispatch(articlesPageActions.setSort(newSort))
-            dispatch(articlesPageActions.setPage(1))
+            dispatch(articlesActions.setSort(newSort))
+            dispatch(articlesActions.setPage(1))
             fetchData()
         },
         [dispatch, fetchData]
@@ -78,8 +78,8 @@ export const useArticleFilters = (): UseFiltersInterface => {
 
     const onChangeOrder = useCallback(
         (newOrder: ArticleSortOrder) => {
-            dispatch(articlesPageActions.setOrder(newOrder))
-            dispatch(articlesPageActions.setPage(1))
+            dispatch(articlesActions.setOrder(newOrder))
+            dispatch(articlesActions.setPage(1))
             fetchData()
         },
         [dispatch, fetchData]

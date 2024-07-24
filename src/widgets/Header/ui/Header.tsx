@@ -2,10 +2,15 @@ import { memo, type FC, Suspense } from 'react'
 import { Button } from 'shared/ui'
 import styles from './Header.module.scss'
 import { useTranslation } from 'react-i18next'
-import { LoginDropDown, LoginModal, loginActions } from 'features/Authorization'
+import {
+    LoginDropDown,
+    LoginModal,
+    getUserAuthData,
+    loginActions,
+    userActions
+} from 'features/Authorization'
 import { useModal } from 'shared/lib'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { getUserAuthData, userActions } from 'entities_/User'
 
 export const Header: FC = memo(() => {
     const userAuthData = useAppSelector(getUserAuthData)

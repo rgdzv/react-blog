@@ -5,22 +5,23 @@ import {
     type ReducersMapObject
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
-import { type ArticleDetailsSchema } from 'entities_/ArticleDetails'
-import { type UserSchema } from 'entities_/User'
+import { type ArticleCommentSchema } from 'features/ArticlesInteraction/ArticleAddComment'
 import { type ArticleRatingSchema } from 'features/ArticlesInteraction/ArticleRating'
-import { type LoginSchema } from 'features/Authorization'
+import { type UserSchema, type LoginSchema } from 'features/Authorization'
 import { type ProfileSchema } from 'features/ProfileEditing'
 import { type UISchema } from 'features/UI'
-import { type ArticlesPageSchema } from 'pages/ArticlesPage'
+import { type ArticleDetailsSchema } from 'pages/ArticleDetailsPage'
+import { type ArticlesSchema } from 'pages/ArticlesPage'
 
 export interface StateSchema {
     loginForm: LoginSchema
     user: UserSchema
     profile?: ProfileSchema
-    articles?: ArticlesPageSchema
+    articles?: ArticlesSchema
     ui: UISchema
     articleDetails?: ArticleDetailsSchema
     articleRating?: ArticleRatingSchema
+    articleComments?: ArticleCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

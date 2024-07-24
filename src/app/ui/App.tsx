@@ -6,9 +6,9 @@ import { SideBar } from 'widgets/SideBar'
 import { Header } from 'widgets/Header'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { useAppDispatch, useAppSelector } from '../providers/StoreProvider'
-import { getUserInitiated, userActions } from 'entities_/User'
 import { PageLoader } from 'widgets/PageLoader'
 import { MainLayout } from 'shared/layouts'
+import { getUserInitiated, userActions } from 'features/Authorization'
 
 const App: FC = () => {
     const { theme } = useTheme()
