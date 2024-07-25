@@ -49,6 +49,27 @@ export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
         return <div className={styles.articleRating}></div>
     }
 
+    if (type === 'articleComments') {
+        return (
+            <div className={styles.articleComments}>
+                <div className={styles.articleCommentsName}></div>
+                <div className={styles.articleCommentsForm}></div>
+                <div className={styles.articleComment}>
+                    <div className={styles.articleCommentAvatar}></div>
+                    <div className={styles.articleCommentText}></div>
+                </div>
+                <div className={styles.articleComment}>
+                    <div className={styles.articleCommentAvatar}></div>
+                    <div className={styles.articleCommentText}></div>
+                </div>
+                <div className={styles.articleComment}>
+                    <div className={styles.articleCommentAvatar}></div>
+                    <div className={styles.articleCommentText}></div>
+                </div>
+            </div>
+        )
+    }
+
     if (type === 'profileHeader') {
         return <div className={styles.profileHeader}></div>
     }

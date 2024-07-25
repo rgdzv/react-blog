@@ -418,36 +418,6 @@
     ],
     "comments": [
         {
-            "id": "1gzdfbl",
-            "text": "some comment",
-            "articleId": "1",
-            "userId": "1"
-        },
-        {
-            "id": "WER234g",
-            "text": "some comment 2",
-            "articleId": "1",
-            "userId": "1"
-        },
-        {
-            "id": "874Rgfa",
-            "text": "some comment 3",
-            "articleId": "1",
-            "userId": "1"
-        },
-        {
-            "articleId": "1",
-            "userId": "1",
-            "text": "123",
-            "id": "4Cljjzl"
-        },
-        {
-            "articleId": "1",
-            "userId": "1",
-            "text": "123asfasf",
-            "id": "AEM4Dvc"
-        },
-        {
             "articleId": "1",
             "userId": "2",
             "text": "123asfasf",
@@ -598,12 +568,6 @@
             "id": "bq8YXY2"
         },
         {
-            "articleId": "1",
-            "userId": "1",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolores dolorum eaque eius excepturi expedita     ipsa nam, quos rem rerum voluptas voluptate voluptatem? Dicta distinctio dolore explicabo labore magni sit!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolores dolorum eaque eius excepturi expedita     ipsa nam, quos rem rerum voluptas voluptate voluptatem? Dicta distinctio dolore explicabo labore magni sit!",
-            "id": "lTD5sA7"
-        },
-        {
             "articleId": "7",
             "userId": "1",
             "text": "asd",
@@ -614,6 +578,20 @@
             "userId": "1",
             "text": "фыафыа",
             "id": "Fmg06f6"
+        },
+        {
+            "params": {
+                "articleId": "1",
+                "userId": "1",
+                "text": "новый текст"
+            },
+            "id": "L77UYZp"
+        },
+        {
+            "articleId": "1",
+            "userId": "1",
+            "text": "dasds",
+            "id": "2Yad78s"
         }
     ],
     "users": [
@@ -714,7 +692,7 @@
         {
             "userId": "1",
             "articleId": "1",
-            "rate": 3,
+            "rate": 1,
             "id": "daER52h"
         },
         {

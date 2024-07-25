@@ -15,6 +15,7 @@ import noimage from './icons/no-image-icon.jpg'
 import CopyIcon from './icons/copy-icon.svg'
 import StarIcon from './icons/star-icon.svg'
 import SendCommentIcon from './icons/send-comment-icon.svg'
+import DeleteCommentIcon from './icons/delete-comment-icon.svg'
 
 export {
     ThemeIcon,
@@ -33,5 +34,6 @@ export {
     SearchIcon,
     CopyIcon,
     StarIcon,
-    SendCommentIcon
+    SendCommentIcon,
+    DeleteCommentIcon
 }

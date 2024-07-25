@@ -1,7 +1,7 @@
-import { type ArticleComment } from 'entities_/ArticleComment'
+import { type ArticleCommentType } from 'entities_/ArticleComment'
 
 export interface ArticleCommentSchema {
-    data?: ArticleComment[]
+    data?: ArticleCommentType[]
     isLoading: boolean
     error: string | undefined
     text: string

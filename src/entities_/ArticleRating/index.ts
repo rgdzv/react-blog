@@ -1,4 +1,1 @@
-export type {
-    ArticleRating,
-    ArticleRatingGetParams
-} from './model/types/articleRating'
+export type { ArticleRating } from './model/types/articleRating'

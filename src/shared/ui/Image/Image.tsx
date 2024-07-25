@@ -9,6 +9,7 @@ type ClassNameType =
     | 'article_avatar'
     | 'login_dropdown_avatar'
     | 'article_details_img'
+    | 'article_comment_avatar'
 
 interface ImagePropsInterface {
     src?: string

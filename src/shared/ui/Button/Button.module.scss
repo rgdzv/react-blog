@@ -33,7 +33,8 @@
 .navbar_icon,
 .theme,
 .toggleArrow,
-.sendComment {
+.sendComment,
+.deleteComment {
     svg {
         fill: var(--main-color)
     }
@@ -181,10 +182,13 @@
     }
 }
 
-.sendComment {
+.sendComment,
+.deleteComment {
     &:active:enabled {
         svg {
             scale: 0.8
         }
     }
 }
+
+

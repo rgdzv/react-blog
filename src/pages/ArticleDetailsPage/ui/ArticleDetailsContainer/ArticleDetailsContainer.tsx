@@ -14,13 +14,19 @@ import {
 import { Skeleton } from 'shared/ui'
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError'
 import { useTranslation } from 'react-i18next'
-import { ArticleCommentContainer } from 'features/ArticlesInteraction/ArticleAddComment'
+import {
+    ArticleCommentContainer,
+    getArticleCommentError,
+    getArticleCommentIsLoading
+} from 'features/ArticlesInteraction/ArticleAddComment'
 
 export const ArticleDetailsContainer: FC = () => {
     const isLoadingDetails = useAppSelector(getArticleDetailsIsLoading)
     const isLoadingRating = useAppSelector(getArticleRatingIsLoading)
+    const isLoadingComments = useAppSelector(getArticleCommentIsLoading)
     const detailsError = useAppSelector(getArticleDetailsError)
     const ratingError = useAppSelector(getArticleRatingError)
+    const commentError = useAppSelector(getArticleCommentError)
     const article = useAppSelector(getArticleDetailsData)
     const { t } = useTranslation('article')
 
@@ -32,6 +38,7 @@ export const ArticleDetailsContainer: FC = () => {
 
     const detailsErrorName = t('Ошибка при загрузке статьи!')
     const ratingErrorName = t('Ошибка при загрузке рейтинга!')
+    const commentErrorName = t('Ошибка при загрузке комментариев!')
     const detailsEmptyName = t('Статья не найдена!')
 
     const articleRatingCondition = isLoadingRating ? (
@@ -44,10 +51,21 @@ export const ArticleDetailsContainer: FC = () => {
         <ArticleRating />
     )
 
+    const articleCommentsCondition = isLoadingComments ? (
+        <Skeleton type='articleComments' />
+    ) : commentError !== '' ? (
+        <div className={styles.articleCommentContainerError}>
+            {commentErrorName}
+        </div>
+    ) : (
+        <ArticleCommentContainer />
+    )
+
     const articleDetailsCondition = isLoadingDetails ? (
         <>
             <Skeleton type='articleDetails' />
             <Skeleton type='articleRating' />
+            <Skeleton type='articleComments' />
         </>
     ) : (
         <>
@@ -62,7 +80,7 @@ export const ArticleDetailsContainer: FC = () => {
                 contentBlock={contentBlock}
             />
             {articleRatingCondition}
-            <ArticleCommentContainer />
+            {articleCommentsCondition}
         </>
     )
 

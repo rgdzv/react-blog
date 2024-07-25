@@ -28,11 +28,7 @@ export const getArticleById = createAsyncThunk<
                 })
             )
 
-            await dispatch(
-                getArticleComments({
-                    articleId: data.id
-                })
-            )
+            await dispatch(getArticleComments(data.id))
 
             return data
         } catch (error) {

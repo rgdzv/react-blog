@@ -48,7 +48,11 @@
 .userInfoSmall,
 .articleRating,
 .profileHeader,
-.profileInput
+.profileInput,
+.articleCommentsName,
+.articleCommentsForm,
+.articleCommentAvatar,
+.articleCommentText
 {
     composes: skeleton;
 }
@@ -87,8 +91,8 @@
     }
     
     .articleTextBig {
-        height: 2em;
-        margin-bottom: 20px;
+        height: 1em;
+        margin-bottom: 10px;
         border-radius: 10px
     }
     
@@ -134,7 +138,40 @@
 
 .articleRating {
     height: 4.125em;
+    margin-bottom: 20px;
     border-radius: 10px;
+}
+
+.articleComments {
+    .articleCommentsName {
+        height: 2em;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .articleCommentsForm {
+        height: 2.375em;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .articleComment {
+        display: flex;
+        column-gap: 15px;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .articleCommentAvatar {
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+        }
+
+        .articleCommentText {
+            height: 2em;
+            border-radius: 10px;
+        }
+    }
 }
 
 .profileHeader {

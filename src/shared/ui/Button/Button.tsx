@@ -25,6 +25,7 @@ type ClassNameType =
     | 'copy'
     | 'search'
     | 'sendComment'
+    | 'deleteComment'
 
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
