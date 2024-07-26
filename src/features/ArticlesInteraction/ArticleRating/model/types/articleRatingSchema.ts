@@ -1,7 +1,7 @@
-import { type ArticleRating } from 'entities_/ArticleRating'
+import { type ArticleRatingType } from 'entities_/ArticleRating'
 
 export interface ArticleRatingSchema {
-    data?: ArticleRating
+    data?: ArticleRatingType
     isLoading: boolean
     error: string | undefined
 }

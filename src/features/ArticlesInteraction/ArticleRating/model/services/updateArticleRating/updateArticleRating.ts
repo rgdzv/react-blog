@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/providers/StoreProvider'
-import { type ArticleRating } from 'entities_/ArticleRating'
+import { type ArticleRatingType } from 'entities_/ArticleRating'
 
 export const updateArticleRating = createAsyncThunk<
-    ArticleRating,
+    ArticleRatingType,
     number,
     ThunkConfig<string>
 >(
@@ -13,7 +13,7 @@ export const updateArticleRating = createAsyncThunk<
             const state = getState()
             const id = state.articleRating?.data?.id as string
 
-            const { data } = await extra.axiosAPI.patch<ArticleRating>(
+            const { data } = await extra.axiosAPI.patch<ArticleRatingType>(
                 `/article-ratings/${id}`,
                 {
                     rate

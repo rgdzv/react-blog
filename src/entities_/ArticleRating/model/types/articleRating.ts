@@ -1,4 +1,4 @@
-export interface ArticleRating {
+export interface ArticleRatingType {
     userId: string
     articleId: string
     rate: number

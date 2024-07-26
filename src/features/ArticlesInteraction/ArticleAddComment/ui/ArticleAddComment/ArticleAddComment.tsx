@@ -1,4 +1,10 @@
-import { useCallback, type ChangeEvent, type FC, memo } from 'react'
+import {
+    useCallback,
+    type ChangeEvent,
+    type FC,
+    memo,
+    type KeyboardEvent
+} from 'react'
 import styles from './ArticleAddComment.module.scss'
 import { Button, Input } from 'shared/ui'
 import { SendCommentIcon } from 'shared/assets'
@@ -8,7 +14,7 @@ import { useTranslation } from 'react-i18next'
 import { articleCommentsActions } from '../../model/slice/articleCommentSlice'
 import { addArticleComment } from '../../model/services/addArticleComment/addArticleComment'
 
-const ArticleAddComment: FC = memo(() => {
+export const ArticleAddComment: FC = memo(() => {
     const text = useAppSelector(getArticleCommentText)
     const dispatch = useAppDispatch()
     const { t } = useTranslation('article')
@@ -28,6 +34,13 @@ const ArticleAddComment: FC = memo(() => {
         }
     }
 
+    const sendCommentOnEnter = (e: KeyboardEvent<HTMLInputElement>): void => {
+        if (e.key === 'Enter' && text !== '') {
+            void dispatch(addArticleComment(text))
+            dispatch(articleCommentsActions.setText(''))
+        }
+    }
+
     return (
         <div className={styles.articleAddComment}>
             <Input
@@ -35,6 +48,7 @@ const ArticleAddComment: FC = memo(() => {
                 classNameForInputWrapper='addComment'
                 placeholder={sendCommentInputPlaceholder}
                 onChange={onChangeInput}
+                onKeyDown={sendCommentOnEnter}
             />
             <Button
                 className='sendComment'
@@ -46,5 +60,3 @@ const ArticleAddComment: FC = memo(() => {
         </div>
     )
 })
-
-export default ArticleAddComment

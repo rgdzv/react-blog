@@ -1,1 +1,1 @@
-export type { ArticleRating } from './model/types/articleRating'
+export type { ArticleRatingType } from './model/types/articleRating'

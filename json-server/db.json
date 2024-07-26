@@ -460,12 +460,6 @@
             "id": "bAs7YBE"
         },
         {
-            "articleId": "2",
-            "userId": "1",
-            "text": "python!!!",
-            "id": "p5rMadd"
-        },
-        {
             "articleId": "3",
             "userId": "1",
             "text": "123213",
@@ -550,18 +544,6 @@
             "id": "eB1A-7c"
         },
         {
-            "articleId": "2",
-            "userId": "1",
-            "text": "class",
-            "id": "wAZ_hJM"
-        },
-        {
-            "articleId": "2",
-            "userId": "1",
-            "text": "asfasf",
-            "id": "SygCNYE"
-        },
-        {
             "articleId": "1",
             "userId": "2",
             "text": "213",
@@ -590,8 +572,20 @@
         {
             "articleId": "1",
             "userId": "1",
-            "text": "dasds",
-            "id": "2Yad78s"
+            "text": "gdfg",
+            "id": "RIinMAr"
+        },
+        {
+            "articleId": "2",
+            "userId": "1",
+            "text": "fsdf",
+            "id": "IpN29XI"
+        },
+        {
+            "articleId": "2",
+            "userId": "1",
+            "text": "пвап",
+            "id": "ACqPyyK"
         }
     ],
     "users": [
@@ -692,13 +686,13 @@
         {
             "userId": "1",
             "articleId": "1",
-            "rate": 1,
+            "rate": 2,
             "id": "daER52h"
         },
         {
             "userId": "2",
             "articleId": "2",
-            "rate": 1,
+            "rate": 3,
             "id": "I7ofk1u"
         },
         {

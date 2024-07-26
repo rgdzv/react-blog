@@ -3,3 +3,4 @@ export { ArticleDetailsContainer } from '../../pages/ArticleDetailsPage/ui/Artic
 export type { ArticleBlock } from './model/types/articleDetails'
 export type { ArticleTextBlock } from './model/types/articleDetails'
 export { ArticleBlockType } from './model/const/articleDetailsConst'
+export { ArticleDetailsContentBlock } from './ui/ArticleDetailsContentBlock/ArticleDetailsContentBlock'

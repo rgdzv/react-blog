@@ -1,3 +1,3 @@
-import { type ArticleRating } from 'entities_/ArticleRating'
+import { type ArticleRatingType } from 'entities_/ArticleRating'
 
-export type ArticleRatingGetParams = Omit<ArticleRating, 'id' | 'rate'>
+export type ArticleRatingGetParams = Omit<ArticleRatingType, 'id' | 'rate'>

@@ -1,4 +1,3 @@
-export { ArticleAddCommentLazy as ArticleAddComment } from './ui/ArticleAddComment/ArticleAddComment.lazy'
 export type { ArticleCommentSchema } from './model/types/articleCommentSchema'
 export { getArticleComments } from './model/services/getArticleComments/getArticleComments'
 export { articleCommentsReducer } from './model/slice/articleCommentSlice'

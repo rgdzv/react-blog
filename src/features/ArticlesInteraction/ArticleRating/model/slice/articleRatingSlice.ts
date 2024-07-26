@@ -2,7 +2,7 @@ import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { type ArticleRatingSchema } from '../types/articleRatingSchema'
 import { getArticleRating } from '../services/getArticleRating/getArticleRating'
 import { updateArticleRating } from '../services/updateArticleRating/updateArticleRating'
-import { type ArticleRating } from 'entities_/ArticleRating'
+import { type ArticleRatingType } from 'entities_/ArticleRating'
 
 const initialState: ArticleRatingSchema = {
     data: undefined,
@@ -21,7 +21,7 @@ export const articleRatingSlice = createSlice({
         })
         builder.addCase(
             getArticleRating.fulfilled,
-            (state, action: PayloadAction<ArticleRating>) => {
+            (state, action: PayloadAction<ArticleRatingType>) => {
                 state.data = action.payload
                 state.isLoading = false
             }
@@ -40,7 +40,7 @@ export const articleRatingSlice = createSlice({
         })
         builder.addCase(
             updateArticleRating.fulfilled,
-            (state, action: PayloadAction<ArticleRating>) => {
+            (state, action: PayloadAction<ArticleRatingType>) => {
                 state.data = action.payload
                 state.isLoading = false
             }

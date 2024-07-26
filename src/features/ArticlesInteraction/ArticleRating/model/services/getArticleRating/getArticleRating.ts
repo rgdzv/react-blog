@@ -1,17 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from 'app/providers/StoreProvider'
-import { type ArticleRating } from 'entities_/ArticleRating'
+import { type ArticleRatingType } from 'entities_/ArticleRating'
 import { type ArticleRatingGetParams } from '../../types/articleRatingGetParams'
 
 export const getArticleRating = createAsyncThunk<
-    ArticleRating,
+    ArticleRatingType,
     ArticleRatingGetParams,
     ThunkConfig<string>
 >(
     'articleRating/getArticleRating',
     async ({ articleId, userId }, { rejectWithValue, extra }) => {
         try {
-            const { data } = await extra.axiosAPI.get<ArticleRating>(
+            const { data } = await extra.axiosAPI.get<ArticleRatingType>(
                 '/article-ratings',
                 {
                     params: {

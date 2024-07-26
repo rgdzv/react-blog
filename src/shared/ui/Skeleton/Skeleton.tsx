@@ -13,6 +13,7 @@ export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
                 <div className={styles.articleTitlesBig}></div>
                 <div className={styles.articleImageBig}></div>
                 <div className={styles.articleTextBig}></div>
+                <div className={styles.articleTextBig}></div>
                 <div className={styles.articleFooterBig}></div>
             </div>
         )
@@ -49,11 +50,17 @@ export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
         return <div className={styles.articleRating}></div>
     }
 
+    if (type === 'articleCommentsForm') {
+        return (
+            <div className={styles.articleCommentsForm}>
+                <div className={styles.articleCommentsFormName}></div>
+                <div className={styles.articleCommentsFormInput}></div>
+            </div>
+        )
+    }
     if (type === 'articleComments') {
         return (
-            <div className={styles.articleComments}>
-                <div className={styles.articleCommentsName}></div>
-                <div className={styles.articleCommentsForm}></div>
+            <>
                 <div className={styles.articleComment}>
                     <div className={styles.articleCommentAvatar}></div>
                     <div className={styles.articleCommentText}></div>
@@ -66,7 +73,19 @@ export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
                     <div className={styles.articleCommentAvatar}></div>
                     <div className={styles.articleCommentText}></div>
                 </div>
-            </div>
+                <div className={styles.articleComment}>
+                    <div className={styles.articleCommentAvatar}></div>
+                    <div className={styles.articleCommentText}></div>
+                </div>
+                <div className={styles.articleComment}>
+                    <div className={styles.articleCommentAvatar}></div>
+                    <div className={styles.articleCommentText}></div>
+                </div>
+                <div className={styles.articleComment}>
+                    <div className={styles.articleCommentAvatar}></div>
+                    <div className={styles.articleCommentText}></div>
+                </div>
+            </>
         )
     }
 

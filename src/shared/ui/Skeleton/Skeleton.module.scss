@@ -49,8 +49,8 @@
 .articleRating,
 .profileHeader,
 .profileInput,
-.articleCommentsName,
-.articleCommentsForm,
+.articleCommentsFormInput,
+.articleCommentsFormName,
 .articleCommentAvatar,
 .articleCommentText
 {
@@ -142,37 +142,42 @@
     border-radius: 10px;
 }
 
-.articleComments {
-    .articleCommentsName {
+.articleCommentsForm {
+    .articleCommentsFormName {
         height: 2em;
         margin-bottom: 20px;
         border-radius: 10px;
     }
 
-    .articleCommentsForm {
+    .articleCommentsFormInput {
         height: 2.375em;
         margin-bottom: 20px;
         border-radius: 10px;
     }
+}
 
-    .articleComment {
-        display: flex;
-        column-gap: 15px;
-        align-items: center;
-        margin-bottom: 15px;
+.articleComment {
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
 
-        .articleCommentAvatar {
-            width: 2em;
-            height: 2em;
-            border-radius: 50%;
-        }
+    .articleCommentAvatar {
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+    }
 
-        .articleCommentText {
-            height: 2em;
-            border-radius: 10px;
-        }
+    .articleCommentText {
+        height: 2em;
+        border-radius: 10px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
     }
 }
+
 
 .profileHeader {
     height: 8em;
