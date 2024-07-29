@@ -3,7 +3,6 @@ import styles from './ArticleCommentContainer.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ArticleAddComment } from '../ArticleAddComment/ArticleAddComment'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { getArticleCommentData } from '../../model/selectors/getArticleCommentData/getArticleCommentData'
 import { ArticleComment } from 'entities_/ArticleComment'
 import { noavatar, DeleteCommentIcon } from 'shared/assets'
 import { Button, Skeleton } from 'shared/ui'
@@ -11,9 +10,10 @@ import { getUserAuthData } from '../../../../Authorization/index'
 import { deleteArticleComment } from '../../model/services/deleteArticleComment/deleteArticleComment'
 import { getArticleCommentIsLoading } from '../../model/selectors/getArticleCommentIsLoading/getArticleCommentIsLoading'
 import { getArticleCommentError } from '../../model/selectors/getArticleCommentError/getArticleCommentError'
+import { getArticleCommentsData } from '../../model/slice/articleCommentSlice'
 
 export const ArticleCommentContainer: FC = () => {
-    const articleCommentsData = useAppSelector(getArticleCommentData)
+    const articleCommentsData = useAppSelector(getArticleCommentsData.selectAll)
     const isLoadingComments = useAppSelector(getArticleCommentIsLoading)
     const commentError = useAppSelector(getArticleCommentError)
     const user = useAppSelector(getUserAuthData)

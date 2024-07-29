@@ -572,20 +572,20 @@
         {
             "articleId": "1",
             "userId": "1",
+            "text": "gfdg",
+            "id": "_cmGOrd"
+        },
+        {
+            "articleId": "1",
+            "userId": "1",
+            "text": "aaaaaaaaaaa",
+            "id": "DHmbRYc"
+        },
+        {
+            "articleId": "2",
+            "userId": "1",
             "text": "gdfg",
-            "id": "RIinMAr"
-        },
-        {
-            "articleId": "2",
-            "userId": "1",
-            "text": "fsdf",
-            "id": "IpN29XI"
-        },
-        {
-            "articleId": "2",
-            "userId": "1",
-            "text": "пвап",
-            "id": "ACqPyyK"
+            "id": "3ifD6Fy"
         }
     ],
     "users": [
@@ -650,10 +650,10 @@
     "profile": [
         {
             "id": "1",
-            "firstname": "Sergey",
+            "firstname": "Sergeyр",
             "lastname": "Romanov",
             "age": "19",
-            "currency": "Доллар",
+            "currency": "Евро",
             "country": "Беларусь",
             "city": "Moscow",
             "username": "roman",
@@ -686,13 +686,13 @@
         {
             "userId": "1",
             "articleId": "1",
-            "rate": 2,
+            "rate": 4,
             "id": "daER52h"
         },
         {
             "userId": "2",
             "articleId": "2",
-            "rate": 3,
+            "rate": 2,
             "id": "I7ofk1u"
         },
         {

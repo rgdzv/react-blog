@@ -1,16 +1,33 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import {
+    createEntityAdapter,
+    createSlice,
+    type PayloadAction
+} from '@reduxjs/toolkit'
 import { type ArticleCommentSchema } from '../types/articleCommentSchema'
 import { getArticleComments } from '../services/getArticleComments/getArticleComments'
 import { type ArticleCommentType } from 'entities_/ArticleComment'
 import { addArticleComment } from '../services/addArticleComment/addArticleComment'
 import { deleteArticleComment } from '../services/deleteArticleComment/deleteArticleComment'
+import { type StateSchema } from 'app/providers/StoreProvider'
 
-const initialState: ArticleCommentSchema = {
-    isLoading: false,
-    error: undefined,
-    data: undefined,
-    text: ''
-}
+const articleCommentsAdapter = createEntityAdapter<ArticleCommentType>({
+    selectId: (articleComment) => articleComment.id
+})
+
+export const getArticleCommentsData =
+    articleCommentsAdapter.getSelectors<StateSchema>(
+        (state) =>
+            state.articleComments ?? articleCommentsAdapter.getInitialState()
+    )
+
+const initialState =
+    articleCommentsAdapter.getInitialState<ArticleCommentSchema>({
+        isLoading: false,
+        error: undefined,
+        ids: [],
+        entities: {},
+        text: ''
+    })
 
 export const articleCommentsSlice = createSlice({
     name: 'articleComment',
@@ -29,7 +46,7 @@ export const articleCommentsSlice = createSlice({
             .addCase(
                 getArticleComments.fulfilled,
                 (state, action: PayloadAction<ArticleCommentType[]>) => {
-                    state.data = action.payload
+                    articleCommentsAdapter.setAll(state, action.payload)
                     state.isLoading = false
                 }
             )
