@@ -102,6 +102,7 @@ export const ArticleList: FC = () => {
 
     const articleListCondition =
         articleList.length > 0 ? articleList : skeletons
+    // const articleListCondition = skeletons
 
     const atricleListClassName =
         view === ArticleView.BIG

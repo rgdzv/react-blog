@@ -37,6 +37,8 @@
     }
 }
 
+.profileHeader,
+.profileInput,
 .articleUserInfoBig,
 .articleTitlesBig,
 .articleImageBig,
@@ -47,15 +49,28 @@
 .footerSmall,
 .userInfoSmall,
 .articleRating,
-.profileHeader,
-.profileInput,
+.articleUserInfoDetails,
+.articleTitlesDetails,
+.articleImageDetails,
+.articleTextDetails,
 .articleCommentsFormInput,
 .articleCommentsFormName,
 .articleCommentAvatar,
-.articleCommentText
+.articleCommentTextLine
 {
     composes: skeleton;
 }
+
+.profileHeader {
+    height: 8em;
+    border-radius: 10px;
+}
+
+.profileInput {
+    height: 2.375em;
+    border-radius: 32px;
+}
+
 
 .articleBig {
     display: flex;
@@ -63,14 +78,11 @@
     justify-content: center;
 
     width: 100%;
+    margin-bottom: 10px;
     padding: 24px;
 
     background-color: var(--widget-bg-color-secondary);
     border-radius: 32px;
-
-    &:not(:last-child) {
-        margin-bottom: 10px;
-    }
 
     .articleUserInfoBig {
         height: 2em;
@@ -93,7 +105,12 @@
     .articleTextBig {
         height: 1em;
         margin-bottom: 10px;
-        border-radius: 10px
+        border-radius: 10px;
+
+        &:nth-child(odd) {
+            width: 95%;
+        }
+
     }
     
     .articleFooterBig {
@@ -136,6 +153,50 @@
 
 }
 
+.articleDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0;
+
+    background-color: var(--widget-bg-color-secondary);
+    border-radius: 32px;
+
+    .articleUserInfoDetails {
+        height: 2em;
+        margin-bottom: 15px;
+        border-radius: 10px
+    }
+
+    .articleTitlesDetails {
+        height: 4.125em;
+        margin-bottom: 25px;
+        border-radius: 10px
+    }
+    
+    .articleImageDetails {
+        height: 26.25em;
+        margin-bottom: 15px;
+        border-radius: 10px
+    }
+    
+    .articleTextDetails {
+        height: 1em;
+        border-radius: 10px;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        &:nth-child(odd) {
+            width: 95%;
+        }
+    }
+}
+
 .articleRating {
     height: 4.125em;
     margin-bottom: 20px;
@@ -169,22 +230,23 @@
     }
 
     .articleCommentText {
-        height: 2em;
-        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 4px;
+        width: 100%;
+
+        .articleCommentTextLine {
+            height: 0.875em;
+            border-radius: 10px;
+
+            &:nth-child(even) {
+                width: 95%;
+            }
+
+        }
     }
 
     &:last-child {
         margin-bottom: 0;
     }
-}
-
-
-.profileHeader {
-    height: 8em;
-    border-radius: 10px;
-}
-
-.profileInput {
-    height: 2.375em;
-    border-radius: 32px;
 }

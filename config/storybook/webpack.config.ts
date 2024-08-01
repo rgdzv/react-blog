@@ -13,7 +13,9 @@ export default ({
         entry: '',
         build: '',
         html: '',
-        src: path.resolve(__dirname, '..', '..', 'src')
+        src: path.resolve(__dirname, '..', '..', 'src'),
+        locales: '',
+        buildLocales: ''
     }
 
     const definePlugin = new webpack.DefinePlugin({

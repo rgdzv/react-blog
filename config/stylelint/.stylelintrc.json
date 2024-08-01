@@ -14,5 +14,5 @@
             }
         ]
     },
-    "ignoreFiles": ["**/node_modules", "**/public"]
+    "ignoreFiles": ["**/node_modules", "**/public", "**/build"]
 }

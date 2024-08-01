@@ -6,6 +6,14 @@ interface SkeletonPropsInterface {
 }
 
 export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
+    if (type === 'profileHeader') {
+        return <div className={styles.profileHeader}></div>
+    }
+
+    if (type === 'profileInput') {
+        return <div className={styles.profileInput}></div>
+    }
+
     if (type === 'articleBig') {
         return (
             <div className={styles.articleBig}>
@@ -34,14 +42,14 @@ export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
 
     if (type === 'articleDetails') {
         return (
-            <div className={styles.articleBig} style={{ padding: '0' }}>
-                <div className={styles.articleUserInfoBig}></div>
-                <div className={styles.articleTitlesBig}></div>
-                <div className={styles.articleImageBig}></div>
-                <div className={styles.articleTextBig}></div>
-                <div className={styles.articleTextBig}></div>
-                <div className={styles.articleTextBig}></div>
-                <div className={styles.articleTextBig}></div>
+            <div className={styles.articleDetails}>
+                <div className={styles.articleUserInfoDetails}></div>
+                <div className={styles.articleTitlesDetails}></div>
+                <div className={styles.articleImageDetails}></div>
+                <div className={styles.articleTextDetails}></div>
+                <div className={styles.articleTextDetails}></div>
+                <div className={styles.articleTextDetails}></div>
+                <div className={styles.articleTextDetails}></div>
             </div>
         )
     }
@@ -63,38 +71,41 @@ export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
             <>
                 <div className={styles.articleComment}>
                     <div className={styles.articleCommentAvatar}></div>
-                    <div className={styles.articleCommentText}></div>
+                    <div className={styles.articleCommentText}>
+                        <div className={styles.articleCommentTextLine}></div>
+                        <div className={styles.articleCommentTextLine}></div>
+                    </div>
                 </div>
                 <div className={styles.articleComment}>
                     <div className={styles.articleCommentAvatar}></div>
-                    <div className={styles.articleCommentText}></div>
+                    <div className={styles.articleCommentText}>
+                        <div className={styles.articleCommentTextLine}></div>
+                        <div className={styles.articleCommentTextLine}></div>
+                    </div>
                 </div>
                 <div className={styles.articleComment}>
                     <div className={styles.articleCommentAvatar}></div>
-                    <div className={styles.articleCommentText}></div>
+                    <div className={styles.articleCommentText}>
+                        <div className={styles.articleCommentTextLine}></div>
+                        <div className={styles.articleCommentTextLine}></div>
+                    </div>
                 </div>
                 <div className={styles.articleComment}>
                     <div className={styles.articleCommentAvatar}></div>
-                    <div className={styles.articleCommentText}></div>
+                    <div className={styles.articleCommentText}>
+                        <div className={styles.articleCommentTextLine}></div>
+                        <div className={styles.articleCommentTextLine}></div>
+                    </div>
                 </div>
                 <div className={styles.articleComment}>
                     <div className={styles.articleCommentAvatar}></div>
-                    <div className={styles.articleCommentText}></div>
-                </div>
-                <div className={styles.articleComment}>
-                    <div className={styles.articleCommentAvatar}></div>
-                    <div className={styles.articleCommentText}></div>
+                    <div className={styles.articleCommentText}>
+                        <div className={styles.articleCommentTextLine}></div>
+                        <div className={styles.articleCommentTextLine}></div>
+                    </div>
                 </div>
             </>
         )
-    }
-
-    if (type === 'profileHeader') {
-        return <div className={styles.profileHeader}></div>
-    }
-
-    if (type === 'profileInput') {
-        return <div className={styles.profileInput}></div>
     }
 
     return <div className={styles.skeleton}></div>
