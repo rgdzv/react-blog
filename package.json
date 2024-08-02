@@ -20,7 +20,8 @@
         "jest-clear": "jest --clearCache",
         "storybook": "storybook dev -p 6006 --config-dir config/storybook/",
         "build-storybook": "storybook build --config-dir config/storybook/",
-        "test-storybook": "test-storybook --config-dir config/storybook/ --verbose"
+        "test-storybook": "test-storybook --config-dir config/storybook/ --verbose",
+        "generate": "node ./scripts/createFDSlice/index.js"
     },
     "author": "rgdzv",
     "license": "ISC",
