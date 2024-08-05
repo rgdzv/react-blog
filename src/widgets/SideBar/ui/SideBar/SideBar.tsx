@@ -2,9 +2,9 @@ import { type FC, useState } from 'react'
 import { classNames } from 'shared/lib'
 import styles from './SideBar.module.scss'
 import { NavBar } from 'widgets/NavBar'
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
-import { LangSwitcher } from 'widgets/LangSwitcher'
-import { SideBarSwitcher } from 'widgets/SideBarSwitcher'
+import { SideBarSwitcher } from 'features/SideBarFeatures/SideBarSwitcher'
+import { LangSwitcher } from 'features/SideBarFeatures/LangSwitcher'
+import { ThemeSwitcher } from 'features/SideBarFeatures/ThemeSwitcher'
 
 export const SideBar: FC = () => {
     const [collapsed, setCollapsed] = useState(false)

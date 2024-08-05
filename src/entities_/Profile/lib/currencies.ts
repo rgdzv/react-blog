@@ -1,4 +1,4 @@
-import { CurrencyType } from '../types/currency'
+import { CurrencyType } from '../model/types/currency'
 
 export const currencies = [
     { value: CurrencyType.RUB, content: CurrencyType.RUB, disabled: true },

@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 import { type Profile } from '../../model/types/profile'
 import { type CurrencyType } from '../../model/types/currency'
 import { type CountryType } from '../../model/types/country'
-import { currencies } from '../../model/utils/currencies'
-import { countries } from '../../model/utils/countries'
+import { currencies } from '../../lib/currencies'
+import { countries } from '../../lib/countries'
 import styles from './ProfileCard.module.scss'
 
 interface ProfileCardPropsInterface {

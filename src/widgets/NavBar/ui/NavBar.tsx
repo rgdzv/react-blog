@@ -4,7 +4,7 @@ import { AppLink, Button } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useAppLinks } from '../model/hooks/useAppLinks'
+import { useAppLinks } from '../lib/hooks/useAppLinks'
 interface NavBarPropsInterface {
     collapsed: boolean
 }

@@ -2,12 +2,13 @@ import { useEffect, type FC } from 'react'
 import { DynamicReducerLoader, type ReducersList } from 'shared/components'
 import { articlesReducer } from '../../model/slice/ArticlesSlice'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { ArticleList } from '../ArticleList/ArticleList'
+
 import { Page } from 'widgets/Page'
 import { ArticlesViewChanger } from 'features/ArticlesInteraction/ArticlesViewChanger'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { ArticleFilters } from 'widgets/ArticleFilters'
 import { getArticlesInited } from '../../model/selectors/getArticlesInited/getArticlesInited'
+import { ArticleListContainer } from '../ArticleListContainer/ArticleListContainer'
 
 const reducers: ReducersList = {
     articles: articlesReducer
@@ -28,7 +29,7 @@ const ArticlesPage: FC = () => {
             <Page dataTestId='articles-page' className='articles'>
                 <>
                     <ArticlesViewChanger />
-                    <ArticleList />
+                    <ArticleListContainer />
                     <ArticleFilters />
                 </>
             </Page>

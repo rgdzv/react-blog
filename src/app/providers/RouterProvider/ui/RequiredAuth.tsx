@@ -1,5 +1,5 @@
 import { getUserAuthData } from 'features/Authorization'
-import { useAppSelector } from '../../StoreProvider/hooks/hooks'
+import { useAppSelector } from '../../StoreProvider/lib/hooks/hooks'
 import { type ReactNode, type FC } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 

@@ -1,4 +1,4 @@
-import { CountryType } from '../types/country'
+import { CountryType } from '../model/types/country'
 
 export const countries = [
     { value: CountryType.ARMENIA, content: CountryType.ARMENIA },

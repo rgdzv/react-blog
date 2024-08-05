@@ -11,7 +11,7 @@ import {
     getArticlesLimit
 } from 'pages/ArticlesPage'
 import { useTranslation } from 'react-i18next'
-import styles from './ArticleList.module.scss'
+import styles from './ArticleListContainer.module.scss'
 import { ArticleView } from '../../../../entities_/Article/model/const/articleConst'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ArticleListItemSmall } from '../../../../entities_/Article/ui/ArticleListItemSmall/ArticleListItemSmall'
@@ -21,7 +21,7 @@ import {
     type ArticleTextBlock
 } from 'entities_/ArticleDetails'
 
-export const ArticleList: FC = () => {
+export const ArticleListContainer: FC = () => {
     const articles = useAppSelector(getArticles.selectAll)
     const isLoading = useAppSelector(getArticlesIsLoading)
     const error = useAppSelector(getArticlesError)
@@ -102,7 +102,6 @@ export const ArticleList: FC = () => {
 
     const articleListCondition =
         articleList.length > 0 ? articleList : skeletons
-    // const articleListCondition = skeletons
 
     const atricleListClassName =
         view === ArticleView.BIG

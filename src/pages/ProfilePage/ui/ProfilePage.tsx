@@ -21,7 +21,7 @@ const ProfilePage: FC = () => {
         if (id !== undefined) {
             void dispatch(getProfileData(id))
         }
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [dispatch, id])
 
     return (
         <DynamicReducerLoader reducers={reducers}>

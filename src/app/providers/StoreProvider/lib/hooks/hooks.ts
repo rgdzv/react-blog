@@ -8,7 +8,7 @@ import {
     type AppStore,
     type AppDispatch,
     type RootState
-} from '../types/StoreHooks'
+} from '../../types/StoreHooks'
 
 export const useAppDispatch: () => AppDispatch = useDispatch
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector

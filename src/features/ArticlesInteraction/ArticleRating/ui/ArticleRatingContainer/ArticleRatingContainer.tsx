@@ -3,11 +3,11 @@ import { getArticleRatingData } from '../../model/selectors/getArticleRatingData
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { useTranslation } from 'react-i18next'
 import { updateArticleRating } from '../../model/services/updateArticleRating/updateArticleRating'
-import { ArticleRating } from '../ArticleRating/ArticleRating'
 import { getArticleRatingIsLoading } from '../../model/selectors/getArticleRatingIsLoading/getArticleRatingIsLoading'
 import { getArticleRatingError } from '../../model/selectors/getArticleRatingError/getArticleRatingError'
 import { Skeleton } from 'shared/ui'
 import styles from './ArticleRatingContainer.module.scss'
+import { ArticleRating } from 'entities_/ArticleRating'
 
 export const ArticleRatingContainer: FC = () => {
     const rating = useAppSelector(getArticleRatingData)
