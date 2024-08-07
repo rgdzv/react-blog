@@ -1,5 +1,4 @@
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails'
-export { ArticleDetailsContainer } from '../../pages/ArticleDetailsPage/ui/ArticleDetailsContainer/ArticleDetailsContainer'
 export type { ArticleBlock } from './model/types/articleDetails'
 export type { ArticleTextBlock } from './model/types/articleDetails'
 export { ArticleBlockType } from './model/const/articleDetailsConst'

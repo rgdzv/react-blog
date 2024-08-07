@@ -1,7 +1,6 @@
 import { type RefObject, type FC, type MouseEvent } from 'react'
-import { Modal } from 'widgets/Modal'
 import { LoginForm } from '../LoginForm/LoginForm'
-import { Button } from 'shared/ui'
+import { Button, Modal } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'

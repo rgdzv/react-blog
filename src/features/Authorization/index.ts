@@ -8,6 +8,7 @@ export { getUserInitiated } from './model/selectors/getUserInitiated/getUserInit
 export { getUserAvatar } from './model/selectors/getUserAvatar/getUserAvatar'
 export {
     isUserAdmin,
-    isUserManager
+    isUserManager,
+    getUserRole
 } from './model/selectors/getUserRole/getUserRole'
 export type { UserSchema } from './model/types/userSchema'

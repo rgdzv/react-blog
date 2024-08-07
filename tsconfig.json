@@ -16,7 +16,8 @@
         },
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
-        "plugins": [{ "name": "typescript-plugin-css-modules" }]
+        "plugins": [{ "name": "typescript-plugin-css-modules" }],
+        "isolatedModules": true
     },
     "ts-node": {
         "compilerOptions": {

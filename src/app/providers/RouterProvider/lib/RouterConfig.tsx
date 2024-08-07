@@ -10,6 +10,7 @@ import { ArticlesPage } from 'pages/ArticlesPage'
 import { AdminPage } from 'pages/AdminPage'
 import { SettingsPage } from 'pages/SettingsPage'
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
+import { UserRole } from 'entities_/User'
 
 export const routes = [
     {
@@ -52,7 +53,7 @@ export const routes = [
             {
                 path: 'admin',
                 element: (
-                    <RequiredAuth>
+                    <RequiredAuth roles={[UserRole.ADMIN, UserRole.MANAGER]}>
                         <AdminPage />
                     </RequiredAuth>
                 )
