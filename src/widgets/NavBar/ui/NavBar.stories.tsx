@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { NavBar } from './NavBar'
-import { userEvent, within } from '@storybook/testing-library'
-import { expect } from '@storybook/jest'
+import { userEvent, within, expect } from '@storybook/test'
 
 const meta = {
     title: 'widget/NavBar',

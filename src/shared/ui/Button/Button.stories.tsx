@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './Button'
-import { within } from '@storybook/testing-library'
-import { expect } from '@storybook/jest'
+import { within, expect } from '@storybook/test'
 import { ArrowIcon, ThemeIcon } from '../../assets'
 
 const meta = {
