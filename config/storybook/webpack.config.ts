@@ -36,6 +36,27 @@ export default ({
         })
     }
 
+    config.module?.rules?.push({
+        test: /\.(jsx|tsx|js|ts)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                cacheDirectory: true,
+                presets: [
+                    '@babel/preset-env',
+                    '@babel/preset-typescript',
+                    [
+                        '@babel/preset-react',
+                        {
+                            runtime: 'automatic'
+                        }
+                    ]
+                ],
+                plugins: ['@babel/plugin-transform-runtime']
+            }
+        }
+    })
     config.module?.rules?.push(buildSVGLoader())
     config.module?.rules?.push(buildCSSLoader(true))
     config.plugins?.push(definePlugin)
