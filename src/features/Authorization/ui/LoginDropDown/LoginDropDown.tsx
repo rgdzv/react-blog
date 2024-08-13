@@ -46,12 +46,12 @@ export const LoginDropDown: FC<LoginDropDownPropsInterface> = ({
         }
     ]
 
-    const avatar = userAvatar ?? noavatar
     const trigger = (
         <Image
-            src={avatar}
+            src={userAvatar}
             className='login_dropdown_avatar'
             alt='login dropdown avatar'
+            errorImage={noavatar}
         />
     )
 

@@ -1,6 +1,7 @@
 import { type FC, memo } from 'react'
 import styles from './ArticleComment.module.scss'
 import { AppLink, Image } from 'shared/ui'
+import { noavatar } from 'shared/assets'
 
 interface ArticleCommentPropsInterface {
     avatar: string
@@ -18,6 +19,7 @@ export const ArticleComment: FC<ArticleCommentPropsInterface> = memo(
                         className='article_comment_avatar'
                         alt='article comment avatar'
                         src={avatar}
+                        errorImage={noavatar}
                     />
                 </AppLink>
                 <p className={styles.articleCommentText}>{text}</p>

@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import styles from './ArticleListItem.module.scss'
 import { AppLink, Button, Image } from 'shared/ui'
-import { EyeIcon } from 'shared/assets'
+import { EyeIcon, noavatar, noimage } from 'shared/assets'
 
 interface ArticleListItemPropsInterface {
     avatar: string
@@ -38,6 +38,7 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
                         className='article_avatar'
                         alt='article avatar'
                         src={avatar}
+                        errorImage={noavatar}
                     />
                     <span className={styles.userName}>{userName}</span>
                 </AppLink>
@@ -51,6 +52,7 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
                 className='article_list_img'
                 alt='article image'
                 src={articleImage}
+                errorImage={noimage}
             />
             <div className={styles.articleContent}>
                 <p className={styles.text}>{textBlock}</p>

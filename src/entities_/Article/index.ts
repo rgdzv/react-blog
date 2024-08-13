@@ -5,3 +5,5 @@ export {
     ArticleSortField,
     ArticleSortOrder
 } from './model/const/articleConst'
+export { ArticleListItem } from './ui/ArticleListItem/ArticleListItem'
+export { ArticleListItemSmall } from './ui/ArticleListItemSmall/ArticleListItemSmall'

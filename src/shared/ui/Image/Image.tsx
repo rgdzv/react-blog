@@ -1,6 +1,7 @@
-import { type FC } from 'react'
+import { type FC, type ImgHTMLAttributes, useState } from 'react'
 import styles from './Image.module.scss'
 import { Skeleton } from '../Skeleton/Skeleton'
+import { classNames } from 'shared/lib'
 
 type ClassNameType =
     | 'profile_avatar'
@@ -11,27 +12,51 @@ type ClassNameType =
     | 'article_details_img'
     | 'article_comment_avatar'
 
-interface ImagePropsInterface {
-    src?: string
+interface ImagePropsInterface extends ImgHTMLAttributes<HTMLImageElement> {
+    src: string
     className?: ClassNameType
-    alt?: string
-    isLoading?: boolean
+    alt: string
+    errorImage: string
 }
 
 export const Image: FC<ImagePropsInterface> = ({
     src,
     className,
     alt,
-    isLoading
+    errorImage
 }) => {
+    const [isLoading, setIsLoading] = useState(true)
+    const [hasError, setHasError] = useState(false)
+
+    const handleOnLoad = (): void => {
+        setIsLoading(false)
+    }
+
+    const handleOnError = (): void => {
+        setHasError(true)
+        setIsLoading(false)
+    }
+
+    const srcCondition = hasError ? errorImage : src
+    const altCondition = hasError ? 'no image found' : alt
+
+    const skeletonCondition = isLoading && <Skeleton />
+
     const classNameFinal = styles[className as ClassNameType]
+    const imageClassNameFinal = classNames(styles.image, {
+        [styles.hidden]: isLoading
+    })
 
-    const showContentCondition =
-        isLoading === true ? (
-            <Skeleton />
-        ) : (
-            <img className={styles.image} src={src} alt={alt} />
-        )
-
-    return <div className={classNameFinal}>{showContentCondition}</div>
+    return (
+        <div className={classNameFinal}>
+            <img
+                className={imageClassNameFinal}
+                src={srcCondition}
+                alt={altCondition}
+                onLoad={handleOnLoad}
+                onError={handleOnError}
+            />
+            {skeletonCondition}
+        </div>
+    )
 }

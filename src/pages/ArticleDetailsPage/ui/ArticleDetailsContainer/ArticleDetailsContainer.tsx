@@ -2,7 +2,6 @@ import { type FC } from 'react'
 import { useAppSelector } from 'app/providers/StoreProvider'
 import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading'
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData'
-import { noavatar, noimage } from 'shared/assets'
 import styles from './ArticleDetailsContainer.module.scss'
 import { ArticleRatingContainer } from 'features/ArticlesInteraction/ArticleRating'
 import { Skeleton } from 'shared/ui'
@@ -24,8 +23,6 @@ export const ArticleDetailsContainer: FC = () => {
     const detailsErrorName = t('Ошибка при загрузке статьи!')
     const detailsEmptyName = t('Статья не найдена!')
 
-    const avatar = article?.user.avatar ?? noavatar
-    const articleImage = article?.img ?? noimage
     const transformedDate = new Date(article?.created).toLocaleDateString()
 
     const contentBlock = article?.blocks.map(ArticleDetailsContentBlock)
@@ -41,8 +38,8 @@ export const ArticleDetailsContainer: FC = () => {
         <>
             <ArticleDetails
                 profileId={article?.userId}
-                avatar={avatar}
-                articleImage={articleImage}
+                avatar={article?.user?.avatar as string}
+                articleImage={article?.img}
                 userName={article?.user.username}
                 date={transformedDate}
                 title={article?.title}

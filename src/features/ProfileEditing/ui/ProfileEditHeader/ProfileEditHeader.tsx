@@ -7,6 +7,7 @@ import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/get
 import { classNames } from 'shared/lib'
 import { profileActions } from '../../model/slice/profileSlice'
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
+import { noavatar } from 'shared/assets'
 
 interface ProfileEditHeaderPropsInterface {
     canEdit: boolean
@@ -62,6 +63,7 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = memo(
                     src={src}
                     className='profile_avatar'
                     alt='profile avatar'
+                    errorImage={noavatar}
                 />
                 <div className={styles.right}>
                     <Button
@@ -74,7 +76,12 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = memo(
                 </div>
             </>
         ) : (
-            <Image src={src} className='profile_avatar' alt='profile avatar' />
+            <Image
+                src={src}
+                className='profile_avatar'
+                alt='profile avatar'
+                errorImage={noavatar}
+            />
         )
 
         const showContentCondition = isLoading ? (

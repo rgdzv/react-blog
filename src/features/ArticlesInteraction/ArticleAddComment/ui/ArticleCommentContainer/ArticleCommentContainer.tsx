@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ArticleAddComment } from '../ArticleAddComment/ArticleAddComment'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ArticleComment } from 'entities_/ArticleComment'
-import { noavatar, DeleteCommentIcon } from 'shared/assets'
+import { DeleteCommentIcon } from 'shared/assets'
 import { Button, Skeleton } from 'shared/ui'
 import { getUserAuthData } from '../../../../Authorization/index'
 import { deleteArticleComment } from '../../model/services/deleteArticleComment/deleteArticleComment'
@@ -23,8 +23,6 @@ export const ArticleCommentContainer: FC = () => {
     const commentErrorName = t('Ошибка при загрузке комментариев!')
 
     const articleComments = articleCommentsData?.map((comment) => {
-        const avatar = comment.user.avatar ?? noavatar
-
         const deleteComment = (): void => {
             void dispatch(deleteArticleComment(comment.id))
         }
@@ -39,7 +37,7 @@ export const ArticleCommentContainer: FC = () => {
         return (
             <ArticleComment
                 key={comment.id}
-                avatar={avatar}
+                avatar={comment.user.avatar as string}
                 userId={comment.user.id}
                 text={comment.text}
                 icon={icon}

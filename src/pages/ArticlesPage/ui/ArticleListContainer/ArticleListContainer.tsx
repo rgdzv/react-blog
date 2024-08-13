@@ -1,6 +1,4 @@
 import { useCallback, type FC } from 'react'
-import { ArticleListItem } from '../../../../entities_/Article/ui/ArticleListItem/ArticleListItem'
-import { noavatar, noimage } from 'shared/assets'
 import {
     getArticles,
     getArticlesError,
@@ -12,14 +10,17 @@ import {
 } from 'pages/ArticlesPage'
 import { useTranslation } from 'react-i18next'
 import styles from './ArticleListContainer.module.scss'
-import { ArticleView } from '../../../../entities_/Article/model/const/articleConst'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { ArticleListItemSmall } from '../../../../entities_/Article/ui/ArticleListItemSmall/ArticleListItemSmall'
 import { Button, Skeleton } from 'shared/ui'
 import {
     ArticleBlockType,
     type ArticleTextBlock
 } from 'entities_/ArticleDetails'
+import {
+    ArticleListItem,
+    ArticleListItemSmall,
+    ArticleView
+} from 'entities_/Article'
 
 export const ArticleListContainer: FC = () => {
     const articles = useAppSelector(getArticles.selectAll)
@@ -36,9 +37,6 @@ export const ArticleListContainer: FC = () => {
     const loadMoreButtonName = isLoading ? t('Загрузка...') : t('Показать еще')
 
     const articleList = articles?.map((item) => {
-        const avatar = item.user.avatar ?? noavatar
-        const articleImage = item.img ?? noimage
-
         const block = item.blocks?.find(
             (block) => block.type === ArticleBlockType.TEXT
         ) as ArticleTextBlock
@@ -62,8 +60,8 @@ export const ArticleListContainer: FC = () => {
                 <ArticleListItemSmall
                     key={item.id}
                     id={item.userId}
-                    avatar={avatar}
-                    articleImage={articleImage}
+                    avatar={item.user.avatar as string}
+                    articleImage={item.img}
                     date={transformedDate}
                     views={item.views}
                     textBlock={textBlock}
@@ -77,8 +75,8 @@ export const ArticleListContainer: FC = () => {
             <ArticleListItem
                 key={item.id}
                 id={item.userId}
-                avatar={avatar}
-                articleImage={articleImage}
+                avatar={item.user.avatar as string}
+                articleImage={item.img}
                 title={item.title}
                 subtitle={item.subtitle}
                 date={transformedDate}

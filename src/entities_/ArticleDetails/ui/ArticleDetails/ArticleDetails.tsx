@@ -1,6 +1,7 @@
 import { type FC } from 'react'
 import { AppLink, Image } from 'shared/ui'
 import styles from './ArticleDetails.module.scss'
+import { noavatar, noimage } from 'shared/assets'
 
 interface ArticleDetailsPropsInterface {
     profileId: string
@@ -34,6 +35,7 @@ export const ArticleDetails: FC<ArticleDetailsPropsInterface> = ({
                         className='article_avatar'
                         alt='article avatar'
                         src={avatar}
+                        errorImage={noavatar}
                     />
                     <span className={styles.userName}>{userName}</span>
                 </AppLink>
@@ -47,6 +49,7 @@ export const ArticleDetails: FC<ArticleDetailsPropsInterface> = ({
                 className='article_list_img'
                 alt='article image'
                 src={articleImage}
+                errorImage={noimage}
             />
             <div className={styles.articleContent}>{contentBlock}</div>
         </div>

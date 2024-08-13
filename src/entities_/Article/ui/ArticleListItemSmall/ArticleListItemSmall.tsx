@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import styles from './ArticleListItemSmall.module.scss'
 import { AppLink, Image } from 'shared/ui'
-import { EyeIcon } from 'shared/assets'
+import { EyeIcon, noavatar, noimage } from 'shared/assets'
 
 interface ArticleListItemSmallPropsInterface {
     avatar: string
@@ -34,6 +34,7 @@ export const ArticleListItemSmall: FC<ArticleListItemSmallPropsInterface> = ({
                     className='article_list_small_img'
                     alt='article image'
                     src={articleImage}
+                    errorImage={noimage}
                 />
             </AppLink>
             <div className={styles.textBlockSmall}>
@@ -55,6 +56,7 @@ export const ArticleListItemSmall: FC<ArticleListItemSmallPropsInterface> = ({
                         className='article_avatar'
                         alt='article avatar'
                         src={avatar}
+                        errorImage={noavatar}
                     />
                     <span className={styles.userNameSmall}>{userName}</span>
                 </AppLink>

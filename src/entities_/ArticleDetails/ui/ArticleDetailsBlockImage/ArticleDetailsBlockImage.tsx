@@ -10,13 +10,12 @@ interface ArticleDetailsBlockImagePropsInterface {
 export const ArticleDetailsBlockImage: FC<
     ArticleDetailsBlockImagePropsInterface
 > = ({ block }) => {
-    const imageCondition = block?.src ?? noimage
-
     return (
         <Image
-            src={imageCondition}
+            src={block?.src}
             className='article_details_img'
             alt={block?.title}
+            errorImage={noimage}
         />
     )
 }
