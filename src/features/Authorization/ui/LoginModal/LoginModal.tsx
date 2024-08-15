@@ -1,13 +1,13 @@
-import { type RefObject, type FC, type MouseEvent } from 'react'
-import { LoginForm } from '../LoginForm/LoginForm'
+import { type FC, type MouseEvent, type RefObject } from 'react'
 import { Button, Modal } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
-import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
+import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName'
+import { LoginForm } from '../LoginForm/LoginForm'
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
-import styles from './LoginModal.module.scss'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 import { loginActions } from '../../model/slice/loginSlice/loginSlice'
+import styles from './LoginModal.module.scss'
 
 interface LoginModalPropsInterface {
     isClosing: boolean

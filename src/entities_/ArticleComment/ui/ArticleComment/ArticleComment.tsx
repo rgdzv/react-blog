@@ -1,7 +1,7 @@
 import { type FC, memo } from 'react'
-import styles from './ArticleComment.module.scss'
 import { AppLink, Image } from 'shared/ui'
 import { noavatar } from 'shared/assets'
+import styles from './ArticleComment.module.scss'
 
 interface ArticleCommentPropsInterface {
     avatar: string

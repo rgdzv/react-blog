@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import { NavBar } from './NavBar'
 import { MemoryRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
 import { StoreProvider } from 'app/providers/StoreProvider'
+import { NavBar } from './NavBar'
 
 describe('NavBar', () => {
     test('not collapsed', () => {

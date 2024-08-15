@@ -1,6 +1,6 @@
-import { type FC, type ReactNode, type RefObject, type MouseEvent } from 'react'
-import styles from './Modal.module.scss'
+import { type FC, type MouseEvent, type ReactNode, type RefObject } from 'react'
 import { classNames } from '../../lib'
+import styles from './Modal.module.scss'
 
 interface ModalPropsInterface {
     children: ReactNode

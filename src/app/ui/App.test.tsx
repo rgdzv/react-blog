@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { routes } from '../providers/RouterProvider'
 import { RouterProvider, createMemoryRouter } from 'react-router-dom'
+import { routes } from '../providers/RouterProvider'
 import { StoreProvider } from '../providers/StoreProvider'
 
 describe('App', () => {

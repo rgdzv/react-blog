@@ -1,14 +1,13 @@
-import { useEffect, type FC } from 'react'
+import { type FC, useEffect } from 'react'
 import '../styles/index.scss'
-import { classNames } from 'shared/lib'
+import { classNames, useTheme } from 'shared/lib'
 import { SideBar } from 'widgets/SideBar'
 import { Header } from 'widgets/Header'
-import { useTheme } from 'app/providers/ThemeProvider'
-import { useAppDispatch, useAppSelector } from '../providers/StoreProvider'
 import { PageLoader } from 'widgets/PageLoader'
 import { MainLayout } from 'shared/layouts'
-import { getUserInitiated, userActions } from 'features/Authorization'
-import { AppRouter } from '../providers/RouterProvider/ui/AppRouter'
+import { userActions, getUserInitiated } from 'features/Authorization'
+import { useAppDispatch, useAppSelector } from '../providers/StoreProvider'
+import { AppRouter } from '../providers/RouterProvider'
 
 const App: FC = () => {
     const { theme } = useTheme()

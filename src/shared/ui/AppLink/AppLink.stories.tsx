@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { expect, within } from '@storybook/test'
 import { AppLink } from './AppLink'
-import { within, expect } from '@storybook/test'
 
 const meta = {
     title: 'shared/AppLink',

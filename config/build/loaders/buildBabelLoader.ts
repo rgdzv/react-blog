@@ -1,5 +1,5 @@
-import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin'
 import type webpack from 'webpack'
+import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin'
 
 interface buildBabelLoaderProps {
     isDev: boolean

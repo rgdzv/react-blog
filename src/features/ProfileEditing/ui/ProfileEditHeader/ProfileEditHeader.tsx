@@ -1,13 +1,13 @@
-import { useCallback, type FC, memo } from 'react'
+import { type FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Image, Skeleton } from 'shared/ui'
-import styles from './ProfileEditHeader.module.scss'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 import { classNames } from 'shared/lib'
+import { noavatar } from 'shared/assets'
+import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 import { profileActions } from '../../model/slice/profileSlice'
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
-import { noavatar } from 'shared/assets'
+import styles from './ProfileEditHeader.module.scss'
 
 interface ProfileEditHeaderPropsInterface {
     canEdit: boolean

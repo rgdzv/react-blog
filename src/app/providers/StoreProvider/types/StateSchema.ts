@@ -1,13 +1,13 @@
 import {
     type CombinedState,
     type Reducer,
-    type StoreEnhancer,
-    type ReducersMapObject
+    type ReducersMapObject,
+    type StoreEnhancer
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
 import { type ArticleCommentSchema } from 'features/ArticlesInteraction/ArticleAddComment'
 import { type ArticleRatingSchema } from 'features/ArticlesInteraction/ArticleRating'
-import { type UserSchema, type LoginSchema } from 'features/Authorization'
+import { type LoginSchema, type UserSchema } from 'features/Authorization'
 import { type ProfileSchema } from 'features/ProfileEditing'
 import { type UISchema } from 'features/UI'
 import { type ArticleDetailsSchema } from 'pages/ArticleDetailsPage'

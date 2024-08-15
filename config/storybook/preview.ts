@@ -1,10 +1,10 @@
 import type { Preview } from '@storybook/react'
 import {
-    RouterDecorator,
-    StyleDecorator,
-    ThemeDecorator,
     LanguageDecorator,
-    StoreDecorator
+    RouterDecorator,
+    StoreDecorator,
+    StyleDecorator,
+    ThemeDecorator
 } from 'shared/config'
 
 const preview: Preview = {

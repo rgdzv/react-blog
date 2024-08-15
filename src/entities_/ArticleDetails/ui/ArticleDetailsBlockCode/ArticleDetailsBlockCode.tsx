@@ -1,9 +1,9 @@
-import { type ArticleCodeBlock } from '../../model/types/articleDetails'
-import { useCallback, type FC, useState } from 'react'
-import styles from './ArticleDetailsBlockCode.module.scss'
+import { type FC, useCallback, useState } from 'react'
 import { CopyIcon } from 'shared/assets'
 import { Button } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
+import { type ArticleCodeBlock } from '../../model/types/articleDetails'
+import styles from './ArticleDetailsBlockCode.module.scss'
 
 interface ArticleDetailsBlockCodePropsInterface {
     block: ArticleCodeBlock

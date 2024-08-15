@@ -1,10 +1,10 @@
 import { type FC } from 'react'
-import styles from './ArticlesSortSelector.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ListBoxElement } from 'shared/ui'
+import { type ArticleSortField, type ArticleSortOrder } from 'entities_/Article'
 import { sortOptions } from '../model/utils/sortOptions'
-import { type ArticleSortOrder, type ArticleSortField } from 'entities_/Article'
 import { orderOptions } from '../model/utils/orderOptions'
+import styles from './ArticlesSortSelector.module.scss'
 
 interface ArticlesSortSelectorPropsInterface {
     sort: ArticleSortField

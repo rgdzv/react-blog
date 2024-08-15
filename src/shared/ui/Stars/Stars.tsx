@@ -1,7 +1,7 @@
-import { useState, type FC, memo, useCallback } from 'react'
+import { type FC, memo, useCallback, useState } from 'react'
+import { Button } from '../'
+import { StarIcon } from '../../assets'
 import styles from './Stars.module.scss'
-import { Button } from '../Button/Button'
-import { StarIcon } from 'shared/assets'
 
 const starsNumber = [1, 2, 3, 4, 5]
 

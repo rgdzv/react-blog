@@ -1,6 +1,6 @@
 import { type FC, type ReactNode } from 'react'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
-import { useTheme } from 'app/providers/ThemeProvider/lib/hooks/useTheme'
+import { useTheme } from '../../../'
 
 interface TestProps {
     children: ReactNode

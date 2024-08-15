@@ -1,13 +1,13 @@
-import { useCallback, type FC } from 'react'
-import { getArticleRatingData } from '../../model/selectors/getArticleRatingData/getArticleRatingData'
+import { type FC, useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { useTranslation } from 'react-i18next'
+import { Skeleton } from 'shared/ui'
+import { ArticleRating } from 'entities_/ArticleRating'
+import { getArticleRatingData } from '../../model/selectors/getArticleRatingData/getArticleRatingData'
 import { updateArticleRating } from '../../model/services/updateArticleRating/updateArticleRating'
 import { getArticleRatingIsLoading } from '../../model/selectors/getArticleRatingIsLoading/getArticleRatingIsLoading'
 import { getArticleRatingError } from '../../model/selectors/getArticleRatingError/getArticleRatingError'
-import { Skeleton } from 'shared/ui'
 import styles from './ArticleRatingContainer.module.scss'
-import { ArticleRating } from 'entities_/ArticleRating'
 
 export const ArticleRatingContainer: FC = () => {
     const rating = useAppSelector(getArticleRatingData)

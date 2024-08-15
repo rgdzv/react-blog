@@ -1,17 +1,17 @@
 import { type FC } from 'react'
 import { useAppSelector } from 'app/providers/StoreProvider'
-import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading'
-import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData'
-import styles from './ArticleDetailsContainer.module.scss'
 import { ArticleRatingContainer } from 'features/ArticlesInteraction/ArticleRating'
 import { Skeleton } from 'shared/ui'
-import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError'
 import { useTranslation } from 'react-i18next'
 import { ArticleCommentContainer } from 'features/ArticlesInteraction/ArticleAddComment'
 import {
     ArticleDetails,
     ArticleDetailsContentBlock
 } from 'entities_/ArticleDetails'
+import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError'
+import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData'
+import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading'
+import styles from './ArticleDetailsContainer.module.scss'
 
 export const ArticleDetailsContainer: FC = () => {
     const isLoadingDetails = useAppSelector(getArticleDetailsIsLoading)

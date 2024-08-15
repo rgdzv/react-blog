@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { expect, userEvent, within } from '@storybook/test'
 import { SideBar } from './SideBar'
-import { within, expect, userEvent } from '@storybook/test'
 
 const meta = {
     title: 'widget/SideBar',

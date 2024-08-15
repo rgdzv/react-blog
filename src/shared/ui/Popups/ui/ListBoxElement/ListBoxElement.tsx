@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { type ReactNode, type FC, Fragment, memo } from 'react'
+import { type FC, Fragment, type ReactNode, memo } from 'react'
 import { Listbox } from '@headlessui/react'
-import { Button } from '../../../Button/Button'
-import styles from './ListBoxElement.module.scss'
-import { ArrowIcon, DoneIcon } from '../../../../assets'
-import { Skeleton } from '../../../Skeleton/Skeleton'
-import { classNames } from '../../../../lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
+import { Button, Skeleton } from '../../../'
+import { ArrowIcon, DoneIcon } from '../../../../assets'
+import { classNames } from '../../../../lib'
+import styles from './ListBoxElement.module.scss'
 
 interface ListBoxItem {
     value: string

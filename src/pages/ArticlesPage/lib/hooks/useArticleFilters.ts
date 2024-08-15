@@ -1,19 +1,19 @@
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { articlesActions } from '../../model/slice/ArticlesSlice'
 import {
-    type ArticleSortOrder,
     type ArticleSortField,
+    type ArticleSortOrder,
     type ArticleType,
     type ArticleView
 } from 'entities_/Article'
-import { getArticlesView } from '../../model/selectors/getArticlesView/getArticlesView'
 import { type ChangeEvent, useCallback } from 'react'
+import { useDebounce } from 'shared/lib'
+import { articlesActions } from '../../model/slice/ArticlesSlice'
+import { getArticlesView } from '../../model/selectors/getArticlesView/getArticlesView'
 import { getArticlesSearch } from '../../model/selectors/getArticlesSearch/getArticlesSearch'
 import { getArticlesType } from '../../model/selectors/getArticleType/getArticlesType'
 import { getArticlesOrder } from '../../model/selectors/getArticlesOrder/getArticlesOrder'
 import { getArticlesSort } from '../../model/selectors/getArticlesSort/getArticlesSort'
 import { getArticlesList } from '../../model/services/getArticlesList/getArticlesList'
-import { useDebounce } from 'shared/lib'
 
 interface UseFiltersInterface {
     view: ArticleView

@@ -1,10 +1,10 @@
 import {
     type MouseEvent,
-    useRef,
-    useState,
     type RefObject,
     useCallback,
-    useEffect
+    useEffect,
+    useRef,
+    useState
 } from 'react'
 
 interface UseModalResult {

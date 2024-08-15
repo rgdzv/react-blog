@@ -1,15 +1,14 @@
-import { useCallback, type FC } from 'react'
+import { type FC, useCallback } from 'react'
 import {
     getArticles,
     getArticlesError,
-    getArticlesIsLoading,
-    getArticlesView,
     getArticlesHasMore,
+    getArticlesIsLoading,
+    getArticlesLimit,
     getArticlesNextPage,
-    getArticlesLimit
+    getArticlesView
 } from 'pages/ArticlesPage'
 import { useTranslation } from 'react-i18next'
-import styles from './ArticleListContainer.module.scss'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { Button, Skeleton } from 'shared/ui'
 import {
@@ -21,6 +20,7 @@ import {
     ArticleListItemSmall,
     ArticleView
 } from 'entities_/Article'
+import styles from './ArticleListContainer.module.scss'
 
 export const ArticleListContainer: FC = () => {
     const articles = useAppSelector(getArticles.selectAll)

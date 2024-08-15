@@ -1,8 +1,8 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { type ArticleRatingType } from 'entities_/ArticleRating'
 import { type ArticleRatingSchema } from '../types/articleRatingSchema'
 import { getArticleRating } from '../services/getArticleRating/getArticleRating'
 import { updateArticleRating } from '../services/updateArticleRating/updateArticleRating'
-import { type ArticleRatingType } from 'entities_/ArticleRating'
 
 const initialState: ArticleRatingSchema = {
     data: undefined,

@@ -1,7 +1,7 @@
 import { Image } from 'shared/ui'
-import { type ArticleImageBlock } from '../../model/types/articleDetails'
 import { type FC } from 'react'
 import { noimage } from 'shared/assets'
+import { type ArticleImageBlock } from '../../model/types/articleDetails'
 
 interface ArticleDetailsBlockImagePropsInterface {
     block: ArticleImageBlock

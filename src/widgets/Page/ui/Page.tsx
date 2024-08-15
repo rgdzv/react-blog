@@ -1,15 +1,15 @@
 import {
-    type ReactElement,
     type FC,
-    useRef,
     type MutableRefObject,
-    type UIEvent
+    type ReactElement,
+    type UIEvent,
+    useRef
 } from 'react'
 import { classNames, useThrottle } from 'shared/lib'
-import styles from './Page.module.scss'
 import { useAppDispatch } from 'app/providers/StoreProvider'
 import { uiActions } from 'features/UI'
 import { useLocation } from 'react-router-dom'
+import styles from './Page.module.scss'
 
 type ClassNameType = 'notFound' | 'articles' | 'articleDetails'
 

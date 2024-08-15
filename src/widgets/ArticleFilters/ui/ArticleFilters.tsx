@@ -1,11 +1,11 @@
 import { type FC } from 'react'
-import styles from './ArticleFilters.module.scss'
 import { Input } from 'shared/ui'
 import { SearchIcon } from 'shared/assets'
 import { useArticleFilters } from 'pages/ArticlesPage'
 import { useTranslation } from 'react-i18next'
 import { ArticlesTypeTabs } from 'features/ArticlesInteraction/ArticlesTypeTabs'
 import { ArticlesSortSelector } from 'features/ArticlesInteraction/ArticleSortSelector'
+import styles from './ArticleFilters.module.scss'
 
 export const ArticleFilters: FC = () => {
     const {

@@ -1,12 +1,12 @@
-import { useEffect, type FC } from 'react'
-import { DynamicReducerLoader, type ReducersList } from 'shared/components'
-import { articlesReducer } from '../../model/slice/ArticlesSlice'
+import { type FC, useEffect } from 'react'
+import { DynamicReducerLoader, type ReducersList } from 'shared/lib'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 
 import { Page } from 'widgets/Page'
 import { ArticlesViewChanger } from 'features/ArticlesInteraction/ArticlesViewChanger'
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { ArticleFilters } from 'widgets/ArticleFilters'
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
+import { articlesReducer } from '../../model/slice/ArticlesSlice'
 import { getArticlesInited } from '../../model/selectors/getArticlesInited/getArticlesInited'
 import { ArticleListContainer } from '../ArticleListContainer/ArticleListContainer'
 

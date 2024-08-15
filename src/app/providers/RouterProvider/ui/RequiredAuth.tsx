@@ -1,8 +1,8 @@
 import { getUserAuthData, getUserRole } from 'features/Authorization'
-import { useAppSelector } from '../../StoreProvider/lib/hooks/hooks'
-import { type ReactNode, type FC, useMemo } from 'react'
+import { type FC, type ReactNode, useMemo } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { type UserRole } from 'entities_/User'
+import { useAppSelector } from '../../StoreProvider/lib/hooks/hooks'
 
 interface RequiredAuthPropsInterface {
     children: ReactNode

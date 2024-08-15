@@ -1,7 +1,7 @@
 import { type FC } from 'react'
-import styles from './ArticleListItem.module.scss'
 import { AppLink, Button, Image } from 'shared/ui'
 import { EyeIcon, noavatar, noimage } from 'shared/assets'
+import styles from './ArticleListItem.module.scss'
 
 interface ArticleListItemPropsInterface {
     avatar: string

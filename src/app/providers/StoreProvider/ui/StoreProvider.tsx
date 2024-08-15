@@ -1,4 +1,4 @@
-import { type ReactNode, type FC } from 'react'
+import { type FC, type ReactNode } from 'react'
 import { Provider } from 'react-redux'
 import { createReduxStore } from '../config/store'
 import { type StateSchema } from '../types/StateSchema'

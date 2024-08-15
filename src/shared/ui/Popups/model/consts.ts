@@ -1,5 +1,5 @@
-import { type DropdownDirection } from './types'
 import styles from '../styles/Popups.module.scss'
+import { type DropdownDirection } from './types'
 
 export const mapDirectionClass: Record<DropdownDirection, string> = {
     'bottom left': styles.itemsBottomLeft,

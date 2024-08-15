@@ -1,14 +1,14 @@
 import {
+    type PayloadAction,
     createEntityAdapter,
-    createSlice,
-    type PayloadAction
+    createSlice
 } from '@reduxjs/toolkit'
+import { type ArticleCommentType } from 'entities_/ArticleComment'
+import { type StateSchema } from 'app/providers/StoreProvider'
 import { type ArticleCommentSchema } from '../types/articleCommentSchema'
 import { getArticleComments } from '../services/getArticleComments/getArticleComments'
-import { type ArticleCommentType } from 'entities_/ArticleComment'
 import { addArticleComment } from '../services/addArticleComment/addArticleComment'
 import { deleteArticleComment } from '../services/deleteArticleComment/deleteArticleComment'
-import { type StateSchema } from 'app/providers/StoreProvider'
 
 const articleCommentsAdapter = createEntityAdapter<ArticleCommentType>({
     selectId: (articleComment) => articleComment.id

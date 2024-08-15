@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import { AppLink } from './AppLink'
 import { MemoryRouter } from 'react-router-dom'
+import { AppLink } from './AppLink'
 
 describe('AppLink', () => {
     test('render', () => {

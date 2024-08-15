@@ -1,8 +1,7 @@
-import { type ReactNode, type FC, type InputHTMLAttributes, memo } from 'react'
+import { type FC, type InputHTMLAttributes, type ReactNode, memo } from 'react'
+import { classNames } from '../../lib'
+import { Button, Skeleton } from '../'
 import styles from './Input.module.scss'
-import { classNames } from 'shared/lib'
-import { Skeleton } from '../Skeleton/Skeleton'
-import { Button } from '../Button/Button'
 
 type ClassNameInputWrapperType =
     | 'login_username'

@@ -1,7 +1,7 @@
 import { type FC } from 'react'
-import styles from './PageErrors.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui'
+import styles from './PageErrors.module.scss'
 
 export const PageError: FC = () => {
     const { t } = useTranslation('error')

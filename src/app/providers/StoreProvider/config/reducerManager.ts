@@ -1,9 +1,9 @@
 import {
     type AnyAction,
+    type CombinedState,
     type Reducer,
-    combineReducers,
     type ReducersMapObject,
-    type CombinedState
+    combineReducers
 } from '@reduxjs/toolkit'
 import {
     type ReducerManager,

@@ -1,9 +1,9 @@
 import { type FC } from 'react'
-import styles from './ArticlesTypeTabs.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui'
 import { type ArticleType } from 'entities_/Article'
 import { typeTabs } from '../model/utils/tabs'
+import styles from './ArticlesTypeTabs.module.scss'
 interface ArticlesTypeTabsPropsInterface {
     type: ArticleType
     onChangeType: (type: ArticleType) => void

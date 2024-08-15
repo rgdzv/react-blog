@@ -1,4 +1,4 @@
-import { injectAxe, checkA11y, configureAxe } from 'axe-playwright'
+import { checkA11y, configureAxe, injectAxe } from 'axe-playwright'
 import type { TestRunnerConfig } from '@storybook/test-runner'
 import { getStoryContext } from '@storybook/test-runner'
 

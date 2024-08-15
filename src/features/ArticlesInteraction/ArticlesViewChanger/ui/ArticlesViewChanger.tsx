@@ -1,8 +1,8 @@
 import { type FC } from 'react'
-import styles from './ArticlesViewChanger.module.scss'
 import { Button } from 'shared/ui'
 import { useArticleFilters } from 'pages/ArticlesPage'
 import { viewTypes } from '../model/utils/viewTypes'
+import styles from './ArticlesViewChanger.module.scss'
 
 export const ArticlesViewChanger: FC = () => {
     const { view, onChangeView } = useArticleFilters()

@@ -1,9 +1,9 @@
 import {
-    memo,
     type FC,
+    type ForwardedRef,
     type ReactNode,
     forwardRef,
-    type ForwardedRef
+    memo
 } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
 interface AppLinkPropsInterface extends LinkProps {

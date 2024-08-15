@@ -1,16 +1,16 @@
 import { type FC } from 'react'
-import styles from './ArticleCommentContainer.module.scss'
 import { useTranslation } from 'react-i18next'
-import { ArticleAddComment } from '../ArticleAddComment/ArticleAddComment'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ArticleComment } from 'entities_/ArticleComment'
 import { DeleteCommentIcon } from 'shared/assets'
 import { Button, Skeleton } from 'shared/ui'
-import { getUserAuthData } from '../../../../Authorization/index'
+import { ArticleAddComment } from '../ArticleAddComment/ArticleAddComment'
+import { getUserAuthData } from '../../../../Authorization'
 import { deleteArticleComment } from '../../model/services/deleteArticleComment/deleteArticleComment'
 import { getArticleCommentIsLoading } from '../../model/selectors/getArticleCommentIsLoading/getArticleCommentIsLoading'
 import { getArticleCommentError } from '../../model/selectors/getArticleCommentError/getArticleCommentError'
 import { getArticleCommentsData } from '../../model/slice/articleCommentSlice'
+import styles from './ArticleCommentContainer.module.scss'
 
 export const ArticleCommentContainer: FC = () => {
     const articleCommentsData = useAppSelector(getArticleCommentsData.selectAll)

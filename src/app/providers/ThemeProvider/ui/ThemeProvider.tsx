@@ -1,5 +1,6 @@
 import { type FC, type ReactNode, useMemo, useState } from 'react'
-import { LOCAL_STORAGE_THEME_KEY, ThemeContext } from '../lib/ThemeContext'
+import { LOCAL_STORAGE_THEME_KEY } from 'shared/const'
+import { ThemeContext } from 'shared/lib'
 import { Theme } from 'shared/types'
 interface ThemeContextProps {
     children: ReactNode

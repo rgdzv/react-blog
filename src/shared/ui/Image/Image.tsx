@@ -1,7 +1,7 @@
 import { type FC, type ImgHTMLAttributes, useState } from 'react'
+import { Skeleton } from '../'
+import { classNames } from '../../lib'
 import styles from './Image.module.scss'
-import { Skeleton } from '../Skeleton/Skeleton'
-import { classNames } from 'shared/lib'
 
 type ClassNameType =
     | 'profile_avatar'

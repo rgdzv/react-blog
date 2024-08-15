@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import { AppLink, Image } from 'shared/ui'
-import styles from './ArticleDetails.module.scss'
 import { noavatar, noimage } from 'shared/assets'
+import styles from './ArticleDetails.module.scss'
 
 interface ArticleDetailsPropsInterface {
     profileId: string

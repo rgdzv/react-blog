@@ -1,7 +1,7 @@
-import { memo, type FC } from 'react'
+import { type FC, memo } from 'react'
 import { Button } from 'shared/ui'
-import styles from './ArticleDetailsEdit.module.scss'
 import { useTranslation } from 'react-i18next'
+import styles from './ArticleDetailsEdit.module.scss'
 
 interface ArticleDetailsEditProps {
     canBeEdited: boolean

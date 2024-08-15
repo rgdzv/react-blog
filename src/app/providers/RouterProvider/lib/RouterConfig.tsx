@@ -5,12 +5,12 @@ import { MainPage } from 'pages/MainPage'
 import { type ReactElement } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { ProfilePage } from 'pages/ProfilePage'
-import { RequiredAuth } from '../ui/RequiredAuth'
 import { ArticlesPage } from 'pages/ArticlesPage'
 import { AdminPage } from 'pages/AdminPage'
 import { SettingsPage } from 'pages/SettingsPage'
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
 import { UserRole } from 'entities_/User'
+import { RequiredAuth } from '../ui/RequiredAuth'
 
 export const routes = [
     {

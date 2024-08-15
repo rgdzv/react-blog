@@ -1,5 +1,5 @@
-import { type ArticleTextBlock } from '../../model/types/articleDetails'
 import { type FC } from 'react'
+import { type ArticleTextBlock } from '../../model/types/articleDetails'
 import styles from './ArticleDetailsBlockText.module.scss'
 
 interface ArticleDetailsBlockTextPropsInterface {

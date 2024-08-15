@@ -16,7 +16,7 @@
         "sourceType": "module",
         "project": ["tsconfig.json"]
     },
-    "plugins": ["react", "i18next", "testing-library"],
+    "plugins": ["react", "i18next", "testing-library", "import"],
     "overrides": [
         {
             "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
@@ -64,6 +64,8 @@
             }
         ],
         "react/prop-types": "off",
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "import/no-cycle": "error",
+        "import/order": "error"
     }
 }

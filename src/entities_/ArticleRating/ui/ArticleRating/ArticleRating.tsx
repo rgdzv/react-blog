@@ -1,6 +1,6 @@
-import { memo, type FC } from 'react'
-import styles from './ArticleRating.module.scss'
+import { type FC, memo } from 'react'
 import { Stars } from 'shared/ui'
+import styles from './ArticleRating.module.scss'
 
 interface ArticleRatingProps {
     ratingSign: string

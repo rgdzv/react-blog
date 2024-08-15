@@ -5,8 +5,8 @@ import {
     useStore
 } from 'react-redux'
 import {
-    type AppStore,
     type AppDispatch,
+    type AppStore,
     type RootState
 } from '../../types/StoreHooks'
 
