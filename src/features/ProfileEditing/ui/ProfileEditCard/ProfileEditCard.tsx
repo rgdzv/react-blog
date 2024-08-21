@@ -1,11 +1,8 @@
-import { type ChangeEvent, type FC, useCallback } from 'react'
-import {
-    type CountryType,
-    type CurrencyType,
-    type Profile,
-    ProfileCard
-} from 'entities_/Profile'
+import { useCallback } from 'react'
+import type { ChangeEvent, FC } from 'react'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
+import { ProfileCard } from 'entities_/Profile'
+import type { CountryType, CurrencyType, Profile } from 'entities_/Profile'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 import { profileActions } from '../../model/slice/profileSlice'
 import styles from './ProfileEditCard.module.scss'

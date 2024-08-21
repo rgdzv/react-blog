@@ -1,4 +1,5 @@
-import { type FC, memo, useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
+import type { FC } from 'react'
 import { Button } from '../'
 import { StarIcon } from '../../assets'
 import styles from './Stars.module.scss'

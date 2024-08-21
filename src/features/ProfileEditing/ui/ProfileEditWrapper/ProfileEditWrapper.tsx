@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import type { FC } from 'react'
 import { useAppSelector } from 'app/providers/StoreProvider'
 import { getUserAuthData } from 'features/Authorization'
 import { ProfileEditHeader } from '../ProfileEditHeader/ProfileEditHeader'

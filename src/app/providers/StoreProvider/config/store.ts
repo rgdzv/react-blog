@@ -1,9 +1,10 @@
-import { type ReducersMapObject, configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import { loginReducer, userReducer } from 'features/Authorization'
-import { axiosAPI } from 'shared/api'
 import { uiReducer } from 'features/UI'
-import { type StateSchema, type ThunkExtraArg } from '../types/StateSchema'
+import { axiosAPI } from 'shared/api'
 import { createReducerManager } from './reducerManager'
+import type { ReducersMapObject } from '@reduxjs/toolkit'
+import type { StateSchema, ThunkExtraArg } from '../types/StateSchema'
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function createReduxStore(initialState?: StateSchema) {

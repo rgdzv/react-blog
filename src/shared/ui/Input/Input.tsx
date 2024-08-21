@@ -1,4 +1,5 @@
-import { type FC, type InputHTMLAttributes, type ReactNode, memo } from 'react'
+import { memo } from 'react'
+import type { FC, InputHTMLAttributes, ReactNode } from 'react'
 import { classNames } from '../../lib'
 import { Button, Skeleton } from '../'
 import styles from './Input.module.scss'

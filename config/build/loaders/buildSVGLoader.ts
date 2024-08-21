@@ -1,6 +1,6 @@
-import type webpack from 'webpack'
+import type { RuleSetRule } from 'webpack'
 
-export function buildSVGLoader(): webpack.RuleSetRule {
+export function buildSVGLoader(): RuleSetRule {
     return {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,

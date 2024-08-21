@@ -1,4 +1,7 @@
-import { type FC, useCallback } from 'react'
+import { useCallback } from 'react'
+import type { FC } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import {
     getArticles,
     getArticlesError,
@@ -8,18 +11,14 @@ import {
     getArticlesNextPage,
     getArticlesView
 } from 'pages/ArticlesPage'
-import { useTranslation } from 'react-i18next'
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import { Button, Skeleton } from 'shared/ui'
-import {
-    ArticleBlockType,
-    type ArticleTextBlock
-} from 'entities_/ArticleDetails'
+import { ArticleBlockType } from 'entities_/ArticleDetails'
 import {
     ArticleListItem,
     ArticleListItemSmall,
     ArticleView
 } from 'entities_/Article'
+import type { ArticleTextBlock } from 'entities_/ArticleDetails'
+import { Button, Skeleton } from 'shared/ui'
 import styles from './ArticleListContainer.module.scss'
 
 export const ArticleListContainer: FC = () => {

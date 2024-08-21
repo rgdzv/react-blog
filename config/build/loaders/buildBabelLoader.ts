@@ -1,5 +1,5 @@
-import type webpack from 'webpack'
 import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin'
+import type { RuleSetRule } from 'webpack'
 
 interface buildBabelLoaderProps {
     isDev: boolean
@@ -9,7 +9,7 @@ interface buildBabelLoaderProps {
 export function buildBabelLoader({
     isDev,
     isTsx
-}: buildBabelLoaderProps): webpack.RuleSetRule {
+}: buildBabelLoaderProps): RuleSetRule {
     const isProd = !isDev
     return {
         test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,

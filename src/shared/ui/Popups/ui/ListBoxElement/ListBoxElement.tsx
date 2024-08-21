@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { type FC, Fragment, type ReactNode, memo } from 'react'
-import { Listbox } from '@headlessui/react'
+import { Fragment, memo } from 'react'
+import type { FC, ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Listbox } from '@headlessui/react'
 import { Button, Skeleton } from '../../../'
 import { ArrowIcon, DoneIcon } from '../../../../assets'
 import { classNames } from '../../../../lib'

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type ThunkConfig } from 'app/providers/StoreProvider'
-import { type ArticleRatingType } from 'entities_/ArticleRating'
-import { type ArticleRatingGetParams } from '../../types/articleRatingGetParams'
+import type { ThunkConfig } from 'app/providers/StoreProvider'
+import type { ArticleRatingType } from 'entities_/ArticleRating'
+import type { ArticleRatingGetParams } from '../../types/articleRatingGetParams'
 
 export const getArticleRating = createAsyncThunk<
     ArticleRatingType,

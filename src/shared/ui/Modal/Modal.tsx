@@ -1,4 +1,4 @@
-import { type FC, type MouseEvent, type ReactNode, type RefObject } from 'react'
+import type { FC, MouseEvent, ReactNode, RefObject } from 'react'
 import { classNames } from '../../lib'
 import styles from './Modal.module.scss'
 

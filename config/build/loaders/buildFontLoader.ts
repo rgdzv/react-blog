@@ -1,6 +1,6 @@
-import type webpack from 'webpack'
+import type { RuleSetRule } from 'webpack'
 
-export function buildFontLoader(): webpack.RuleSetRule {
+export function buildFontLoader(): RuleSetRule {
     return {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         exclude: /node_modules/,

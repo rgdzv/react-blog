@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { ThemeProviderTest } from 'shared/lib'
 import { StoreProvider } from 'app/providers/StoreProvider'
+import { ThemeProviderTest } from 'shared/lib'
 import { SideBar } from './SideBar'
 
 describe('SideBar', () => {

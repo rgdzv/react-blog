@@ -1,11 +1,12 @@
+import { useCallback } from 'react'
+import type { ChangeEvent } from 'react'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-import {
-    type ArticleSortField,
-    type ArticleSortOrder,
-    type ArticleType,
-    type ArticleView
+import type {
+    ArticleSortField,
+    ArticleSortOrder,
+    ArticleType,
+    ArticleView
 } from 'entities_/Article'
-import { type ChangeEvent, useCallback } from 'react'
 import { useDebounce } from 'shared/lib'
 import { articlesActions } from '../../model/slice/ArticlesSlice'
 import { getArticlesView } from '../../model/selectors/getArticlesView/getArticlesView'

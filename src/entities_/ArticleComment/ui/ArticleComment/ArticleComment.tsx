@@ -1,4 +1,5 @@
-import { type FC, memo } from 'react'
+import { memo } from 'react'
+import type { FC } from 'react'
 import { AppLink, Image } from 'shared/ui'
 import { noavatar } from 'shared/assets'
 import styles from './ArticleComment.module.scss'

@@ -1,4 +1,5 @@
-import { type FC, type ImgHTMLAttributes, useState } from 'react'
+import { useState } from 'react'
+import type { FC, ImgHTMLAttributes } from 'react'
 import { Skeleton } from '../'
 import { classNames } from '../../lib'
 import styles from './Image.module.scss'

@@ -1,11 +1,11 @@
 import { type FC, useEffect } from 'react'
 import '../styles/index.scss'
-import { classNames, useTheme } from 'shared/lib'
 import { SideBar } from 'widgets/SideBar'
 import { Header } from 'widgets/Header'
 import { PageLoader } from 'widgets/PageLoader'
-import { MainLayout } from 'shared/layouts'
 import { userActions, getUserInitiated } from 'features/Authorization'
+import { MainLayout } from 'shared/layouts'
+import { classNames, useTheme } from 'shared/lib'
 import { useAppDispatch, useAppSelector } from '../providers/StoreProvider'
 import { AppRouter } from '../providers/RouterProvider'
 

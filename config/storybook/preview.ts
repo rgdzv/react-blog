@@ -1,4 +1,3 @@
-import type { Preview } from '@storybook/react'
 import {
     LanguageDecorator,
     RouterDecorator,
@@ -6,6 +5,7 @@ import {
     StyleDecorator,
     ThemeDecorator
 } from 'shared/config'
+import type { Preview } from '@storybook/react'
 
 const preview: Preview = {
     parameters: {

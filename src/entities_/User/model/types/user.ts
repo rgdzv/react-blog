@@ -1,5 +1,5 @@
-import { type UserRole } from '../const/userConst'
-import { type JsonSettings } from './jsonSettings'
+import type { UserRole } from '../const/userConst'
+import type { JsonSettings } from './jsonSettings'
 
 export interface FeatureFlags {
     isArticleRatingEnabled?: boolean

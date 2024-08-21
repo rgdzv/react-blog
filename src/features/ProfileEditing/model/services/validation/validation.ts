@@ -1,4 +1,4 @@
-import { type Profile } from 'entities_/Profile'
+import type { Profile } from 'entities_/Profile'
 
 const requiredField = 'Поле обязательно для заполнения!'
 const minLength = 'Минимум 2 символа!'

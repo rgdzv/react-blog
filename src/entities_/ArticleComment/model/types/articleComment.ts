@@ -1,4 +1,4 @@
-import { type User } from '../../../User/model/types/user'
+import type { User } from '../../../User/model/types/user'
 
 export interface ArticleCommentType {
     id: string

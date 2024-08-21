@@ -1,4 +1,4 @@
-import { type ArticleRatingType } from 'entities_/ArticleRating'
+import type { ArticleRatingType } from 'entities_/ArticleRating'
 
 export interface ArticleRatingSchema {
     data?: ArticleRatingType

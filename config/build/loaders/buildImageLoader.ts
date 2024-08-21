@@ -1,6 +1,6 @@
-import type webpack from 'webpack'
+import type { RuleSetRule } from 'webpack'
 
-export function buildImageLoader(): webpack.RuleSetRule {
+export function buildImageLoader(): RuleSetRule {
     return {
         test: /\.(jpg|png|gif|jpeg)$/,
         exclude: /node_modules/,

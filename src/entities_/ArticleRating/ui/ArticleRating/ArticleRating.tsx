@@ -1,4 +1,5 @@
-import { type FC, memo } from 'react'
+import { memo } from 'react'
+import type { FC } from 'react'
 import { Stars } from 'shared/ui'
 import styles from './ArticleRating.module.scss'
 

@@ -1,10 +1,10 @@
-import { type FC } from 'react'
-import { Input } from 'shared/ui'
-import { SearchIcon } from 'shared/assets'
-import { useArticleFilters } from 'pages/ArticlesPage'
+import type { FC } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useArticleFilters } from 'pages/ArticlesPage'
 import { ArticlesTypeTabs } from 'features/ArticlesInteraction/ArticlesTypeTabs'
 import { ArticlesSortSelector } from 'features/ArticlesInteraction/ArticleSortSelector'
+import { Input } from 'shared/ui'
+import { SearchIcon } from 'shared/assets'
 import styles from './ArticleFilters.module.scss'
 
 export const ArticleFilters: FC = () => {

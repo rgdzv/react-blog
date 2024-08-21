@@ -1,8 +1,9 @@
 import path from 'path'
-import webpack, { type RuleSetRule } from 'webpack'
-import { type BuildPaths } from '../build/types/config'
+import webpack from 'webpack'
 import { buildCSSLoader } from '../build/loaders/buildCSSLoader'
 import { buildSVGLoader } from '../build/loaders/buildSVGLoader'
+import type { RuleSetRule } from 'webpack'
+import type { BuildPaths } from '../build/types/config'
 
 export default ({
     config

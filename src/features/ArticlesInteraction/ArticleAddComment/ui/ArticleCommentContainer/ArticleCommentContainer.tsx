@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import type { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ArticleComment } from 'entities_/ArticleComment'

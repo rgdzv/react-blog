@@ -1,17 +1,17 @@
-import {
-    type CombinedState,
-    type Reducer,
-    type ReducersMapObject,
-    type StoreEnhancer
+import type { ArticleDetailsSchema } from 'pages/ArticleDetailsPage'
+import type { ArticlesSchema } from 'pages/ArticlesPage'
+import type { ArticleCommentSchema } from 'features/ArticlesInteraction/ArticleAddComment'
+import type { ArticleRatingSchema } from 'features/ArticlesInteraction/ArticleRating'
+import type { LoginSchema, UserSchema } from 'features/Authorization'
+import type { ProfileSchema } from 'features/ProfileEditing'
+import type { UISchema } from 'features/UI'
+import type { AxiosInstance } from 'axios'
+import type {
+    CombinedState,
+    Reducer,
+    ReducersMapObject,
+    StoreEnhancer
 } from '@reduxjs/toolkit'
-import { type AxiosInstance } from 'axios'
-import { type ArticleCommentSchema } from 'features/ArticlesInteraction/ArticleAddComment'
-import { type ArticleRatingSchema } from 'features/ArticlesInteraction/ArticleRating'
-import { type LoginSchema, type UserSchema } from 'features/Authorization'
-import { type ProfileSchema } from 'features/ProfileEditing'
-import { type UISchema } from 'features/UI'
-import { type ArticleDetailsSchema } from 'pages/ArticleDetailsPage'
-import { type ArticlesSchema } from 'pages/ArticlesPage'
 
 export interface StateSchema {
     loginForm: LoginSchema

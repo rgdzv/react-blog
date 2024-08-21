@@ -1,6 +1,6 @@
-import type webpack from 'webpack'
+import type { RuleSetRule } from 'webpack'
 
-export function buildTSLoader(): webpack.RuleSetRule {
+export function buildTSLoader(): RuleSetRule {
     return {
         test: /\.tsx?$/,
         use: 'ts-loader',

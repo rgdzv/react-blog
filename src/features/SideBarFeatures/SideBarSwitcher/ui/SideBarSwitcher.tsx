@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import type { FC } from 'react'
 import { ArrowIcon } from 'shared/assets'
 import { Button } from 'shared/ui'
 

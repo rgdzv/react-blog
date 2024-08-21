@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { expect, within } from '@storybook/test'
 import { ArrowIcon, ThemeIcon } from '../../assets'
 import { Button } from './Button'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
     title: 'shared/Button',

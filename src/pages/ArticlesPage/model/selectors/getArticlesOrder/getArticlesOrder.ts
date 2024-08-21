@@ -1,4 +1,4 @@
-import { type StateSchema } from 'app/providers/StoreProvider'
+import type { StateSchema } from 'app/providers/StoreProvider'
 import { ArticleSortOrder } from 'entities_/Article'
 
 export const getArticlesOrder = (state: StateSchema): ArticleSortOrder => {

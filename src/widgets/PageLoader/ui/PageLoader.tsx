@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import type { FC } from 'react'
 import { Loader } from 'shared/ui'
 import styles from './PageLoader.module.scss'
 

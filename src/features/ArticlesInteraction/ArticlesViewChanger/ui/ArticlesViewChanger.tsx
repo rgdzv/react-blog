@@ -1,6 +1,6 @@
-import { type FC } from 'react'
-import { Button } from 'shared/ui'
+import type { FC } from 'react'
 import { useArticleFilters } from 'pages/ArticlesPage'
+import { Button } from 'shared/ui'
 import { viewTypes } from '../model/utils/viewTypes'
 import styles from './ArticlesViewChanger.module.scss'
 

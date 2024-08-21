@@ -1,11 +1,11 @@
+import type { FC } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAppSelector } from 'app/providers/StoreProvider'
 import {
     getUserAvatar,
     isUserAdmin,
     isUserManager
 } from 'features/Authorization'
-import { type FC } from 'react'
-import { useTranslation } from 'react-i18next'
 import { noavatar } from 'shared/assets'
 import { DropDown, Image } from 'shared/ui'
 

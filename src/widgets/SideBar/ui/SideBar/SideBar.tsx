@@ -1,8 +1,9 @@
-import { type FC, useState } from 'react'
-import { classNames } from 'shared/lib'
+import { useState } from 'react'
+import type { FC } from 'react'
 import { SideBarSwitcher } from 'features/SideBarFeatures/SideBarSwitcher'
 import { LangSwitcher } from 'features/SideBarFeatures/LangSwitcher'
 import { ThemeSwitcher } from 'features/SideBarFeatures/ThemeSwitcher'
+import { classNames } from 'shared/lib'
 import { NavBar } from '../../../NavBar'
 import styles from './SideBar.module.scss'
 

@@ -1,4 +1,5 @@
-import { type FC, Suspense } from 'react'
+import { Suspense } from 'react'
+import type { FC } from 'react'
 import { Outlet } from 'react-router-dom'
 import { PageLoader } from 'widgets/PageLoader'
 

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { expect, within } from '@storybook/test'
 import { PageLoader } from './PageLoader'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
     title: 'widget/PageLoader',

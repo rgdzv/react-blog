@@ -1,4 +1,4 @@
-import { type Profile } from 'entities_/Profile'
+import type { Profile } from 'entities_/Profile'
 
 export interface ProfileSchema {
     readOnly: boolean

@@ -1,10 +1,10 @@
-import { createRoot } from 'react-dom/client'
 import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import { RouterConfigProvider } from 'app/providers/RouterProvider'
 import { ErrorBoundary } from 'app/providers/ErrorBoundaryProvider'
-import { i18nForProd } from 'shared/config'
 import { StoreProvider } from 'app/providers/StoreProvider'
+import { i18nForProd } from 'shared/config'
 
 i18nForProd()
 

@@ -1,11 +1,5 @@
-import {
-    type MouseEvent,
-    type RefObject,
-    useCallback,
-    useEffect,
-    useRef,
-    useState
-} from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import type { MouseEvent, RefObject } from 'react'
 
 interface UseModalResult {
     isClosing: boolean

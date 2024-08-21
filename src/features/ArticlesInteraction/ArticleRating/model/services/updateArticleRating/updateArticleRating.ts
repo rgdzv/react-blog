@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type ThunkConfig } from 'app/providers/StoreProvider'
-import { type ArticleRatingType } from 'entities_/ArticleRating'
+import type { ThunkConfig } from 'app/providers/StoreProvider'
+import type { ArticleRatingType } from 'entities_/ArticleRating'
 
 export const updateArticleRating = createAsyncThunk<
     ArticleRatingType,

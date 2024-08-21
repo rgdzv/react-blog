@@ -1,4 +1,4 @@
-import { type FC, type ReactNode } from 'react'
+import type { FC, ReactNode } from 'react'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import { useTheme } from '../../../'
 

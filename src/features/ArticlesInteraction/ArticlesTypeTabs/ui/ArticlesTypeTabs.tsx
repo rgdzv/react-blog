@@ -1,7 +1,7 @@
-import { type FC } from 'react'
+import type { FC } from 'react'
 import { useTranslation } from 'react-i18next'
+import type { ArticleType } from 'entities_/Article'
 import { Button } from 'shared/ui'
-import { type ArticleType } from 'entities_/Article'
 import { typeTabs } from '../model/utils/tabs'
 import styles from './ArticlesTypeTabs.module.scss'
 interface ArticlesTypeTabsPropsInterface {

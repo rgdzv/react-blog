@@ -63,9 +63,80 @@
                 }
             }
         ],
+        "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {
+                "fixStyle": "separate-type-imports"
+            }
+        ],
         "react/prop-types": "off",
         "react/display-name": "off",
         "import/no-cycle": "error",
-        "import/order": "error"
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin",
+                    "external",
+                    "internal",
+                    "parent",
+                    "sibling",
+                    "index",
+                    "object",
+                    "type"
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "external",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "react**",
+                        "group": "external",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "app/**",
+                        "group": "internal",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "pages/**",
+                        "group": "internal",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "widgets/**",
+                        "group": "internal",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "features/**",
+                        "group": "internal",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "entities_/**",
+                        "group": "internal",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "shared/**",
+                        "group": "internal",
+                        "position": "before"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": [
+                    "react",
+                    "app",
+                    "pages",
+                    "widgets",
+                    "features",
+                    "entities_",
+                    "shared"
+                ]
+            }
+        ]
     }
 }

@@ -1,4 +1,4 @@
-import { type User } from 'entities_/User'
+import type { User } from 'entities_/User'
 
 export interface UserSchema {
     authData?: User

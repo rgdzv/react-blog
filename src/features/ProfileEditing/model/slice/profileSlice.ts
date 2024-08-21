@@ -1,9 +1,10 @@
-import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { type Profile } from 'entities_/Profile'
-import { type ProfileSchema } from '../types/profileSchema'
+import { createSlice } from '@reduxjs/toolkit'
+import type { Profile } from 'entities_/Profile'
 import { getProfileData } from '../services/getProfileData/getProfileData'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
 import { validationSchema } from '../services/validation/validation'
+import type { PayloadAction } from '@reduxjs/toolkit'
+import type { ProfileSchema } from '../types/profileSchema'
 
 const initialState: ProfileSchema = {
     readOnly: true,

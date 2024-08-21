@@ -1,7 +1,7 @@
-import { type Decorator } from '@storybook/react'
+import type { ReactNode } from 'react'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
-import { type ReactNode } from 'react'
 import { useTheme } from '../../../lib'
+import type { Decorator } from '@storybook/react'
 
 export const AppSimulation = ({
     children

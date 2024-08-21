@@ -1,5 +1,5 @@
-import { type Decorator } from '@storybook/react'
 import { RouterProvider, createMemoryRouter } from 'react-router-dom'
+import type { Decorator } from '@storybook/react'
 
 export const RouterDecorator: Decorator = (Story) => {
     const router = createMemoryRouter([

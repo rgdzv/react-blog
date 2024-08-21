@@ -1,5 +1,5 @@
-import { ArrowIcon, ThemeIcon } from 'shared/assets'
 import { render, screen } from '@testing-library/react'
+import { ArrowIcon, ThemeIcon } from 'shared/assets'
 import { Button } from './Button'
 
 describe('Button', () => {

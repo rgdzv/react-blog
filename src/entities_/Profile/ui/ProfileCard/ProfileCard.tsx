@@ -1,12 +1,12 @@
-import { type ChangeEvent, type FC } from 'react'
-import { Input, ListBoxElement } from 'shared/ui'
+import type { ChangeEvent, FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { type Profile } from '../../model/types/profile'
-import { type CurrencyType } from '../../model/types/currency'
-import { type CountryType } from '../../model/types/country'
+import { Input, ListBoxElement } from 'shared/ui'
 import { currencies } from '../../lib/currencies'
 import { countries } from '../../lib/countries'
 import styles from './ProfileCard.module.scss'
+import type { Profile } from '../../model/types/profile'
+import type { CurrencyType } from '../../model/types/currency'
+import type { CountryType } from '../../model/types/country'
 
 interface ProfileCardPropsInterface {
     profileForm: Profile

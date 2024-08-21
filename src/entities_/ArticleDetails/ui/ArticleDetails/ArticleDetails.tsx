@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import type { FC } from 'react'
 import { AppLink, Image } from 'shared/ui'
 import { noavatar, noimage } from 'shared/assets'
 import styles from './ArticleDetails.module.scss'

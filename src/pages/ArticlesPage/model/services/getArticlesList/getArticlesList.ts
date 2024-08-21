@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type ThunkConfig } from 'app/providers/StoreProvider'
-import { type Article, ArticleType } from 'entities_/Article'
+import type { ThunkConfig } from 'app/providers/StoreProvider'
+import { ArticleType } from 'entities_/Article'
+import type { Article } from 'entities_/Article'
 import { articlesActions } from '../../slice/ArticlesSlice'
 interface getArticleListProps {
     replace?: boolean

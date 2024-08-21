@@ -1,10 +1,11 @@
-import { type FC, Fragment, type ReactElement } from 'react'
+import { Fragment } from 'react'
+import type { FC, ReactElement } from 'react'
 import { Menu } from '@headlessui/react'
 import { AppLink, Button } from '../../../'
 import { classNames } from '../../../../lib'
 import { mapDirectionClass } from '../../model/consts'
-import { type DropdownDirection } from '../../model/types'
 import styles from './DropDown.module.scss'
+import type { DropdownDirection } from '../../model/types'
 
 export interface DropdownItem {
     disabled?: boolean

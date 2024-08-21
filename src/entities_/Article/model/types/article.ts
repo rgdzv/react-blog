@@ -1,6 +1,6 @@
-import { type User } from 'entities_/User'
-import { type ArticleBlock } from 'entities_/ArticleDetails'
-import { type ArticleType } from '../const/articleConst'
+import type { User } from 'entities_/User'
+import type { ArticleBlock } from 'entities_/ArticleDetails'
+import type { ArticleType } from '../const/articleConst'
 
 export interface Article {
     id: string

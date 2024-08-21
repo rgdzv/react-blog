@@ -1,8 +1,9 @@
-import { type FC, useMemo } from 'react'
-import { AppLink, Button } from 'shared/ui'
+import { useMemo } from 'react'
+import type { FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { AppLink, Button } from 'shared/ui'
+import { classNames } from 'shared/lib'
 import { useAppLinks } from '../lib/hooks/useAppLinks'
 import styles from './NavBar.module.scss'
 interface NavBarPropsInterface {

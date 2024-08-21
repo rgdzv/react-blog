@@ -1,4 +1,4 @@
-import { type Theme } from 'shared/types'
+import type { Theme } from 'shared/types'
 
 export interface JsonSettings {
     theme?: Theme

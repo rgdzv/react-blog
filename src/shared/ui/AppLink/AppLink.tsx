@@ -1,11 +1,7 @@
-import {
-    type FC,
-    type ForwardedRef,
-    type ReactNode,
-    forwardRef,
-    memo
-} from 'react'
-import { Link, type LinkProps } from 'react-router-dom'
+import { forwardRef, memo } from 'react'
+import type { FC, ForwardedRef, ReactNode } from 'react'
+import { Link } from 'react-router-dom'
+import type { LinkProps } from 'react-router-dom'
 interface AppLinkPropsInterface extends LinkProps {
     children: ReactNode
     to: string

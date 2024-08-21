@@ -1,12 +1,12 @@
-import type webpack from 'webpack'
-import { type BuildOptions } from './types/config'
 import { buildCSSLoader } from './loaders/buildCSSLoader'
 import { buildSVGLoader } from './loaders/buildSVGLoader'
 import { buildImageLoader } from './loaders/buildImageLoader'
 import { buildFontLoader } from './loaders/buildFontLoader'
 import { buildBabelLoader } from './loaders/buildBabelLoader'
+import type { BuildOptions } from './types/config'
+import type { RuleSetRule } from 'webpack'
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     const cssLoader = buildCSSLoader(isDev)
     const SVGRLoader = buildSVGLoader()
     const imageLoader = buildImageLoader()

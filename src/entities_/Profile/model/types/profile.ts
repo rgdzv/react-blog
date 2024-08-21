@@ -1,5 +1,5 @@
-import { type CountryType } from './country'
-import { type CurrencyType } from './currency'
+import type { CountryType } from './country'
+import type { CurrencyType } from './currency'
 
 export type ProfileInputs =
     | 'firstname'

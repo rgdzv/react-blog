@@ -1,4 +1,5 @@
-import React, { type ErrorInfo, type ReactNode, Suspense } from 'react'
+import React, { Suspense } from 'react'
+import type { ErrorInfo, ReactNode } from 'react'
 import { PageError } from 'widgets/PageError'
 import { PageLoader } from 'widgets/PageLoader'
 interface ErrorBoundaryProps {

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { expect, within } from '@storybook/test'
 import { Loader } from './Loader'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
     title: 'shared/Loader',

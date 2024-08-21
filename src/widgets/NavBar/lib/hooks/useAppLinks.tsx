@@ -1,6 +1,6 @@
+import type { ReactElement } from 'react'
 import { useAppSelector } from 'app/providers/StoreProvider'
 import { getUserAuthData } from 'features/Authorization'
-import { type ReactElement } from 'react'
 import { ArticleIcon, HomeIcon, InfoIcon, ProfileIcon } from 'shared/assets'
 
 interface Link {

@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import type { FC } from 'react'
 import { ThemeIcon } from 'shared/assets'
 import { useTheme } from 'shared/lib'
 import { Button } from 'shared/ui'

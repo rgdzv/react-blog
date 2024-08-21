@@ -1,11 +1,11 @@
 import path from 'path'
-import type webpack from 'webpack'
 import {
     type BuildEnv,
     type BuildMode,
     type BuildPaths
 } from './config/build/types/config'
 import { buildWebpackConfig } from './config/build/buildWebpackConfig'
+import type webpack from 'webpack'
 
 function getApiUrl(mode: BuildMode, apiUrl?: string): string {
     if (apiUrl !== undefined) {

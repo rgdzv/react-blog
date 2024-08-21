@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { type ThunkConfig } from 'app/providers/StoreProvider'
-import { type Article } from 'entities_/Article'
+import type { ThunkConfig } from 'app/providers/StoreProvider'
 import { getArticleComments } from 'features/ArticlesInteraction/ArticleAddComment'
 import { getArticleRating } from 'features/ArticlesInteraction/ArticleRating'
+import type { Article } from 'entities_/Article'
 
 export const getArticleById = createAsyncThunk<
     Article,
