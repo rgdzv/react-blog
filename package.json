@@ -23,7 +23,20 @@
         "storybook": "storybook dev -p 6006 --config-dir config/storybook/",
         "build-storybook": "storybook build --config-dir config/storybook/",
         "test-storybook": "test-storybook --config-dir config/storybook/ --verbose",
-        "generate": "node ./scripts/createFDSlice/index.js"
+        "generate": "node ./scripts/createFDSlice/index.js",
+        "prepare": "husky"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "**/*.scss": "npm run stylelint:fix",
+        "**/*.{ts,tsx}": [
+            "npm run eslint:fix",
+            "npm run prettier:write"
+        ]
     },
     "author": "rgdzv",
     "license": "ISC",
@@ -76,10 +89,12 @@
         "eslint-plugin-testing-library": "^5.11.0",
         "fork-ts-checker-webpack-plugin": "^9.0.2",
         "html-webpack-plugin": "^5.5.1",
+        "husky": "^9.1.5",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^29.6.3",
         "jest-environment-jsdom": "^29.6.3",
         "json-server": "^0.17.3",
+        "lint-staged": "^15.2.9",
         "mini-css-extract-plugin": "^2.7.6",
         "prettier": "2.8.8",
         "sass": "^1.62.1",

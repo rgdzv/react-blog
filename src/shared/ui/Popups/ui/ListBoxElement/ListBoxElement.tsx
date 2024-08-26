@@ -3,7 +3,6 @@ import { Fragment, memo } from 'react'
 import type { FC, ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Listbox } from '@headlessui/react'
-import type { CountryType, CurrencyType } from 'entities_/Profile'
 import { Button, Skeleton } from '../../../'
 import { ArrowIcon, DoneIcon } from '../../../../assets'
 import { classNames } from '../../../../lib'
@@ -23,7 +22,7 @@ interface ListBoxPropsInterface {
     id?: string
     defaultValue?: string
     value?: string
-    onChange?: ((value: CurrencyType) => void) | ((value: CountryType) => void)
+    onChange?: (value: any) => void
     classNameForListBox?: classNameForListBoxType
     isLoading?: boolean
     disabled?: boolean
