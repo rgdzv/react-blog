@@ -26,11 +26,6 @@
         "generate": "node ./scripts/createFDSlice/index.js",
         "prepare": "husky"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
     "lint-staged": {
         "**/*.scss": "npm run stylelint:fix",
         "**/*.{ts,tsx}": [

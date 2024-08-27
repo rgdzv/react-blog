@@ -22,7 +22,7 @@ export class ErrorBoundary extends React.Component<
     }
 
     componentDidCatch(error: Error, info: ErrorInfo): void {
-        console.log(error, info.componentStack)
+        console.log(error, info.componentStack) // eslint-disable-line
     }
 
     render(): ReactNode {

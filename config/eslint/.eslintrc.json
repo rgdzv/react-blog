@@ -46,6 +46,7 @@
         }
     ],
     "rules": {
+        "no-console": "error",
         "@typescript-eslint/naming-convention": [
             "error",
             {
@@ -138,5 +139,10 @@
                 ]
             }
         ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }
