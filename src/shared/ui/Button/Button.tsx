@@ -29,7 +29,6 @@ interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     selected?: boolean
 }
 
-// eslint-disable-next-line react/display-name
 export const Button = memo(
     forwardRef(
         (props: ButtonPropsInterface, ref: ForwardedRef<HTMLButtonElement>) => {
