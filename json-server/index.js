@@ -4,10 +4,10 @@ const path = require('path')
 const https = require('https')
 const http = require('http')
 
-const options = {
-    key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
-    cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem'))
-}
+// const options = {
+//     key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
+//     cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem'))
+// }
 
 const server = jsonServer.create()
 
@@ -59,7 +59,7 @@ server.use(router)
 const PORT = 8443
 const HTTP_PORT = 8000
 
-const httpsServer = https.createServer(options, server)
+const httpsServer = https.createServer({}, server)
 const httpServer = http.createServer(server)
 
 httpsServer.listen(PORT, () => {

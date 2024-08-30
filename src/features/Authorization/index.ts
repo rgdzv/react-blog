@@ -12,3 +12,4 @@ export {
     getUserRole
 } from './model/selectors/getUserRole/getUserRole'
 export type { UserSchema } from './model/types/userSchema'
+export { initAuthData } from './model/services/initAuthData/initAuthData'

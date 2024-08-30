@@ -3,7 +3,7 @@ import '../styles/index.scss'
 import { SideBar } from 'widgets/SideBar'
 import { Header } from 'widgets/Header'
 import { PageLoader } from 'widgets/PageLoader'
-import { userActions, getUserInitiated } from 'features/Authorization'
+import { getUserInitiated, initAuthData } from 'features/Authorization'
 import { MainLayout } from 'shared/layouts'
 import { classNames, useTheme } from 'shared/lib'
 import { useAppDispatch, useAppSelector } from '../providers/StoreProvider'
@@ -17,7 +17,7 @@ const App: FC = () => {
 
     useEffect(() => {
         if (!init) {
-            dispatch(userActions.initAuthData())
+            void dispatch(initAuthData())
         }
     }, [dispatch, init])
 
