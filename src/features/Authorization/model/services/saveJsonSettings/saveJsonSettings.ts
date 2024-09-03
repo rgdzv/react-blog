@@ -17,8 +17,10 @@ export const saveJsonSettings = createAsyncThunk<
         const { data } = await extra.axiosAPI.patch<User>(
             `/users/${userId as string}`,
             {
-                ...oldJsonSettings,
-                newJsonSettings
+                jsonSettings: {
+                    ...oldJsonSettings,
+                    ...newJsonSettings
+                }
             }
         )
 

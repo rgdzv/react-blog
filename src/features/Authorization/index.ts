@@ -6,6 +6,7 @@ export { userReducer, userActions } from './model/slice/userSlice/userSlice'
 export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData'
 export { getUserInitiated } from './model/selectors/getUserInitiated/getUserInitiated'
 export { getUserAvatar } from './model/selectors/getUserAvatar/getUserAvatar'
+export { getUserJsonSettings } from './model/selectors/getUserJsonSettings/getUserJsonSettings'
 export {
     isUserAdmin,
     isUserManager,
@@ -13,3 +14,4 @@ export {
 } from './model/selectors/getUserRole/getUserRole'
 export type { UserSchema } from './model/types/userSchema'
 export { initAuthData } from './model/services/initAuthData/initAuthData'
+export { saveJsonSettings } from './model/services/saveJsonSettings/saveJsonSettings'

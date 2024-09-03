@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { JsonSettings, User } from 'entities_/User'
-import { USER_LOCALSTORAGE_KEY } from 'shared/const'
+import { LOCAL_STORAGE_THEME_KEY, USER_LOCALSTORAGE_KEY } from 'shared/const'
+import type { Theme } from 'shared/types'
 import { initAuthData } from '../../services/initAuthData/initAuthData'
 import { saveJsonSettings } from '../../services/saveJsonSettings/saveJsonSettings'
 import type { PayloadAction } from '@reduxjs/toolkit'
@@ -17,10 +18,15 @@ export const userSlice = createSlice({
         setAuthData: (state, action: PayloadAction<User>) => {
             state.authData = action.payload
             localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.id)
+            localStorage.setItem(
+                LOCAL_STORAGE_THEME_KEY,
+                action.payload.jsonSettings?.theme as Theme
+            )
         },
         logOutUser: (state) => {
             state.authData = undefined
             localStorage.removeItem(USER_LOCALSTORAGE_KEY)
+            localStorage.removeItem(LOCAL_STORAGE_THEME_KEY)
         }
     },
     extraReducers: (builder) => {
