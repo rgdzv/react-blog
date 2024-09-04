@@ -15,3 +15,4 @@ export {
 export type { UserSchema } from './model/types/userSchema'
 export { initAuthData } from './model/services/initAuthData/initAuthData'
 export { saveJsonSettings } from './model/services/saveJsonSettings/saveJsonSettings'
+export { getUserJsonSettingsIsLoading } from './model/selectors/getUserJsonSettingsIsLoading/getUserJsonSettingsIsLoading'

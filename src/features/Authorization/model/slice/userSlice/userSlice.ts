@@ -40,14 +40,27 @@ export const userSlice = createSlice({
         builder.addCase(initAuthData.rejected, (state) => {
             state.initiated = true
         })
+        builder.addCase(saveJsonSettings.pending, (state) => {
+            state.error = undefined
+            state.isLoading = true
+        })
         builder.addCase(
             saveJsonSettings.fulfilled,
             (state, action: PayloadAction<JsonSettings>) => {
                 if (state.authData !== undefined) {
                     state.authData.jsonSettings = action.payload
                 }
+                state.isLoading = false
             }
         )
+        builder.addCase(saveJsonSettings.rejected, (state, action) => {
+            if (action.payload !== undefined) {
+                state.error = action.payload
+            } else {
+                state.error = action.error.message
+            }
+            state.isLoading = false
+        })
     }
 })
 

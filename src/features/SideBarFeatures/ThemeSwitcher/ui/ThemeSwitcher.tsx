@@ -4,12 +4,17 @@ import { ThemeIcon } from 'shared/assets'
 import { useTheme } from 'shared/lib'
 import { Button } from 'shared/ui'
 import { Theme } from 'shared/types'
-import { getUserAuthData, saveJsonSettings } from '../../../Authorization'
+import {
+    getUserAuthData,
+    getUserJsonSettingsIsLoading,
+    saveJsonSettings
+} from '../../../Authorization'
 
 export const ThemeSwitcher: FC = () => {
     const { theme, toggleTheme } = useTheme()
     const dispatch = useAppDispatch()
     const user = useAppSelector(getUserAuthData)
+    const jsonSettingsIsLoading = useAppSelector(getUserJsonSettingsIsLoading)
     const themeAriaLabel = theme === 'dark' ? 'to-light-theme' : 'to-dark-theme'
 
     const handleToggleTheme = useCallback(() => {
@@ -29,6 +34,7 @@ export const ThemeSwitcher: FC = () => {
             className='theme'
             onClick={handleToggleTheme}
             aria-label={themeAriaLabel}
+            disabled={jsonSettingsIsLoading}
         >
             <ThemeIcon data-testid='theme-icon' />
         </Button>

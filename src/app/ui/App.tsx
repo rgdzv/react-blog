@@ -1,4 +1,4 @@
-import { type FC, useEffect } from 'react'
+import { type FC, useEffect, Suspense } from 'react'
 import '../styles/index.scss'
 import { SideBar } from 'widgets/SideBar'
 import { Header } from 'widgets/Header'
@@ -21,16 +21,20 @@ const App: FC = () => {
         }
     }, [dispatch, init])
 
-    const showAppRouterCondition = init ? <AppRouter /> : <PageLoader />
+    const showContentCondition = init ? (
+        <MainLayout
+            header={<Header />}
+            content={<AppRouter />}
+            sidebar={<SideBar />}
+        />
+    ) : (
+        <PageLoader />
+    )
 
     return (
-        <div className={classNameFinal}>
-            <MainLayout
-                header={<Header />}
-                content={showAppRouterCondition}
-                sidebar={<SideBar />}
-            />
-        </div>
+        <Suspense>
+            <div className={classNameFinal}>{showContentCondition}</div>
+        </Suspense>
     )
 }
 

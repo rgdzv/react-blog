@@ -28,7 +28,7 @@
     },
     "lint-staged": {
         "**/*.scss": "npm run stylelint:fix",
-        "**/*.{ts,tsx}": [
+        "**/*.{ts,tsx,json}": [
             "npm run eslint:fix",
             "npm run prettier:write"
         ]
