@@ -34,15 +34,6 @@
                 ],
                 "i18next/no-literal-string": "off"
             }
-        },
-        {
-            "files": ["**/*.stories.@(js|jsx|ts|tsx)"],
-            "extends": ["plugin:storybook/recommended"],
-            "rules": {
-                "i18next/no-literal-string": "off",
-                "@typescript-eslint/await-thenable": "off",
-                "@typescript-eslint/no-confusing-void-expression": "off"
-            }
         }
     ],
     "rules": {

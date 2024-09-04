@@ -40,30 +40,9 @@ jobs:
               run: npm ci
             - name: unit-test
               run: npm run jest-unit
-    Storybook-test:
-        runs-on: ubuntu-latest
-        needs: ['lint', 'RTL-test']
-        strategy:
-            matrix:
-                node-version: [20.x]
-        steps:
-            - uses: actions/checkout@v4
-            - name: Starting Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v4
-              with:
-                  node-version: ${{ matrix.node-version }}
-            - name: install dependencies
-              run: npm ci
-            - name: build Storybook
-              run: npm run build-storybook --quiet
-            - name: serve Storybook and run tests
-              run: |
-                  npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-                    "npx http-server storybook-static --port 6006 --silent" \
-                    "npx wait-on tcp:6006 && npm run test-storybook"
     build:
         runs-on: ubuntu-latest
-        needs: [lint, RTL-test, Storybook-test]
+        needs: [lint, RTL-test]
         strategy:
             matrix:
                 node-version: [20.x]
