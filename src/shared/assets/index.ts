@@ -16,6 +16,7 @@ import CopyIcon from './icons/copy-icon.svg'
 import StarIcon from './icons/star-icon.svg'
 import SendCommentIcon from './icons/send-comment-icon.svg'
 import DeleteCommentIcon from './icons/delete-comment-icon.svg'
+import ScrollTopIcon from './icons/scroll-top-icon.svg'
 
 export {
     ThemeIcon,
@@ -35,5 +36,6 @@ export {
     CopyIcon,
     StarIcon,
     SendCommentIcon,
-    DeleteCommentIcon
+    DeleteCommentIcon,
+    ScrollTopIcon
 }

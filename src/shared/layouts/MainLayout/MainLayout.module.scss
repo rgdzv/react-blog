@@ -12,8 +12,6 @@
 }
 
 .content {
-    position: relative;
-
     grid-area: content;
     justify-self: center;
 
@@ -23,10 +21,11 @@
 }
 
 .rightbar {
+    position: relative;
+
     display: flex;
     grid-area: rightbar;
     flex-direction: column;
-    align-items: flex-end;
 
     padding-right: 32px;
 }

@@ -5,18 +5,24 @@ interface MainLayoutPropsInterface {
     content: ReactElement
     sidebar: ReactElement
     header: ReactElement
+    toolbar?: ReactElement
 }
 
 export const MainLayout: FC<MainLayoutPropsInterface> = ({
     content,
     sidebar,
-    header
+    header,
+    toolbar
 }) => {
+    const toolbarCondition = toolbar !== undefined ? toolbar : null
     return (
         <main className={styles.main}>
             <div className={styles.sidebar}>{sidebar}</div>
             <div className={styles.content}>{content}</div>
-            <div className={styles.rightbar}>{header}</div>
+            <div className={styles.rightbar}>
+                {header}
+                {toolbarCondition}
+            </div>
         </main>
     )
 }

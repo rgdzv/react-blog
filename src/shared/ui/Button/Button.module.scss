@@ -33,7 +33,8 @@
 .deleteComment,
 .password_eye,
 .copy,
-.search, {
+.search,
+.scrolltop {
     svg {
         fill: var(--main-color)
     }
@@ -179,6 +180,15 @@
         svg {
             scale: 0.8
         }
+    }
+}
+
+.scrolltop {
+    opacity: 0.5;
+    transition: opacity .2s linear;
+
+    &:hover {
+        opacity: 1
     }
 }
 

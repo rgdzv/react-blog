@@ -21,6 +21,7 @@ type ClassNameType =
     | 'search'
     | 'sendComment'
     | 'deleteComment'
+    | 'scrolltop'
 
 interface ButtonPropsInterface extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode

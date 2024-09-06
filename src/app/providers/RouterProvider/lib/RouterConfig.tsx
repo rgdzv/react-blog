@@ -10,6 +10,7 @@ import { AdminPage } from 'pages/AdminPage'
 import { SettingsPage } from 'pages/SettingsPage'
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
 import { UserRole } from 'entities_/User'
+import { RoutesType } from 'shared/types'
 import { RequiredAuth } from '../ui/RequiredAuth'
 
 export const routes = [
@@ -23,11 +24,11 @@ export const routes = [
                 index: true
             },
             {
-                path: 'about',
+                path: RoutesType.ABOUT,
                 element: <AboutPage />
             },
             {
-                path: 'profile/:id',
+                path: `${RoutesType.PROFILE}/:id`,
                 element: (
                     <RequiredAuth>
                         <ProfilePage />
@@ -35,7 +36,7 @@ export const routes = [
                 )
             },
             {
-                path: 'articles',
+                path: RoutesType.ARTICLES,
                 element: (
                     <RequiredAuth>
                         <ArticlesPage />
@@ -43,7 +44,7 @@ export const routes = [
                 )
             },
             {
-                path: 'articles/:id',
+                path: `${RoutesType.ARTICLES}/:id`,
                 element: (
                     <RequiredAuth>
                         <ArticleDetailsPage />
@@ -51,7 +52,7 @@ export const routes = [
                 )
             },
             {
-                path: 'admin',
+                path: RoutesType.ADMIN,
                 element: (
                     <RequiredAuth roles={[UserRole.ADMIN, UserRole.MANAGER]}>
                         <AdminPage />
@@ -59,7 +60,7 @@ export const routes = [
                 )
             },
             {
-                path: 'settings',
+                path: RoutesType.SETTINGS,
                 element: (
                     <RequiredAuth>
                         <SettingsPage />
