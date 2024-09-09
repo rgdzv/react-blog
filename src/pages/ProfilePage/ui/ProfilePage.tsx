@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useAppDispatch } from 'app/providers/StoreProvider'
 import { Page } from 'widgets/Page'
 import {
-    ProfileEditWrapper,
+    ProfileEditContainer,
     getProfileData,
     profileReducer
 } from 'features/ProfileEditing'
@@ -27,7 +27,7 @@ const ProfilePage: FC = () => {
     return (
         <DynamicReducerLoader reducers={reducers}>
             <Page dataTestId='profile-page'>
-                <ProfileEditWrapper />
+                <ProfileEditContainer />
             </Page>
         </DynamicReducerLoader>
     )

@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { AppLink, Image } from 'shared/ui'
 import { noavatar, noimage } from 'shared/assets'
+import { RoutesType } from 'shared/types'
 import styles from './ArticleDetails.module.scss'
 
 interface ArticleDetailsPropsInterface {
@@ -28,7 +29,7 @@ export const ArticleDetails: FC<ArticleDetailsPropsInterface> = ({
         <div className={styles.listItem}>
             <div className={styles.userInfo}>
                 <AppLink
-                    to={`/profile/${profileId}`}
+                    to={`/${RoutesType.PROFILE}/${profileId}`}
                     className={styles.userInfoLink}
                 >
                     <Image

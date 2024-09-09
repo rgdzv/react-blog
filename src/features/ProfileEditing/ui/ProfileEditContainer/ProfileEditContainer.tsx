@@ -7,9 +7,9 @@ import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/g
 import { ProfileEditCard } from '../ProfileEditCard/ProfileEditCard'
 import { getProfileDataAvatar } from '../../model/selectors/getProfileDataAvatar/getProfileDataAvatar'
 import { getProfileValidErrors } from '../../model/selectors/gerProfileValidErrors/getProfileValidErrors'
-import styles from './ProfileEditWrapper.module.scss'
+import styles from './ProfileEditContainer.module.scss'
 
-export const ProfileEditWrapper: FC = () => {
+export const ProfileEditContainer: FC = () => {
     const authData = useAppSelector(getUserAuthData)
     const profileForm = useAppSelector(getProfileForm)
     const isLoading = useAppSelector(getProfileIsLoading)

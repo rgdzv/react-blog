@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
-import { useDispatch } from 'react-redux'
-import { useAppStore } from 'app/providers/StoreProvider'
+import { useAppDispatch, useAppStore } from 'app/providers/StoreProvider'
 import type { StateSchema, StateSchemaKey } from 'app/providers/StoreProvider'
 import type { Reducer } from '@reduxjs/toolkit'
 
@@ -21,7 +20,7 @@ export const DynamicReducerLoader: FC<DynamicReducerLoaderProps> = ({
     removeAfterUnmount = true
 }) => {
     const store = useAppStore()
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         const mountedReducers = store.reducerManager.getReducerMap()

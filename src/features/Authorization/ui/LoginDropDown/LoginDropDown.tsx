@@ -8,6 +8,7 @@ import {
 } from 'features/Authorization'
 import { noavatar } from 'shared/assets'
 import { DropDown, Image } from 'shared/ui'
+import { RoutesType } from 'shared/types'
 
 interface LoginDropDownPropsInterface {
     handleLogOut: () => void
@@ -32,12 +33,12 @@ export const LoginDropDown: FC<LoginDropDownPropsInterface> = ({
         {
             id: 'settings',
             content: t('Настройки'),
-            href: '/settings'
+            href: `/${RoutesType.SETTINGS}`
         },
         {
             id: 'profile',
             content: t('Профиль'),
-            href: `/profile/${id}`
+            href: `/${RoutesType.PROFILE}/${id}`
         },
         {
             id: 'out',

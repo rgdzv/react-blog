@@ -2,6 +2,7 @@ import type { ReactElement } from 'react'
 import { useAppSelector } from 'app/providers/StoreProvider'
 import { getUserAuthData } from 'features/Authorization'
 import { ArticleIcon, HomeIcon, InfoIcon, ProfileIcon } from 'shared/assets'
+import { RoutesType } from 'shared/types'
 
 interface Link {
     to: string
@@ -20,7 +21,7 @@ export const useAppLinks = (): Link[] => {
             icon: <HomeIcon data-testid='home-icon' />
         },
         {
-            to: '/about',
+            to: `/${RoutesType.ABOUT}`,
             name: 'О сайте',
             file: 'about',
             icon: <InfoIcon data-testid='info-icon' />
@@ -30,13 +31,13 @@ export const useAppLinks = (): Link[] => {
     if (userData !== undefined) {
         links.push(
             {
-                to: `/profile/${userData?.id}`,
+                to: `/${RoutesType.PROFILE}/${userData?.id}`,
                 name: 'Профиль',
                 file: 'profile',
                 icon: <ProfileIcon data-testid='profile-icon' />
             },
             {
-                to: `/articles`,
+                to: `/${RoutesType.ARTICLES}`,
                 name: 'Статьи',
                 file: 'article',
                 icon: <ArticleIcon data-testid='article-icon' />

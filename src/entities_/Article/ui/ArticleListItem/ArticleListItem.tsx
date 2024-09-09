@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { AppLink, Button, Image } from 'shared/ui'
 import { EyeIcon, noavatar, noimage } from 'shared/assets'
+import { RoutesType } from 'shared/types'
 import styles from './ArticleListItem.module.scss'
 
 interface ArticleListItemPropsInterface {
@@ -33,7 +34,10 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
     return (
         <div className={styles.listItem}>
             <div className={styles.userInfo}>
-                <AppLink to={`/profile/${id}`} className={styles.userInfoLink}>
+                <AppLink
+                    to={`/${RoutesType.PROFILE}/${id}`}
+                    className={styles.userInfoLink}
+                >
                     <Image
                         className='article_avatar'
                         alt='article avatar'
@@ -58,7 +62,7 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = ({
                 <p className={styles.text}>{textBlock}</p>
             </div>
             <div className={styles.listItemFooter}>
-                <AppLink to={`/articles/${articleId}`}>
+                <AppLink to={`/${RoutesType.ARTICLES}/${articleId}`}>
                     <Button className='bordered'>{buttonName}</Button>
                 </AppLink>
                 <div className={styles.views}>

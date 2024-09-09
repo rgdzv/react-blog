@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { AppLink, Image } from 'shared/ui'
 import { EyeIcon, noavatar, noimage } from 'shared/assets'
+import { RoutesType } from 'shared/types'
 import styles from './ArticleListItemSmall.module.scss'
 
 interface ArticleListItemSmallPropsInterface {
@@ -27,7 +28,7 @@ export const ArticleListItemSmall: FC<ArticleListItemSmallPropsInterface> = ({
     return (
         <div className={styles.listItemSmall}>
             <AppLink
-                to={`/articles/${articleId}`}
+                to={`/${RoutesType.ARTICLES}/${articleId}`}
                 className={styles.articleImageSmall}
             >
                 <Image
@@ -49,7 +50,7 @@ export const ArticleListItemSmall: FC<ArticleListItemSmallPropsInterface> = ({
             </div>
             <div className={styles.userInfoSmall}>
                 <AppLink
-                    to={`/profile/${id}`}
+                    to={`/${RoutesType.PROFILE}/${id}`}
                     className={styles.userInfoLinkSmall}
                 >
                     <Image
