@@ -1,10 +1,10 @@
-import type { FC } from 'react'
+import { memo, type FC } from 'react'
 import { useArticleFilters } from 'pages/ArticlesPage'
 import { Button } from 'shared/ui'
 import { viewTypes } from '../model/utils/viewTypes'
 import styles from './ArticlesViewChanger.module.scss'
 
-export const ArticlesViewChanger: FC = () => {
+export const ArticlesViewChanger: FC = memo(() => {
     const { view, onChangeView } = useArticleFilters()
 
     const viewIcons = viewTypes.map((item) => {
@@ -27,4 +27,4 @@ export const ArticlesViewChanger: FC = () => {
     })
 
     return <div className={styles.viewChanger}>{viewIcons}</div>
-}
+})

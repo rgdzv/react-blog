@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { memo, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { ArticleSortField, ArticleSortOrder } from 'entities_/Article'
 import { ListBoxElement } from 'shared/ui'
@@ -13,29 +13,25 @@ interface ArticlesSortSelectorPropsInterface {
     onChangeOrder: (newOrder: ArticleSortOrder) => void
 }
 
-export const ArticlesSortSelector: FC<ArticlesSortSelectorPropsInterface> = ({
-    sort,
-    onChangeSort,
-    order,
-    onChangeOrder
-}) => {
-    const { t } = useTranslation('article')
-    const sortSign = t('Сортировать по:')
+export const ArticlesSortSelector: FC<ArticlesSortSelectorPropsInterface> =
+    memo(({ sort, onChangeSort, order, onChangeOrder }) => {
+        const { t } = useTranslation('article')
+        const sortSign = t('Сортировать по:')
 
-    return (
-        <div className={styles.articleSortSelector}>
-            <div className={styles.sortSign}>{sortSign}</div>
-            <ListBoxElement
-                options={sortOptions}
-                onChange={onChangeSort}
-                value={sort}
-                classNameForListBox='articleSort'
-            />
-            <ListBoxElement
-                options={orderOptions}
-                onChange={onChangeOrder}
-                value={order}
-            />
-        </div>
-    )
-}
+        return (
+            <div className={styles.articleSortSelector}>
+                <div className={styles.sortSign}>{sortSign}</div>
+                <ListBoxElement
+                    options={sortOptions}
+                    onChange={onChangeSort}
+                    value={sort}
+                    classNameForListBox='articleSort'
+                />
+                <ListBoxElement
+                    options={orderOptions}
+                    onChange={onChangeOrder}
+                    value={order}
+                />
+            </div>
+        )
+    })

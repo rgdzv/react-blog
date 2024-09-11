@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { memo, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { ArticleType } from 'entities_/Article'
 import { Button } from 'shared/ui'
@@ -9,32 +9,31 @@ interface ArticlesTypeTabsPropsInterface {
     onChangeType: (type: ArticleType) => void
 }
 
-export const ArticlesTypeTabs: FC<ArticlesTypeTabsPropsInterface> = ({
-    type,
-    onChangeType
-}) => {
-    const { t } = useTranslation('article')
+export const ArticlesTypeTabs: FC<ArticlesTypeTabsPropsInterface> = memo(
+    ({ type, onChangeType }) => {
+        const { t } = useTranslation('article')
 
-    const tabs = typeTabs.map((tab) => {
-        const selected = tab.value === type
+        const tabs = typeTabs.map((tab) => {
+            const selected = tab.value === type
 
-        const onClick = (): void => {
-            onChangeType(tab.value)
-        }
+            const onClick = (): void => {
+                onChangeType(tab.value)
+            }
 
-        const content = t(tab.content)
+            const content = t(tab.content)
 
-        return (
-            <Button
-                key={tab.value}
-                className='articleTab'
-                selected={selected}
-                onClick={onClick}
-            >
-                {content}
-            </Button>
-        )
-    })
+            return (
+                <Button
+                    key={tab.value}
+                    className='articleTab'
+                    selected={selected}
+                    onClick={onClick}
+                >
+                    {content}
+                </Button>
+            )
+        })
 
-    return <div className={styles.articlesTabs}>{tabs}</div>
-}
+        return <div className={styles.articlesTabs}>{tabs}</div>
+    }
+)

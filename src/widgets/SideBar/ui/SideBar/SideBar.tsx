@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import type { FC } from 'react'
 import { SideBarSwitcher } from 'features/SideBarFeatures/SideBarSwitcher'
 import { LangSwitcher } from 'features/SideBarFeatures/LangSwitcher'
@@ -10,9 +10,9 @@ import styles from './SideBar.module.scss'
 export const SideBar: FC = () => {
     const [collapsed, setCollapsed] = useState(false)
 
-    const handleToggle = (): void => {
+    const handleToggle = useCallback((): void => {
         setCollapsed((prev) => !prev)
-    }
+    }, [])
 
     const classNameFinal = classNames(styles.sideBar, {
         [styles.collapsed]: collapsed

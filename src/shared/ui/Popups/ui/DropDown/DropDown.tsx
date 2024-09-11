@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, memo } from 'react'
 import type { FC, ReactElement } from 'react'
 import { Menu } from '@headlessui/react'
 import { AppLink, Button } from '../../../'
@@ -21,21 +21,38 @@ interface DropDownPropsInterface {
     direction: string
 }
 
-export const DropDown: FC<DropDownPropsInterface> = ({
-    trigger,
-    items,
-    direction
-}) => {
-    const menuItemsClassName = classNames(styles.menu, {}, [
-        mapDirectionClass[direction as DropdownDirection]
-    ])
+export const DropDown: FC<DropDownPropsInterface> = memo(
+    ({ trigger, items, direction }) => {
+        const menuItemsClassName = classNames(styles.menu, {}, [
+            mapDirectionClass[direction as DropdownDirection]
+        ])
 
-    return (
-        <Menu as='div' className={styles.dropDown}>
-            <Menu.Button as={Button}>{trigger}</Menu.Button>
-            <Menu.Items className={menuItemsClassName}>
-                {items?.map((item) => {
-                    if (item.href === undefined) {
+        return (
+            <Menu as='div' className={styles.dropDown}>
+                <Menu.Button as={Button}>{trigger}</Menu.Button>
+                <Menu.Items className={menuItemsClassName}>
+                    {items?.map((item) => {
+                        if (item.href === undefined) {
+                            return (
+                                <Menu.Item
+                                    key={item.id}
+                                    as={Fragment}
+                                    disabled={item.disabled}
+                                >
+                                    {({ active }) => (
+                                        <span
+                                            className={classNames(styles.item, {
+                                                [styles.active]: active
+                                            })}
+                                            onClick={item.onClick}
+                                        >
+                                            {item.content}
+                                        </span>
+                                    )}
+                                </Menu.Item>
+                            )
+                        }
+
                         return (
                             <Menu.Item
                                 key={item.id}
@@ -43,39 +60,20 @@ export const DropDown: FC<DropDownPropsInterface> = ({
                                 disabled={item.disabled}
                             >
                                 {({ active }) => (
-                                    <span
+                                    <AppLink
+                                        to={item.href as string}
                                         className={classNames(styles.item, {
                                             [styles.active]: active
                                         })}
-                                        onClick={item.onClick}
                                     >
                                         {item.content}
-                                    </span>
+                                    </AppLink>
                                 )}
                             </Menu.Item>
                         )
-                    }
-
-                    return (
-                        <Menu.Item
-                            key={item.id}
-                            as={Fragment}
-                            disabled={item.disabled}
-                        >
-                            {({ active }) => (
-                                <AppLink
-                                    to={item.href as string}
-                                    className={classNames(styles.item, {
-                                        [styles.active]: active
-                                    })}
-                                >
-                                    {item.content}
-                                </AppLink>
-                            )}
-                        </Menu.Item>
-                    )
-                })}
-            </Menu.Items>
-        </Menu>
-    )
-}
+                    })}
+                </Menu.Items>
+            </Menu>
+        )
+    }
+)

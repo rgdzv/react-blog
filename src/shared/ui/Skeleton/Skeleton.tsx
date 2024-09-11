@@ -1,11 +1,11 @@
-import type { FC } from 'react'
+import { memo, type FC } from 'react'
 import styles from './Skeleton.module.scss'
 
 interface SkeletonPropsInterface {
     type?: string
 }
 
-export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
+export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
     if (type === 'profileHeader') {
         return <div className={styles.profileHeader}></div>
     }
@@ -109,4 +109,4 @@ export const Skeleton: FC<SkeletonPropsInterface> = ({ type }) => {
     }
 
     return <div className={styles.skeleton}></div>
-}
+})

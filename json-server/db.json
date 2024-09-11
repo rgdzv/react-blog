@@ -574,18 +574,6 @@
             "userId": "1",
             "text": "gdfg",
             "id": "ykrwBPa"
-        },
-        {
-            "articleId": "1",
-            "userId": "1",
-            "text": "gdfg",
-            "id": "dTLxrpC"
-        },
-        {
-            "articleId": "1",
-            "userId": "1",
-            "text": "tyu",
-            "id": "Nb9e7Qc"
         }
     ],
     "users": [
@@ -652,7 +640,7 @@
     "profile": [
         {
             "id": "1",
-            "firstname": "Sergeyр",
+            "firstname": "Sergey",
             "lastname": "Romanov",
             "age": "19",
             "currency": "Доллар",

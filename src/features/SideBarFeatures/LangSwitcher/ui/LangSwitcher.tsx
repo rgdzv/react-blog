@@ -1,8 +1,8 @@
-import type { FC } from 'react'
+import { memo, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui'
 
-export const LangSwitcher: FC = () => {
+export const LangSwitcher: FC = memo(() => {
     const { t, i18n } = useTranslation()
     const language = t('ru')
 
@@ -15,4 +15,4 @@ export const LangSwitcher: FC = () => {
             {language}
         </Button>
     )
-}
+})

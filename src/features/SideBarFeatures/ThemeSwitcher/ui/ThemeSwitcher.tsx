@@ -1,4 +1,4 @@
-import { useCallback, type FC } from 'react'
+import { useCallback, type FC, memo } from 'react'
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ThemeIcon } from 'shared/assets'
 import { useTheme } from 'shared/lib'
@@ -10,7 +10,7 @@ import {
     saveJsonSettings
 } from '../../../Authorization'
 
-export const ThemeSwitcher: FC = () => {
+export const ThemeSwitcher: FC = memo(() => {
     const { theme, toggleTheme } = useTheme()
     const dispatch = useAppDispatch()
     const user = useAppSelector(getUserAuthData)
@@ -39,4 +39,4 @@ export const ThemeSwitcher: FC = () => {
             <ThemeIcon data-testid='theme-icon' />
         </Button>
     )
-}
+})

@@ -22,19 +22,22 @@ export const ArticleAddComment: FC = memo(() => {
         [dispatch]
     )
 
-    const sendComment = (): void => {
+    const sendComment = useCallback((): void => {
         if (text !== '') {
             void dispatch(addArticleComment(text))
             dispatch(articleCommentsActions.setText(''))
         }
-    }
+    }, [dispatch, text])
 
-    const sendCommentOnEnter = (e: KeyboardEvent<HTMLInputElement>): void => {
-        if (e.key === 'Enter' && text !== '') {
-            void dispatch(addArticleComment(text))
-            dispatch(articleCommentsActions.setText(''))
-        }
-    }
+    const sendCommentOnEnter = useCallback(
+        (e: KeyboardEvent<HTMLInputElement>): void => {
+            if (e.key === 'Enter' && text !== '') {
+                void dispatch(addArticleComment(text))
+                dispatch(articleCommentsActions.setText(''))
+            }
+        },
+        [dispatch, text]
+    )
 
     return (
         <div className={styles.articleAddComment}>

@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import type { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -10,7 +10,7 @@ interface NavBarPropsInterface {
     collapsed: boolean
 }
 
-export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
+export const NavBar: FC<NavBarPropsInterface> = memo(({ collapsed }) => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const { t } = useTranslation(['main', 'about', 'profile', 'article'])
@@ -58,4 +58,4 @@ export const NavBar: FC<NavBarPropsInterface> = ({ collapsed }) => {
             <ul>{linkList}</ul>
         </nav>
     )
-}
+})

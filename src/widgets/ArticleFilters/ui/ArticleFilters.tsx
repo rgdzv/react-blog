@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { memo, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useArticleFilters } from 'pages/ArticlesPage'
 import { ArticlesTypeTabs } from 'features/ArticlesInteraction/ArticlesTypeTabs'
@@ -7,7 +7,7 @@ import { Input } from 'shared/ui'
 import { SearchIcon } from 'shared/assets'
 import styles from './ArticleFilters.module.scss'
 
-export const ArticleFilters: FC = () => {
+export const ArticleFilters: FC = memo(() => {
     const {
         search,
         onChangeSearch,
@@ -40,4 +40,4 @@ export const ArticleFilters: FC = () => {
             />
         </div>
     )
-}
+})
