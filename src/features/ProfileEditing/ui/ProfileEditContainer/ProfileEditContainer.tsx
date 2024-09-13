@@ -1,6 +1,6 @@
 import type { FC } from 'react'
-import { useAppSelector } from 'app/providers/StoreProvider'
 import { getUserAuthData } from 'features/Authorization'
+import { useAppSelector } from 'shared/lib'
 import { ProfileEditHeader } from '../ProfileEditHeader/ProfileEditHeader'
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'

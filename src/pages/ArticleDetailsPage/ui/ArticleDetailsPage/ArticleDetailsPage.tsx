@@ -1,13 +1,16 @@
 import { useEffect } from 'react'
 import type { FC } from 'react'
 import { useParams } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { Page } from 'widgets/Page'
 import { articleCommentsReducer } from 'features/ArticlesInteraction/ArticleAddComment'
 import { ArticleDetailsEdit } from 'features/ArticlesInteraction/ArticleDetailsEdit'
 import { articleRatingReducer } from 'features/ArticlesInteraction/ArticleRating'
 import { getUserAuthData } from 'features/Authorization'
-import { DynamicReducerLoader } from 'shared/lib'
+import {
+    DynamicReducerLoader,
+    useAppDispatch,
+    useAppSelector
+} from 'shared/lib'
 import type { ReducersList } from 'shared/lib'
 import { ArticleDetailsContainer } from '../ArticleDetailsContainer/ArticleDetailsContainer'
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'

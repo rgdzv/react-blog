@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { FC, ImgHTMLAttributes } from 'react'
-import { Skeleton } from '../'
-import { classNames } from '../../lib'
+import { Skeleton } from '../Skeleton/Skeleton'
+import { classNames } from '../../lib/classNames/classNames'
 import styles from './Image.module.scss'
 
 type ClassNameType =

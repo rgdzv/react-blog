@@ -1,8 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { FC, ReactNode } from 'react'
-import { useAppSelector } from 'app/providers/StoreProvider'
 import { getUserJsonSettings } from 'features/Authorization'
-import { ThemeContext } from 'shared/lib'
+import { ThemeContext, useAppSelector } from 'shared/lib'
 import { Theme } from 'shared/types'
 interface ThemeContextProps {
     children: ReactNode

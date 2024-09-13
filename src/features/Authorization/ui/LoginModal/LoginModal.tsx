@@ -1,7 +1,7 @@
 import { memo, type FC, type MouseEvent, type RefObject } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { Button, Modal } from 'shared/ui'
+import { useAppDispatch, useAppSelector } from 'shared/lib'
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName'
 import { LoginForm } from '../LoginForm/LoginForm'
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'

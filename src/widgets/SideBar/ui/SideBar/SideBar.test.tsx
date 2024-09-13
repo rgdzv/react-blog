@@ -100,9 +100,9 @@ describe('SideBar', () => {
         expect(buttonLight).toBeInTheDocument()
         await user.click(buttonLight)
         const buttonDark = screen.getByRole('button', {
-            name: 'to-light-theme'
+            name: 'to-dark-theme'
         })
-        expect(app).toHaveClass('app dark')
+        expect(app).toHaveClass('app light')
         expect(buttonDark).toBeInTheDocument()
     })
 })

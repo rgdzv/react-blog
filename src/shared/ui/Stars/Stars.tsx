@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react'
 import type { FC } from 'react'
-import { Button } from '../'
+import { Button } from '../Button/Button'
 import { StarIcon } from '../../assets'
 import styles from './Stars.module.scss'
 

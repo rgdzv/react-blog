@@ -1,7 +1,6 @@
 import { useCallback, type FC, memo } from 'react'
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import { ThemeIcon } from 'shared/assets'
-import { useTheme } from 'shared/lib'
+import { useAppDispatch, useAppSelector, useTheme } from 'shared/lib'
 import { Button } from 'shared/ui'
 import { Theme } from 'shared/types'
 import {

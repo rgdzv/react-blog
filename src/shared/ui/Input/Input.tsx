@@ -1,7 +1,8 @@
 import { memo } from 'react'
 import type { FC, InputHTMLAttributes, ReactNode } from 'react'
-import { classNames } from '../../lib'
-import { Button, Skeleton } from '../'
+import { classNames } from '../../lib/classNames/classNames'
+import { Skeleton } from '../Skeleton/Skeleton'
+import { Button } from '../Button/Button'
 import styles from './Input.module.scss'
 
 type ClassNameInputWrapperType =

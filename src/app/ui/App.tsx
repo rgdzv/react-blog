@@ -6,12 +6,16 @@ import { Header } from 'widgets/Header'
 import { PageLoader } from 'widgets/PageLoader'
 import { getUserInitiated, initAuthData } from 'features/Authorization'
 import { MainLayout } from 'shared/layouts'
-import { classNames, useTheme } from 'shared/lib'
-import { useAppDispatch, useAppSelector } from '../providers/StoreProvider'
-import { AppRouter } from '../providers/RouterProvider'
-import { useAppToolBar } from '../lib'
+import {
+    classNames,
+    useAppDispatch,
+    useAppSelector,
+    useTheme
+} from 'shared/lib'
+import { AppRouter } from '../providers/RouterProvider/ui/AppRouter'
+import { useAppToolBar } from '../lib/hooks/useAppToolBar'
 
-const App: FC = () => {
+export const App: FC = () => {
     const { theme } = useTheme()
     const dispatch = useAppDispatch()
     const classNameFinal = classNames('app', {}, [theme])
@@ -41,5 +45,3 @@ const App: FC = () => {
         </Suspense>
     )
 }
-
-export default App

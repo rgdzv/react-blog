@@ -1,7 +1,6 @@
 import { Suspense, memo } from 'react'
 import type { FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import {
     LoginDropDown,
     LoginModal,
@@ -10,7 +9,7 @@ import {
     userActions
 } from 'features/Authorization'
 import { Button } from 'shared/ui'
-import { useModal } from 'shared/lib'
+import { useAppDispatch, useAppSelector, useModal } from 'shared/lib'
 import styles from './Header.module.scss'
 
 export const Header: FC = memo(() => {

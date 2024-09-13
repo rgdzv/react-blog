@@ -1,14 +1,17 @@
 import { useEffect } from 'react'
 import type { FC } from 'react'
 import { useParams } from 'react-router-dom'
-import { useAppDispatch } from 'app/providers/StoreProvider'
 import { Page } from 'widgets/Page'
 import {
     ProfileEditContainer,
     getProfileData,
     profileReducer
 } from 'features/ProfileEditing'
-import { DynamicReducerLoader, type ReducersList } from 'shared/lib'
+import {
+    DynamicReducerLoader,
+    useAppDispatch,
+    type ReducersList
+} from 'shared/lib'
 
 const reducers: ReducersList = {
     profile: profileReducer

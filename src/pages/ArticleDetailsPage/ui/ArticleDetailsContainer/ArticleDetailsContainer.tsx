@@ -1,6 +1,5 @@
 import type { FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useAppSelector } from 'app/providers/StoreProvider'
 import { ArticleRatingContainer } from 'features/ArticlesInteraction/ArticleRating'
 import { ArticleCommentContainer } from 'features/ArticlesInteraction/ArticleAddComment'
 import {
@@ -8,6 +7,7 @@ import {
     ArticleDetailsContentBlock
 } from 'entities_/ArticleDetails'
 import { Skeleton } from 'shared/ui'
+import { useAppSelector } from 'shared/lib'
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError'
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData'
 import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading'

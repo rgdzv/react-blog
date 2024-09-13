@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react'
-import { useAppSelector } from 'app/providers/StoreProvider'
 import { getUserAuthData } from 'features/Authorization'
 import { ArticleIcon, HomeIcon, InfoIcon, ProfileIcon } from 'shared/assets'
 import { RoutesType } from 'shared/types'
+import { useAppSelector } from 'shared/lib'
 
 interface Link {
     to: string

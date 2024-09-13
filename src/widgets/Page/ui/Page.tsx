@@ -1,9 +1,8 @@
 import { memo, useRef } from 'react'
 import type { FC, MutableRefObject, ReactElement, UIEvent } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useAppDispatch } from 'app/providers/StoreProvider'
 import { uiActions } from 'features/UI'
-import { classNames, useThrottle } from 'shared/lib'
+import { classNames, useAppDispatch, useThrottle } from 'shared/lib'
 import styles from './Page.module.scss'
 
 type ClassNameType = 'notFound' | 'articles' | 'articleDetails'

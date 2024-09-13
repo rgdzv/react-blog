@@ -5,7 +5,7 @@ import {
     type ReactNode,
     type RefObject
 } from 'react'
-import { classNames } from '../../lib'
+import { classNames } from '../../lib/classNames/classNames'
 import styles from './Modal.module.scss'
 
 interface ModalPropsInterface {

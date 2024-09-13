@@ -1,11 +1,14 @@
 import { useEffect } from 'react'
 import type { FC } from 'react'
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
-
 import { Page } from 'widgets/Page'
 import { ArticleFilters } from 'widgets/ArticleFilters'
 import { ArticlesViewChanger } from 'features/ArticlesInteraction/ArticlesViewChanger'
-import { DynamicReducerLoader, type ReducersList } from 'shared/lib'
+import {
+    DynamicReducerLoader,
+    useAppDispatch,
+    type ReducersList,
+    useAppSelector
+} from 'shared/lib'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { articlesReducer } from '../../model/slice/ArticlesSlice'
 import { getArticlesInited } from '../../model/selectors/getArticlesInited/getArticlesInited'

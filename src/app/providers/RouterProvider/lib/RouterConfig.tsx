@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import App from 'app/ui/App'
 import { AboutPage } from 'pages/AboutPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 import { MainPage } from 'pages/MainPage'
@@ -11,6 +10,7 @@ import { SettingsPage } from 'pages/SettingsPage'
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage'
 import { UserRole } from 'entities_/User'
 import { RoutesType } from 'shared/types'
+import { App } from '../../../ui/App'
 import { RequiredAuth } from '../ui/RequiredAuth'
 
 export const routes = [

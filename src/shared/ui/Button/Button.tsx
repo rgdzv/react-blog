@@ -1,6 +1,6 @@
 import { forwardRef, memo } from 'react'
 import type { ButtonHTMLAttributes, ForwardedRef, ReactNode } from 'react'
-import { classNames } from '../../lib'
+import { classNames } from '../../lib/classNames/classNames'
 import styles from './Button.module.scss'
 
 type ClassNameType =

@@ -1,14 +1,14 @@
 import { useMemo, type FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useAppSelector } from 'app/providers/StoreProvider'
-import {
-    getUserAvatar,
-    isUserAdmin,
-    isUserManager
-} from 'features/Authorization'
 import { noavatar } from 'shared/assets'
 import { DropDown, Image } from 'shared/ui'
 import { RoutesType } from 'shared/types'
+import { useAppSelector } from 'shared/lib'
+import {
+    isUserAdmin,
+    isUserManager
+} from '../../model/selectors/getUserRole/getUserRole'
+import { getUserAvatar } from '../../model/selectors/getUserAvatar/getUserAvatar'
 
 interface LoginDropDownPropsInterface {
     handleLogOut: () => void

@@ -3,7 +3,7 @@ import type { FC, ReactNode } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { getUserAuthData, getUserRole } from 'features/Authorization'
 import type { UserRole } from 'entities_/User'
-import { useAppSelector } from '../../StoreProvider/lib/hooks/hooks'
+import { useAppSelector } from 'shared/lib'
 
 interface RequiredAuthPropsInterface {
     children: ReactNode

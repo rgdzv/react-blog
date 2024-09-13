@@ -3,9 +3,10 @@ import { Fragment, memo } from 'react'
 import type { FC, ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Listbox } from '@headlessui/react'
-import { Button, Skeleton } from '../../../'
+import { Skeleton } from '../../../Skeleton/Skeleton'
+import { Button } from '../../../Button/Button'
 import { ArrowIcon, DoneIcon } from '../../../../assets'
-import { classNames } from '../../../../lib'
+import { classNames } from '../../../../lib/classNames/classNames'
 import styles from './ListBoxElement.module.scss'
 
 interface ListBoxItem {

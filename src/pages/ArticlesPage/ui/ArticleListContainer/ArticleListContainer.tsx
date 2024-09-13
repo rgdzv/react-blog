@@ -1,7 +1,6 @@
 import { useCallback } from 'react'
 import type { FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider'
 import {
     getArticles,
     getArticlesError,
@@ -19,6 +18,7 @@ import {
 } from 'entities_/Article'
 import type { ArticleTextBlock } from 'entities_/ArticleDetails'
 import { Button, Skeleton } from 'shared/ui'
+import { useAppDispatch, useAppSelector } from 'shared/lib'
 import styles from './ArticleListContainer.module.scss'
 
 export const ArticleListContainer: FC = () => {
