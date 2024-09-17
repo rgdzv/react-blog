@@ -1,4 +1,5 @@
-import { memo, type FC } from 'react'
+import { memo } from 'react'
+import type { FC } from 'react'
 import { useArticleFilters } from 'pages/ArticlesPage'
 import { Button } from 'shared/ui'
 import { viewTypes } from '../model/utils/viewTypes'

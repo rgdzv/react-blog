@@ -1,4 +1,5 @@
-import { memo, type ChangeEvent, type FC } from 'react'
+import { memo } from 'react'
+import type { ChangeEvent, FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Input, ListBoxElement } from 'shared/ui'
 import { currencies } from '../../lib/currencies'

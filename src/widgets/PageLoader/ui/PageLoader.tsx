@@ -1,4 +1,5 @@
-import { memo, type FC } from 'react'
+import { memo } from 'react'
+import type { FC } from 'react'
 import { Loader } from 'shared/ui'
 import { classNames } from 'shared/lib'
 import styles from './PageLoader.module.scss'

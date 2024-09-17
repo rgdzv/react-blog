@@ -6,9 +6,9 @@ import { ArticlesViewChanger } from 'features/ArticlesInteraction/ArticlesViewCh
 import {
     DynamicReducerLoader,
     useAppDispatch,
-    type ReducersList,
     useAppSelector
 } from 'shared/lib'
+import type { ReducersList } from 'shared/lib'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { articlesReducer } from '../../model/slice/ArticlesSlice'
 import { getArticlesInited } from '../../model/selectors/getArticlesInited/getArticlesInited'

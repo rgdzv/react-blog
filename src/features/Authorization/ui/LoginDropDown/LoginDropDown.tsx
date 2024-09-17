@@ -1,4 +1,5 @@
-import { useMemo, type FC, memo } from 'react'
+import { useMemo, memo } from 'react'
+import type { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { noavatar } from 'shared/assets'
 import { DropDown, Image } from 'shared/ui'

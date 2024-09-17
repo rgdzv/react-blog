@@ -1,8 +1,8 @@
 import { ArticleBlockType } from '../../model/const/articleDetailsConst'
-import { type ArticleBlock } from '../../model/types/articleDetails'
 import { ArticleDetailsBlockCode } from '../ArticleDetailsBlockCode/ArticleDetailsBlockCode'
 import { ArticleDetailsBlockImage } from '../ArticleDetailsBlockImage/ArticleDetailsBlockImage'
 import { ArticleDetailsBlockText } from '../ArticleDetailsBlockText/ArticleDetailsBlockText'
+import type { ArticleBlock } from '../../model/types/articleDetails'
 
 export const ArticleDetailsContentBlock = (
     block: ArticleBlock

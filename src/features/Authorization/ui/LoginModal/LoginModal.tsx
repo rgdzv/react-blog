@@ -1,4 +1,5 @@
-import { memo, type FC, type MouseEvent, type RefObject } from 'react'
+import { memo } from 'react'
+import type { FC, MouseEvent, RefObject } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Modal } from 'shared/ui'
 import { useAppDispatch, useAppSelector } from 'shared/lib'

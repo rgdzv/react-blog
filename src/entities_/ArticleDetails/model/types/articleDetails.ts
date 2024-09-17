@@ -1,4 +1,4 @@
-import { type ArticleBlockType } from '../const/articleDetailsConst'
+import type { ArticleBlockType } from '../const/articleDetailsConst'
 
 export interface ArticleBlockBase {
     id: string

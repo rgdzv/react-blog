@@ -1,4 +1,5 @@
-import { memo, type FC } from 'react'
+import { memo } from 'react'
+import type { FC } from 'react'
 import { Image } from 'shared/ui'
 import { noimage } from 'shared/assets'
 import type { ArticleImageBlock } from '../../model/types/articleDetails'

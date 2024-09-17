@@ -1,10 +1,5 @@
-import {
-    memo,
-    type FC,
-    type MouseEvent,
-    type ReactNode,
-    type RefObject
-} from 'react'
+import { memo } from 'react'
+import type { FC, MouseEvent, ReactNode, RefObject } from 'react'
 import { classNames } from '../../lib/classNames/classNames'
 import styles from './Modal.module.scss'
 

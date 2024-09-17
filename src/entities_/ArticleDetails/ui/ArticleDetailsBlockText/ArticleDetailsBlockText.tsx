@@ -1,6 +1,7 @@
-import { memo, type FC } from 'react'
-import { type ArticleTextBlock } from '../../model/types/articleDetails'
+import { memo } from 'react'
+import type { FC } from 'react'
 import styles from './ArticleDetailsBlockText.module.scss'
+import type { ArticleTextBlock } from '../../model/types/articleDetails'
 
 interface ArticleDetailsBlockTextPropsInterface {
     block: ArticleTextBlock

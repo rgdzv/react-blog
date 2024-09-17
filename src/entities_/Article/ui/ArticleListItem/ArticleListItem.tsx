@@ -1,4 +1,5 @@
-import { memo, type FC } from 'react'
+import { memo } from 'react'
+import type { FC } from 'react'
 import { AppLink, Button, Image } from 'shared/ui'
 import { EyeIcon, noavatar, noimage } from 'shared/assets'
 import { RoutesType } from 'shared/types'

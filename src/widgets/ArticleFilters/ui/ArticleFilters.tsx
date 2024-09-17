@@ -1,4 +1,5 @@
-import { memo, type FC } from 'react'
+import { memo } from 'react'
+import type { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useArticleFilters } from 'pages/ArticlesPage'
 import { ArticlesTypeTabs } from 'features/ArticlesInteraction/ArticlesTypeTabs'

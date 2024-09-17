@@ -7,11 +7,8 @@ import {
     getProfileData,
     profileReducer
 } from 'features/ProfileEditing'
-import {
-    DynamicReducerLoader,
-    useAppDispatch,
-    type ReducersList
-} from 'shared/lib'
+import { DynamicReducerLoader, useAppDispatch } from 'shared/lib'
+import type { ReducersList } from 'shared/lib'
 
 const reducers: ReducersList = {
     profile: profileReducer
