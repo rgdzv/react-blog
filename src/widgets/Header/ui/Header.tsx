@@ -36,7 +36,7 @@ export const Header: FC = memo(() => {
         dialogRef.current?.close()
 
         return (
-            <header className={styles.header}>
+            <header className={styles.header} data-testid='header'>
                 <Suspense>
                     <LoginDropDown
                         handleLogOut={handleLogOut}
@@ -48,7 +48,7 @@ export const Header: FC = memo(() => {
     }
 
     return (
-        <header className={styles.header}>
+        <header className={styles.header} data-testid='header'>
             <Button onClick={openModal} className='bordered'>
                 {signIn}
             </Button>

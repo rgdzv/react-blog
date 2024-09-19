@@ -468,12 +468,6 @@
         {
             "articleId": "8",
             "userId": "1",
-            "text": "dfdsf",
-            "id": "4rFHQgJ"
-        },
-        {
-            "articleId": "8",
-            "userId": "1",
             "text": "sdfsdf",
             "id": "yYEdTI-"
         },
@@ -574,6 +568,12 @@
             "userId": "1",
             "text": "gdfg",
             "id": "ykrwBPa"
+        },
+        {
+            "articleId": "8",
+            "userId": "1",
+            "text": "аывп",
+            "id": "9PPpIRN"
         }
     ],
     "users": [
@@ -718,7 +718,7 @@
         {
             "userId": "1",
             "articleId": "8",
-            "rate": 3,
+            "rate": 4,
             "id": "ftXTMSh"
         },
         {

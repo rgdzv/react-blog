@@ -5,7 +5,7 @@ import styles from './ScrollToolBar.module.scss'
 
 export const ScrollToolBar: FC = memo(() => {
     return (
-        <div className={styles.scrollToolBar}>
+        <div className={styles.scrollToolBar} data-testid='scrollToolBar'>
             <ScrollToTopButton />
         </div>
     )

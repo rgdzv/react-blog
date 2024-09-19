@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { ArrowIcon, ThemeIcon } from 'shared/assets'
+import { ArrowIcon, ScrollTopIcon, ThemeIcon } from 'shared/assets'
 import { Button } from './Button'
 
 describe('Button', () => {
@@ -56,6 +56,19 @@ describe('Button', () => {
         )
         const buttonName = screen.getByRole('button')
         const svgIcon = screen.getByTestId('arrow-icon')
+        expect(buttonName).toBeInTheDocument()
+        expect(buttonName).toHaveClass('button')
+        expect(buttonName).toContainElement(svgIcon)
+    })
+
+    test('scroll top button', () => {
+        render(
+            <Button>
+                <ScrollTopIcon data-testid='scrolltop-icon' />
+            </Button>
+        )
+        const buttonName = screen.getByRole('button')
+        const svgIcon = screen.getByTestId('scrolltop-icon')
         expect(buttonName).toBeInTheDocument()
         expect(buttonName).toHaveClass('button')
         expect(buttonName).toContainElement(svgIcon)
