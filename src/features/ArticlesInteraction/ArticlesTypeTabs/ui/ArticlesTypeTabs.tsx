@@ -8,10 +8,11 @@ import styles from './ArticlesTypeTabs.module.scss'
 interface ArticlesTypeTabsPropsInterface {
     type: ArticleType
     onChangeType: (type: ArticleType) => void
+    dataTestId: string
 }
 
 export const ArticlesTypeTabs: FC<ArticlesTypeTabsPropsInterface> = memo(
-    ({ type, onChangeType }) => {
+    ({ type, onChangeType, dataTestId }) => {
         const { t } = useTranslation('article')
 
         const tabs = typeTabs.map((tab) => {
@@ -35,6 +36,10 @@ export const ArticlesTypeTabs: FC<ArticlesTypeTabsPropsInterface> = memo(
             )
         })
 
-        return <div className={styles.articlesTabs}>{tabs}</div>
+        return (
+            <div className={styles.articlesTabs} data-testid={dataTestId}>
+                {tabs}
+            </div>
+        )
     }
 )

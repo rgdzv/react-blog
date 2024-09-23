@@ -49,7 +49,7 @@ export const Image: FC<ImagePropsInterface> = ({
     })
 
     return (
-        <div className={classNameFinal}>
+        <div className={classNameFinal} data-testid='image'>
             <img
                 className={imageClassNameFinal}
                 src={srcCondition}

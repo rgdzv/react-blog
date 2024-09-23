@@ -12,15 +12,19 @@ interface ArticlesSortSelectorPropsInterface {
     onChangeSort: (newSort: ArticleSortField) => void
     order: ArticleSortOrder
     onChangeOrder: (newOrder: ArticleSortOrder) => void
+    dataTestId: string
 }
 
 export const ArticlesSortSelector: FC<ArticlesSortSelectorPropsInterface> =
-    memo(({ sort, onChangeSort, order, onChangeOrder }) => {
+    memo(({ sort, onChangeSort, order, onChangeOrder, dataTestId }) => {
         const { t } = useTranslation('article')
         const sortSign = t('Сортировать по:')
 
         return (
-            <div className={styles.articleSortSelector}>
+            <div
+                className={styles.articleSortSelector}
+                data-testid={dataTestId}
+            >
                 <div className={styles.sortSign}>{sortSign}</div>
                 <ListBoxElement
                     options={sortOptions}

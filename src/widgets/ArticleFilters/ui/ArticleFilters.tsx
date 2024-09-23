@@ -23,7 +23,7 @@ export const ArticleFilters: FC = memo(() => {
     const inputPlaceholderName = t('Найти')
 
     return (
-        <div className={styles.articleFilters}>
+        <div className={styles.articleFilters} data-testid='article-filters'>
             <Input
                 value={search}
                 classNameForInputWrapper='search'
@@ -31,13 +31,19 @@ export const ArticleFilters: FC = memo(() => {
                 icon={<SearchIcon data-testid='search-icon' />}
                 onChange={onChangeSearch}
                 classNameForIcon='search'
+                dataTestId='filter-search-input'
             />
-            <ArticlesTypeTabs type={type} onChangeType={onChangeType} />
+            <ArticlesTypeTabs
+                type={type}
+                onChangeType={onChangeType}
+                dataTestId='filter-tabs'
+            />
             <ArticlesSortSelector
                 sort={sort}
                 onChangeSort={onChangeSort}
                 order={order}
                 onChangeOrder={onChangeOrder}
+                dataTestId='filter-sort-selector'
             />
         </div>
     )

@@ -33,6 +33,7 @@ interface InputPropsInterface extends InputHTMLAttributes<HTMLInputElement> {
     isLoading?: boolean
     disabled?: boolean
     validError?: string
+    dataTestId?: string
 }
 
 export const Input: FC<InputPropsInterface> = memo(
@@ -51,6 +52,7 @@ export const Input: FC<InputPropsInterface> = memo(
         isLoading,
         disabled,
         validError,
+        dataTestId,
         ...otherProps
     }) => {
         const inputWrapperClassName = classNames(
@@ -92,6 +94,7 @@ export const Input: FC<InputPropsInterface> = memo(
                         type={type}
                         placeholder={placeholder}
                         disabled={disabled}
+                        data-testid={dataTestId}
                         {...otherProps}
                     />
                     {iconCondition}
