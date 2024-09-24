@@ -8,7 +8,12 @@ interface SkeletonPropsInterface {
 
 export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
     if (type === 'profileHeader') {
-        return <div className={styles.profileHeader}></div>
+        return (
+            <div
+                className={styles.profileHeader}
+                data-testid='profileHeader'
+            ></div>
+        )
     }
 
     if (type === 'profileInput') {
@@ -109,5 +114,5 @@ export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
         )
     }
 
-    return <div className={styles.skeleton}></div>
+    return <div className={styles.skeleton} data-testid='skeleton'></div>
 })

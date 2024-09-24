@@ -37,11 +37,16 @@ export const Stars: FC<StarsComponentInterface> = memo(
                         className={classNameFinal}
                         onMouseEnter={onHover}
                         onMouseLeave={onLeave}
+                        data-testid='star-icon'
                     />
                 </Button>
             )
         })
 
-        return <div className={styles.ratingStars}>{stars}</div>
+        return (
+            <div className={styles.ratingStars} data-testid='stars'>
+                {stars}
+            </div>
+        )
     }
 )

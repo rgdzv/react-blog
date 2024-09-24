@@ -29,7 +29,11 @@ export const DropDown: FC<DropDownPropsInterface> = memo(
         ])
 
         return (
-            <Menu as='div' className={styles.dropDown}>
+            <Menu
+                as='div'
+                className={styles.dropDown}
+                data-testid='dropdown-menu'
+            >
                 <Menu.Button as={Button}>{trigger}</Menu.Button>
                 <Menu.Items className={menuItemsClassName}>
                     {items?.map((item) => {
