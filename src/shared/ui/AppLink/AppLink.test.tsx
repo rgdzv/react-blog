@@ -7,6 +7,7 @@ describe('AppLink', () => {
         render(<AppLink to='somewhere'>Text</AppLink>, {
             wrapper: MemoryRouter
         })
+
         const link = screen.getByRole('link', { name: /text/i })
         expect(link).toBeInTheDocument()
         expect(link).toHaveAttribute('href', '/somewhere')

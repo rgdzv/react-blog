@@ -11,6 +11,7 @@ describe('Image', () => {
                 errorImage='test-error-img'
             />
         )
+
         const imageWrapper = screen.getByTestId('image')
         const image: HTMLImageElement = screen.getByRole('img')
         expect(imageWrapper).toBeInTheDocument()
@@ -21,6 +22,7 @@ describe('Image', () => {
     })
     test('without className', () => {
         render(<Image src='test' alt='test' errorImage='test' />)
+
         const imageWrapper = screen.getByTestId('image')
         expect(imageWrapper).toBeInTheDocument()
         expect(imageWrapper).not.toHaveClass('article_avatar')

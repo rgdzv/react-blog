@@ -17,7 +17,7 @@ export interface DropdownItem {
 }
 
 interface DropDownPropsInterface {
-    trigger: ReactElement
+    trigger: ReactElement | string
     items: DropdownItem[]
     direction: string
 }

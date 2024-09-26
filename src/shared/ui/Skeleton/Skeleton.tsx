@@ -17,7 +17,12 @@ export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
     }
 
     if (type === 'profileInput') {
-        return <div className={styles.profileInput}></div>
+        return (
+            <div
+                className={styles.profileInput}
+                data-testid='profile-input'
+            ></div>
+        )
     }
 
     if (type === 'articleBig') {

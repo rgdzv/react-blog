@@ -11,6 +11,7 @@ describe('Modal', () => {
 
     test('renders correctly and responds to outside click', async () => {
         const user = userEvent.setup()
+
         render(
             <Modal
                 dialogRef={ref}
@@ -21,11 +22,14 @@ describe('Modal', () => {
                 <div>Modal Content</div>
             </Modal>
         )
+
         const modal = screen.getByTestId('modal')
         expect(modal).toBeInTheDocument()
         expect(modal).toHaveClass('closing')
         expect(modal).toHaveTextContent('Modal Content')
+
         await user.click(modal)
+
         expect(onClickOutside).toHaveBeenCalled()
     })
     test('calls closeModal when the dialog is closed', async () => {
@@ -39,8 +43,10 @@ describe('Modal', () => {
                 <div>Modal Content</div>
             </Modal>
         )
+
         const modal = screen.getByTestId('modal')
         expect(modal).toBeInTheDocument()
+
         modal.dispatchEvent(new Event('close'))
         expect(closeModal).toHaveBeenCalled()
     })

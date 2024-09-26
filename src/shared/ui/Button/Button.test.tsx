@@ -5,6 +5,7 @@ import { Button } from './Button'
 describe('Button', () => {
     test('render', () => {
         render(<Button>test</Button>)
+
         const buttonName = screen.getByRole('button', { name: 'test' })
         expect(buttonName).toBeInTheDocument()
         expect(buttonName).toHaveClass('button')
@@ -12,6 +13,7 @@ describe('Button', () => {
 
     test('disabled button', () => {
         render(<Button disabled={true}>test</Button>)
+
         const buttonName = screen.getByRole('button', { name: 'test' })
         expect(buttonName).toBeInTheDocument()
         expect(buttonName).toHaveClass('button')
@@ -21,6 +23,7 @@ describe('Button', () => {
 
     test('language button', () => {
         render(<Button className='lang'>RU</Button>)
+
         const buttonName = screen.getByRole('button', { name: 'RU' })
         expect(buttonName).toBeInTheDocument()
         expect(buttonName).toHaveClass('button lang')
@@ -32,6 +35,7 @@ describe('Button', () => {
                 <ThemeIcon data-testid='theme-icon' />
             </Button>
         )
+
         const buttonName = screen.getByRole('button')
         const svgIcon = screen.getByTestId('theme-icon')
         expect(buttonName).toBeInTheDocument()
@@ -41,6 +45,7 @@ describe('Button', () => {
 
     test('reload button', () => {
         render(<Button className='bordered'>Обновить страницу</Button>)
+
         const buttonName = screen.getByRole('button', {
             name: 'Обновить страницу'
         })
@@ -54,6 +59,7 @@ describe('Button', () => {
                 <ArrowIcon data-testid='arrow-icon' />
             </Button>
         )
+
         const buttonName = screen.getByRole('button')
         const svgIcon = screen.getByTestId('arrow-icon')
         expect(buttonName).toBeInTheDocument()
@@ -67,6 +73,7 @@ describe('Button', () => {
                 <ScrollTopIcon data-testid='scrolltop-icon' />
             </Button>
         )
+
         const buttonName = screen.getByRole('button')
         const svgIcon = screen.getByTestId('scrolltop-icon')
         expect(buttonName).toBeInTheDocument()

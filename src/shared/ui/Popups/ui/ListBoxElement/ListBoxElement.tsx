@@ -116,6 +116,7 @@ export const ListBoxElement: FC<ListBoxPropsInterface> = memo(
                 value={value}
                 onChange={onChange}
                 disabled={disabled}
+                data-testid='listbox'
             >
                 {showContentCondition}
             </Listbox>
