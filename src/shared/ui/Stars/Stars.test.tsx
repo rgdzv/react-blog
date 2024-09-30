@@ -30,7 +30,7 @@ describe('Stars', () => {
             expect(star).toHaveClass('normal')
         })
     })
-    it('hovers over a star', async () => {
+    test('hovers over a star', async () => {
         const user = userEvent.setup()
 
         render(<Stars rate={rate} handleRatingUpdate={handleRatingUpdate} />)
@@ -45,7 +45,7 @@ describe('Stars', () => {
             expect(star).toHaveClass('hovered')
         })
     })
-    it('leaves a star', async () => {
+    test('leaves a star', async () => {
         const user = userEvent.setup()
 
         render(<Stars rate={rate} handleRatingUpdate={handleRatingUpdate} />)
@@ -67,7 +67,7 @@ describe('Stars', () => {
             expect(star).toHaveClass('normal')
         })
     })
-    it('clicks on a star', async () => {
+    test('clicks on a star', async () => {
         const user = userEvent.setup()
 
         render(<Stars rate={rate} handleRatingUpdate={handleRatingUpdate} />)

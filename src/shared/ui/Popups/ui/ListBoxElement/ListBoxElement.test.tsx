@@ -48,7 +48,7 @@ describe('ListBoxElement', () => {
         await user.click(options[1])
         expect(props.onChange).toHaveBeenCalledTimes(1)
     })
-    it('renders skeleton when isLoading is true', () => {
+    test('renders skeleton when isLoading is true', () => {
         const props = {
             options: [],
             label: 'Test Label',
@@ -76,7 +76,7 @@ describe('ListBoxElement', () => {
         expect(listbox).toBeInTheDocument()
         expect(listbox).toContainElement(button)
     })
-    it('renders disabled component when disabled is true', () => {
+    test('renders disabled component when disabled is true', () => {
         const props = {
             options: [],
             label: 'Test Label',

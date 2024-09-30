@@ -12,7 +12,7 @@ describe('DropDown', () => {
     const triggerText = 'Click me'
     const direction = 'bottomLeft'
 
-    it('renders correctly and contains the trigger button', () => {
+    test('renders correctly and contains the trigger button', () => {
         render(
             <DropDown
                 trigger={triggerText}
@@ -26,7 +26,7 @@ describe('DropDown', () => {
         expect(menu).toBeInTheDocument()
         expect(menu).toContainElement(button)
     })
-    it('renders the menu items', async () => {
+    test('renders the menu items', async () => {
         const user = userEvent.setup()
 
         render(
@@ -46,7 +46,7 @@ describe('DropDown', () => {
         const menuItems = screen.getAllByRole('menuitem')
         expect(menuItems).toHaveLength(items.length)
     })
-    it('renders a link for items with an href', async () => {
+    test('renders a link for items with an href', async () => {
         const user = userEvent.setup()
 
         render(
@@ -66,7 +66,7 @@ describe('DropDown', () => {
         const link = screen.getAllByRole('menuitem')[0]
         expect(link).toHaveAttribute('href', '/item1')
     })
-    it('updates the active class when an item is hovered', async () => {
+    test('updates the active class when an item is hovered', async () => {
         const user = userEvent.setup()
 
         render(
@@ -89,7 +89,7 @@ describe('DropDown', () => {
 
         expect(menuItem).toHaveAttribute('data-headlessui-state', 'active')
     })
-    it('calls the onClick handler when an item is clicked', async () => {
+    test('calls the onClick handler when an item is clicked', async () => {
         const user = userEvent.setup()
 
         render(
