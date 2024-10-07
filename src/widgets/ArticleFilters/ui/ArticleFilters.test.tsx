@@ -12,6 +12,7 @@ describe('ArticleFilters', () => {
                 </StoreProvider>
             </MemoryRouter>
         )
+
         const header = screen.getByTestId('article-filters')
         const filterInput = screen.getByTestId('filter-search-input')
         const filterTabs = screen.getByTestId('filter-tabs')

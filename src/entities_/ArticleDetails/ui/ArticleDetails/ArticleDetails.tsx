@@ -28,7 +28,7 @@ export const ArticleDetails: FC<ArticleDetailsPropsInterface> = memo(
         contentBlock
     }) => {
         return (
-            <div className={styles.listItem}>
+            <div className={styles.listItem} data-testid='article-details'>
                 <div className={styles.userInfo}>
                     <AppLink
                         to={`/${RoutesType.PROFILE}/${profileId}`}

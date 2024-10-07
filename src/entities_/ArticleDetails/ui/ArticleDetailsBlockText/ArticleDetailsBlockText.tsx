@@ -10,7 +10,10 @@ interface ArticleDetailsBlockTextPropsInterface {
 export const ArticleDetailsBlockText: FC<ArticleDetailsBlockTextPropsInterface> =
     memo(({ block }) => {
         return (
-            <div className={styles.articleBlockText}>
+            <div
+                className={styles.articleBlockText}
+                data-testid='article-block-text'
+            >
                 <h3 className={styles.blockTitle}>{block.title}</h3>
                 <p className={styles.blockParagraph}>{block.paragraph}</p>
             </div>

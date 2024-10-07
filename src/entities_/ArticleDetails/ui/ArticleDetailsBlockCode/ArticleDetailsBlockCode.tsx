@@ -25,7 +25,10 @@ export const ArticleDetailsBlockCode: FC<ArticleDetailsBlockCodePropsInterface> 
         }, [block?.code, t])
 
         return (
-            <pre className={styles.articleBlockCode}>
+            <pre
+                className={styles.articleBlockCode}
+                data-testid='article-block-code'
+            >
                 <Button className='copy' aria-label='copy code'>
                     <CopyIcon onClick={copyText} data-testid='copy-icon' />
                 </Button>

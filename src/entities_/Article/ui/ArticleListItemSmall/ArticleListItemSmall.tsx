@@ -29,7 +29,10 @@ export const ArticleListItemSmall: FC<ArticleListItemSmallPropsInterface> =
             articleId
         }) => {
             return (
-                <div className={styles.listItemSmall}>
+                <div
+                    className={styles.listItemSmall}
+                    data-testid='article-list-item-small'
+                >
                     <AppLink
                         to={`/${RoutesType.ARTICLES}/${articleId}`}
                         className={styles.articleImageSmall}

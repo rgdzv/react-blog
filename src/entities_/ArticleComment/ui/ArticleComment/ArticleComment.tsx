@@ -15,7 +15,10 @@ interface ArticleCommentPropsInterface {
 export const ArticleComment: FC<ArticleCommentPropsInterface> = memo(
     ({ avatar, userId, text, icon }) => {
         return (
-            <div className={styles.articleComment}>
+            <div
+                className={styles.articleComment}
+                data-testid='article-comment'
+            >
                 <AppLink to={`/${RoutesType.PROFILE}/${userId}`}>
                     <Image
                         className='article_comment_avatar'

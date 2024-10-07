@@ -5,9 +5,9 @@ import { ArticleDetailsBlockText } from '../ArticleDetailsBlockText/ArticleDetai
 import type { ArticleBlock } from '../../model/types/articleDetails'
 
 export const ArticleDetailsContentBlock = (
-    block: ArticleBlock
+    block: ArticleBlock | undefined
 ): JSX.Element | null => {
-    switch (block.type) {
+    switch (block?.type) {
         case ArticleBlockType.CODE:
             return <ArticleDetailsBlockCode key={block.id} block={block} />
         case ArticleBlockType.IMAGE:

@@ -14,6 +14,7 @@ describe('Page', () => {
                 </StoreProvider>
             </MemoryRouter>
         )
+
         const page = screen.getByTestId('test-page')
         const pageContent = screen.getByTestId('test-div')
         expect(page).toBeInTheDocument()

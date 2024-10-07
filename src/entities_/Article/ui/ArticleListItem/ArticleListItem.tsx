@@ -34,7 +34,7 @@ export const ArticleListItem: FC<ArticleListItemPropsInterface> = memo(
         articleId
     }) => {
         return (
-            <div className={styles.listItem}>
+            <div className={styles.listItem} data-testid='article-list-item'>
                 <div className={styles.userInfo}>
                     <AppLink
                         to={`/${RoutesType.PROFILE}/${id}`}
