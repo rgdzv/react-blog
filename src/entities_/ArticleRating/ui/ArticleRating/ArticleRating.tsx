@@ -12,7 +12,7 @@ interface ArticleRatingProps {
 export const ArticleRating: FC<ArticleRatingProps> = memo(
     ({ ratingSign, rate, handleRatingUpdate }) => {
         return (
-            <div className={styles.articleRating}>
+            <div className={styles.articleRating} data-testid='article-rating'>
                 <p className={styles.ratingOffer}>{ratingSign}</p>
                 <Stars rate={rate} handleRatingUpdate={handleRatingUpdate} />
             </div>

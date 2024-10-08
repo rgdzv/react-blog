@@ -26,8 +26,8 @@ describe('ArticleComment', () => {
     test('should render component', () => {
         renderWithProps()
 
-        const ArticleComment = screen.getByTestId('article-comment')
-        expect(ArticleComment).toBeInTheDocument()
+        const articleComment = screen.getByTestId('article-comment')
+        expect(articleComment).toBeInTheDocument()
     })
 
     test('should render user avatar', () => {

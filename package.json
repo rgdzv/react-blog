@@ -20,9 +20,6 @@
         "start:all:linters": "npm run eslint:fix && npm run stylelint:fix && npm run prettier:write",
         "jest-unit": "jest --config config/jest/jest.config.json",
         "jest-clear": "jest --clearCache",
-        "storybook": "storybook dev -p 6006 --config-dir config/storybook/",
-        "build-storybook": "storybook build --config-dir config/storybook/",
-        "test-storybook": "test-storybook --config-dir config/storybook/ --verbose",
         "generate": "node ./scripts/createFDSlice/index.js",
         "prepare": "husky"
     },

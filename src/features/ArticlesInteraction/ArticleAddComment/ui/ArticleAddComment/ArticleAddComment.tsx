@@ -40,7 +40,10 @@ export const ArticleAddComment: FC = memo(() => {
     )
 
     return (
-        <div className={styles.articleAddComment}>
+        <div
+            className={styles.articleAddComment}
+            data-testid='article-add-comment'
+        >
             <Input
                 value={text}
                 classNameForInputWrapper='addComment'
