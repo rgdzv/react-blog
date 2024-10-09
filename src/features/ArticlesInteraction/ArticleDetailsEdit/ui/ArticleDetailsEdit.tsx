@@ -14,7 +14,10 @@ export const ArticleDetailsEdit: FC<ArticleDetailsEditProps> = memo(
         const editButtonName = t('Редактировать')
 
         return (
-            <div className={styles.articleDetailsEdit}>
+            <div
+                className={styles.articleDetailsEdit}
+                data-testid='article-details-edit'
+            >
                 <Button className='bordered' disabled={!canBeEdited}>
                     {editButtonName}
                 </Button>
