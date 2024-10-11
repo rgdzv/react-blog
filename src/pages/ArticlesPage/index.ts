@@ -9,3 +9,4 @@ export { getArticlesNextPage } from './model/services/getArticleNextPage/getArti
 export { useArticleFilters } from './lib/hooks/useArticleFilters'
 export { getArticlesList } from './model/services/getArticlesList/getArticlesList'
 export { getArticlesLimit } from './model/selectors/getArticlesLimit/getArticlesLimit'
+export { articlesReducer } from './model/slice/ArticlesSlice'

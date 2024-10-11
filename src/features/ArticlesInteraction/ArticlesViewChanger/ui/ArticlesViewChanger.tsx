@@ -27,5 +27,9 @@ export const ArticlesViewChanger: FC = memo(() => {
         )
     })
 
-    return <div className={styles.viewChanger}>{viewIcons}</div>
+    return (
+        <div className={styles.viewChanger} data-testid='articles-view-changer'>
+            {viewIcons}
+        </div>
+    )
 })
