@@ -17,6 +17,7 @@ const reducers: ReducersList = {
 const ProfilePage: FC = () => {
     const dispatch = useAppDispatch()
     const { id } = useParams()
+
     useEffect(() => {
         if (id !== undefined) {
             void dispatch(getProfileData(id))

@@ -30,6 +30,7 @@ describe('Stars', () => {
             expect(star).toHaveClass('normal')
         })
     })
+
     test('hovers over a star', async () => {
         const user = userEvent.setup()
 
@@ -45,6 +46,7 @@ describe('Stars', () => {
             expect(star).toHaveClass('hovered')
         })
     })
+
     test('leaves a star', async () => {
         const user = userEvent.setup()
 
@@ -67,6 +69,7 @@ describe('Stars', () => {
             expect(star).toHaveClass('normal')
         })
     })
+
     test('clicks on a star', async () => {
         const user = userEvent.setup()
 
@@ -74,8 +77,8 @@ describe('Stars', () => {
 
         const starIcons = screen.getAllByTestId('star-icon')
 
-        const starToHover = starIcons[4]
-        await user.click(starToHover)
+        const starToClick = starIcons[4]
+        await user.click(starToClick)
 
         expect(handleRatingUpdate).toHaveBeenCalledTimes(1)
         expect(handleRatingUpdate).toHaveBeenCalledWith(5)

@@ -26,6 +26,7 @@ describe('DropDown', () => {
         expect(menu).toBeInTheDocument()
         expect(menu).toContainElement(button)
     })
+
     test('renders the menu items', async () => {
         const user = userEvent.setup()
 
@@ -46,6 +47,7 @@ describe('DropDown', () => {
         const menuItems = screen.getAllByRole('menuitem')
         expect(menuItems).toHaveLength(items.length)
     })
+
     test('renders a link for items with an href', async () => {
         const user = userEvent.setup()
 
@@ -66,6 +68,7 @@ describe('DropDown', () => {
         const link = screen.getAllByRole('menuitem')[0]
         expect(link).toHaveAttribute('href', '/item1')
     })
+
     test('updates the active class when an item is hovered', async () => {
         const user = userEvent.setup()
 
@@ -84,11 +87,12 @@ describe('DropDown', () => {
         await user.click(button)
 
         const menuItem = screen.getAllByRole('menuitem')[0]
-        // user.hover(menuItem) doesnt work
+
         await user.click(menuItem)
 
         expect(menuItem).toHaveAttribute('data-headlessui-state', 'active')
     })
+
     test('calls the onClick handler when an item is clicked', async () => {
         const user = userEvent.setup()
 

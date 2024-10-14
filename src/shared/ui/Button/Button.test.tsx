@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { ArrowIcon, ScrollTopIcon, ThemeIcon } from 'shared/assets'
+import { ThemeIcon } from 'shared/assets'
 import { Button } from './Button'
 
 describe('Button', () => {
@@ -21,29 +21,7 @@ describe('Button', () => {
         expect(buttonName).toBeDisabled()
     })
 
-    test('language button', () => {
-        render(<Button className='lang'>RU</Button>)
-
-        const buttonName = screen.getByRole('button', { name: 'RU' })
-        expect(buttonName).toBeInTheDocument()
-        expect(buttonName).toHaveClass('button lang')
-    })
-
-    test('theme button', () => {
-        render(
-            <Button>
-                <ThemeIcon data-testid='theme-icon' />
-            </Button>
-        )
-
-        const buttonName = screen.getByRole('button')
-        const svgIcon = screen.getByTestId('theme-icon')
-        expect(buttonName).toBeInTheDocument()
-        expect(buttonName).toHaveClass('button')
-        expect(buttonName).toContainElement(svgIcon)
-    })
-
-    test('reload button', () => {
+    test('button with special class', () => {
         render(<Button className='bordered'>Обновить страницу</Button>)
 
         const buttonName = screen.getByRole('button', {
@@ -53,29 +31,25 @@ describe('Button', () => {
         expect(buttonName).toHaveClass('button bordered')
     })
 
-    test('sidebar toggle button', () => {
-        render(
-            <Button>
-                <ArrowIcon data-testid='arrow-icon' />
-            </Button>
-        )
+    test('selected button', () => {
+        render(<Button selected={true}>Selected</Button>)
 
-        const buttonName = screen.getByRole('button')
-        const svgIcon = screen.getByTestId('arrow-icon')
+        const buttonName = screen.getByRole('button', {
+            name: 'Selected'
+        })
         expect(buttonName).toBeInTheDocument()
-        expect(buttonName).toHaveClass('button')
-        expect(buttonName).toContainElement(svgIcon)
+        expect(buttonName).toHaveClass('selected')
     })
 
-    test('scroll top button', () => {
+    test('button with svg', () => {
         render(
             <Button>
-                <ScrollTopIcon data-testid='scrolltop-icon' />
+                <ThemeIcon data-testid='theme-icon' />
             </Button>
         )
 
         const buttonName = screen.getByRole('button')
-        const svgIcon = screen.getByTestId('scrolltop-icon')
+        const svgIcon = screen.getByTestId('theme-icon')
         expect(buttonName).toBeInTheDocument()
         expect(buttonName).toHaveClass('button')
         expect(buttonName).toContainElement(svgIcon)

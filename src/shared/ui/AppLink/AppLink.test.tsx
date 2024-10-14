@@ -4,11 +4,13 @@ import { AppLink } from './AppLink'
 
 describe('AppLink', () => {
     test('render', () => {
-        render(<AppLink to='somewhere'>Text</AppLink>, {
-            wrapper: MemoryRouter
-        })
+        render(
+            <MemoryRouter>
+                <AppLink to='somewhere'>Text</AppLink>
+            </MemoryRouter>
+        )
 
-        const link = screen.getByRole('link', { name: /text/i })
+        const link = screen.getByRole('link', { name: 'Text' })
         expect(link).toBeInTheDocument()
         expect(link).toHaveAttribute('href', '/somewhere')
     })

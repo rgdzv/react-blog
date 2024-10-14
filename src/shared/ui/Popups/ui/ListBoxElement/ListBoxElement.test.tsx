@@ -2,39 +2,34 @@ import { render, screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { ListBoxElement } from './ListBoxElement'
 
+const mockProps = {
+    options: [],
+    label: 'Test Label',
+    id: 'test-id',
+    defaultValue: '',
+    value: '',
+    onChange: jest.fn(),
+    classNameForListBox: undefined,
+    isLoading: false,
+    disabled: false
+}
+
 describe('ListBoxElement', () => {
     test('renders without crashing', () => {
-        const props = {
-            options: [],
-            label: 'Test Label',
-            id: 'test-id',
-            defaultValue: '',
-            value: '',
-            onChange: jest.fn(),
-            classNameForListBox: undefined,
-            isLoading: false,
-            disabled: false
-        }
-        render(<ListBoxElement {...props} />)
+        render(<ListBoxElement {...mockProps} />)
 
         const listbox = screen.getByTestId('listbox')
         expect(listbox).toBeInTheDocument()
     })
+
     test('renders with options and launches onChange', async () => {
         const user = userEvent.setup()
         const props = {
+            ...mockProps,
             options: [
                 { value: 'RUB', content: 'RUB', disabled: true },
                 { value: 'EUR', content: 'EUR' }
-            ],
-            label: 'Test Label',
-            id: 'test-id',
-            defaultValue: '',
-            value: '',
-            onChange: jest.fn(),
-            classNameForListBox: undefined,
-            isLoading: false,
-            disabled: false
+            ]
         }
         render(<ListBoxElement {...props} />)
 
@@ -48,17 +43,11 @@ describe('ListBoxElement', () => {
         await user.click(options[1])
         expect(props.onChange).toHaveBeenCalledTimes(1)
     })
+
     test('renders skeleton when isLoading is true', () => {
         const props = {
-            options: [],
-            label: 'Test Label',
-            id: 'test-id',
-            defaultValue: '',
-            value: '',
-            onChange: jest.fn(),
-            classNameForListBox: undefined,
-            isLoading: true,
-            disabled: false
+            ...mockProps,
+            isLoading: true
         }
 
         const { rerender } = render(<ListBoxElement {...props} />)
@@ -76,16 +65,10 @@ describe('ListBoxElement', () => {
         expect(listbox).toBeInTheDocument()
         expect(listbox).toContainElement(button)
     })
+
     test('renders disabled component when disabled is true', () => {
         const props = {
-            options: [],
-            label: 'Test Label',
-            id: 'test-id',
-            defaultValue: '',
-            value: '',
-            onChange: jest.fn(),
-            classNameForListBox: undefined,
-            isLoading: false,
+            ...mockProps,
             disabled: true
         }
 
