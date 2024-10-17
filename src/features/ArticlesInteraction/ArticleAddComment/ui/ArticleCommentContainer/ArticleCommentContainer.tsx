@@ -60,7 +60,10 @@ export const ArticleCommentContainer: FC = () => {
     }
 
     return (
-        <div className={styles.articleCommentContainer}>
+        <div
+            className={styles.articleCommentContainer}
+            data-testid='article-comment-container'
+        >
             <p className={styles.articleCommentSection}>{commentSectionName}</p>
             <ArticleAddComment />
             {articleCommentsCondition}

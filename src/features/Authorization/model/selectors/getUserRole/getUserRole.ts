@@ -3,7 +3,7 @@ import type { StateSchema } from 'app/providers/StoreProvider'
 import { UserRole } from 'entities_/User'
 
 export const getUserRole = (state: StateSchema): UserRole[] => {
-    return state.user.authData?.roles as UserRole[]
+    return state.user?.authData?.roles as UserRole[]
 }
 
 export const isUserAdmin = createSelector(getUserRole, (roles) =>
