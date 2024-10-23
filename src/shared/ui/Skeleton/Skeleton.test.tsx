@@ -12,7 +12,7 @@ describe('Skeleton', () => {
     test('render with special type', () => {
         render(<Skeleton type='profileHeader' />)
 
-        const skeleton = screen.getByTestId('profileHeader')
+        const skeleton = screen.getByTestId('profile-header-skeleton')
         expect(skeleton).toBeInTheDocument()
         expect(skeleton).toHaveClass('profileHeader')
     })

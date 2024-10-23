@@ -30,7 +30,7 @@ export const ArticleCommentContainer: FC = () => {
         const icon =
             user.id === comment.userId ? (
                 <Button className='deleteComment' onClick={deleteComment}>
-                    <DeleteCommentIcon />
+                    <DeleteCommentIcon data-testid='delete-comment-icon' />
                 </Button>
             ) : null
 

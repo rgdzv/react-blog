@@ -53,7 +53,7 @@ describe('ListBoxElement', () => {
         const { rerender } = render(<ListBoxElement {...props} />)
 
         const listbox = screen.getByTestId('listbox')
-        const skeleton = screen.getByTestId('profile-input')
+        const skeleton = screen.getByTestId('profile-input-skeleton')
         expect(listbox).toBeInTheDocument()
         expect(listbox).toContainElement(skeleton)
 

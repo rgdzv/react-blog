@@ -7,8 +7,12 @@ import type { ReducersMapObject } from '@reduxjs/toolkit'
 import type { StateSchema, ThunkExtraArg } from '../types/StateSchema'
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function createReduxStore(initialState?: StateSchema) {
+export function createReduxStore(
+    initialState?: StateSchema,
+    asyncReducers?: ReducersMapObject<StateSchema>
+) {
     const rootReducers: ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
         user: userReducer,
         loginForm: loginReducer,
         ui: uiReducer

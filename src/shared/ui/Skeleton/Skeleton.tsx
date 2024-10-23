@@ -11,7 +11,7 @@ export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
         return (
             <div
                 className={styles.profileHeader}
-                data-testid='profileHeader'
+                data-testid='profile-header-skeleton'
             ></div>
         )
     }
@@ -20,7 +20,7 @@ export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
         return (
             <div
                 className={styles.profileInput}
-                data-testid='profile-input'
+                data-testid='profile-input-skeleton'
             ></div>
         )
     }
@@ -80,7 +80,10 @@ export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
     if (type === 'articleComments') {
         return (
             <>
-                <div className={styles.articleComment}>
+                <div
+                    className={styles.articleComment}
+                    data-testid='article-comment-skeleton'
+                >
                     <div className={styles.articleCommentAvatar}></div>
                     <div className={styles.articleCommentText}>
                         <div className={styles.articleCommentTextLine}></div>
