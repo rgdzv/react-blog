@@ -27,7 +27,10 @@ export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
 
     if (type === 'articleBig') {
         return (
-            <div className={styles.articleBig}>
+            <div
+                className={styles.articleBig}
+                data-testid='article-big-skeleton'
+            >
                 <div className={styles.articleUserInfoBig}></div>
                 <div className={styles.articleTitlesBig}></div>
                 <div className={styles.articleImageBig}></div>
@@ -40,7 +43,10 @@ export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
 
     if (type === 'articleSmall') {
         return (
-            <div className={styles.articleSmall}>
+            <div
+                className={styles.articleSmall}
+                data-testid='article-small-skeleton'
+            >
                 <div className={styles.articleImageSmall}></div>
                 <div className={styles.articleContentSmall}>
                     <div className={styles.textBlockSmall}></div>
@@ -53,7 +59,10 @@ export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
 
     if (type === 'articleDetails') {
         return (
-            <div className={styles.articleDetails}>
+            <div
+                className={styles.articleDetails}
+                data-testid='article-details-skeleton'
+            >
                 <div className={styles.articleUserInfoDetails}></div>
                 <div className={styles.articleTitlesDetails}></div>
                 <div className={styles.articleImageDetails}></div>
@@ -76,7 +85,10 @@ export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
 
     if (type === 'articleCommentsForm') {
         return (
-            <div className={styles.articleCommentsForm}>
+            <div
+                className={styles.articleCommentsForm}
+                data-testid='article-commentsForm-skeleton'
+            >
                 <div className={styles.articleCommentsFormName}></div>
                 <div className={styles.articleCommentsFormInput}></div>
             </div>
