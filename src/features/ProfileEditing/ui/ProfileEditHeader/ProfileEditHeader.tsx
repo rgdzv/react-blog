@@ -91,7 +91,9 @@ export const ProfileEditHeader: FC<ProfileEditHeaderPropsInterface> = memo(
         )
 
         return (
-            <header className={classNameFinal}>{showContentCondition}</header>
+            <header className={classNameFinal} data-testid='profile-header'>
+                {showContentCondition}
+            </header>
         )
     }
 )

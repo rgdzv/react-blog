@@ -66,7 +66,12 @@ export const Skeleton: FC<SkeletonPropsInterface> = memo(({ type }) => {
     }
 
     if (type === 'articleRating') {
-        return <div className={styles.articleRating}></div>
+        return (
+            <div
+                className={styles.articleRating}
+                data-testid='article-rating-skeleton'
+            ></div>
+        )
     }
 
     if (type === 'articleCommentsForm') {
