@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import type { ThunkConfig } from 'app/providers/StoreProvider'
 import { ArticleType } from 'entities_/Article'
 import type { Article } from 'entities_/Article'
-import { articlesActions } from '../../slice/ArticlesSlice'
 interface getArticleListProps {
     replace?: boolean
 }
@@ -42,7 +41,10 @@ export const getArticlesList = createAsyncThunk<
             const total = headers['x-total-count']
 
             if (Number(total) !== totalCount) {
-                dispatch(articlesActions.setTotalCount(Number(total)))
+                dispatch({
+                    type: 'articlesSlice/setTotalCount',
+                    payload: Number(total)
+                })
             }
 
             return data

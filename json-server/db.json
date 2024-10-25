@@ -589,7 +589,7 @@
             },
             "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
             "jsonSettings": {
-                "theme": "dark"
+                "theme": "light"
             }
         },
         {
@@ -643,8 +643,8 @@
             "firstname": "Sergey",
             "lastname": "Romanov",
             "age": "19",
-            "currency": "Доллар",
-            "country": "Россия",
+            "currency": "Евро",
+            "country": "Казахстан",
             "city": "Moscow",
             "username": "roman",
             "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
@@ -766,7 +766,7 @@
         {
             "userId": "1",
             "articleId": "16",
-            "rate": 1,
+            "rate": 2,
             "id": "DeAr002"
         },
         {
