@@ -14,6 +14,7 @@ interface ArticleListItemSmallPropsInterface {
     userName: string
     id: string
     articleId: string
+    svgTitle: string
 }
 
 export const ArticleListItemSmall: FC<ArticleListItemSmallPropsInterface> =
@@ -26,7 +27,8 @@ export const ArticleListItemSmall: FC<ArticleListItemSmallPropsInterface> =
             textBlock,
             userName,
             id,
-            articleId
+            articleId,
+            svgTitle
         }) => {
             return (
                 <div
@@ -50,7 +52,10 @@ export const ArticleListItemSmall: FC<ArticleListItemSmallPropsInterface> =
                     <div className={styles.footerSmall}>
                         <span className={styles.creationDateSmall}>{date}</span>
                         <div className={styles.viewsSmall}>
-                            <EyeIcon data-testid='eye-open-icon' />
+                            <EyeIcon
+                                data-testid='eye-open-icon'
+                                title={svgTitle}
+                            />
                             <span>{views}</span>
                         </div>
                     </div>

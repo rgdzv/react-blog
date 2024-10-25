@@ -14,6 +14,7 @@ export const ArticleDetailsBlockCode: FC<ArticleDetailsBlockCodePropsInterface> 
     memo(({ block }) => {
         const [copySign, setCopySign] = useState('')
         const { t } = useTranslation('article')
+        const svgTitle = t('Копировать')
 
         const copyText = useCallback(() => {
             void navigator.clipboard.writeText(block?.code)
@@ -30,7 +31,11 @@ export const ArticleDetailsBlockCode: FC<ArticleDetailsBlockCodePropsInterface> 
                 data-testid='article-block-code'
             >
                 <Button className='copy' aria-label='copy code'>
-                    <CopyIcon onClick={copyText} data-testid='copy-icon' />
+                    <CopyIcon
+                        onClick={copyText}
+                        data-testid='copy-icon'
+                        title={svgTitle}
+                    />
                 </Button>
                 <span className={styles.copySign}>{copySign}</span>
                 <code>{block.code}</code>

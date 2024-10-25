@@ -12,7 +12,8 @@ const mockProps = {
     textBlock: 'Test text content',
     userName: 'John Doe',
     id: '1',
-    articleId: '2'
+    articleId: '2',
+    svgTitle: 'test svg title'
 }
 
 const renderWithProps = (props = mockProps): void => {

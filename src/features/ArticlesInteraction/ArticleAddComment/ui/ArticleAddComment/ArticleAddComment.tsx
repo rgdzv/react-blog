@@ -14,6 +14,7 @@ export const ArticleAddComment: FC = memo(() => {
     const dispatch = useAppDispatch()
     const { t } = useTranslation('article')
     const sendCommentInputPlaceholder = t('Напишите комментарий...')
+    const svgTitle = t('Отправить сообщение')
 
     const onChangeInput = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
@@ -56,7 +57,10 @@ export const ArticleAddComment: FC = memo(() => {
                 onClick={sendComment}
                 disabled={text === ''}
             >
-                <SendCommentIcon data-testid='send-comment-icon' />
+                <SendCommentIcon
+                    data-testid='send-comment-icon'
+                    title={svgTitle}
+                />
             </Button>
         </div>
     )

@@ -21,6 +21,7 @@ export const ArticleCommentContainer: FC = () => {
     const { t } = useTranslation('article')
     const commentSectionName = t('Комментарии')
     const commentErrorName = t('Ошибка при загрузке комментариев!')
+    const svgTitle = t('Удалить комментарий')
 
     const articleComments = articleCommentsData?.map((comment) => {
         const deleteComment = (): void => {
@@ -30,7 +31,10 @@ export const ArticleCommentContainer: FC = () => {
         const icon =
             user.id === comment.userId ? (
                 <Button className='deleteComment' onClick={deleteComment}>
-                    <DeleteCommentIcon data-testid='delete-comment-icon' />
+                    <DeleteCommentIcon
+                        data-testid='delete-comment-icon'
+                        title={svgTitle}
+                    />
                 </Button>
             ) : null
 

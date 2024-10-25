@@ -1,5 +1,6 @@
 import { useCallback, memo } from 'react'
 import type { FC } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ThemeIcon } from 'shared/assets'
 import { useAppDispatch, useAppSelector, useTheme } from 'shared/lib'
 import { Button } from 'shared/ui'
@@ -15,7 +16,9 @@ export const ThemeSwitcher: FC = memo(() => {
     const dispatch = useAppDispatch()
     const user = useAppSelector(getUserAuthData)
     const jsonSettingsIsLoading = useAppSelector(getUserJsonSettingsIsLoading)
+    const { t } = useTranslation()
     const themeAriaLabel = theme === 'dark' ? 'to-light-theme' : 'to-dark-theme'
+    const svgTitle = t('Сменить тему')
 
     const handleToggleTheme = useCallback(() => {
         if (user !== undefined) {
@@ -36,7 +39,7 @@ export const ThemeSwitcher: FC = memo(() => {
             aria-label={themeAriaLabel}
             disabled={jsonSettingsIsLoading}
         >
-            <ThemeIcon data-testid='theme-icon' />
+            <ThemeIcon data-testid='theme-icon' title={svgTitle} />
         </Button>
     )
 })

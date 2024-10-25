@@ -16,9 +16,11 @@ export const LoginForm: FC = () => {
     const dispatch = useAppDispatch()
     const [openEye, setOpenEye] = useState(false)
 
-    const { t } = useTranslation(['modal'])
+    const { t } = useTranslation(['translation', 'modal'])
     const namePlaceholder = t('Имя пользователя')
     const passwordPlaceholder = t('Пароль')
+    const svgTitleOpen = t('Показать пароль')
+    const svgTitleClose = t('Спрятать пароль')
 
     const handleOpenEye = (): void => {
         setOpenEye((prev) => !prev)
@@ -40,9 +42,9 @@ export const LoginForm: FC = () => {
 
     const passwordInputType = openEye ? 'text' : 'password'
     const passwordInputIcon = openEye ? (
-        <EyeIcon data-testid='eye-open-icon' />
+        <EyeIcon data-testid='eye-open-icon' title={svgTitleOpen} />
     ) : (
-        <EyeClosedIcon data-testid='eye-close-icon' />
+        <EyeClosedIcon data-testid='eye-close-icon' title={svgTitleClose} />
     )
 
     return (

@@ -19,8 +19,9 @@ export const ArticleFilters: FC = memo(() => {
         order,
         onChangeOrder
     } = useArticleFilters()
-    const { t } = useTranslation('article')
-    const inputPlaceholderName = t('Найти')
+    const { t } = useTranslation()
+    const inputPlaceholderName = t('Найти', { ns: 'article' })
+    const svgTitle = t('Поиск', { ns: 'translation' })
 
     return (
         <div className={styles.articleFilters} data-testid='article-filters'>
@@ -28,7 +29,7 @@ export const ArticleFilters: FC = memo(() => {
                 value={search}
                 classNameForInputWrapper='search'
                 placeholder={inputPlaceholderName}
-                icon={<SearchIcon data-testid='search-icon' />}
+                icon={<SearchIcon data-testid='search-icon' title={svgTitle} />}
                 onChange={onChangeSearch}
                 classNameForIcon='search'
                 dataTestId='filter-search-input'

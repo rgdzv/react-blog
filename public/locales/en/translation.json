@@ -2,5 +2,11 @@
     "ru": "en",
     "Войти": "Sign in",
     "Закрыть": "Close",
-    "Выйти": "Sign out"
+    "Выйти": "Sign out",
+    "Сдвинуть": "Collapse",
+    "Сменить тему": "Change theme",
+    "Показать пароль": "See password",
+    "Спрятать пароль": "Hide password",
+    "Прокрутить в начало": "Scroll to top",
+    "Поиск": "Search"
 }

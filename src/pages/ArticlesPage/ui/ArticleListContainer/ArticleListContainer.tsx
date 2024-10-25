@@ -34,6 +34,7 @@ export const ArticleListContainer: FC = () => {
     const noArticles = t('Статьи не найдены!')
     const buttonName = t('Читать')
     const loadMoreButtonName = isLoading ? t('Загрузка...') : t('Показать еще')
+    const svgTitle = t('Количество просмотров')
 
     const articleList = articles?.map((item) => {
         const block = item.blocks?.find(
@@ -66,6 +67,7 @@ export const ArticleListContainer: FC = () => {
                     textBlock={textBlock}
                     userName={item.user.username}
                     articleId={item.id}
+                    svgTitle={svgTitle}
                 />
             )
         }
@@ -84,6 +86,7 @@ export const ArticleListContainer: FC = () => {
                 buttonName={buttonName}
                 userName={item.user.username}
                 articleId={item.id}
+                svgTitle={svgTitle}
             />
         )
     })
