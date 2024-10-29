@@ -3,6 +3,17 @@
     grid-template-areas:
     'sidebar content rightbar';
     grid-template-columns: min-content 1fr min-content;
+
+    @media screen and (width >= 2000px) {
+        grid-template-columns: min-content 1200px min-content;
+        justify-content: center;
+    }
+
+    @media screen and (1000px <= width <= 1640px) {
+        grid-template-areas:
+        'sidebar content';
+        grid-template-columns: min-content 1fr;
+    }
 }
 
 .sidebar {
@@ -27,7 +38,11 @@
     grid-area: rightbar;
     flex-direction: column;
 
-    padding-right: 32px;
+    padding: 0 32px;
+
+    @media screen and (1000px <= width <= 1640px) {
+        display: none;
+    }
 }
 
 .rightbar,

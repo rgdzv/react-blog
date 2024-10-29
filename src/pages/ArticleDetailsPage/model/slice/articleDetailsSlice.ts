@@ -7,7 +7,7 @@ import type { ArticleDetailsSchema } from '../types/articleDetailsSchema'
 const initialState: ArticleDetailsSchema = {
     isLoading: false,
     error: undefined,
-    data: undefined
+    data: null
 }
 
 export const articleDetailsSlice = createSlice({
