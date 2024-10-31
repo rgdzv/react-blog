@@ -8,7 +8,10 @@
 
     &.articles {
         display: grid;
-        grid-template-columns: 100px 1fr 265px;
+        grid-template-areas:
+            'articlecontent viewchanger'
+            'articlecontent filters';
+        grid-template-columns: 1fr minmax(min-content, 256px);
         column-gap: 20px;
     }
 
@@ -34,7 +37,7 @@
 
     &.articleDetails {
         display: grid;
-        grid-template-columns: 1fr 265px;
+        grid-template-columns: 1fr minmax(min-content, 256px);
         column-gap: 20px;
     }
 }

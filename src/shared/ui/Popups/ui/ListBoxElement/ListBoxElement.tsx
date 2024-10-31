@@ -15,7 +15,7 @@ interface ListBoxItem {
     disabled?: boolean
 }
 
-type classNameForListBoxType = 'currency' | 'country' | 'articleSort'
+type classNameForListBoxType = 'currency' | 'country'
 
 interface ListBoxPropsInterface {
     options: ListBoxItem[]

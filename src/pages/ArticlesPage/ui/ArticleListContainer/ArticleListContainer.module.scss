@@ -1,6 +1,8 @@
 .articleContent {
     display: flex;
+    grid-area: articlecontent;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
 
     .articleButton {
@@ -16,18 +18,18 @@
 .articlesLoadError,
 .articlesEmpty{
     display: grid;
-    grid-gap: 15px;
+    grid-gap: 20px;
 }
 
 .articleListBig,
 .articlesLoadError,
 .articlesEmpty {
-    grid-template-columns: 780px;
+    grid-template-columns: minmax(min-content, 860px);
     justify-items: center;
 }
 
 .articleListSmall {
-    grid-template-columns: repeat(3, 250px);
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
     justify-items: center;
 }
 

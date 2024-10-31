@@ -13,6 +13,7 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { articlesReducer } from '../../model/slice/ArticlesSlice'
 import { getArticlesInited } from '../../model/selectors/getArticlesInited/getArticlesInited'
 import { ArticleListContainer } from '../ArticleListContainer/ArticleListContainer'
+import styles from './Articles.module.scss'
 
 const reducers: ReducersList = {
     articles: articlesReducer
@@ -32,9 +33,11 @@ const ArticlesPage: FC = () => {
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
             <Page dataTestId='articles-page' className='articles'>
                 <>
-                    <ArticlesViewChanger />
                     <ArticleListContainer />
-                    <ArticleFilters />
+                    <div className={styles.articleFiltersWrapper}>
+                        <ArticlesViewChanger />
+                        <ArticleFilters />
+                    </div>
                 </>
             </Page>
         </DynamicReducerLoader>

@@ -1,10 +1,8 @@
 .viewChanger {
-    position: sticky;
-    top: 32px;
-
     display: flex;
+    grid-area: viewchanger;
 
-    width: 100%;
+    width: 100px;
     padding: 2px;
 
     background-color: var(--widget-bg-color-secondary);

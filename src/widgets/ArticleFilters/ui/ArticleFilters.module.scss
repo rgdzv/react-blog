@@ -1,8 +1,6 @@
 .articleFilters {
-    position: sticky;
-    top: 32px;
-
     display: flex;
+    grid-area: filters;
     flex-direction: column;
     justify-content: center;
 

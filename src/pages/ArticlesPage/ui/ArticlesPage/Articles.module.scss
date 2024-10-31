@@ -1,0 +1,8 @@
+.articleFiltersWrapper { 
+    position: sticky; 
+    top: 32px;
+
+    display: flex;
+    flex-direction: column; 
+    row-gap: 20px;
+}

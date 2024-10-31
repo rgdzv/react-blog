@@ -2,18 +2,9 @@
     display: grid;
     grid-template-areas:
     'sidebar content rightbar';
-    grid-template-columns: min-content 1fr min-content;
-
-    @media screen and (width >= 2000px) {
-        grid-template-columns: min-content 1200px min-content;
-        justify-content: center;
-    }
-
-    @media screen and (1000px <= width <= 1640px) {
-        grid-template-areas:
-        'sidebar content';
-        grid-template-columns: min-content 1fr;
-    }
+    grid-template-columns: min-content min(100%, 1200px) min-content;
+    column-gap: 32px;
+    justify-content: center;
 }
 
 .sidebar {
@@ -25,9 +16,7 @@
 .content {
     grid-area: content;
     justify-self: center;
-
     width: 100%;
-    max-width: 1200px;
     padding: 32px;
 }
 
@@ -38,11 +27,7 @@
     grid-area: rightbar;
     flex-direction: column;
 
-    padding: 0 32px;
-
-    @media screen and (1000px <= width <= 1640px) {
-        display: none;
-    }
+    padding: 32px;
 }
 
 .rightbar,

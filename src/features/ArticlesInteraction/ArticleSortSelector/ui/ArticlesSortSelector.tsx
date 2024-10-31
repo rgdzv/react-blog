@@ -25,12 +25,11 @@ export const ArticlesSortSelector: FC<ArticlesSortSelectorPropsInterface> =
                 className={styles.articleSortSelector}
                 data-testid={dataTestId}
             >
-                <div className={styles.sortSign}>{sortSign}</div>
+                <div>{sortSign}</div>
                 <ListBoxElement
                     options={sortOptions}
                     onChange={onChangeSort}
                     value={sort}
-                    classNameForListBox='articleSort'
                 />
                 <ListBoxElement
                     options={orderOptions}
