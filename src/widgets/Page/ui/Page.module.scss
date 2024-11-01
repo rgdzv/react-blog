@@ -9,10 +9,19 @@
     &.articles {
         display: grid;
         grid-template-areas:
-            'articlecontent viewchanger'
+            'articlecontent filters'
             'articlecontent filters';
         grid-template-columns: 1fr minmax(min-content, 256px);
         column-gap: 20px;
+
+        @media screen and (width <= 1200px) {
+            grid-template-areas:
+                'filters'
+                'articlecontent';
+            grid-template-columns: minmax(min-content, 1fr);
+            row-gap: 20px;
+            justify-content: center;
+        }
     }
 
     &.notFound {

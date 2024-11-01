@@ -12,3 +12,4 @@ export {
 export { ThemeContext } from './context/ThemeContext'
 export { useTheme } from './hooks/useTheme'
 export { useAppDispatch, useAppSelector, useAppStore } from './hooks/reduxHooks'
+export { useMediaQuery } from './hooks/useMediaQuery'
