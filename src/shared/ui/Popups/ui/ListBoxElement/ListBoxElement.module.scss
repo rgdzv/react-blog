@@ -1,12 +1,14 @@
 .listBox {
     position: relative;
+
     display: flex;
+    column-gap: 5px;
     align-items: center;
+
     border-radius: 32px;
 
     .label {
         cursor: pointer;
-        margin-right: 5px;
         white-space: nowrap;
     }
 
@@ -69,10 +71,19 @@
 
     &.currency,
     &.country {
-        margin-bottom: 15px;
-
         .content {
             width: 50%;
+        }
+
+        @media screen and (width <= 1100px) {
+            flex-direction: column;
+            row-gap: 5px;
+
+            .content {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
         }
     }
 }

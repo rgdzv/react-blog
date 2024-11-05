@@ -46,14 +46,15 @@
     &.username,
     &.avatar
     {
-        margin-bottom: 15px;
-
-        .label {
-            margin-right: 5px;
-        }
+        column-gap: 5px;
 
         .input {
             background-color: transparent;
+        }
+
+        @media screen and (width <= 1100px) {
+            flex-direction: column;
+            row-gap: 5px;
         }
     }
 

@@ -1,6 +1,5 @@
 .profileWrapper {
-    width: 100%;
-    max-width: 780px;
+    width: min(100%, 780px);
     padding: 20px;
 
     background-color: var(--widget-bg-color-secondary);

@@ -6,9 +6,12 @@
 }
 
 .profile_avatar {
+    grid-area: profileAvatar;
     justify-self: center;
+
     width: 128px;
     height: 128px;
+
     border-radius: 50%;
 }
 

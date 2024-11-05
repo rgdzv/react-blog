@@ -1,5 +1,7 @@
 .profileHeader {
     display: grid;
+    grid-template-areas:
+    'left profileAvatar right';
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
 
@@ -8,6 +10,15 @@
     padding: 0 20px;
 
     border-radius: 10px;
+
+    @media screen and (width <= 1100px) {
+        grid-template-areas:
+            'profileAvatar'
+            'right'
+            'left';
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+    }
 }
 
 .notEditable {
@@ -15,9 +26,19 @@
 }
 
 .left {
+    grid-area: left;
     justify-self: start;
+
+    @media screen and (width <= 1100px) {
+        justify-self: center;
+    }
 }
 
 .right {
+    grid-area: right;
     justify-self: end;
+
+    @media screen and (width <= 1100px) {
+        justify-self: center;
+    }
 }
