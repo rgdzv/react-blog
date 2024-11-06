@@ -1,6 +1,8 @@
 .articleDetailsContainer {
     display: flex;
+    grid-area: articleDetailsContent;
     flex-direction: column;
+    row-gap: 20px;
 
     padding: 24px;
 

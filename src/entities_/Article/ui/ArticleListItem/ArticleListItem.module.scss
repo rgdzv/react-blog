@@ -1,6 +1,7 @@
 .listItem {
     display: flex;
     flex-direction: column;
+    row-gap: 15px;
     justify-content: center;
 
     width: 100%;
@@ -13,9 +14,6 @@
         display: flex;
         gap: 10px;
         align-items: center;
-
-        margin-bottom: 15px;
-
         border-radius: 10px;
 
         .userInfoLink {
@@ -35,7 +33,6 @@
     }
 
     .articleTitles {
-        margin-bottom: 25px;
         font-family: Roboto, sans-serif;
         border-radius: 10px;
 
@@ -52,7 +49,6 @@
     }
 
     .articleContent {
-        margin-bottom: 20px;
         border-radius: 10px;
 
         .text {

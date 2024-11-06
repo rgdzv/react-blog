@@ -14,7 +14,7 @@
         grid-template-columns: 1fr minmax(min-content, 256px);
         column-gap: 20px;
 
-        @media screen and (width <= 1200px) {
+        @media screen and (width <= 1370px) {
             grid-template-areas:
                 'filters'
                 'articlecontent';
@@ -46,7 +46,18 @@
 
     &.articleDetails {
         display: grid;
+        grid-template-areas:
+        'articleDetailsContent articleDetailsEdit ';
         grid-template-columns: 1fr minmax(min-content, 256px);
         column-gap: 20px;
+
+        @media screen and (width <= 1370px) {
+            grid-template-areas:
+                'articleDetailsEdit'
+                'articleDetailsContent';
+            grid-template-columns: minmax(min-content, 1fr);
+            row-gap: 20px;
+            justify-content: center;
+        }
     }
 }

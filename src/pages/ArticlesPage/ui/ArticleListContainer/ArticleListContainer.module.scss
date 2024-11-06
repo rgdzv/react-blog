@@ -31,6 +31,14 @@
 .articleListSmall {
     grid-template-columns: repeat(3, minmax(min-content, 1fr));
     justify-items: center;
+
+    @media screen and (width <= 1160px) {
+        grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
+    @media screen and (width <= 950px) {
+        grid-template-columns: minmax(min-content, 1fr);
+    }
 }
 
 .articlesLoadError,

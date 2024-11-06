@@ -1,13 +1,11 @@
 .articleRating {
     display: flex;
     flex-direction: column;
+    row-gap: 10px;
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 20px;
-
     .ratingOffer {
-        margin-bottom: 10px;
         font-size: 24px;
     }
 

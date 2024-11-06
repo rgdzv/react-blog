@@ -3,6 +3,7 @@
     top: 32px;
     
     display: flex;
+    grid-area: articleDetailsEdit;
     flex-direction: column;
     justify-content: center;
 
@@ -11,4 +12,9 @@
 
     background-color: var(--widget-bg-color-secondary);
     border-radius: 32px;
+
+    @media screen and (width <= 1370px) {
+        position: static;
+        align-items: center;
+    }
 }

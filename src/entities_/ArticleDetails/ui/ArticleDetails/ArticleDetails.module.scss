@@ -1,16 +1,15 @@
 .listItem {
     display: flex;
     flex-direction: column;
+    row-gap: 15px;
     justify-content: center;
 
     width: 100%;
-    margin-bottom: 20px;
 
     .userInfo {
         display: flex;
         gap: 10px;
         align-items: center;
-        margin-bottom: 15px;
 
         .userInfoLink {
             display: flex;
@@ -29,7 +28,6 @@
     }
 
     .articleTitles {
-        margin-bottom: 25px;
         font-family: Roboto, sans-serif;
 
         .title {
@@ -47,9 +45,6 @@
     .articleContent {
         display: flex;
         flex-direction: column;
-
-        & > :last-child {
-            margin-bottom: 0;
-        }
+        row-gap: 10px;
     }
 }

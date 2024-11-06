@@ -1,15 +1,18 @@
 .listItemSmall {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
     width: 100%;
+
     background-color: var(--widget-bg-color-secondary);
     border-radius: 32px;
 
     .articleImageSmall {
         display: block;
-        margin-bottom: 10px;
     }
 
     .textBlockSmall {
-        margin-bottom: 10px;
         padding: 0 10px;
         border-radius: 10px;
 
@@ -23,7 +26,6 @@
         align-items: center;
         justify-content: space-between;
 
-        margin-bottom: 10px;
         padding: 0 10px;
 
         border-radius: 10px;
