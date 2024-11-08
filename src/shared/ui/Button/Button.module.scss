@@ -142,10 +142,6 @@
     font-size: 16px;
     border: none;
 
-    &:not(:last-child) {
-        margin-bottom: 3px;
-    }
-
     &:active:enabled {
         box-shadow: none;
     }

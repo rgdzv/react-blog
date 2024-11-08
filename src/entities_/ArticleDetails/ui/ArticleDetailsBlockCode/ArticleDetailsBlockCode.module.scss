@@ -1,12 +1,16 @@
 .articleBlockCode {
     position: relative;
 
+    overflow: auto;
+    display: flex;
+
     margin: 0;
     padding: 20px;
 
-    // text-align: justify;
-    word-wrap: break-word;
-    white-space: pre-wrap;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    white-space: pre;
 
     background-color: var(--widget-bg-color);
     border: 1px solid var(--main-color);
@@ -23,9 +27,8 @@
         color: var(--text-color);
     }
 
-    @media all and (orientation:landscape) {
-        // text-align: justify;
-        word-wrap: break-word;
-        white-space: pre-wrap;
+    code {
+        width: 100%;
     }
 }
+

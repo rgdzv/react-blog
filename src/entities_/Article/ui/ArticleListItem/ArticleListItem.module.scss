@@ -33,11 +33,15 @@
     }
 
     .articleTitles {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
         font-family: Roboto, sans-serif;
+
         border-radius: 10px;
 
         .title {
-            margin-bottom: 10px;
             font-size: 32px;
             font-weight: 900;
         }
