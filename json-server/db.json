@@ -643,8 +643,8 @@
             "firstname": "Sergey",
             "lastname": "Romanov",
             "age": "19",
-            "currency": "Евро",
-            "country": "Казахстан",
+            "currency": "Доллар",
+            "country": "Беларусь",
             "city": "Moscow",
             "username": "roman",
             "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
@@ -676,13 +676,13 @@
         {
             "userId": "1",
             "articleId": "1",
-            "rate": 1,
+            "rate": 2,
             "id": "daER52h"
         },
         {
             "userId": "2",
             "articleId": "2",
-            "rate": 3,
+            "rate": 4,
             "id": "I7ofk1u"
         },
         {

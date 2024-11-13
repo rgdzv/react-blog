@@ -1,15 +1,12 @@
 .articleBlockCode {
     position: relative;
 
-    overflow: auto;
-    display: flex;
+    overflow-x: auto;
+    display: block; 
 
     margin: 0;
     padding: 20px;
 
-    word-break: normal;
-    word-spacing: normal;
-    word-wrap: normal;
     white-space: pre;
 
     background-color: var(--widget-bg-color);
@@ -28,7 +25,8 @@
     }
 
     code {
-        width: 100%;
+        display: block;
+        white-space: pre;
     }
 }
 

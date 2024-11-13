@@ -38,7 +38,11 @@ export const ArticleDetailsBlockCode: FC<ArticleDetailsBlockCodePropsInterface> 
                     />
                 </Button>
                 <span className={styles.copySign}>{copySign}</span>
-                <code>{block.code}</code>
+                <code>
+                    {
+                        '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!"\n    </script>\n  </body>\n</html>'
+                    }
+                </code>
             </pre>
         )
     })
