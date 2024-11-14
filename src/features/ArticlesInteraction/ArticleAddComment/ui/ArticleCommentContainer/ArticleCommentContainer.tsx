@@ -70,7 +70,9 @@ export const ArticleCommentContainer: FC = () => {
         >
             <p className={styles.articleCommentSection}>{commentSectionName}</p>
             <ArticleAddComment />
-            {articleCommentsCondition}
+            <div className={styles.articleCommentWrapper}>
+                {articleCommentsCondition}
+            </div>
         </div>
     )
 }

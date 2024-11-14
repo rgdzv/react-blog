@@ -1,8 +1,13 @@
 .sideBar {
     position: relative;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     width: var(--sidebar-width);
     height: 100%;
+    padding: 20px 0;
 
     background-color: var(--widget-bg-color);
     border: 1px solid var(--widget-bg-color);
@@ -17,9 +22,8 @@
     }
 
     .switchers {
-        position: absolute;
-        bottom: 20px;
-
+        // position: absolute;
+        // bottom: 20px;
         display: flex;
         gap: 10px;
         align-items: center;

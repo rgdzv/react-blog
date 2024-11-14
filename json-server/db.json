@@ -574,6 +574,12 @@
             "userId": "1",
             "text": "аывп",
             "id": "9PPpIRN"
+        },
+        {
+            "articleId": "5",
+            "userId": "1",
+            "text": "fg",
+            "id": "N3wxKL3"
         }
     ],
     "users": [
@@ -589,7 +595,7 @@
             },
             "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
             "jsonSettings": {
-                "theme": "light"
+                "theme": "dark"
             }
         },
         {
@@ -700,7 +706,7 @@
         {
             "userId": "1",
             "articleId": "5",
-            "rate": 2,
+            "rate": 3,
             "id": "bcPnbbZ"
         },
         {

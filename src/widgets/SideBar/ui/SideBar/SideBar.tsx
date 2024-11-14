@@ -9,7 +9,7 @@ import styles from './SideBar.module.scss'
 
 export const SideBar: FC = () => {
     const [collapsed, setCollapsed] = useState(false)
-    const matches = useMediaQuery('(max-width: 830px)')
+    const matches = useMediaQuery('(max-width: 935px)')
 
     const handleToggle = useCallback((): void => {
         setCollapsed((prev) => !prev)

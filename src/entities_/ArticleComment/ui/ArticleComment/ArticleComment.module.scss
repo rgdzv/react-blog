@@ -1,23 +1,17 @@
 .articleComment {
     position: relative;
-
     display: flex;
     column-gap: 15px;
     align-items: flex-start;
-
-    margin-bottom: 15px;
-
+    
     .articleCommentText {
         font-weight: 400;
     }
-
+    
     svg {
         position: absolute;
         top: 0;
         right: -10px;
     }
+} 
 
-    &:last-child {
-        margin-bottom: 0;
-    }
-}
