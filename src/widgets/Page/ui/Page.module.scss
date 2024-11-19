@@ -13,6 +13,7 @@
             'articlecontent filters';
         grid-template-columns: 1fr minmax(min-content, 256px);
         column-gap: 20px;
+        align-content: start;
 
         @media screen and (width <= 1370px) {
             grid-template-areas:
@@ -50,6 +51,7 @@
         'articleDetailsContent articleDetailsEdit ';
         grid-template-columns: 1fr minmax(min-content, 256px);
         column-gap: 20px;
+        align-content: start;
 
         @media screen and (width <= 1370px) {
             grid-template-areas:

@@ -115,7 +115,7 @@ export const ArticleListContainer: FC = () => {
     }, [dispatch, hasMore])
 
     const loadMoreButtonCondition = hasMore && (
-        <Button onClick={loadNext} className='bordered'>
+        <Button onClick={loadNext} disabled={isLoading} className='bordered'>
             {loadMoreButtonName}
         </Button>
     )
