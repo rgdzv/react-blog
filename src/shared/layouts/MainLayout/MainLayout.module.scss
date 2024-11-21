@@ -9,6 +9,20 @@
     @media screen and (width <= 830px) {
         column-gap: 15px;
     }
+
+    @media screen and (width <= 400px) {
+        grid-template-areas:
+            'rightbar rightbar'
+            'sidebar content';
+        grid-template-columns: min-content minmax(min-content, 1200px);
+    }
+}
+
+.sidebar,
+.rightbar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
 .sidebar {
@@ -23,6 +37,10 @@
     @media screen and (width <= 480px) {
         padding-left: 10px;
     }
+
+    @media screen and (width <= 400px) {
+        padding-top: 22px;
+    }
 }
 
 .content {
@@ -34,15 +52,17 @@
     @media screen and (width <= 830px) {
         padding: 32px 0;
     }
+
+    @media screen and (width <= 400px) {
+        padding-top: 20px;
+        padding-right: 10px;
+    }
 }
 
 .rightbar {
-    position: relative;
-
     display: flex;
     grid-area: rightbar;
     flex-direction: column;
-
     padding: 32px;
 
     @media screen and (width <= 830px) {
@@ -52,11 +72,10 @@
     @media screen and (width <= 480px) {
         padding-right: 10px;
     }
-}
 
-.rightbar,
-.sidebar {
-    position: sticky;
-    top: 0;
-    height: 100vh;
+    @media screen and (width <= 400px) {
+        position: static;
+        height: auto;
+        padding: 20px 10px 0 0;
+    }
 }

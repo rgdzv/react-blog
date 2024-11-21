@@ -26,7 +26,7 @@ export const ArticleDetailsBlockCode: FC<ArticleDetailsBlockCodePropsInterface> 
         }, [block?.code, t])
 
         return (
-            <pre
+            <div
                 className={styles.articleBlockCode}
                 data-testid='article-block-code'
             >
@@ -38,11 +38,13 @@ export const ArticleDetailsBlockCode: FC<ArticleDetailsBlockCodePropsInterface> 
                     />
                 </Button>
                 <span className={styles.copySign}>{copySign}</span>
-                <code>
-                    {
-                        '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!"\n    </script>\n  </body>\n</html>'
-                    }
-                </code>
-            </pre>
+                <pre>
+                    <code>
+                        {
+                            '<!DOCTYPE html>\n <html>\n  <body>\n    <p id="hello"></p>\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!"\n    </script>\n  </body>\n</html>'
+                        }
+                    </code>
+                </pre>
+            </div>
         )
     })
