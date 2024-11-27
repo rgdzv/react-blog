@@ -1,10 +1,12 @@
 .profileWrapper {
-    overflow-y: auto;
-
     width: min(100%, 780px);
     padding: 20px;
 
     background-color: var(--widget-bg-color-secondary);
     border: 1px solid var(--widget-bg-color-secondary);
     border-radius: 32px;
+
+    @media screen and (width <= 1100px) {
+        overflow-y: auto;
+    }
 }

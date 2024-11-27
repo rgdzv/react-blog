@@ -9,6 +9,9 @@ html:has(dialog[open]) {
 }
 
 .app {
+    scrollbar-color: var(--main-color) var(--background-color);
+    scrollbar-width: thin;
+
     position: relative;
 
     min-height: 100vh;
