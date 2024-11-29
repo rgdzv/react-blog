@@ -36,6 +36,12 @@ Scripts:
 For example:  `npm run generate entities User`. It will create layer and slice according to script details which can be found in ***scripst/createFSD***
 
 
+## Store 
+
+[Redux Toolkit](https://redux-toolkit.js.org) is used to work with store. Reused entities are normallized by `createEntityAdapter`.
+
+To use reducers dynamically (to put them in store when they are needed only) [DynamicReducerLoader](src/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader.tsx) is used. 
+
 ## Translations
 
 i18next-library is used to work with translations proprely. Translation files are saved in ***public/locales***. Documentation can be found [here](https://feature-sliced.design/docs/get-started/overview)
@@ -74,9 +80,3 @@ Scripts:
 Github actions configuration can be found in ***.github/workflows***. It contains linting, RTL tests and building project jobs.
 
 Project also has a husky pre-commit hook which can be found in ***.husky*** folder. It lints and formats files which are put in index before commit them. It is started automatically when you try to commit changes.
-
-## Store 
-
-[Redux Toolkit](https://redux-toolkit.js.org) is used to work with store. Reused entities are normallized by `createEntityAdapter`.
-
-To use reducers dynamically (to put them in store when they are needed only) [DynamicReducerLoader](src/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader.tsx) is used. 
